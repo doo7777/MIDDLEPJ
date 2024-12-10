@@ -21,7 +21,10 @@ public class LocationsDaoImpl implements ILocationsDao{
 
 	@Override
 	public LocationsVO getLocations(String Locations_NAME) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated m
+		
+		
+		ethod stub
 		return null;
 	}
 

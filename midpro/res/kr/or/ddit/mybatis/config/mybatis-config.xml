@@ -26,7 +26,7 @@
 	</typeAliases>
 	-->
 	<typeAliases>
-		<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/>
+		<typeAlias type="vo.CustomerVO" alias="CustomerVO"/>
 		
 	</typeAliases>
 	
@@ -55,7 +55,7 @@
 	
 	-->
 	<mappers>
-		<mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mappersCustomer-mapper.xml"/>
 	</mappers>
 	
 </configuration>
