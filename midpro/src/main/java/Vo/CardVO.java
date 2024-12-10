@@ -1,4 +1,4 @@
-package Vo;
+ package Vo;
 
 public class CardVO {
 	private int card_id;
