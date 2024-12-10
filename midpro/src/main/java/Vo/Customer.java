@@ -79,10 +79,4 @@ public class Customer {
 				+ ", cust_add=" + cust_add + ", cust_detailadd=" + cust_detailadd + ", cust_grade=" + cust_grade
 				+ ", cust_delete=" + cust_delete + "]";
 	}
-	
-	
-	
-	
-	
-	
 }
