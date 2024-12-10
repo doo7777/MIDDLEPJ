@@ -1,5 +1,7 @@
 package Service;
 
-public class Movie_Rent {
+import ServiceInterface.IMovie_Rent;
+
+public class Movie_Rent implements IMovie_Rent{
 
 }

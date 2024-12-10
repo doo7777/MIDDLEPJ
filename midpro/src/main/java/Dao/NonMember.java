@@ -1,5 +1,7 @@
 package Dao;
 
-public class NonMember {
+import DaoInterface.INonMember;
+
+public class NonMember implements INonMember{
 
 }

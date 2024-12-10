@@ -1,5 +1,7 @@
 package Service;
 
-public class Schedule {
+import ServiceInterface.ISchedule;
+
+public class Schedule implements ISchedule{
 
 }

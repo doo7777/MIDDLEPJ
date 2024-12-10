@@ -1,5 +1,7 @@
 package Service;
 
-public class Screen {
+import ServiceInterface.IScreen;
+
+public class Screen implements IScreen{
 
 }

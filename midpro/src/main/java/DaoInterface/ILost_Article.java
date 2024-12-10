@@ -1,5 +1,5 @@
 package DaoInterface;
 
-public class ILost_Article {
+public interface ILost_Article {
 
 }

@@ -1,5 +1,7 @@
 package Service;
 
-public class Coupon {
+import ServiceInterface.ICoupon;
+
+public class Coupon implements ICoupon{
 
 }

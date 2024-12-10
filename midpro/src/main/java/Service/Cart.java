@@ -1,5 +1,7 @@
 package Service;
 
-public class Cart {
+import ServiceInterface.ICart;
+
+public class Cart implements ICart{
 
 }

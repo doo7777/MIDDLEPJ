@@ -1,5 +1,7 @@
 package Dao;
 
-public class Payment {
+import DaoInterface.IPayment;
+
+public class Payment implements IPayment{
 
 }

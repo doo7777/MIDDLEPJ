@@ -1,5 +1,7 @@
 package Service;
 
-public class Lost_Article {
+import ServiceInterface.ILost_Article;
+
+public class Lost_Article implements ILost_Article{
 
 }

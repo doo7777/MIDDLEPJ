@@ -1,5 +1,7 @@
 package Service;
 
-public class Theater {
+import ServiceInterface.ITheater;
+
+public class Theater implements ITheater{
 
 }

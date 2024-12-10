@@ -1,5 +1,7 @@
 package Service;
 
-public class Product {
+import ServiceInterface.IProduct;
+
+public class Product implements IProduct{
 
 }

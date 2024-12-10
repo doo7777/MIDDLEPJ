@@ -1,5 +1,7 @@
 package Service;
 
-public class Customer {
+import ServiceInterface.ICustomer;
+
+public class Customer implements ICustomer{
 
 }
