@@ -10,6 +10,7 @@ public class ProductVO {
 	private int product_sale_price;
 	private String product_image;
 	private int product_status;
+	
 	public int getProduct_id() {
 		return product_id;
 	}
