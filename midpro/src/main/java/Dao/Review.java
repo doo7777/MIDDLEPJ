@@ -1,5 +1,7 @@
 package Dao;
 
-public class Review {
+import DaoInterface.IReview;
+
+public class Review implements IReview{
 
 }
