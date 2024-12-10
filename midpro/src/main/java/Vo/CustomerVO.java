@@ -1,6 +1,6 @@
 package Vo;
 
-public class Customer {
+public class CustomerVO {
 
 	private String customer_id;
 	private String cust_pw;
@@ -71,7 +71,6 @@ public class Customer {
 	}
 	public void setCust_delete(String cust_delete) {
 		this.cust_delete = cust_delete;
-		
 	}
 	@Override
 	public String toString() {
