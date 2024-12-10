@@ -181,7 +181,7 @@ body {
 
         <div id="movie_play"><!-- 영화 재생 영역 -->
             <video autoplay muted loop>
-                <source src="../DGV/Sorce/영상 소스파일1.mp4" type="video/mp4">
+                <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
             </video>
         </div>
         <div id="movie_chart"></div> 
