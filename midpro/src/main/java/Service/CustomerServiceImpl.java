@@ -16,6 +16,13 @@ public class CustomerServiceImpl implements ICustomerService{
 		dao = CustomerDaoImpl.getInstance();
 	}
 	
+	public static CustomerServiceImpl getInstance() {
+		if(service==null) service = new CustomerServiceImpl();
+		
+		return service;
+	}
+	
+	
 
 	@Override
 	public int insertCustomer(CustomerVO cusVO) {

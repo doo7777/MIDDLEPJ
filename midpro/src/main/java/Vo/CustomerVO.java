@@ -12,6 +12,7 @@ public class CustomerVO {
 	private String cust_detailadd;
 	private String cust_grade;
 	private String cust_delete;
+	
 	public String getCustomer_id() {
 		return customer_id;
 	}
