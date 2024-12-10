@@ -1,5 +1,8 @@
 package DaoInterface;
 
-public interface IScreenDao {
 
+public interface IScreenDao {
+	
+	
+	
 }
