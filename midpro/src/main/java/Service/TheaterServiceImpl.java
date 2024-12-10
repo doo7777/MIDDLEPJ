@@ -1,7 +1,7 @@
 package Service;
 
-import ServiceInterface.ITheater;
+import ServiceInterface.ITheaterService;
 
-public class TheaterServiceImpl implements ITheater{
+public class TheaterServiceImpl implements ITheaterService{
 
 }

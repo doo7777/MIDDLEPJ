@@ -1,8 +1,8 @@
 package Service;
 
 import DaoInterface.IMovie_Rent;
-import ServiceInterface.INonMember;
+import ServiceInterface.INonMemberService;
 
-public class NonMemberServiceImpl implements INonMember{
+public class NonMemberServiceImpl implements INonMemberService{
 
 }

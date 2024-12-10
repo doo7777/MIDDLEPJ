@@ -1,7 +1,7 @@
 package Dao;
 
-import ServiceInterface.IMovie;
+import ServiceInterface.IMovieService;
 
-public class Movie implements IMovie{
+public class Movie implements IMovieService{
 
 }

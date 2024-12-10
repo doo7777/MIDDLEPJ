@@ -1,5 +1,5 @@
 package ServiceInterface;
 
-public interface ICustomer {
+public interface ICartService {
 
 }

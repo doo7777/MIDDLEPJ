@@ -1,5 +1,5 @@
 package ServiceInterface;
 
-public interface IMovie {
+public interface ICardService {
 
 }

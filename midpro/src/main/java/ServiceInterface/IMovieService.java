@@ -1,5 +1,5 @@
 package ServiceInterface;
 
-public interface ISchedule {
+public interface IMovieService {
 
 }

@@ -1,5 +1,5 @@
 package ServiceInterface;
 
-public interface ILost_Article {
+public interface ISeatService {
 
 }

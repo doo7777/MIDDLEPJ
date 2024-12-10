@@ -1,7 +1,7 @@
 package Service;
 
-import ServiceInterface.ICard;
+import ServiceInterface.ICardService;
 
-public class CardServiceImpl implements ICard{
+public class CardServiceImpl implements ICardService{
 
 }

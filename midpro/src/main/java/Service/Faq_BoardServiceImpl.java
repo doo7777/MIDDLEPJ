@@ -1,8 +1,8 @@
 package Service;
 
-import ServiceInterface.IFaq_Board;
+import ServiceInterface.IFaq_BoardService;
 
-public class Faq_BoardServiceImpl implements IFaq_Board{
+public class Faq_BoardServiceImpl implements IFaq_BoardService{
 	
 
 }

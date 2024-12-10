@@ -1,7 +1,7 @@
 package Service;
 
-import ServiceInterface.ILocations;
+import ServiceInterface.ILocationsService;
 
-public class LocationsServiceImpl implements ILocations{
+public class LocationsServiceImpl implements ILocationsService{
 
 }

@@ -1,7 +1,7 @@
 package Service;
 
-import ServiceInterface.ISeat;
+import ServiceInterface.ISeatService;
 
-public class SeatServiceImpl implements ISeat{
+public class SeatServiceImpl implements ISeatService{
 
 }

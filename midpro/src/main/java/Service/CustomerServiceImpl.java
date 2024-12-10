@@ -1,7 +1,7 @@
 package Service;
 
-import ServiceInterface.ICustomer;
+import ServiceInterface.ICustomerService;
 
-public class CustomerServiceImpl implements ICustomer{
+public class CustomerServiceImpl implements ICustomerService{
 
 }
