@@ -5,6 +5,7 @@ public class CartVO {
 	private int product_id;
 	private int cart_qty;
 	private String cart_status;
+	private String custmer_id;
 	public int getCart_id() {
 		return cart_id;
 	}
@@ -29,13 +30,20 @@ public class CartVO {
 	public void setCart_status(String cart_status) {
 		this.cart_status = cart_status;
 	}
+	
+	public String getCustmer_id() {
+		return custmer_id;
+	}
+	public void setCustmer_id(String custmer_id) {
+		this.custmer_id = custmer_id;
+	}
 	@Override
 	public String toString() {
-		return "Cart [cart_id=" + cart_id + ", product_id=" + product_id + ", cart_qty=" + cart_qty + ", cart_status="
-				+ cart_status + ", getCart_id()=" + getCart_id() + ", getProduct_id()=" + getProduct_id()
-				+ ", getCart_qty()=" + getCart_qty() + ", getCart_status()=" + getCart_status() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "CartVO [cart_id=" + cart_id + ", product_id=" + product_id + ", cart_qty=" + cart_qty + ", cart_status="
+				+ cart_status + ", custmer_id=" + custmer_id + "]";
 	}
+
+	
 	
 	
 	
