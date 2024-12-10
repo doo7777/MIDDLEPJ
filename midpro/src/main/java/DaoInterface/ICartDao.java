@@ -5,13 +5,22 @@ import java.util.List;
 import Vo.ProductVO;
 
 public interface ICartDao {
-	//장바구니 추가
-	public int insertProduct(ProductVO productVO);
-	//장바구니 빼기
-	public int deleteProduct(int product_ID);
-	//전체 장바구니 보기
+	/**
+	 * 장바구니에 제품 추가
+	 * @param productVO
+	 * @return
+	 */
+	public int insertCart(ProductVO productVO);
+	/**
+	 * 장바구니에 제품 빼기
+	 * @param product_ID
+	 * @return
+	 */
+	public int deleteCart(int product_ID);
+	/**
+	 * 장바구니 전체 조회
+	 * @return
+	 */
 	public List<ProductVO> getAllProduct();
-	//장바구니 검색
-	public ProductVO getProduct(String Product_name);
 	
 }

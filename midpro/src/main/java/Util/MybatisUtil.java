@@ -15,7 +15,7 @@ public class MybatisUtil {
 	
 	static {
 		// MyBatis의 환경 설정 파일(mybatis-config.xml)을 읽어와서
-		// 그 내용을 처리한 후 SqlSessionFactory객체를 생성한다.
+		// 그 내용을 처리한 후 SqlSessionFactory객체를 생성한다. 뭐지???
 		Reader rd = null;
 		
 		try {

@@ -5,22 +5,45 @@ import java.util.List;
 import Vo.CustomerVO;
 
 public interface ICustomerDao {
-	//회원가입
+	/**
+	 * 회원 가입
+	 * @param cusVO
+	 * @return
+	 */
 	public int insertCustomer(CustomerVO cusVO);
 	
-	//중복 검사(?)
+	/**
+	 * 회원 ID중복검사
+	 * @param cus_ID
+	 * @return
+	 */
 	public int getCoustomerCount(String cus_ID);
 	
-	//회원 탈퇴
+	/**
+	 * 회원 탈퇴
+	 * @param cus_ID
+	 * @return
+	 */
 	public int deleteCustomer(String cus_ID);
 	
-	//회원 수정
+	/**
+	 * 회원 정보 수정
+	 * @param cusVO
+	 * @return
+	 */
 	public int updateCustomer(CustomerVO cusVO);
 	
-	//전체 회원 서칭 
+	/**
+	 * 전체 회원 보기
+	 * @return
+	 */
 	public List<CustomerVO> getAllCustomer();
 	
-	//ID로 회원 정보 가져오기
+	/**
+	 * 회원 ID로 회원 정보 받기
+	 * @param cus_ID
+	 * @return
+	 */
 	public CustomerVO getCustomer(String cus_ID);
 	
 }
