@@ -14,7 +14,7 @@
 		delete from mymember where mem_id = #{mem_id} 
 	</delete>
 	
-	<update id="updateMember" parameterType="memVo">
+	<update id="updateMember" parameterType="memVo"> 
 		update mymember set 
 			mem_pass = #{mem_pass} , mem_name = #{mem_name}, 
 			mem_tel = #{mem_tel} , mem_addr = #{mem_addr}, mem_photo=#{mem_photo}
