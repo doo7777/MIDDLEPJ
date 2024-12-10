@@ -5,13 +5,12 @@
         
 <mapper namespace="Customer">
 
-	<insert id="insertCustomer" parameterType="cusVO">
-		insert into customer (customer_id, customer_pw, customer_name, customer_tel, customer_postcode,
-		 customer_add, customer_detailadd,customer_grade,customer_delete) 
-		values( #{customer_id}, #{customer_pw}, #{customer_name}, #{customer_tel}, #{customer_postcode},
-		 #{customer_add},#{customer_detailadd},#{customer_grade},#{customer_delete})
-	</insert>
-	
+	<insert id="insertCustomer" parameterType="CusVO">
+	INSERT INTO CUSTOMER(CUSTOMER_ID, CUST_PW, CUST_NAME, 
+	CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD)
+	VALUES (#{CUSTOMER_ID}, #{CUST_PW}, #{CUST_NAME}, 
+		#{CUST_EMAIL}, #{CUST_TEL}, #{CUST_POSTCODE}, #{CUST_ADD}, #{CUST_DETAILADD});
+		</insert>
 	<delete id="deleteMember" parameterType="string">
 		delete from mymember where mem_id = #{mem_id} 
 	</delete>
