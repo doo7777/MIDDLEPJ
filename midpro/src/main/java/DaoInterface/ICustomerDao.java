@@ -9,10 +9,10 @@ public interface ICustomerDao {
 	public int insertCustomer(CustomerVO cusVO);
 	
 	//중복 검사(?)
-	public int getCoustomerCount(String cusID);
+	public int getCoustomerCount(String cus_ID);
 	
-	//회원 탈토
-	public int deleteCustomer(String cusID);
+	//회원 탈퇴
+	public int deleteCustomer(String cus_ID);
 	
 	//회원 수정
 	public int updateCustomer(CustomerVO cusVO);
@@ -21,6 +21,6 @@ public interface ICustomerDao {
 	public List<CustomerVO> getAllCustomer();
 	
 	//ID로 회원 정보 가져오기
-	public CustomerVO getMember(String cusID);
+	public CustomerVO getCustomer(String cus_ID);
 	
 }
