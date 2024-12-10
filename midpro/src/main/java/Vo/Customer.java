@@ -71,6 +71,7 @@ public class Customer {
 	}
 	public void setCust_delete(String cust_delete) {
 		this.cust_delete = cust_delete;
+		
 	}
 	@Override
 	public String toString() {
@@ -79,4 +80,10 @@ public class Customer {
 				+ ", cust_add=" + cust_add + ", cust_detailadd=" + cust_detailadd + ", cust_grade=" + cust_grade
 				+ ", cust_delete=" + cust_delete + "]";
 	}
+	
+	
+	
+	
+	
+	
 }
