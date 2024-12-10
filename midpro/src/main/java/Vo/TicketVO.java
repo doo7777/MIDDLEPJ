@@ -1,7 +1,6 @@
 package Vo;
 
 public class TicketVO {
-
 	
 	private int ticket_id;
 	private int ticket_price;

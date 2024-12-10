@@ -5,11 +5,33 @@
         
 <mapper namespace="Customer">
 
-		<insert id="insertCustomer" parameterType="CustomerVO">
+	<insert id="insertCustomer" parameterType="CusVO">
 	INSERT INTO CUSTOMER(CUSTOMER_ID, CUST_PW, CUST_NAME, 
 	CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD)
 	VALUES (#{CUSTOMER_ID}, #{CUST_PW}, #{CUST_NAME}, 
 		#{CUST_EMAIL}, #{CUST_TEL}, #{CUST_POSTCODE}, #{CUST_ADD}, #{CUST_DETAILADD});
 		</insert>
+	<delete id="deleteMember" parameterType="string">
+		delete from mymember where mem_id = #{mem_id} 
+	</delete>
+	
+	<update id="updateMember" parameterType="memVo"> 
+		update mymember set 
+			mem_pass = #{mem_pass} , mem_name = #{mem_name}, 
+			mem_tel = #{mem_tel} , mem_addr = #{mem_addr}, mem_photo=#{mem_photo}
+		where mem_id = #{mem_id}
+	</update>
+	
+	<select id="getAllMember" resultType="memVo">
+		select * from mymember
+	</select>
+	
+	<select id="getMemberCount" parameterType="string" resultType="int">
+		select count(*) cnt from mymember where mem_id = #{mem_id}
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="memVo">
+		select * from mymember where mem_id=#{mem_id}
+	</select>
 
 </mapper>
