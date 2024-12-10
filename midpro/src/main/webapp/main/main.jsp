@@ -6,7 +6,7 @@
     <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
     <title>DGV</title> <!-- 문서 제목 -->
     <style>
-        body {
+body {
             margin: 0; /* 기본 여백 제거 */
         }
         #main {
@@ -20,11 +20,16 @@
         }
         #top_menu {
             height: 70px; /* 상단 메뉴의 높이 설정 */
+            overflow: auto; /* 창 사이즈가 줄어도 디자인 고정 */
         }
         #movie_play {
             height: 500px; /* 영화 재생 영역의 높이 설정 */
             background-color: black;
             color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* 비디오가 영역을 넘어갈 경우 잘리도록 설정 */
         }
         #movie_chart {
             height: 400px; /* 영화 차트 영역의 높이 설정 */
@@ -40,12 +45,16 @@
         }
 
         /* 드롭다운 메뉴 스타일 */
+        #top_menu{
+            width: 100%;
+        }
         .dropmenu {
             border: none; /* 드롭다운 메뉴의 테두리 제거 */
-            margin: 0; /* 기본 여백 제거 */
             padding: 0; /* 기본 패딩 제거 */
-            font: "sans-serif"; /* 글꼴 설정 */
+            /* font: "sans-serif"; */ /* 글꼴 설정 */
             font-size: 18px; /* 글꼴 크기 설정 */
+            padding: 0 0 0 200px; /* 상단 메뉴바 위치 조정 */
+            background-color: black; /* 상단 메뉴바 배경색 */
         }
 
         .dropmenu ul {
@@ -104,7 +113,7 @@
             float: none; /* 수직 배치 */
             margin: 0; /* 기본 여백 제거 */
             padding: 0; /* 기본 패딩 제거 */
-            width: 200px; /* 하위 메뉴 항목 너비 설정 */
+            width: 300px; /* 하위 메뉴 항목 너비 설정 */
         }
         .dropmenu li ul a {
             display: block; /* 블록 요소로 설정 */
@@ -116,14 +125,14 @@
             text-decoration: none; /* 텍스트 장식 제거 */
         }
 
-        .dropmenu li ul a:hover {
-            text-decoration: none; /* 하위 메뉴 항목에 마우스를 올려도 하얀 선이 생기지 않도록 설정 */
-            color: #FFFFFF; /* 마우스 오버 시 글자색 변경 */
-        }
+        /* .dropmenu li ul a:hover {
+            text-decoration: none; 하위 메뉴 항목에 마우스를 올려도 하얀 선이 생기지 않도록 설정
+            color: #FFFFFF; 마우스 오버 시 글자색 변경
+        } */
 
-        .dropmenu p {
-            clear: left; /* 왼쪽 정렬 해제 */
-        }
+        /* .dropmenu p {
+            clear: left; 왼쪽 정렬 해제
+        } */
     </style>
 </head>
 <body>
@@ -169,8 +178,13 @@
                 </li>
             </ul>
         </div>
-        <div id="movie_play">movie_play</div> <!-- 영화 재생 영역 -->
-        <div id="movie_chart">movie_chart</div> <!-- 영화 차트 영역 -->
+
+        <div id="movie_play"><!-- 영화 재생 영역 -->
+            <video autoplay muted loop>
+                <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="movie_chart"></div> 
         <div id="store">store</div> <!-- 스토어 영역 -->
         <div id="bottom">bottom</div> <!-- 하단 영역 -->
         <div id="company">company</div> <!-- 회사 정보 영역 -->
