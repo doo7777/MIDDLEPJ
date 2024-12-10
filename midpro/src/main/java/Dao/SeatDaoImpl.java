@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.ISeatDao;
 
-public class Seat implements ISeatDao{
+public class SeatDaoImpl implements ISeatDao{
 
 }

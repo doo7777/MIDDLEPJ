@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.ICustomerDao;
 
-public class Customer implements ICustomerDao{
+public class CustomerDaoImpl implements ICustomerDao{
 
 }

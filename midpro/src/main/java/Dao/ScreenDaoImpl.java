@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.IScreenDao;
 
-public class Screen implements IScreenDao{
+public class ScreenDaoImpl implements IScreenDao{
 
 }

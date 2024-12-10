@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.ICardDao;
 
-public class Card implements ICardDao{
+public class CardDaoImpl implements ICardDao{
 
 }

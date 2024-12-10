@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.IScheduleDao;
 
-public class Schedule implements IScheduleDao{
+public class ScheduleDaoImpl implements IScheduleDao{
 
 }

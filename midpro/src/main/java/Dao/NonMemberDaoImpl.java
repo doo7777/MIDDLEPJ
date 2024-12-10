@@ -2,6 +2,6 @@ package Dao;
 
 import DaoInterface.INonMemberDao;
 
-public class NonMember implements INonMemberDao{
+public class NonMemberDaoImpl implements INonMemberDao{
 
 }
