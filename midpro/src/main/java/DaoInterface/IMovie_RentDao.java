@@ -6,8 +6,7 @@ import Vo.Movie_RentVO;
 
 public interface IMovie_RentDao {
 	
-<<<<<<< HEAD
-=======
+
 	/**
 	 * VO객체 받아와 DB에 저장 => 대관시작,종료일,영화관위치,상영관,금액,고객명,인원
 	 * @param MvRentVO
@@ -37,5 +36,4 @@ public interface IMovie_RentDao {
 	
 	
 
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
 }
