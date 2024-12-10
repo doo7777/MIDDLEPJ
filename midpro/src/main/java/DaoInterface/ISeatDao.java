@@ -1,5 +1,5 @@
 package DaoInterface;
 
-public interface ITheater {
+public interface ISeatDao {
 
 }

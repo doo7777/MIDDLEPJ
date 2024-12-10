@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ILocations;
+import DaoInterface.ILocationsDao;
 
-public class Locations implements ILocations{
+public class Locations implements ILocationsDao{
 
 }

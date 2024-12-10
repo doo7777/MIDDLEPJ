@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ITheater;
+import DaoInterface.ITheaterDao;
 
-public class Theater implements ITheater{
+public class Theater implements ITheaterDao{
 
 }

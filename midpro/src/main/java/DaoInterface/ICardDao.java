@@ -1,5 +1,5 @@
 package DaoInterface;
 
-public interface IPayment {
+public interface ICardDao {
 
 }

@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ILost_Article;
+import DaoInterface.ILost_ArticleDao;
 
-public class Lost_Article implements ILost_Article{
+public class Lost_Article implements ILost_ArticleDao{
 	
 }

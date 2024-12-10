@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.IReservation_Payment;
+import DaoInterface.IReservation_PaymentDao;
 
-public class Reservation_Payment implements IReservation_Payment{
+public class Reservation_Payment implements IReservation_PaymentDao{
 
 }

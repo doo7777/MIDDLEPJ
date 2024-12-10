@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.IMovie_Rent;
+import DaoInterface.IMovie_RentDao;
 
-public class Movie_Rent implements IMovie_Rent{
+public class Movie_Rent implements IMovie_RentDao{
 
 }

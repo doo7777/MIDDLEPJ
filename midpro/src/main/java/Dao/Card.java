@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ICard;
+import DaoInterface.ICardDao;
 
-public class Card implements ICard{
+public class Card implements ICardDao{
 
 }

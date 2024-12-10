@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.IProduct;
+import DaoInterface.IProductDao;
 
-public class Product implements IProduct{
+public class Product implements IProductDao{
 
 }

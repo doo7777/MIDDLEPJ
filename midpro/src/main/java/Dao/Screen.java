@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.IScreen;
+import DaoInterface.IScreenDao;
 
-public class Screen implements IScreen{
+public class Screen implements IScreenDao{
 
 }

@@ -1,5 +1,5 @@
 package DaoInterface;
 
-public interface ICustomer {
+public interface ICartDao {
 
 }

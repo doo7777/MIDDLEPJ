@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.INotice;
+import DaoInterface.INoticeDao;
 
-public class Notice implements INotice{
+public class Notice implements INoticeDao{
 
 }

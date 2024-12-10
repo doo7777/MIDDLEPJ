@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ICart;
+import DaoInterface.ICartDao;
 
-public class Cart implements ICart{
+public class Cart implements ICartDao{
 
 }

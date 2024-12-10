@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.ICustomer;
+import DaoInterface.ICustomerDao;
 
-public class Customer implements ICustomer{
+public class Customer implements ICustomerDao{
 
 }

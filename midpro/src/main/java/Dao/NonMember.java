@@ -1,7 +1,7 @@
 package Dao;
 
-import DaoInterface.INonMember;
+import DaoInterface.INonMemberDao;
 
-public class NonMember implements INonMember{
+public class NonMember implements INonMemberDao{
 
 }
