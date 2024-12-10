@@ -22,8 +22,6 @@ public class CustomerDaoImpl implements ICustomerDao{
 	@Override
 	//회원등록 메서드=============================================
 	public int insertCustomer(CustomerVO cusVO) {
-<<<<<<< HEAD
-=======
 		SqlSession session = MybatisUtil.getSqlSession();
 		
 		int cnt=0;
@@ -38,12 +36,7 @@ public class CustomerDaoImpl implements ICustomerDao{
 			if(session != null) session.close();
 		}
 		
-<<<<<<< HEAD
 		return cnt;
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-		return 0;
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	}
 
 	@Override
