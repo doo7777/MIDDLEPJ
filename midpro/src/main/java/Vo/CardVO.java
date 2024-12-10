@@ -1,6 +1,6 @@
 package Vo;
 
-public class Card {
+public class CardVO {
 	private int card_id;
 	private int payment_id;
 	private String customer_id;
