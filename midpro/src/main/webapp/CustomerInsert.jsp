@@ -34,8 +34,7 @@
         input[type="text"],
         input[type="password"],
         input[type="email"],
-        input[type="tel"],
-        input[type="number"] {
+        input[type="tel"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -59,9 +58,9 @@
 <body>
     <div class="container">
         <h1>회원가입</h1>
-        <form action="registerCustomer" method="post">
-            <label for="customer_id">아이디:</label>
-            <input type="text" id="customer_id" name="customer_id" required placeholder="아이디를 입력하세요.">
+        <form action="<%=request.getContextPath() %>/cusInsert.do" method="post">
+            <label for="cust_id">아이디:</label>
+            <input type="text" id="cust_id" name="cust_id" required placeholder="아이디를 입력하세요.">
 
             <label for="cust_pw">비밀번호:</label>
             <input type="password" id="cust_pw" name="cust_pw" required placeholder="비밀번호를 입력하세요.">
@@ -75,20 +74,14 @@
             <label for="cust_tel">전화번호:</label>
             <input type="tel" id="cust_tel" name="cust_tel" required placeholder="전화번호를 입력하세요.">
 
-            <label for="cust_postcode">우편번호:</label>
-            <input type="text" id="cust_postcode" name="cust_postcode" required placeholder="우편번호를 입력하세요.">
+            <label for="cust_post">우편번호:</label>
+            <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호를 입력하세요.">
 
             <label for="cust_add">주소:</label>
             <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요.">
 
-            <label for="cust_detailadd">상세주소:</label>
-            <input type="text" id="cust_detailadd" name="cust_detailadd" required placeholder="상세주소를 입력하세요.">
-
-            <label for="cust_grade">회원 등급 (기본값: 새싹):</label>
-            <input type="text" id="cust_grade" name="cust_grade" value="새싹" readonly>
-
-            <label for="cust_delete">회원 상태 (기본값: 활성):</label>
-            <input type="text" id="cust_delete" name="cust_delete" value="1" readonly>
+            <label for="cust_detailAdd">상세주소:</label>
+            <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
 
             <button type="submit">회원가입</button>
         </form>
