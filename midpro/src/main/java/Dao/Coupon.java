@@ -1,5 +1,7 @@
 package Dao;
 
-public class Coupon {
+import DaoInterface.ICoupon;
+
+public class Coupon implements ICoupon{
 
 }
