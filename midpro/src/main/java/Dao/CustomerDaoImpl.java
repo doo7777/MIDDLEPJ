@@ -27,13 +27,16 @@ public class CustomerDaoImpl implements ICustomerDao{
 		int cnt=0;
 		
 		try {
-			cnt = session.insert(null);
+			cnt = session.insert("Customer.insertCustomer", cusVO);
+			if(cnt>0) session.commit();
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(session != null) session.close();
 		}
 		
-		return 0;
+		return cnt;
 	}
 
 	@Override
