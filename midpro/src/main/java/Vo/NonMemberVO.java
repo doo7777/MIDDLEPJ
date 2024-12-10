@@ -1,6 +1,6 @@
 package Vo;
 
-public class NonMember {
+public class NonMemberVO {
 	private String nonmember_id;
 	private String nmem_name;
 	private String nmem_pw;

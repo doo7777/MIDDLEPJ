@@ -1,6 +1,6 @@
 package Vo;
 
-public class Schedule {
+public class ScheduleVO {
 	private int schedule_id;
 	private int movie_id;
 	private String start_time;

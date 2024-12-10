@@ -1,6 +1,6 @@
 package Vo;
 
-public class Screen {
+public class ScreenVO {
 	private int screen_id;
 	private int theater_id;
 	public int getScreen_id() {

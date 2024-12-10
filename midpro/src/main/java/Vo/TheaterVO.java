@@ -1,6 +1,6 @@
 package Vo;
 
-public class Theater {
+public class TheaterVO {
 	private int theater_id;
 	private String theater_img;
 	private String theater_name;

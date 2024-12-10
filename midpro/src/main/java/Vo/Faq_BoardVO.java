@@ -1,6 +1,6 @@
 package Vo;
 
-public class Faq_Board {
+public class Faq_BoardVO {
 	private int faq_num;
 	private String faq_group;
 	private String faq_question;

@@ -1,6 +1,6 @@
 package Vo;
 
-public class Movie {
+public class MovieVO {
 	private int movie_id;
 	private String movie_name;
 	private String trailer;

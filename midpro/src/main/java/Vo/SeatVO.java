@@ -1,6 +1,6 @@
 package Vo;
 
-public class Seat {
+public class SeatVO {
 	private int seat_id;
 	private int screen_id;
 	private int theater_id;

@@ -1,6 +1,6 @@
 package Vo;
 
-public class Coupon {
+public class CouponVO {
 	private int coupon_id;
 	private String customer_id;
 	private String coupon_code;

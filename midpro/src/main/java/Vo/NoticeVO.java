@@ -1,6 +1,6 @@
 package Vo;
 
-public class Notice {
+public class NoticeVO {
 	private int notice_id;
 	private String title;
 	private String content;

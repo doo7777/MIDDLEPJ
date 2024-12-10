@@ -1,6 +1,6 @@
 package Vo;
 
-public class Movie_Rent {
+public class Movie_RentVO {
 	private int movie_rent_id;
 	private String customer_id;
 	private String mv_rent_location;

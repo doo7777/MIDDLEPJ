@@ -1,6 +1,6 @@
 package Vo;
 
-public class Locations {
+public class LocationsVO {
 	private String locations_id;
 	private String locations_name;
 	private int group_num;

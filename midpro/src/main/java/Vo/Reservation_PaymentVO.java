@@ -1,6 +1,6 @@
 package Vo;
 
-public class Reservation_Payment {
+public class Reservation_PaymentVO {
 	private int reservation_payment_id;
 	private String customer_id;
 	private int movie_id;

@@ -1,6 +1,6 @@
 package Vo;
 
-public class Lost_Article {
+public class Lost_ArticleVO {
 	private int articel_id;
 	private String customer_id;
 	private String articel_name;

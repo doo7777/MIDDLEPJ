@@ -1,6 +1,6 @@
 package Vo;
 
-public class Review {
+public class ReviewVO {
 	private int review_num;
 	private int movie_id;
 	private String customer_id;
