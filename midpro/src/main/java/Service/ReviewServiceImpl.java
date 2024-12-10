@@ -2,6 +2,6 @@ package Service;
 
 import ServiceInterface.IReview;
 
-public class Review implements IReview{
+public class ReviewServiceImpl implements IReview{
 
 }

@@ -2,6 +2,6 @@ package Service;
 
 import ServiceInterface.IMovie;
 
-public class Movie implements IMovie{
+public class MovieServiceImpl implements IMovie{
 
 }

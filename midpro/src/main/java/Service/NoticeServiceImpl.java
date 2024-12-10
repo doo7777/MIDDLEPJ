@@ -2,6 +2,6 @@ package Service;
 
 import ServiceInterface.INotice;
 
-public class Notice implements INotice{
+public class NoticeServiceImpl implements INotice{
 
 }

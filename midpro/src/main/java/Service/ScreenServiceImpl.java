@@ -2,6 +2,6 @@ package Service;
 
 import ServiceInterface.IScreen;
 
-public class Screen implements IScreen{
+public class ScreenServiceImpl implements IScreen{
 
 }
