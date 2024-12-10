@@ -6,6 +6,7 @@ public class PaymentVO {
 	private String payment_date;
 	private int amount;
 	private String payment_method;
+	private int payment_price;
 	public int getPayment_id() {
 		return payment_id;
 	}
@@ -36,11 +37,20 @@ public class PaymentVO {
 	public void setPayment_method(String payment_method) {
 		this.payment_method = payment_method;
 	}
+	
+	public int getPayment_price() {
+		return payment_price;
+	}
+	public void setPayment_price(int payment_price) {
+		this.payment_price = payment_price;
+	}
 	@Override
 	public String toString() {
-		return "Payment [payment_id=" + payment_id + ", customer_id=" + customer_id + ", payment_date=" + payment_date
-				+ ", amount=" + amount + ", payment_method=" + payment_method + "]";
+		return "PaymentVO [payment_id=" + payment_id + ", customer_id=" + customer_id + ", payment_date=" + payment_date
+				+ ", amount=" + amount + ", payment_method=" + payment_method + ", payment_price=" + payment_price
+				+ "]";
 	}
+
 	
 	
 }

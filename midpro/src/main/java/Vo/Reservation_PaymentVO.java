@@ -15,8 +15,6 @@ public class Reservation_PaymentVO {
 	private int reserv_pay_pnumber;
 	private int reserv_pay_ticketprice;
 	private String reserv_pay_method;
-	private String reserv_pay_paycompany;
-	private String reserv_pay_cardnum;
 	private String reserv_pay_telnum;
 	public int getReservation_payment_id() {
 		return reservation_payment_id;
@@ -102,18 +100,8 @@ public class Reservation_PaymentVO {
 	public void setReserv_pay_method(String reserv_pay_method) {
 		this.reserv_pay_method = reserv_pay_method;
 	}
-	public String getReserv_pay_paycompany() {
-		return reserv_pay_paycompany;
-	}
-	public void setReserv_pay_paycompany(String reserv_pay_paycompany) {
-		this.reserv_pay_paycompany = reserv_pay_paycompany;
-	}
-	public String getReserv_pay_cardnum() {
-		return reserv_pay_cardnum;
-	}
-	public void setReserv_pay_cardnum(String reserv_pay_cardnum) {
-		this.reserv_pay_cardnum = reserv_pay_cardnum;
-	}
+
+	
 	public String getReserv_pay_telnum() {
 		return reserv_pay_telnum;
 	}
@@ -122,16 +110,15 @@ public class Reservation_PaymentVO {
 	}
 	@Override
 	public String toString() {
-		return "Reservation_Payment [reservation_payment_id=" + reservation_payment_id + ", customer_id=" + customer_id
-				+ ", movie_id=" + movie_id + ", schedule_id=" + schedule_id + ", screen_id=" + screen_id
+		return "Reservation_PaymentVO [reservation_payment_id=" + reservation_payment_id + ", customer_id="
+				+ customer_id + ", movie_id=" + movie_id + ", schedule_id=" + schedule_id + ", screen_id=" + screen_id
 				+ ", customer_grade=" + customer_grade + ", reserv_pay_date=" + reserv_pay_date
 				+ ", reserv_pay_movie_name=" + reserv_pay_movie_name + ", reserv_pay_showtimes=" + reserv_pay_showtimes
 				+ ", reserv_pay_theater_name=" + reserv_pay_theater_name + ", reserv_pay_seats=" + reserv_pay_seats
 				+ ", reserv_pay_pnumber=" + reserv_pay_pnumber + ", reserv_pay_ticketprice=" + reserv_pay_ticketprice
-				+ ", reserv_pay_method=" + reserv_pay_method + ", reserv_pay_paycompany=" + reserv_pay_paycompany
-				+ ", reserv_pay_cardnum=" + reserv_pay_cardnum + ", reserv_pay_telnum=" + reserv_pay_telnum + "]";
+				+ ", reserv_pay_method=" + reserv_pay_method + ", reserv_pay_telnum=" + reserv_pay_telnum + "]";
 	}
-	
+
 	
 	
 }
