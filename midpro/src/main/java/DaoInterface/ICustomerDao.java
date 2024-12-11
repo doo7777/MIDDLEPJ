@@ -19,19 +19,6 @@ public interface ICustomerDao {
 	 */
 	public int getCoustomerCount(String cus_ID);
 	
-	/**
-	 * 회원 탈퇴
-	 * @param cus_ID
-	 * @return
-	 */
-	public int deleteCustomer(String cus_ID);
-	
-	/**
-	 * 회원 정보 수정
-	 * @param cusVO
-	 * @return
-	 */
-	public int updateCustomer(CustomerVO cusVO);
 	
 	/**
 	 * 전체 회원 보기

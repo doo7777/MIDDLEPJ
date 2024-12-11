@@ -5,7 +5,7 @@
         
 <mapper namespace="Customer">
 
-<insert id="insertCustomer" parameterType="map">
+<insert id="insertCustomer" parameterType="cusVO">
     INSERT INTO CUSTOMER (
         CUSTOMER_ID, CUST_PW, CUST_NAME, 
         CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
