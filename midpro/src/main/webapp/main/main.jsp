@@ -319,7 +319,8 @@
             border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
             border-radius: 10px; 
             display: inline-block; /* 내용에 맞게 테두리 조절 */ 
-            margin-left: 220px; /* 화면에서 오른쪽으로 이동 */
+            margin-top: 20px; /* 위로 공간 추가 */ 
+            margin-left: 250px; /* 화면에서 오른쪽으로 이동 */
         } 
         .client_btn_wrap a { 
             display: inline-block; 
