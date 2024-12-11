@@ -75,7 +75,7 @@ public class CustomerVO {
 		this.cust_delete = cust_delete;
 	}
 	
-	
+
 	public int getRole() {
 		return role;
 	}

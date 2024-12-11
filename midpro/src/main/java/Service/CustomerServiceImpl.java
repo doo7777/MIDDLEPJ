@@ -36,22 +36,11 @@ public class CustomerServiceImpl implements ICustomerService{
 		return 0;
 	}
 
-	@Override
-	public int deleteCustomer(String cus_ID) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int updateCustomer(CustomerVO cusVO) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public List<CustomerVO> getAllCustomer() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllCustomer();
 	}
 
 	@Override

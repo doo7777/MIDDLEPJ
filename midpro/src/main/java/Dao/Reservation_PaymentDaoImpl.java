@@ -9,8 +9,8 @@ public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
 
 	@Override
 	public int createReservation_Payment(Reservation_PaymentVO reservation_PaymentVO) {
-		// TODO Auto-generated method stub
 		return 0;
+		
 	}
 
 	@Override
@@ -24,6 +24,5 @@ public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }
