@@ -14,9 +14,9 @@
 insert into notice (
       notice_id, title, content, post_date)
       values(
-      #{notice_id},#{title},#{content},#{post_date}
+      #{notice_id},#{title},#{content},sysdate
       )
- )
+ 
 </insert>
 
 <!-- 공지사항 수정 -->
