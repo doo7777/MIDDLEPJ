@@ -403,7 +403,7 @@ const menu = document.querySelector('.fa-bars');
 const sidebar = document.querySelector('.sidebar');
 const closeButton = document.querySelector('.fa-xmark');
 const sidebarContent = document.querySelector('.sidebar-content');
-
+const signup = document.querySelector('.signupBtn');
 // 사이드바 열기닫기
 function moveSidebar(){
     sidebar.classList.toggle('open');
@@ -419,22 +419,25 @@ login.addEventListener('click', function() {
     sidebarContent.innerHTML = ` 
                     <h3>아이디와 비밀번호를 입력하세요.</h3>  
                     <form action="/login" method="POST">
-                    <label for="username">아이디:</label>
+                    <label for="username">I D:</label>
                     <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
                         
-                    <label for="password">비밀번호:</label>
+                    <label for="password">PW:</label>
                     <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
                         
-                    <button type="submit" class="loginBtn">로그인</button>
+                    <button type="submit" class="loginBtn">Login</button>
     
                     <h6>아직 회원이 아니세요?</h6>
-                    <button type="button" class="signupBtn">회원가입^__^</button>
+                    <button type="button" class="signupBtn">회원가입</button>
     
                     <h6><a href=#>비밀번호를 잊어버렸다면?</a></h6>
                     </form>  `;
     moveSidebar();                
 });
-
+//회원가입 버튼 누르면 회원가입 사이트로 이동
+singup.addEventListener('click',function(){
+	window.location.href = 'http://localhost/midpro/CustomerJoin.jsp';
+});
 // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
 closeButton.addEventListener('click', function() {
     // sidebar.style.right = '-300px';
@@ -455,7 +458,7 @@ myPage.addEventListener('click', function() {
     // } else {
     //     sidebar.style.right = '0px'; //열기
     // }
-    sidebarContent.innerHTML = `<h3>마이페이지 내용 뭐 넣지?</h3>`
+    sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`
     moveSidebar(); 
 });
 
