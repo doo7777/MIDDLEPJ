@@ -4,10 +4,10 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 
+<!--==================== NOTICE 부분입니다 ===================-->
+
 <mapper namespace="Noitce">
                      
-  
-
 <!-- 공지사항 추가 -->
 <insert id="insertNotice" parameterType="noticeVO">
 insert into notice (
@@ -42,21 +42,11 @@ update notice set
      select * from notice
     where notice_id = #{notice_id}
   </select>
-  
-
-  
-  </mapper>
-  
-  
-  
-  
-  
-  
-  
-  
+   </mapper>
+  <!-- =================================================== -->
   
   
 
+  
 
-
-
+  
