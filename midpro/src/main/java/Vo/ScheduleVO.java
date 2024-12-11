@@ -1,5 +1,6 @@
 package Vo;
 
+
 public class ScheduleVO {
 	private int schedule_id;
 	private int movie_id;
@@ -30,6 +31,8 @@ public class ScheduleVO {
 	public void setEnd_time(String end_time) {
 		this.end_time = end_time;
 	}
+
+
 	public String getSchedule_date() {
 		return schedule_date;
 	}
