@@ -317,7 +317,7 @@
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <img src="./image/logo.png" alt="로고" class="logo">
+            <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
             <div class="topIcon">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fa-regular fa-user"></i>
@@ -382,12 +382,12 @@
             <div class="package">
                 <i class="fa-solid fa-plus"></i>
                 <h3>패키지</h3>
-                <img src="./image/나랑-너-패키지.jpg" width=150px height=150px>
+                <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" width=150px height=150px>
             </div>    
             <div class="ticket">
                 <i class="fa-solid fa-plus"></i>
                 <h3>영화관람권</h3>
-                <img src="./image/4DX-영화관람권.jpg" width=150px height=150px>
+                <img src="sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" width=150px height=150px>
             </div>    
             <div class="giftcard">
                 <i class="fa-solid fa-plus"></i>
@@ -425,6 +425,7 @@ login.addEventListener('click', function() {
     //     sidebar.style.right = '0px'; //열기
     // }
     sidebarContent.innerHTML = ` 
+    				<img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
                     <form action="/login" method="POST">
                     <label for="username">I D:</label>
                     <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
@@ -472,7 +473,6 @@ myPage.addEventListener('click', function() {
 });
 
 menu.addEventListener('click', function(){
-    moveSidebar();
     sidebarContent.innerHTML = `
                     <h3> 빠른 메뉴 찾기</h3>
                     <div class= "smallMenu">
@@ -495,6 +495,7 @@ menu.addEventListener('click', function(){
                     <label for="upperMenu6">혜택</label>
                     <div><p>혜택하위메뉴들</p></div>
                 </div>`;
+    moveSidebar();
 });   
 </script>
 </html>
