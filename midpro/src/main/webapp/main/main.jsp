@@ -58,6 +58,19 @@
             border: none;
             
         }
+        
+        .sidebar input {
+            background-color: black;
+            color: white;
+            border-color: rgb(0, 0, 0);
+            padding: 5px;
+            min-height: 20px;
+            min-width: 250px;
+            margin-bottom: 10px; /* 입력 필드 간격 */
+            font-size: 16px; /* 글자 크기 */
+            border-radius: 5px;
+            padding-left: 40px; /* 아이콘이 겹치지 않도록 왼쪽에 패딩 추가 */
+        }
 
         .sidebar button {
             background-color: white;
