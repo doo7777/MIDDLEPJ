@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public List<CustomerVO> getAllCustomer() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllCustomer();
 	}
 
 	@Override
