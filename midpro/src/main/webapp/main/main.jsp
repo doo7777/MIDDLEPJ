@@ -341,11 +341,7 @@
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-<<<<<<< HEAD
             <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
-=======
-            <source src="sorce/img/DGV-로고.png" type="image/png">
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             <div class="topIcon">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fa-regular fa-user"></i>
