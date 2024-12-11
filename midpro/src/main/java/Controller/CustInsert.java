@@ -17,7 +17,7 @@ public class CustInsert extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/CustomerInsert.jsp").forward(request, response);
+        request.getRequestDispatcher("/customer/CustomerInsert.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -32,8 +32,9 @@ public class NoticeDaoImpl implements INoticeDao{
 	}
 
 	@Override
-	public NoticeVO getNotice(int notice_title) {
-		// TODO Auto-generated method stub
+
+	public NoticeVO getNotice(String title ) {
+
 		return null;
 	}
 

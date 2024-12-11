@@ -33,7 +33,7 @@ public interface INoticeDao {
 	 * @param notice_id
 	 * @return
 	 */
-	public NoticeVO getNotice(int notice_id);
+	public NoticeVO getNotice(String title);
 	
 
 }
