@@ -4,10 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>DGV</title> <!-- 문서 제목 -->
     <style>
-body {
+        body {
             margin: 0; /* 기본 여백 제거 */
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: black;
         }
         #main {
             border: 2px solid black; /* 메인 컨테이너에 검은색 테두리 추가 */
@@ -22,6 +27,116 @@ body {
             height: 70px; /* 상단 메뉴의 높이 설정 */
             overflow: auto; /* 창 사이즈가 줄어도 디자인 고정 */
         }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .sidebar {
+            width: 400px;
+            height: 100%;
+            background: #ffffff !important;;
+            position: fixed;
+            top: 0;
+            right: -400px;
+            z-index:1;
+            transition: all 0.35s ease;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-content {
+            padding: 20px;
+            border: none;
+        }
+
+        .sidebar button {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            border-color: rgb(0, 0, 0);
+            padding: 15px;
+            min-height:5px; 
+            min-width: 250px;
+        }
+
+        /* 로그인 버튼 hover 효과 */
+        .sidebar button.loginBtn:hover {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        }
+
+        /* 회원가입 버튼 hover 효과 */
+        .sidebar button.signupBtn:hover {
+        background-color: black; 
+        color: white;
+        font-weight: bold;
+        }
+
+        /* 상단 메뉴 아이콘 */
+        .fa-solid, .fa-regular, .fa-lock {
+            font-size: 24px;
+            color: #ffffff;
+            /* align-items: center; */
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .topIcon {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* 사이드 바 안에 있는 닫기 버튼 */
+        .fa-xmark {
+            color: black;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* <h3> 요소와 아이콘 사이에 간격 추가*/
+        .sidebar h3 {
+            margin-top: 50px;
+        }
+
+        /* 하이퍼링크 */
+        a:hover {
+            color: red;
+        }
+
+        /* 상단 메뉴아이콘 안의 메뉴들 */
+        input[id*="upperMenu"] {
+            display: none;
+            width: 100%;
+        }
+        input[id*="upperMenu"] + label {
+            display:block;
+            padding: 10px;
+            border: 1px solid;
+            border-bottom: 0;
+            color: white;
+            font-weight: bold;
+            background: black;
+            cursor: pointer;
+        }
+        input[id*="upperMenu"] + label + div {
+            max-height: 0;
+            transition: all .35s;
+            overflow: hidden;
+        }
+        input[id*="upperMenu"]:checked + label + div {
+            max-height: 100px;
+        }
+
         #movie_play {
             height: 500px; /* 영화 재생 영역의 높이 설정 */
             background-color: black;
@@ -36,7 +151,67 @@ body {
         }
         #store {
             height: 300px; /* 스토어 영역의 높이 설정 */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
         }
+
+        .package, .ticket, .giftcard {
+            color: black;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            /* border-color: white; */
+            /* border: 2px dashed white;*/ /* 첫 번째 테두리 */
+            /*outline: 2px solid white;*/ /* 두 번째 테두리 */
+            /*outline-offset: 5px; */
+            position: relative; /*아래 storeButton을 절대위치로 설정하기위해*/
+            width: 450px;
+            height: 300px;
+            padding-top: 10px; /*안에 글자 조금 내려가게 윗부분 패딩설정*/
+        }
+
+        .package::before, .ticket::before, .giftcard::before {
+            position: absolute;
+            content: '';
+            background: linear-gradient(-135deg, black 16px, transparent 0),
+                        linear-gradient(135deg, black 16px, transparent 0);
+            background-repeat: repeat-x;
+            background-size: 32px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+        }
+
+        .package::after, .ticket::after, .giftcard::after {
+            position: absolute;
+            content: '';
+            background: linear-gradient(-45deg, black 16px, transparent 0),
+                        linear-gradient(45deg, black 16px, transparent 0);
+            background-repeat: repeat-x;
+            background-size: 32px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+        }
+
+        .fa-plus {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            padding: 4px 8px;
+            background-color: white;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+            
+        }
+
         #bottom {
             height: 250px; /* 하단 영역의 높이 설정 */
         }
@@ -137,7 +312,21 @@ body {
 </head>
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
-        <div id="top">top</div> <!-- 상단 영역 -->
+        <div id="top"> <!-- 상단 영역 -->
+            <img src="./image/logo.png" alt="로고" class="logo">
+            <div class="topIcon">
+                <i class="fa-solid fa-lock"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="sidebar">
+                <p>
+                <i class="fa-solid fa-xmark"></i>
+                <div class="sidebar-content"></div>
+                </p>
+            </div>    
+        </div>
+
         <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
             <ul>
                 <li><a href="#" class="highlight">영화</a> <!-- 영화 메뉴 항목 -->
@@ -185,9 +374,115 @@ body {
             </video>
         </div>
         <div id="movie_chart"></div> 
-        <div id="store">store</div> <!-- 스토어 영역 -->
+        <div id="store"> <!-- 스토어 영역 -->
+            <div class="package">
+                <i class="fa-solid fa-plus"></i>
+                <h3>패키지</h3>
+                <img src="./image/나랑-너-패키지.jpg" width=150px height=150px>
+            </div>    
+            <div class="ticket">
+                <i class="fa-solid fa-plus"></i>
+                <h3>영화관람권</h3>
+                <img src="./image/4DX-영화관람권.jpg" width=150px height=150px>
+            </div>    
+            <div class="giftcard">
+                <i class="fa-solid fa-plus"></i>
+                <h3>기프트카드</h3>
+                기프트카드 사진 넣을 곳
+            </div>  
+        </div>   
+
         <div id="bottom">bottom</div> <!-- 하단 영역 -->
         <div id="company">company</div> <!-- 회사 정보 영역 -->
     </div>
 </body>
+<script>
+const login = document.querySelector('.fa-lock');
+const myPage = document.querySelector('.fa-user');
+const menu = document.querySelector('.fa-bars');
+const sidebar = document.querySelector('.sidebar');
+const closeButton = document.querySelector('.fa-xmark');
+const sidebarContent = document.querySelector('.sidebar-content');
+
+// 사이드바 열기닫기
+function moveSidebar(){
+    sidebar.classList.toggle('open');
+}
+
+//로그인버튼누르면 사이드 바 뜸
+login.addEventListener('click', function() { 
+    // if(sidebar.style.right === '0px') {
+    //     sidebar.style.right = '-300px'; //닫기
+    // } else {
+    //     sidebar.style.right = '0px'; //열기
+    // }
+    sidebarContent.innerHTML = ` 
+                    <h3>아이디와 비밀번호를 입력하세요.</h3>  
+                    <form action="/login" method="POST">
+                    <label for="username">아이디:</label>
+                    <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
+                        
+                    <label for="password">비밀번호:</label>
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
+                        
+                    <button type="submit" class="loginBtn">로그인</button>
+    
+                    <h6>아직 회원이 아니세요?</h6>
+                    <button type="button" class="signupBtn">회원가입^__^</button>
+    
+                    <h6><a href=#>비밀번호를 잊어버렸다면?</a></h6>
+                    </form>  `;
+    moveSidebar();                
+});
+
+// 사이드바 닫기 버튼 클릭 시 사이드바 닫기
+closeButton.addEventListener('click', function() {
+    // sidebar.style.right = '-300px';
+    moveSidebar(); 
+});
+
+// ESC 눌러서 사이드 바 닫기
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        // sidebar.style.right = '-300px';
+        moveSidebar(); 
+    }
+});
+
+myPage.addEventListener('click', function() { 
+    // if(sidebar.style.right === '0px') {
+    //     sidebar.style.right = '-300px'; //닫기
+    // } else {
+    //     sidebar.style.right = '0px'; //열기
+    // }
+    sidebarContent.innerHTML = `<h3>마이페이지 내용 뭐 넣지?</h3>`
+    moveSidebar(); 
+});
+
+menu.addEventListener('click', function(){
+    moveSidebar();
+    sidebarContent.innerHTML = `
+                    <h3> 빠른 메뉴 찾기</h3>
+                    <div class= "smallMenu">
+                    <input type="checkbox" id="upperMenu1">
+                    <label for="upperMenu1">영화</label>
+                    <div><p>영화하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu2">
+                    <label for="upperMenu2">극장</label>
+                    <div><p>극장하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu3">
+                    <label for="upperMenu3">예매</label>
+                    <div><p>예매하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu4">
+                    <label for="upperMenu4">스토어</label>
+                    <div><p>스토어하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu5">
+                    <label for="upperMenu5">이벤트</label>
+                    <div><p>이벤트하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu6">
+                    <label for="upperMenu6">혜택</label>
+                    <div><p>혜택하위메뉴들</p></div>
+                </div>`;
+});   
+</script>
 </html>
