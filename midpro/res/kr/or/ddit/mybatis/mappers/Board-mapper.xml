@@ -88,9 +88,7 @@ insert into one_on_one_board(
      select * from notice
     where notice_id = #{notice_id}
   </select>
- 
-
-</mapper>
+ </mapper>
  
 
 
