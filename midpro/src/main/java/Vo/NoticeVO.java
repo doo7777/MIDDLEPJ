@@ -5,6 +5,7 @@ public class NoticeVO {
 	private String title;
 	private String content;
 	private String post_date;
+	
 	public int getNotice_id() {
 		return notice_id;
 	}
