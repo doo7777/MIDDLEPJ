@@ -33,7 +33,6 @@ update notice set
 </select>
 
 <!-- 공지사항 삭제 -->
-.
 <delete id="deleteNotice" parameterType="int">
     delete from notice
     where notice_id = #{notice_id}
