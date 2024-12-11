@@ -5,11 +5,14 @@
         
 <mapper namespace="Customer">
 
-	<insert id="insertCustomer" parameterType="CusVO">
-	INSERT INTO CUSTOMER(CUSTOMER_ID, CUST_PW, CUST_NAME, 
-	CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD)
-	VALUES (#{CUSTOMER_ID}, #{CUST_PW}, #{CUST_NAME}, 
-		#{CUST_EMAIL}, #{CUST_TEL}, #{CUST_POSTCODE}, #{CUST_ADD}, #{CUST_DETAILADD});
-		</insert>
+<insert id="insertCustomer" parameterType="map">
+    INSERT INTO CUSTOMER (
+        CUSTOMER_ID, CUST_PW, CUST_NAME, 
+        CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
+    ) VALUES (
+        #{customer_id}, #{cust_pw}, #{cust_name}, 
+        #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
+    )
+</insert>
 
 </mapper>

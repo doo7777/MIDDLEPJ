@@ -16,10 +16,12 @@ public class CustInsert extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.setCharacterEncoding("utf-8");
         request.getRequestDispatcher("/CustomerInsert.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.setCharacterEncoding("utf-8");
         // 파라미터 수신
         String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
