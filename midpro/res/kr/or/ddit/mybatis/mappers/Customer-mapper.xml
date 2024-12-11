@@ -14,5 +14,5 @@
         #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
     )
 </insert>
-
 </mapper>
+
