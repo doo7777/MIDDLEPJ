@@ -62,6 +62,11 @@
             <label for="cust_id">아이디:</label>
             <input type="text" id="cust_id" name="cust_id" required placeholder="아이디를 입력하세요.">
 
+ 			<div>
+             <button type="button" class="btn btn-success btn-sm" id="idChk">중복검사</button>
+         	 <span id="disp"></span>
+         	</div>
+
             <label for="cust_pw">비밀번호:</label>
             <input type="password" id="cust_pw" name="cust_pw" required placeholder="비밀번호를 입력하세요.">
 
@@ -87,4 +92,34 @@
         </form>
     </div>
 </body>
+<script>
+//id중복검사
+$('#idChk').on('click',function(){
+//  $('#id').on('keyup',function(){});
+    
+    //id영역의 입력 값 얻기
+    const idVal = $('#cust_id').val();
+    
+    //서버위치로 보내주기 - 비동기통신(AJAX) 이용해서 현재 페이지로 응답 받을 예정..
+    $.ajax({
+       url: 'idChk.jsp',   //현재 위치로 요청보내고 다시 응답받을 예정..
+       type: 'get',
+       //data: "userId=" + idVal,
+       data: {userId: idVal},   //객체 형식으로 정보 전달해도 key=value(url인코딩)형식으로 넘어감
+       success:function(rst){
+          console.log(rst);
+          //id=disp영역에 결과 출력하기
+          if(rst.rst == "ok"){
+             $('#disp').text("사용가능").css('color','green');
+          }else{
+             $('#disp').text("사용불가").css('color','red');               
+          }
+       },
+       error:function(xhr){
+          alert(xhr.status);
+       }
+       ,dataType: 'json'
+    });
+ });
+</script>
 </html>
