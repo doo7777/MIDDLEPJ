@@ -26,3 +26,5 @@ public class Movie_RentDaoImpl implements IMovie_RentDao{
 	}
 
 }
+
+

@@ -6,7 +6,7 @@ import Vo.NoticeVO;
 
 public interface INoticeDao {
 	/**
-	 * 공지사항 등록
+	 * 관리자 공지사항 등록
 	 * @param noticeVO
 	 * @return
 	 */
@@ -34,4 +34,6 @@ public interface INoticeDao {
 	 * @return
 	 */
 	public NoticeVO getNotice(int notice_id);
+	
+
 }
