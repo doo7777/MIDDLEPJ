@@ -312,12 +312,36 @@
         /* .dropmenu p {
             clear: left; 왼쪽 정렬 해제
         } */
+        
+        #noticeClient { 
+            color: white; 
+            padding: 0 25px; /* 좌우 패딩 설정 */ 
+            border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
+            border-radius: 10px; 
+            display: inline-block; /* 내용에 맞게 테두리 조절 */ 
+            margin-left: 220px; /* 화면에서 오른쪽으로 이동 */
+        } 
+        .client_btn_wrap a { 
+            display: inline-block; 
+            margin-right: 10px; 
+            color: #f4f4f4; 
+            text-decoration: none; 
+        } 
+        .notice_wrap { 
+            font-weight: bold; 
+            margin-top: 20px; /* 위로 공간 추가 */ 
+            margin-bottom: 10px; 
+        }
+        .client_btn_wrap { 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+        }
     </style>
 </head>
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <source src="sorce/img/DGV-로고.png" type="image/png">
+            <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
             <div class="topIcon">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fa-regular fa-user"></i>
@@ -382,21 +406,45 @@
             <div class="package">
                 <i class="fa-solid fa-plus"></i>
                 <h3>패키지</h3>
-                <img src="./image/나랑-너-패키지.jpg" width=150px height=150px>
+                <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" width=150px height=150px>
             </div>    
             <div class="ticket">
                 <i class="fa-solid fa-plus"></i>
                 <h3>영화관람권</h3>
-                <img src="./image/4DX-영화관람권.jpg" width=150px height=150px>
+                <img src="sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" width=150px height=150px>
             </div>    
             <div class="giftcard">
                 <i class="fa-solid fa-plus"></i>
                 <h3>기프트카드</h3>
                 기프트카드 사진 넣을 곳
             </div>  
-        </div>   
+        </div>
+        <div id="noticeClient" style="color: white;">
+                <div id="notice_wrap" class="notice_wrap">
+                    <dt><strong>공지사항</strong></dt>
+                    <dd>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내</a>
+                        <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                    </dd>
+                </div>
 
-        <div id="bottom">bottom</div> <!-- 하단 영역 -->
+                <div class="client_wrap">
+                    <dl class="client_list">
+                        <dt><strong>고객센터</strong></dt>
+                        <dd>
+                            <strong>1234-1234</strong>
+                            <span>고객센터 운영시간 (평일 09:00~18:00)
+                                <p>업무시간 외 자동응답 안내 가능합니다.</p>
+                            </span>
+                        </dd>
+                    </dl>
+                    <div class="client_btn_wrap" id="client_btn_wrap">
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a>
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>
+                    </div>
+                </div>
+            </div>   
         <div id="company">company</div> <!-- 회사 정보 영역 -->
     </div>
 </body>
@@ -425,6 +473,7 @@ login.addEventListener('click', function() {
     //     sidebar.style.right = '0px'; //열기
     // }
     sidebarContent.innerHTML = ` 
+    				<img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
                     <form action="/login" method="POST">
                     <label for="username">I D:</label>
                     <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
@@ -472,7 +521,6 @@ myPage.addEventListener('click', function() {
 });
 
 menu.addEventListener('click', function(){
-    moveSidebar();
     sidebarContent.innerHTML = `
                     <h3> 빠른 메뉴 찾기</h3>
                     <div class= "smallMenu">
@@ -495,6 +543,7 @@ menu.addEventListener('click', function(){
                     <label for="upperMenu6">혜택</label>
                     <div><p>혜택하위메뉴들</p></div>
                 </div>`;
+    moveSidebar();
 });   
 </script>
 </html>
