@@ -5,6 +5,8 @@
         
 <mapper namespace="Customer">
 
+									<!-- 회원가입 매퍼  -->
+									
 <insert id="insertCustomer" parameterType="cusVO">
     INSERT INTO CUSTOMER (
         CUSTOMER_ID, CUST_PW, CUST_NAME, 
@@ -14,5 +16,11 @@
         #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
     )
 </insert>
+
+								<!-- 전체회원 목록 조회 -->
+								
+	<select id="custList" resultType="cusVO">
+		select * from customer
+	</select>
 
 </mapper>

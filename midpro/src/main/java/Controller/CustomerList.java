@@ -19,6 +19,10 @@ public class CustomerList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ICustomerService service = CustomerServiceImpl.getInstance();
 		List<CustomerVO>custList = service.getAllCustomer();
+		
+		request.setAttribute("custs", custList);
+		
+		request.getRequestDispatcher("/CustomerList.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
