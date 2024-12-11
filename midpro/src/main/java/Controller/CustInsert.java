@@ -16,7 +16,7 @@ public class CustInsert extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/midpro/CustomerInsert.jsp").forward(request, response);
+        request.getRequestDispatcher("/CustomerInsert.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +46,7 @@ public class CustInsert extends HttpServlet {
         int result = service.insertCustomer(custVo);
 
         if (result > 0) {
-            response.sendRedirect(request.getContextPath() + "/customerList.do");
+            response.sendRedirect(request.getContextPath() + "/StartMain.jsp");
         } else {
             response.getWriter().println("<h1>회원가입 실패. 다시 시도해주세요.</h1>");
         }
