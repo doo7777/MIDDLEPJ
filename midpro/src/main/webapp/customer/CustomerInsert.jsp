@@ -92,6 +92,7 @@
         </form>
     </div>
 </body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 //주소 검색 이벤트
 $('#addrBtn').on('click',addr);
@@ -100,9 +101,9 @@ function addr() {
      new daum.Postcode({
          oncomplete: function(data) {
            
-             document.getElementById('postAddr').value = data.zonecode;   //우편번호
+             document.getElementById('cust_post').value = data.zonecode;   //우편번호
              // jsp파일은 백틱을 사용한 탬플릿리터럴과 el tag형식이 사용해 충돌될 수 있으므로 백틱 사용시 $앞쪽에 \(백슬래시)를 붙여 쓰자
-             document.getElementById("addr1").value = `\${data.roadAddress}(\${data.jibunAddress})`;   //도로명 주소
+             document.getElementById("cust_add").value = `\${data.roadAddress}(\${data.jibunAddress})`;   //도로명 주소
              //document.getElementById("sample4_jibunAddress").value = data.jibunAddress; //지번 주소
              
          }
@@ -118,7 +119,7 @@ $('#idChk').on('click',function(){
     
     //서버위치로 보내주기 - 비동기통신(AJAX) 이용해서 현재 페이지로 응답 받을 예정..
     $.ajax({
-       url: 'customer/idChk.jsp',   //현재 위치로 요청보내고 다시 응답받을 예정..
+       url: '/midpro/customer/idChk.jsp',   //현재 위치로 요청보내고 다시 응답받을 예정..
        type: 'get',
        //data: "userId=" + idVal,
        data: {userId: idVal},   //객체 형식으로 정보 전달해도 key=value(url인코딩)형식으로 넘어감

@@ -22,32 +22,39 @@
       Class.forName("oracle.jdbc.driver.OracleDriver");
       //2. 드라이버 매니저로 connection객체 생성
       String url = "jdbc:oracle:thin:@112.220.114.131:1521:xe";
-      conn = DriverManager.getConnection(url, "teama_202409m", "java");
+      conn = DriverManager.getConnection(url, "team1_202409m", "java");
       //3. statement객체 생성
       stmt = conn.createStatement();
       //4. 쿼리 조회 후 응답 생성
-      String sql = "select cust_id from customer where cust_id = '" + uId + "'";
+      String sql = "select customer_id from customer where customer_id = '" + uId + "'";
       rs = stmt.executeQuery(sql);
+      
       
       if(rs.next()){
          //넘어오는 정보가 존재한다 >> 중복
          //응답정보를 json형식으로 생성 후 전달 예정...
    %>
-         {"rst":"no"}
+         {"rst":"no"} 
    <% 
       }else{
-         //중복아님
+         //중복 아님 (넘어오는 정보 없음)
    %>      
-         {"rst":"ok"}
+         {"rst":"ok"} 
    <%
       }
    }catch(SQLException e){
       e.printStackTrace();
    }finally{
       //객체종료
-      rs.close();
-      stmt.close();
-      conn.close();
+    if (rs != null) {
+   		 rs.close();
+	}
+	if (stmt != null) {
+    	stmt.close();
+	}
+	if (conn != null) {
+   		 conn.close();
+	}
    }
    %>
    
