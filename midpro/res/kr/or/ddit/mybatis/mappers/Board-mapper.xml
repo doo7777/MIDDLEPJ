@@ -11,10 +11,11 @@
                      
 <!-- 공지사항 추가 -->
 <insert id="insertNotice" parameterType="noticeVO">
-INSERT INTO notice (
-        notice_id, title, content, post_date) 
-        VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{content}, sysdate);
- 
+    INSERT INTO notice (
+        notice_id, title, content, post_date
+    ) VALUES (
+        NOTICE_SEQ.NEXTVAL, #{title}, #{content}, sysdate
+    )
 </insert>
 
 
