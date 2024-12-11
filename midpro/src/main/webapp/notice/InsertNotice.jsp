@@ -79,12 +79,6 @@
             <label for="title">제목:</label>
             <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
 
-            <label for="date">등록일:</label>
-            <input type="text" id="date" name="date" placeholder="YYYY-MM-DD 형식으로 입력하세요" required>
-
-            <label for="views">조회수:</label>
-            <input type="text" id="views" name="views" value="0" readonly>
-
             <label for="content">내용:</label>
             <textarea id="content" name="content" placeholder="내용을 입력하세요" required></textarea>
 
