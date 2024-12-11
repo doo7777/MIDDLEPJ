@@ -42,7 +42,7 @@ update notice set
     where notice_id = #{notice_id}
   </select>
   
-  
+  <!-- asd -->
   
   </mapper>
   
