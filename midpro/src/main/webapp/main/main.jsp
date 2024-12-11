@@ -162,7 +162,10 @@
             max-width: 1500px;
             margin: 0 auto;
         }
-
+		#noticeClient{
+		 display: flex;
+		  justify-content: left;
+		}
         .package, .ticket, .giftcard {
             color: black;
             background: white;
@@ -419,11 +422,12 @@
                 기프트카드 사진 넣을 곳
             </div>  
         </div>
+        <br><br>
         <div id="noticeClient" style="color: white;">
                 <div id="notice_wrap" class="notice_wrap">
                     <dt><strong>공지사항</strong></dt>
                     <dd>
-                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내</a>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
                         <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
                     </dd>
                 </div>
@@ -434,14 +438,14 @@
                         <dd>
                             <strong>1234-1234</strong>
                             <span>고객센터 운영시간 (평일 09:00~18:00)
-                                <p>업무시간 외 자동응답 안내 가능합니다.</p>
+                                <p>업무시간 외 자동응답 안내 불가능합니다.</p>
                             </span>
                         </dd>
                     </dl>
                     <div class="client_btn_wrap" id="client_btn_wrap">
-                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a>
-                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>
-                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                     </div>
                 </div>
             </div>   
