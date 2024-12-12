@@ -18,7 +18,13 @@
     )
 </insert>
 
+<select id="getAllNotice" resultType="noticeVO">
+ select * from notice
+</select>
 
+<delete id="deleteNotice">
+	delete from notice where notice_id= #{notice_id}
+</delete>
 
  </mapper>
 

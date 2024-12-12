@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -391,6 +390,41 @@
                 /* text-decoration: none; */ /* 텍스트 장식 제거 */
              /* }  */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
             .sidebar {
                 display: flex; /* Flexbox 사용 */
                 justify-content: center; /* 수평 중앙 정렬 */
@@ -507,6 +541,10 @@
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
+    
+           
+    
+            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -535,12 +573,13 @@
                 font-size: 18px;
             }
 
+
+
             /* #noticeClient{
              display: flex;
               justify-content: left;
             } */
 
-<<<<<<< HEAD
          .policy_list { 
                display: flex; 
                flex-wrap: wrap; 
@@ -574,42 +613,6 @@
                display: inline; 
                margin-right: 1px; 
            }
-=======
-			.policy_list { 
-			border:1px solid black; 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	        } 
-/* 	        .policy_list li {  */
-/* 	            margin-right: 15px; /* 단어 사이 간격 조절 */ */
-/* 	            padding: 0;  */
-/* 	        } */
-	        .company_info_wrap { /* 주소 */
-	            display: flex; 
-	            align-items: center; 
-	            margin-left: 450px; 
-	        } 
-	        
-	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-	            margin: 0; 
-	            padding: 1; 
-	        } 
-	        .company_info_list { 
-	            display: inline; 
-	            align-items: right; 
-	        } 
-	        .company_info_list dt  { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        } 
-	        .company_info_list dd { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        }
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
 
 
@@ -622,7 +625,7 @@
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                     <div class="icon-text">
-                        <i class="fa-solid fa-lock" id="loginbutton"></i>
+                        <i class="fa-solid fa-lock"></i>
                         <h4 id="btnfont" class="login">로그인</h4>
                     </div>
                     <div class="icon-text">
@@ -635,20 +638,22 @@
                     </div>
                 </div>
                 <div class="sidebar">
+                    <p>
                     <i class="fa-solid fa-xmark"></i>
                     <div class="sidebar-content"></div>
+                    </p>
                 </div>    
             </div>
     
             <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
                 <ul>
-                    <li><a href="#" class="highlight">영화</a> <!-- 영화 메뉴 항목 -->
+                    <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
                         <ul>
                             <li><a href="#">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                             <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                         </ul>
                     </li>
-                    <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
+                    <li><a href="#" class="highlight" id="current">기모찡</a></li> <!-- 극장 메뉴 항목 -->
                     <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
                         <ul>
                             <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
@@ -690,6 +695,8 @@
             <div id="movie_play"><!-- 영화 재생 영역 -->
                 <video autoplay muted loop>
                     <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
                 </video>
             </div>
             <div class="header">
@@ -729,13 +736,11 @@
             <br><br>
             <div id="noticeClient" style="color: white;">
                     <div id="notice_wrap" class="notice_wrap">
-                    <dl>
                         <dt><strong>공지사항</strong></dt>
                         <dd>
                             <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
                             <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
                         </dd>
-                        </dl>
                     </div>
     
                     <div class="client_wrap">
@@ -744,7 +749,7 @@
                             <dd>
                                 <strong>1234-1234</strong>
                                 <span>고객센터 운영시간 (평일 09:00~18:00)
-                                     업무시간 외 자동응답 안내 불가능합니다.
+                                    <p>업무시간 외 자동응답 안내 불가능합니다.</p>
                                 </span>
                             </dd>
                         </dl>
@@ -760,15 +765,15 @@
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
             <div class="policy_list" style="color: white;">
-                <a href="" target="_blank">회사소개</a>
-                <a href="" target="_blank">채용정보</a>
-                <a href="" target="_blank">광고/제휴/출점문의</a>
-                <a href="">이용약관</a>
-                <a href="">편성기준</a>
-                <a href=""><strong>개인정보처리방침</strong></a>
-                <a href="">법적고지</a>
-                <a href="">이메일주소무단수집거부</a>
-                <a href="" target="_blank">윤리경영</a>
+                <li><a href="" target="_blank">회사소개</a></li>
+                <li><a href="" target="_blank">채용정보</a></li>
+                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
+                <li><a href="">이용약관</a></li>
+                <li><a href="">편성기준</a></li>
+                <li><a href=""><strong>개인정보처리방침</strong></a></li>
+                <li><a href="">법적고지</a></li>
+                <li><a href="">이메일주소무단수집거부</a></li>
+                <li><a href="" target="_blank">윤리경영</a></li>
             </div>
             <br>
             <hr>
@@ -792,7 +797,7 @@
     
     
     <script>
-    const login = document.querySelector('#loginbutton');
+    const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
@@ -801,7 +806,6 @@
     let signup = "";
 
     // 사이드바 열기닫기
-<<<<<<< HEAD
    function moveSidebar() {
        sidebar.classList.toggle('open');
        
@@ -813,31 +817,7 @@
            });
        }
    }
-=======
-<<<<<<< HEAD
-    function moveSidebar(){
-        sidebar.classList.toggle('open');
-        signup = document.querySelector('#join');
-        signup.addEventListener('click',function(){
-            window.location.href = '/midpro/customer/Signup.jsp';
-        });
-    }
-    
-=======
-	function moveSidebar() {
-	    sidebar.classList.toggle('open');
-	    
-	    // 사이드바가 열릴 때마다 signup 버튼을 찾기
-	    const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-	    if (signup) { // signup 버튼이 존재하는지 확인
-	        signup.addEventListener('click', function() {
-	            window.location.href = '/midpro/customer/Signup.jsp';
-	        });
-	    }
-	}
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
   
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -873,72 +853,8 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
-
-<<<<<<< HEAD
-    // 메뉴 클릭 시 사이드바 내용 업데이트
-    if (menu) { // menu가 정의되어 있을 때만 이벤트 리스너 추가
-        menu.addEventListener('click', function() {
-            sidebarContent.innerHTML = `
-                <h3>빠른 메뉴 찾기</h3>
-                <div class="smallMenu">
-                    <input type="checkbox" id="upperMenu1">
-                    <label for="upperMenu1">영화</label>
-                    <div><p>영화하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu2">
-                    <label for="upperMenu2">극장</label>
-                    <div><p>극장하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu3">
-                    <label for="upperMenu3">예매</label>
-                    <div><p>예매하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu4">
-                    <label for="upperMenu4">스토어</label>
-                    <div><p>스토어하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu5">
-                    <label for="upperMenu5">이벤트</label>
-                    <div><p>이벤트하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu6">
-                    <label for="upperMenu6">혜택</label>
-                    <div><p>혜택하위메뉴들</p></div>
-                </div>`;
-            moveSidebar();
-        });
-    } else {
-        console.error('Menu icon not found!');
-    }
-
     
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayer = document.getElementById('videoPlayer');
-    
-        function movie_play(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-    
-        function loadRandomVideo() {
-            const randomVideo = movie_play(1, 3);
-            const sources = videoPlayer.querySelectorAll('source');
-    
-            sources.forEach(source => source.src = '');
-    
-            switch (randomVideo) {
-                case 1:
-                    sources[0].src = 'sorce/영상 소스파일1.mp4';
-                    break;
-                case 2:
-                    sources[1].src = 'sorce/영상 소스파일2.mp4';
-                    break;
-                case 3:
-                    sources[2].src = 'sorce/영상 소스파일3.mp4';
-                    break;
-            }
-    
-            videoPlayer.load();
-        }
-    
-        loadRandomVideo();
-        videoPlayer.addEventListener('ended', loadRandomVideo);
-    });
-    
+    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
     document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('.header');
         const charts = document.querySelectorAll('.chart');
@@ -970,9 +886,8 @@
                 }, index * 100);
             });
         }
-    
         const buttons = document.querySelectorAll('.menu-button');
-    
+        
         buttons.forEach(button => {
             button.addEventListener('click', function() {
                 buttons.forEach(btn => btn.classList.remove('active'));
@@ -990,21 +905,39 @@
             });
         }
     });
-    
-        document.getElementById('searchButton').addEventListener('click', function() {
-        const query = document.getElementById('search').value.trim(); // 입력값의 앞뒤 공백 제거
-        if (query) {
-            // 검색어를 처리하는 로직 (예: 서버로 전송)
-            // 예시: 영화 제목에 따라 상세 페이지로 이동
-            const moviePageUrl = `/movie-detail.html?title=${encodeURIComponent(query)}`;
-            window.location.href = moviePageUrl; // 상세 페이지로 이동
-        } else {
-            alert('검색어를 입력해주세요.');
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const videoPlayer = document.getElementById('movie_play');
+   
+    function movie_play(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+   
+    function loadRandomVideo() {
+        const randomVideo = movie_play(1, 3);
+        const sources = videoPlayer.querySelectorAll('source');
+   
+        sources.forEach(source => source.src = '');
+   
+        switch (randomVideo) {
+            case 1:
+                sources[0].src = 'sorce/영상 소스파일1.mp4';
+                break;
+            case 2:
+                sources[1].src = 'sorce/영상 소스파일1.mp4';
+                break;
+            case 3:
+                sources[2].src = 'sorce/영상 소스파일1.mp4';
+                break;
         }
-    });
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
+   
+        videoPlayer.load();
+    }
+   
+    loadRandomVideo();
+    videoPlayer.addEventListener('ended', loadRandomVideo);
+   });
+
     </script>
-    
     </html>
     

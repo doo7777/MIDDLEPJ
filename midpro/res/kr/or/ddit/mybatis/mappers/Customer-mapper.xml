@@ -16,5 +16,13 @@
         #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
     )
 </insert>
+
+<select id="getAllCustomer" resultType="cusVO">
+
+	select * from customer
+
+</select>
+
+
 </mapper>
 
