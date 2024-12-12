@@ -37,7 +37,7 @@ public interface ICustomerService {
 	 * @param cus_ID
 	 * @return
 	 */
-	public CustomerVO getCustomer(String cus_ID);
+	public CustomerVO getCustomer(String cus_ID, String cus_pw);
 	
 
 }

@@ -7,26 +7,27 @@
 
 									<!-- 회원가입 매퍼  -->
 									
-<insert id="insertCustomer" parameterType="cusVO">
-    INSERT INTO CUSTOMER (
-        CUSTOMER_ID, CUST_PW, CUST_NAME, 
-        CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
-    ) VALUES (
-        #{customer_id}, #{cust_pw}, #{cust_name}, 
-        #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
-    )
-</insert>
-<<<<<<< HEAD
+	<insert id="insertCustomer" parameterType="cusVO">
+	    INSERT INTO CUSTOMER (
+	        CUSTOMER_ID, CUST_PW, CUST_NAME, 
+	        CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
+	    ) VALUES (
+	        #{customer_id}, #{cust_pw}, #{cust_name}, 
+	        #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
+	    )
+	</insert>
+	
+	<select id="getCustomerdetail" resultType="cusVO" parameterType="cusVO">
+		select * from customer where customer_id = #{customer_id} and cust_pw = #{cus_pw}	
+	
+	</select>
 
 <select id="getAllCustomer" resultType="cusVO">
 
 	select * from customer
 
 </select>
-
-
-=======
-
+</mapper>
 
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
 <!-- update customer set  -->
