@@ -557,15 +557,6 @@
             .sect-ad {
                 width: 1000px; /* 고정 너비 */ 
             } 
-            /* 회사정보(소개,채용) */
-            .policy_list { 
-                width: 1000px; /* 고정 너비 */ 
-                margin-left: 530px; 
-            } 
-            .policy_list a { 
-                margin-right: 10px; 
-                display: inline-block; 
-            }
             /* 회사정보(주소) */
             .company_info { 
                 width: 1000px; /* 고정 너비 */ 
@@ -585,6 +576,15 @@
             .company_info_list dt, .company_info_list dd { 
                 display: inline-block; 
                 margin-right: 10px; 
+            }
+
+            .inline-block { 
+            display: inline-block; 
+            vertical-align: middle; /* 수직 정렬 */ 
+            } 
+            
+            input[type="text"] { 
+            vertical-align: middle; /* 수직 정렬 */ 
             }
 
 
@@ -736,16 +736,6 @@
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
-            <div class="policy_list" style="color: white;">
-                <a href="" target="_blank">회사소개</a>
-                <a href="" target="_blank">채용정보</a>
-                <a href="" target="_blank">광고/제휴/출점문의</a>
-                <a href="">이용약관</a>
-                <a href="">편성기준</a>
-                <a href=""><strong>개인정보처리방침</strong></a>
-                <a href="">법적고지</a>
-                <a href="">이메일주소무단수집거부</a>
-            </div>
             <br>
             <br>
             <hr>
@@ -795,9 +785,9 @@
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
-            	<img src="sorce/img/로그인/ID.png" alt="아이디" id="ID" width="25" height="25"><br>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br><br>
-                <img src="sorce/img/로그인/PW.png" alt="비밀번호" id="PW" width="25" height="25"><br>
+                <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="25" height="25" class="inline-block">
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
+                <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="25" height="25" class="inline-block">
                 <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
                 <button type="submit" class="loginBtn">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
