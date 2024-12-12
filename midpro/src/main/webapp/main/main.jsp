@@ -580,7 +580,6 @@
               justify-content: left;
             } */
 
-
 			.policy_list { 
 	            display: flex; 
 	            flex-wrap: wrap; 
@@ -614,6 +613,8 @@
 	            display: inline; 
 	            margin-right: 1px; 
 	        }
+
+
 
 
 
@@ -851,7 +852,6 @@
     	
 //     }
     
-// 서버에서 전달받은 파라미터 값에 따라 moveSidebar() 함수 호출
    const barParam = '<%=request.getParameter("bar")%>';
    if (barParam == 'on') {
 	   sidebarContent.innerHTML = ` 
@@ -966,7 +966,6 @@
             const randomNum = Math.floor(Math.random() * 3) + 1;
             return randomNum; // 난수를 반환
 
-        }
 
 
         const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
