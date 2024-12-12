@@ -6,7 +6,14 @@ public class NoticeVO {
 	private String content;
 	private String post_date;
 	private String notice_view;
+	private String notice_sort;
 	
+	public String getNotice_sort() {
+		return notice_sort;
+	}
+	public void setNotice_sort(String notice_sort) {
+		this.notice_sort = notice_sort;
+	}
 	public String getNotice_id() {
 		return notice_id;
 	}
@@ -40,8 +47,10 @@ public class NoticeVO {
 	@Override
 	public String toString() {
 		return "NoticeVO [notice_id=" + notice_id + ", title=" + title + ", content=" + content + ", post_date="
-				+ post_date + ", notice_view=" + notice_view + "]";
+				+ post_date + ", notice_view=" + notice_view + ", notice_sort=" + notice_sort + "]";
 	}
+	
+	
 	
 	
 	

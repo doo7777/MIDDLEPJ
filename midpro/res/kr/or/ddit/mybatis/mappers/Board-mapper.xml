@@ -18,13 +18,6 @@
     )
 </insert>
 
-<!-- 공지사항 수정 -->
-<update id="updateNotice" parameterType="noticeVO">
-update notice set
-      title=#{title}, content=#{content}, post_date=#{post_date}
-       where notice_id = #{notice_id}
-</update>
-
 
 <!-- 전제 공지사항 조회 -->
 <select id= "getAllNotce" resultType="noticeVO">
@@ -89,6 +82,7 @@ insert into one_on_one_board(
   </select>
 
  </mapper>
+
 
 
 
