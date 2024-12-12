@@ -17,7 +17,7 @@
     )
 </insert>
 
-<update id="updateCustomer" parameterType="cusVO">
+<!-- <update id="updateCustomer" parameterType="cusVO">
 update customer set 
 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email}, 
 			cust_tel = #{cust_tel} , cust_postcode=#{cust_postcod}, cust_add = #{cust_add}, cust_detailadd=#{cust_detailadd},
@@ -35,6 +35,6 @@ update customer set
 	
 	<select id="getCustomer" parameterType="string" resultType="cusVo">
 		select * from customer where customer_id=#{customer_id}
-	</select>
+	</select> -->
 </mapper>
 
