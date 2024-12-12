@@ -795,9 +795,9 @@
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
-                <label for="username">I D:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                <label for="password">PW:</label>
+            	<img src="sorce/img/로그인/ID.png" alt="아이디" id="ID" width="25" height="25"><br>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br><br>
+                <img src="sorce/img/로그인/PW.png" alt="비밀번호" id="PW" width="25" height="25"><br>
                 <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
                 <button type="submit" class="loginBtn">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
