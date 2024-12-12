@@ -120,6 +120,7 @@
             </div>
         </form>
     </div>
+    
 </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -168,5 +169,11 @@ $('#idChk').on('click',function(){
        ,dataType: 'json'
     });
  });
+ 
+ 
+ 
+ 
+ 
+ 
 </script>
 </html>
