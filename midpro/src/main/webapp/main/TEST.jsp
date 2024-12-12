@@ -810,7 +810,7 @@
         sidebar.classList.toggle('open');
         signup = document.querySelector('#join');
         signup.addEventListener('click',function(){
-            window.location.href = '/midpro/customer/CustomerInsert.jsp';
+            window.location.href = '/midpro/customer/Signup.jsp';
         });
     }
   
