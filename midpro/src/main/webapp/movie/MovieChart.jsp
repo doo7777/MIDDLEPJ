@@ -48,7 +48,6 @@
             font-size: 18px;
             padding: 0 0 0 220px;
             background-color: black;
-            border-bottom: 2px solid rgb(239, 132, 0);
         }
         .dropmenu li a {
             color: #fff;
@@ -99,15 +98,17 @@
 
         /* 우측 상단 메뉴 아이콘 */
         .fa-headset, .fa-regular, .fa-lock {
-            font-size: 24px;
-            color: #ffffff;
-            cursor: pointer;
-            padding: 10px;
+                font-size: 24px;
+                color: #ffffff;
+                /* align-items: center; */
+                cursor: pointer;
+                padding: 10px;
         }
         .topIcon {                
             position: relative;
             right: 250px;
             top: 50px;
+            /* height: 2500px; */
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -269,11 +270,6 @@
             height: 400px; /* 회사 정보 영역의 높이 설정 */
         }
         
-        #movie_List_Name {
-        	color: white;
-        	text-align: center;
-        }
-        
         #movie_list {
             display: flex;
             flex-wrap: wrap; /* 공간이 부족하면 다음 줄로 이동 */
@@ -369,7 +365,7 @@
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <img src=".sorce/image/DGV-로고.png" alt="로고" class="logo">
+            <img src="./image/logo.png" alt="로고" class="logo">
             <div class="topIcon">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fa-regular fa-user"></i>
@@ -423,7 +419,7 @@
                 </li>
             </ul>
         </div>
-		<h2 id="movie_List_Name">무비 차트</h2>
+
         <div id="movie_list"><!-- 영화 목록 영역 -->
  
         </div>
@@ -521,31 +517,31 @@
     });
 
 
-    	const movies = [
-    { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%" },
-    { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%" },
-    { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%" },
-    { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%" },
-    { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%" },
-    { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%" },
-    { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", rating: "90%" },
-    { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%" },
-    { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%" },
-    { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%" },
-    { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%" },
-    { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%" },
-    { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%" },
-    { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%" },
-    { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%" },
-    { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%" }
+    const movies = [
+    { title: "소방관", image: "../../../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%" },
+//     { title: "대가족", image: "./image/영화2.jpg", releaseDate: "2024.12.11", rating: "96%" },
+//     { title: "하얼빈", image: "./image/영화3.jpg", releaseDate: "2024.12.24", rating: "99%" },
+//     { title: "모아나2", image: "./image/영화4.jpg", releaseDate: "2024.11.27", rating: "92%" },
+//     { title: "위키드", image: "./image/영화5.jpg", releaseDate: "2024.11.20", rating: "94%" },
+//     { title: "더 크로우", image: "./image/영화6.jpg", releaseDate: "2024.12.11", rating: "69%" },
+//     { title: "크리스마스에 기적을 만날 확률", image: "./image/영화7.jpg", releaseDate: "2024.12.11", rating: "90%" },
+//     { title: "이처럼 사소한 것들", image: "./image/영화8.jpg", releaseDate: "2024.12.11", rating: "95%" },
+//     { title: "아키라", image: "./image/영화9.jpg", releaseDate: "2024.12.11", rating: "91%" },
+//     { title: "짱구", image: "./image/영화10.jpg", releaseDate: "2024.12.18", rating: "99%" },
+//     { title: "퍼스트레이디", image: "./image/영화11.jpg", releaseDate: "2024.12.12", rating: "88%" },
+//     { title: "서브스턴스", image: "./image/영화12.jpg", releaseDate: "2024.12.11", rating: "92%" },
+//     { title: "1승", image: "./image/영화13.jpg", releaseDate: "2024.12.04", rating: "93%" },
+//     { title: "듄2", image: "./image/영화14.jpg", releaseDate: "2024.12.04", rating: "93%" },
+//     { title: "여름날의 레몬그라스", image: "./image/영화15.jpg", releaseDate: "2024.11.27", rating: "83%" },
+//     { title: "청설", image: "./image/영화16.jpg", releaseDate: "2024.11.06", rating: "96%" },
     ];
 
     const movieList = document.querySelector("#movie_list");
 
     // forEach를 통해 movies 배열에 있는 변수 하나씩 꺼내감
-    movies.forEach(movie => {
+        movies.forEach(movie => {
         const movieItem = document.createElement("div");
-        movieItem.classList.add('movieItem');
+        movieItem.className = "movieItem";
 
         // 포스터를 감싸는 movieListBox
         const movieListBox = document.createElement("div");
@@ -573,14 +569,14 @@
         // 개봉일
         const releaseDate = document.createElement("p");
         releaseDate.className = "releaseDate";
-        releaseDate.innerText = `개봉일: \${movie.releaseDate}`;
+        releaseDate.innerText = `개봉일: ${movie.releaseDate}`;
 
         movieInfoBox.appendChild(releaseDate);
 
         // 평점
         const rating = document.createElement("p");
         rating.className = "movieRating";
-        rating.innerText = `평점: \${movie.rating}`;
+        rating.innerText = `평점: ${movie.rating}`;
         movieInfoBox.appendChild(rating);
 
         // 예매하기 버튼

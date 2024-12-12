@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 안되는거 : 회원가입, 동영상 난수재생
 - 난수재생은 거의다 수정해가고 나머지 다 수정완료 / 작동확ㅇ니
 
@@ -7,6 +9,7 @@
 
 
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -591,6 +594,41 @@
               justify-content: left;
             } */
 
+<<<<<<< HEAD
+         .policy_list { 
+               display: flex; 
+               flex-wrap: wrap; 
+               list-style: none; 
+               padding: 10; 
+               margin: 0 440px; 
+           } 
+           .policy_list li { 
+               margin-right: 15px; /* 단어 사이 간격 조절 */
+               padding: 0; 
+           }
+           .company_info_wrap { /* 주소 */
+               display: flex; 
+               align-items: center; 
+               margin-left: 450px; 
+           } 
+           
+           .company_info address, .company_info_list, .company_info p { /* 주소간격 */
+               margin: 0; 
+               padding: 1; 
+           } 
+           .company_info_list { 
+               display: inline; 
+               align-items: right; 
+           } 
+           .company_info_list dt  { 
+               display: inline; 
+               margin-right: 1px; 
+           } 
+           .company_info_list dd { 
+               display: inline; 
+               margin-right: 1px; 
+           }
+=======
 
 			.policy_list { 
 	            display: flex; 
@@ -626,6 +664,7 @@
 	            margin-right: 1px; 
 	        }
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
 
 
@@ -662,13 +701,13 @@
     
             <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
                 <ul>
-                    <li><a href="#" class="highlight">영화</a> <!-- 영화 메뉴 항목 -->
+                    <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
                         <ul>
                             <li><a href="#">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                             <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                         </ul>
                     </li>
-                    <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
+                    <li><a href="#" class="highlight" id="current">기모찡</a></li> <!-- 극장 메뉴 항목 -->
                     <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
                         <ul>
                             <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
@@ -707,6 +746,15 @@
                 </button>
             </div>
             <hr>
+<<<<<<< HEAD
+            <div id="movie_play"><!-- 영화 재생 영역 -->
+                <video autoplay muted loop>
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+                </video>
+            </div>
+=======
 
 			<div id="movie_play"><!-- 영화 재생 영역 -->
 			    <video autoplay muted loop>
@@ -716,6 +764,7 @@
 			    </video>
 			</div>
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
                 <h4>|</h4>
@@ -834,6 +883,9 @@
            });
        }
    }
+<<<<<<< HEAD
+  
+=======
 
     
 // 서버에서 전달받은 파라미터 값에 따라 moveSidebar() 함수 호출
@@ -854,6 +906,7 @@
        moveSidebar();
    }
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -942,6 +995,30 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
+<<<<<<< HEAD
+    const videoPlayer = document.getElementById('movie_play');
+   
+    function movie_play(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+   
+    function loadRandomVideo() {
+        const randomVideo = movie_play(1, 3);
+        const sources = videoPlayer.querySelectorAll('source');
+   
+        sources.forEach(source => source.src = '');
+   
+        switch (randomVideo) {
+            case 1:
+                sources[0].src = 'sorce/영상 소스파일1.mp4';
+                break;
+            case 2:
+                sources[1].src = 'sorce/영상 소스파일1.mp4';
+                break;
+            case 3:
+                sources[2].src = 'sorce/영상 소스파일1.mp4';
+                break;
+=======
 
         const videoPlayer = document.getElementById('movie_play');
         const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
@@ -950,7 +1027,19 @@
             const randomNum = Math.floor(Math.random() * 3) + 1;
             return randomNum; // 난수를 반환
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         }
+<<<<<<< HEAD
+   
+        videoPlayer.load();
+    }
+   
+    loadRandomVideo();
+    videoPlayer.addEventListener('ended', loadRandomVideo);
+   });
+
+    </script>
+=======
 
 
 
@@ -986,4 +1075,5 @@
 </script>
     
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     </html>
