@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration 
-	PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
-			"http://mybatis.org/dtd/mybatis-3-config.dtd">
+   PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
 	<!-- DB 연결 정보가 저장된 propertis파일 정보 설정 -->
 	<properties resource="kr/or/ddit/mybatis/config/dbinfo.properties"/>
 	
@@ -25,8 +26,8 @@
 		<typeAlias type="패키지명을 포함한 전체 클래스이름" alias="별칭"/>
 	</typeAliases>
 	-->
-	<typeAliases>
 <!-- 		<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/> -->
+	<typeAliases>
 		<typeAlias type="Vo.CustomerVO" alias="cusVO"/>
 		<typeAlias type="Vo.NoticeVO" alias="noticeVO"/>
 		<typeAlias type="Vo.MovieVO" alias="movieVO"/>
@@ -66,14 +67,5 @@
 		<mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
 	</mappers>
 	
+
 </configuration>
-
-
-
-
-
-
-
-
-			
-			

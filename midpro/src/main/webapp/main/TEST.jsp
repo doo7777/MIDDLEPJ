@@ -1,8 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -583,7 +581,6 @@
               justify-content: left;
             } */
 
-
 			.policy_list { 
 	            display: flex; 
 	            flex-wrap: wrap; 
@@ -620,13 +617,9 @@
 
 
 
-
-
         </style>
     </head>
     <body>
-    	
-    
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
                 <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
@@ -655,13 +648,13 @@
     
             <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
                 <ul>
-                    <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
+                    <li><a href="#" class="highlight">영화</a> <!-- 영화 메뉴 항목 -->
                         <ul>
                             <li><a href="#">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                             <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                         </ul>
                     </li>
-                    <li><a href="#" class="highlight" id="current">기모찡</a></li> <!-- 극장 메뉴 항목 -->
+                    <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
                     <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
                         <ul>
                             <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
@@ -700,17 +693,11 @@
                 </button>
             </div>
             <hr>
-
-
-			<div id="movie_play"><!-- 영화 재생 영역 -->
-			    <video autoplay muted loop>
-			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
-			        <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			    </video>
-			</div>
-
-
+            <div id="movie_play"><!-- 영화 재생 영역 -->
+                <video autoplay muted loop>
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
                 <h4>|</h4>
@@ -809,6 +796,8 @@
     
     
     <script>
+    
+    
     const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
@@ -816,39 +805,15 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     let signup = "";
-    
     // 사이드바 열기닫기
-   function moveSidebar() {
-       sidebar.classList.toggle('open');
-       
-       // 사이드바가 열릴 때마다 signup 버튼을 찾기
-       const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-       if (signup) { // signup 버튼이 존재하는지 확인
-           signup.addEventListener('click', function() {
-               window.location.href = '/midpro/customer/Signup.jsp';
-           });
-       }
-   }
-
-// 서버에서 전달받은 파라미터 값에 따라 moveSidebar() 함수 호출
-   const barParam = '<%=request.getParameter("bar")%>';
-   if (barParam == 'on') {
-	   sidebarContent.innerHTML = ` 
-           <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-           <form action="/login" method="POST">
-               <label for="username">I D:</label>
-               <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-               <label for="password">PW:</label>
-               <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-               <button type="submit" class="loginBtn">Login</button>
-               <h6>아직 회원이 아니세요?</h6>
-               <button type="button" id="join" class="signupBtn">회원가입</button>
-               <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-           </form>`;
-       moveSidebar();
-   }
-
-
+    function moveSidebar(){
+        sidebar.classList.toggle('open');
+        signup = document.querySelector('#join');
+        signup.addEventListener('click',function(){
+            window.location.href = '/midpro/customer/Signup.jsp';
+        });
+    }
+  
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -864,6 +829,7 @@
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
+
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -874,18 +840,48 @@
     // ESC 눌러서 사이드 바 닫기
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
+            // sidebar.style.right = '-300px';
             moveSidebar(); 
         }
     });
     
-    // 마이페이지 클릭 시 메시지 표시
-    myPage.addEventListener('click', function() { 
-        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
-        moveSidebar(); 
-    });
-    
-    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
-    document.addEventListener('DOMContentLoaded', function() {
+//     // 마이페이지 클릭 시 메시지 표시
+//     myPage.addEventListener('click', function() { 
+//         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
+//         moveSidebar(); 
+//     });
+
+    // 메뉴 클릭 시 사이드바 내용 업데이트
+//     if (menu) { // menu가 정의되어 있을 때만 이벤트 리스너 추가
+//         menu.addEventListener('click', function() {
+//             sidebarContent.innerHTML = `
+//                 <h3>빠른 메뉴 찾기</h3>
+//                 <div class="smallMenu">
+//                     <input type="checkbox" id="upperMenu1">
+//                     <label for="upperMenu1">영화</label>
+//                     <div><p>영화하위메뉴들</p></div>
+//                     <input type="checkbox" id="upperMenu2">
+//                     <label for="upperMenu2">극장</label>
+//                     <div><p>극장하위메뉴들</p></div>
+//                     <input type="checkbox" id="upperMenu3">
+//                     <label for="upperMenu3">예매</label>
+//                     <div><p>예매하위메뉴들</p></div>
+//                     <input type="checkbox" id="upperMenu4">
+//                     <label for="upperMenu4">스토어</label>
+//                     <div><p>스토어하위메뉴들</p></div>
+//                     <input type="checkbox" id="upperMenu5">
+//                     <label for="upperMenu5">이벤트</label>
+//                     <div><p>이벤트하위메뉴들</p></div>
+//                     <input type="checkbox" id="upperMenu6">
+//                     <label for="upperMenu6">혜택</label>
+//                     <div><p>혜택하위메뉴들</p></div>
+//                 </div>`;
+//             moveSidebar();
+//         });
+//     } else {
+//         console.error('Menu icon not found!');
+//     }
+        document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('.header');
         const charts = document.querySelectorAll('.chart');
         const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
@@ -936,53 +932,40 @@
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-
-
-        const videoPlayer = document.getElementById('movie_play');
-        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * 3) + 1;
-            return randomNum; // 난수를 반환
-
-
-        }
-
-
-
-
-        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
-        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
-            return randomNum; // 난수를 반환
-        }
-
-        function loadRandomVideo() {
-            const randomNum = movie_play(); // 난수 생성
-
-            // 모든 소스의 src를 초기화
-            for (let i = 0; i < sourcesElement.length; i++) {
-                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
-            }
-
-            // 선택된 소스의 src를 설정
-            videoPlayerElement.src = sourcesElement[randomNum].src;
-
-            // videoPlayer가 비디오 요소인지 확인
-            if (videoPlayerElement instanceof HTMLVideoElement) {
-                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
-            } else {
-                console.error('videoPlayer is not a valid video element');
-            }
-        }
-
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
-    });
-</script>
+        
+//         document.addEventListener('DOMContentLoaded', function() {
+//         const videoPlayer = document.getElementById('videoPlayer');
     
+//         function movie_play(min, max) {
+//             return Math.floor(Math.random() * (max - min + 1)) + min;
+//         }
+    
+//         function loadRandomVideo() {
+//             const randomVideo = movie_play(1, 3);
+//             const sources = videoPlayer.querySelectorAll('source');
+    
+//             sources.forEach(source => source.src = '');
+    
+//             switch (randomVideo) {
+//                 case 1:
+//                     sources[0].src = 'sorce/영상 소스파일1.mp4';
+//                     break;
+//                 case 2:
+//                     sources[1].src = 'sorce/영상 소스파일2.mp4';
+//                     break;
+//                 case 3:
+//                     sources[2].src = 'sorce/영상 소스파일3.mp4';
+//                     break;
+//             }
+    
+//             videoPlayer.load();
+//         }
+    
+//         loadRandomVideo();
+//         videoPlayer.addEventListener('ended', loadRandomVideo);
+//     });
 
 
+    </script>
     </html>
+    

@@ -37,20 +37,44 @@ public class NoticeDaoImpl implements INoticeDao{
 
 	@Override
 	public int deleteNotice(int notice_ID) {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		int cnt = 0;
+			
+		try {
+			cnt = session.delete("Board.deleteNotice",notice_ID);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db연결실패~~~");
+		} finally {
+			if(session != null) session.close();
+		}
+		
+		return cnt;
 	}
 
 	@Override
 	public int updateNotice(NoticeVO noticeVO) {
-		// TODO Auto-generated method stub
+		
+		
 		return 0;
 	}
 
 	@Override
 	public List<NoticeVO> getAllNotice() {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<NoticeVO>noticeList =null;
+		
+		try {
+			noticeList = session.selectList("Board.getAllNotice");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session!=null) session.close();
+		}
+		
+		return noticeList;
 	}
 
 	@Override
