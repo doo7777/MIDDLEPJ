@@ -2,45 +2,432 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>DGV</title> <!-- 문서 제목 -->
-    <style>
+    <head>
+
+        <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>DGV</title> <!-- 문서 제목 -->
+        <style>
+            
+            /* 전체 화면 사이즈 */
             body {
-                margin: 0; /* 기본 여백 제거 */
+                margin: 0;
                 width: 100%;
                 overflow-x: hidden;
                 overflow-y: auto;
                 background: black;
             }
-            #main {
-                border: 2px solid black; /* 메인 컨테이너에 검은색 테두리 추가 */
-            }
             div {
                 border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
             }
+
+
+            /* 최상단 */
             #top {
-                height: 230px; /* 원하는 높이로 조정 */
-                margin-top: 20px; /* 위쪽 간격 조정 */
+                height: 140px; 
                 overflow: hidden;
-                display: flex; /* Flexbox 활성화 */
-                flex-direction: column; /* 세로 방향으로 정렬 */
+                display: flex; 
+                flex-direction: column;
             }
             #top_menu {
-                height: 70px; /* 상단 메뉴의 높이 설정 */
-                overflow: auto; /* 창 사이즈가 줄어도 디자인 고정 */
+                overflow: auto; 
             }
-    
             .logo {
-                width: 80px;
+                width: 150px;
+                position: absolute;
+                left: 250px;
                 height: auto;
             }
+            .DGV{
+                color: rgb(216, 216, 216);
+                position: absolute;
+                left: 390px;
+                top: 90px;
+                font-weight: bold;
+            }
+
+
+            /* 상단 메뉴바 */
+            .dropmenu {
+                height: 70px;
+                overflow: auto;
+                width: 100%;
+                border: none;
+                padding: 0;
+                font-size: 18px;
+                padding: 0 0 0 220px;
+                background-color: black;
+            }
+            .dropmenu li a {
+                color: #fff;
+                display: block;
+                line-height: 70px;
+                margin: 0;
+                padding: 0 50px;
+                text-align: center;
+                text-decoration: none;
+            }
+            .dropmenu ul {
+                height: 70px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .dropmenu li {
+                float: left;
+                padding: 0;
+            }
+
+
+
+            /* 하위메뉴 */
+            .dropmenu li:hover ul {
+                display: block; /* 마우스 올리면 하위메뉴 보여지기 */
+            }
+            .dropmenu li ul {
+                background: black; /* 하위 메뉴 배경색 설정 */
+                display: none; /* 기본적으로 하위 메뉴 숨김 */
+                height: auto; /* 하위 메뉴 높이 자동 설정 */
+                border: 0; /* 테두리 제거 */
+                position: absolute; /* 절대 위치 설정 */
+                z-index: 200; /* z-index 설정으로 다른 요소 위에 표시 */
+            }
+            .dropmenu li li {
+                display: block; /* 블록 요소로 설정 */
+                float: none; /* 수직 배치 */
+                margin: 0; /* 기본 여백 제거 */
+                width: 150px; /* 하위 메뉴 항목 너비 설정 */
+            }
+            .dropmenu li ul a {
+                font-size: 13px;
+                padding: 0 0 0 30px;
+                text-align: left;
+            }
+            .dropmenu li a:hover, .dropmenu ul li:hover > a {
+                border-bottom: 1px solid white;
+            }
+
+
+
+            /* 비디오 영역 */
+            hr{
+                margin: 0;
+                border: none;
+                height: 2px;
+                background-color: #ef8400;
+            }
+            #movie_play {
+                height: 580px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* overflow: hidden; */
+                background-color: black; /* 원래 블랙 */
+            }
+
+
+
+            /* 무비차트, 상영예정작, 무비추천 */
+            .header {
+                padding: 0 0 0 270px;
+                margin-bottom: 40px;
+                display: flex;
+                margin-top: -10px;
+            }
+            .menu-button h2, .header h2{
+                color: gray;
+                margin: 0 10px;
+            }
+            .header h4{
+                color: white;
+            }
+            .menu-button { 
+                background: none; /* 버튼 디자인 제거 */
+                border: none; /* 버튼 디자인 제거 */
+            }
+
+
+            /* 더 많은 영화보기 */
+            #movie-list {
+                color: gray;
+                background: none;
+                border: none;
+                align-items: center;
+                font-size: 10pt;
+                position: absolute; /* 절대 위치 설정 */
+                left: 74%; 
+            }
+
+
+            /* 무비 순위 목록 */
+            #movie_chart {
+                display: flex; 
+                justify-content: center; 
+                padding: 0; 
+                position: relative;
+                height: 450px; 
+            }
+            .chart {
+                width: 200px;
+                height: 300px;
+                margin: 0 10px;
+                display: inline-block;
+                background-color: white;
+                border-radius: 25px;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+
+            
+            /* 무비순위목록 애니메이션 */
+            .chart.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .chart.hide {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+
+
+            /* 패키지, 영화관람권, 기프트카드 */
+            #store {
+                height: 300px; 
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                /* width: 100%; */
+                /* max-width: 1500px; */
+                /* margin: 0 auto; */
+            }
+            .package, .ticket, .giftcard {
+                background: white;
+                border-radius: 10px;
+                text-align: center;
+                position: relative; /*아래 storeButton을 절대위치로 설정하기위해*/
+                width: 450px;
+                padding-top: 10px; /*안에 글자 조금 내려가게 윗부분 패딩설정*/
+                /* color: black; */
+                /* border-color: white; */
+                /* border: 2px dashed white;*/ /* 첫 번째 테두리 */
+                /*outline: 2px solid white;*/ /* 두 번째 테두리 */
+                /*outline-offset: 5px; */
+                /* height: 300px; */
+            }
+            .package::before, .ticket::before, .giftcard::before {
+                position: absolute;
+                content: '';
+                background: linear-gradient(-135deg, black 16px, transparent 0),
+                            linear-gradient(135deg, black 16px, transparent 0);
+                background-size: 32px;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 32px;
+                background-repeat: repeat-x;
+            }
+            .package::after, .ticket::after, .giftcard::after {
+                position: absolute;
+                content: '';
+                background: linear-gradient(-45deg, black 16px, transparent 0),
+                            linear-gradient(45deg, black 16px, transparent 0);
+                background-repeat: repeat-x;
+                background-size: 32px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 32px;
+            }
+
+
+            /* 공지사항, 고객센터, FAQ */
+            #noticeClient { 
+                color: white; 
+                padding: 0 25px; /* 좌우 패딩 설정 */ 
+                border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
+                border-radius: 10px; 
+                display: inline-block; /* 내용에 맞게 테두리 조절 */ 
+                margin-left: 220px; /* 화면에서 오른쪽으로 이동 */
+            } 
+
+
+            /* 우측 상단 메뉴 아이콘 */
+            .fa-headset, .fa-regular, .fa-lock {
+                font-size: 24px;
+                color: #ffffff;
+                /* align-items: center; */
+                cursor: pointer;
+                padding: 10px;
+            }
+            .topIcon {                
+                position: relative;
+                right: 250px;
+                top: 20px;
+                height: 250px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+            }
+            .icon-text {
+                display: flex;
+                flex-direction: column; /* 수직 정렬 */
+                align-items: center; /* 수평 중앙 정렬 */
+                color: white;
+                position: relative;
+            }
+            #btnfont{
+                
+            }
+
+
+
+
+
+
+            /* 상단 검색창 */
+            .search-container {
+                position: relative;
+                display: inline-block;
+                left: 1380px;
+                bottom: 60px;
+            }
+            .search-container input[type="text"] {
+                padding: 10px 40px 10px 15px; /* 패딩 설정 */
+                border: 2px solid #ef8400; /* 테두리 색상 */
+                outline: none; /* 기본 테두리 색 제거 */
+                border-radius: 5px; /* 모서리 둥글게 */
+                background-color: black; /* 배경색 */
+                color: white; /* 글자색 */
+                font-size: 16px; /* 글자 크기 */
+            }
+            .search-container button {
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none; /* 배경 제거 */
+                border: none; /* 테두리 제거 */
+                cursor: pointer; /* 커서 변경 */
+                color: white; /* 아이콘 색상 */
+                font-size: 18px; /* 아이콘 크기 */
+            }
+
+
+
+
+
+            
+            /* #movie_play video {
+                max-height: 100%;
+                object-fit: cover;
+                margin-bottom: 20px;
+            } */
+
+            /* .dropmenu li a:hover, .dropmenu ul li:hover > a {
+                display: inline-block; 
+                border-bottom: 2px solid white; 
+            } */
+            /* .highlight:hover {
+                display: inline-block; 
+                border-bottom: 2px solid white; 
+                padding-bottom: 2px; 
+            } */
+    
+            /* .dropmenu li:hover ul {
+                display: block; 
+            }
+    
+
+            .dropmenu li ul a {
+                display: block; 
+                height: 50px; 
+                font-size: 14px; 
+                margin: 0; 
+                padding: 0 10px 0 15px; 
+                text-align: left; 
+                text-decoration: none; 
+            }
+     */
+            /* .dropmenu li ul a:hover {
+                text-decoration: none; 하위 메뉴 항목에 마우스를 올려도 하얀 선이 생기지 않도록 설정
+                color: #FFFFFF; 마우스 오버 시 글자색 변경
+            } */
+    
+            /* .dropmenu p {
+                clear: left; 왼쪽 정렬 해제
+            } */
+
+            /* .dropmenu { */
+                /* border: none; */ /* 드롭다운 메뉴의 테두리 제거 */
+                /* padding: 0; */ /* 기본 패딩 제거 */
+                /* font: "sans-serif"; */ /* 글꼴 설정 */
+                /* font-size: 18px; */ /* 글꼴 크기 설정 */
+                /* padding: 0 0 0 200px; */ /* 상단 메뉴바 위치 조정 */
+                /* background-color: black; */ /* 상단 메뉴바 배경색 */
+            /* } */
+    
+            /* .dropmenu ul { */
+                /* background: black; */ /* 드롭다운 메뉴 배경색 설정 */
+                /* height: 70px; */ /* 메뉴 높이 설정 */
+                /* list-style: none; */ /* 리스트 스타일 제거 */
+                /* margin: 0; */ /* 기본 여백 제거 */
+                /* padding: 0; */ /* 기본 패딩 제거 */
+            /* } */
+    
+
+             /* .dropmenu li a {  */
+                /* background: white; */ /* 메뉴 항목 배경색 설정 */
+                /* color: #fff; */ /* 메뉴 항목 글자색 설정 */
+                /* display: block; */ /* 블록 요소로 설정 */
+                /* line-height: 70px; */ /* 메뉴 항목의 수직 중앙 정렬 */
+                /* margin: 0; */ /* 기본 여백 제거 */
+                /* padding: 0 25px; */ /* 좌우 패딩 설정 */
+                /* ext-align: center; */ /* 텍스트 중앙 정렬 */
+                /* text-decoration: none; */ /* 텍스트 장식 제거 */
+             /* }  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
             .sidebar {
-                 display: flex; /* Flexbox 사용 */
-                 justify-content: center; /* 수평 중앙 정렬 */
-                   align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
+                display: flex; /* Flexbox 사용 */
+                justify-content: center; /* 수평 중앙 정렬 */
+                align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
                 width: 300px;
                 height: 100%;
                 background: #ffffff !important;
@@ -87,23 +474,7 @@
             font-weight: bold;
             }
     
-            /* 상단 메뉴 아이콘 */
-            .fa-solid, .fa-regular, .fa-lock {
-                font-size: 24px;
-                color: #ffffff;
-                /* align-items: center; */
-                cursor: pointer;
-                padding: 10px;
-            }
-    
-            .topIcon {
-                height: 120px;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 20px;
-            }
-    
+
             /* 사이드 바 안에 있는 닫기 버튼 */
             .fa-xmark {
                 color: black;
@@ -147,76 +518,7 @@
                 max-height: 100px;
             }
     
-            #movie_play {
-                height: 620px;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
-                background-color: black;
-            }
-            #movie_play video {
-                max-height: 100%;
-                object-fit: cover;
-                margin-bottom: 20px;
-            }
-            #movie_chart {
-                height: 400px; /* 영화 차트 영역의 높이 설정 */
-            }
-            #store {
-                height: 300px; /* 스토어 영역의 높이 설정 */
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                width: 100%;
-                max-width: 1500px;
-                margin: 0 auto;
-            }
-            #noticeClient{
-             display: flex;
-              justify-content: left;
-            }
-            .package, .ticket, .giftcard {
-                color: black;
-                background: white;
-                border-radius: 10px;
-                text-align: center;
-                /* border-color: white; */
-                /* border: 2px dashed white;*/ /* 첫 번째 테두리 */
-                /*outline: 2px solid white;*/ /* 두 번째 테두리 */
-                /*outline-offset: 5px; */
-                position: relative; /*아래 storeButton을 절대위치로 설정하기위해*/
-                width: 450px;
-                height: 300px;
-                padding-top: 10px; /*안에 글자 조금 내려가게 윗부분 패딩설정*/
-            }
-    
-            .package::before, .ticket::before, .giftcard::before {
-                position: absolute;
-                content: '';
-                background: linear-gradient(-135deg, black 16px, transparent 0),
-                            linear-gradient(135deg, black 16px, transparent 0);
-                background-repeat: repeat-x;
-                background-size: 32px;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 32px;
-            }
-    
-            .package::after, .ticket::after, .giftcard::after {
-                position: absolute;
-                content: '';
-                background: linear-gradient(-45deg, black 16px, transparent 0),
-                            linear-gradient(45deg, black 16px, transparent 0);
-                background-repeat: repeat-x;
-                background-size: 32px;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 32px;
-            }
+
     
             .fa-plus {
                 position: absolute;
@@ -229,7 +531,9 @@
                 cursor: pointer;
                 
             }
-    
+            .menu-button.active h2 {
+                color: white;
+            }
             #bottom {
                 height: 250px; /* 하단 영역의 높이 설정 */
             }
@@ -237,106 +541,10 @@
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
     
-            /* 드롭다운 메뉴 스타일 */
-            #top_menu {
-                height: 70px;
-                overflow: auto;
-                width: 100%;
-            }
-            .dropmenu {
-                border: none; /* 드롭다운 메뉴의 테두리 제거 */
-                padding: 0; /* 기본 패딩 제거 */
-                /* font: "sans-serif"; */ /* 글꼴 설정 */
-                font-size: 18px; /* 글꼴 크기 설정 */
-                padding: 0 0 0 200px; /* 상단 메뉴바 위치 조정 */
-                background-color: black; /* 상단 메뉴바 배경색 */
-            }
+           
     
-            .dropmenu ul {
-                background: black; /* 드롭다운 메뉴 배경색 설정 */
-                height: 70px; /* 메뉴 높이 설정 */
-                list-style: none; /* 리스트 스타일 제거 */
-                margin: 0; /* 기본 여백 제거 */
-                padding: 0; /* 기본 패딩 제거 */
-            }
-    
-            .dropmenu li {
-                float: left; /* 메뉴 항목을 수평으로 배치 */
-                padding: 0; /* 기본 패딩 제거 */
-            }
-    
-            .dropmenu li a {
-                background: black; /* 메뉴 항목 배경색 설정 */
-                color: #fff; /* 메뉴 항목 글자색 설정 */
-                display: block; /* 블록 요소로 설정 */
-                line-height: 70px; /* 메뉴 항목의 수직 중앙 정렬 */
-                margin: 0; /* 기본 여백 제거 */
-                padding: 0 25px; /* 좌우 패딩 설정 */
-                text-align: center; /* 텍스트 중앙 정렬 */
-                text-decoration: none; /* 텍스트 장식 제거 */
-            }
-    
-            /* 하얀 선이 생길 메뉴 항목에 대한 스타일 */
-            .highlight:hover {
-                display: inline-block; /* inline-block으로 설정 */
-                border-bottom: 2px solid white; /* 밑줄 추가 */
-                padding-bottom: 2px; /* 텍스트와 선 사이의 간격 조정 */
-            }
-    
-            .dropmenu li a:hover, .dropmenu ul li:hover > a {
-                display: inline-block; /* inline-block으로 설정 */
-                border-bottom: 2px solid white; /* 밑줄 추가 */
-            }
-    
-            .dropmenu li ul {
-                background: black; /* 하위 메뉴 배경색 설정 */
-                display: none; /* 기본적으로 하위 메뉴 숨김 */
-                height: auto; /* 하위 메뉴 높이 자동 설정 */
-                border: 0; /* 테두리 제거 */
-                position: absolute; /* 절대 위치 설정 */
-                width: 200px; /* 하위 메뉴 너비 설정 */
-                z-index: 200; /* z-index 설정으로 다른 요소 위에 표시 */
-            }
-    
-            .dropmenu li:hover ul {
-                display: block; /* 상위 메뉴 항목에 마우스를 올리면 하위 메뉴 표시 */
-            }
-    
-            .dropmenu li li {
-                background: black; /* 하위 메뉴 항목 배경색 설정 */
-                display: block; /* 블록 요소로 설정 */
-                float: none; /* 수직 배치 */
-                margin: 0; /* 기본 여백 제거 */
-                padding: 0; /* 기본 패딩 제거 */
-                width: 300px; /* 하위 메뉴 항목 너비 설정 */
-            }
-            .dropmenu li ul a {
-                display: block; /* 블록 요소로 설정 */
-                height: 50px; /* 하위 메뉴 항목 높이 설정 */
-                font-size: 14px; /* 하위 메뉴 항목 글꼴 크기 설정 */
-                margin: 0; /* 기본 여백 제거 */
-                padding: 0 10px 0 15px; /* 좌우 패딩 설정 */
-                text-align: left; /* 텍스트 왼쪽 정렬 */
-                text-decoration: none; /* 텍스트 장식 제거 */
-            }
-    
-            /* .dropmenu li ul a:hover {
-                text-decoration: none; 하위 메뉴 항목에 마우스를 올려도 하얀 선이 생기지 않도록 설정
-                color: #FFFFFF; 마우스 오버 시 글자색 변경
-            } */
-    
-            /* .dropmenu p {
-                clear: left; 왼쪽 정렬 해제
-            } */
             
-            #noticeClient { 
-                color: white; 
-                padding: 0 25px; /* 좌우 패딩 설정 */ 
-                border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
-                border-radius: 10px; 
-                display: inline-block; /* 내용에 맞게 테두리 조절 */ 
-                margin-left: 220px; /* 화면에서 오른쪽으로 이동 */
-            } 
+
             .client_btn_wrap a { 
                 display: inline-block; 
                 margin-right: 10px; 
@@ -352,6 +560,8 @@
                 font-weight: bold; 
                 margin-bottom: 20px; 
             }
+
+
             .menubtn {
                 color: white;
             }
@@ -361,150 +571,37 @@
                 padding: 0;
                 font-size: 18px;
             }
-            .dropmenu {
-                border: none;
-                padding: 0;
-                font-size: 18px;
-                padding: 0 0 0 220px;
-                background-color: black;
-            }
-            .dropmenu ul {
-                background: black;
-                height: 70px;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            .dropmenu li {
-                float: left;
-                padding: 0;
-            }
-            .dropmenu li a {
-                background: black;
-                color: #fff;
-                display: block;
-                line-height: 70px;
-                margin: 0;
-                padding: 0 50px;
-                text-align: center;
-                text-decoration: none;
-            }
-            .dropmenu li a:hover, .dropmenu ul li:hover > a {
-                border-bottom: 1px solid white;
-            }
-            .dropmenu li ul {
-                background: black;
-                display: none;
-                height: auto;
-                border: 0;
-                position: absolute;
-                z-index: 200;
-            }
-            .dropmenu li:hover ul {
-                display: block;
-            }
-            .dropmenu li li {
-                background: black;
-                display: block;
-                float: none;
-                margin: 0;
-                padding: 0;
-                width: 150px;
-            }
-            .dropmenu li ul a {
-                display: block;
-                height: 70px;
-                font-size: 12px;
-                margin: 0;
-                padding: 0 10px 0 15px;
-                text-align: left;
-                text-decoration: none;
-            }
-            .header {
-                padding: 0 0 0 270px;
-                color: white;
-                margin-bottom: 40px;
-                display: flex;
-                margin-top: 50px;
-            }
-            .header h2, .header h4 {
-                display: inline;
-                margin: 0 10px;
-            }
-    
-            .chart.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            .chart.hide {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            button {
-                background: none;
-                border: none;
-                color: white;
-            }
-            .menu-button h2 {
-                color: gray;
-            }
-            .menu-button.active h2 {
-                color: white;
-            }
-            #movie-list {
-                color: gray;
-                background: none;
-                border: none;
-                display: flex;
-                align-items: center;
-                font-size: 10pt;
-                position: absolute; /* 절대 위치 설정 */
-                left: 78%; /* 가운데 정렬 */
-                cursor: pointer; /* 커서 변경 */
-            }
-            #movie_chart {
-                display: flex; /* Flexbox 활성화 */
-                justify-content: center; /* 수평 중앙 정렬 */
-                padding: 0; /* 패딩 제거 */
-                position: relative; /* 상대 위치 설정 */
-            }
-            .chart {
-                /* width: 15%; */
-                width: 200px;
-                height: 300px;
-                margin: 0 10px;
-                display: inline-block;
-                background-color: white;
-                border-radius: 25px;
-                transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-                box-sizing: border-box;
-            }
-    
-            .hover-div {
-                /* width: 15%; */ /* chart와 동일한 너비 */
-                width: 200px;
-                height: 300px; /* chart와 동일한 높이 */
-                margin: 0 10px;
-                display: none; /* 기본적으로 숨김 */
-                background-color: rgba(0, 0, 0, 0.5);
-                border-radius: 25px;
-                box-sizing: border-box; /* 박스 크기 설정 */
-                opacity: 0.8;
-                z-index: 20;
-                position: absolute;
-    
-            }
+
+
+
+            /* #noticeClient{
+             display: flex;
+              justify-content: left;
+            } */
+
+
+
+
         </style>
     </head>
     <body>
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
                 <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
-                    <i class="fa-solid fa-lock"></i>
-                    <i class="fa-regular fa-user"></i>
-                    <i class="fa-solid fa-bars"></i>
+                    <div class="icon-text">
+                        <i class="fa-solid fa-lock"></i>
+                        <h4 id="btnfont" class="login">로그인</h4>
+                    </div>
+                    <div class="icon-text">
+                        <i class="fa-regular fa-user"></i>
+                        <h4 id="btnfont" class="mypage">마이페이지</h4>
+                    </div>
+                    <div class="icon-text">
+                        <i class="fas fa-headset"></i> 
+                        <h4 id="btnfont" class="service center">고객센터</h4>
+                    </div>
                 </div>
                 <div class="sidebar">
                     <p>
@@ -554,7 +651,13 @@
                     </li>
                 </ul>
             </div>
-    
+            <div class="search-container">
+                <input type="text" id="search" placeholder="검색어 입력">
+                <button type="button" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <hr>
             <div id="movie_play"><!-- 영화 재생 영역 -->
                 <video autoplay muted loop>
                     <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
@@ -576,16 +679,7 @@
                 <div class="chart"></div>
                 <div class="chart"></div>
             </div>
-            <div id="hover_chart">
-                <div class="hover-div"></div>
-                <div class="hover-div"></div>
-                <div class="hover-div"></div>
-                <div class="hover-div"></div>
-                <div class="hover-div"></div>
-            </div>
-            
-            
-            <div id="movie_chart"></div> 
+
             <div id="store"> <!-- 스토어 영역 -->
                 <div class="package">
                     <i class="fa-solid fa-plus"></i>
@@ -817,26 +911,17 @@
         }
     });
     
-    const charts = document.querySelectorAll('.chart');
-    const hoverDivs = document.querySelectorAll('.hover-div');
-    
-    charts.forEach((chart, index) => {
-        chart.addEventListener('mouseover', () => {
-            const rect = chart.getBoundingClientRect();
-            const hoverDiv = hoverDivs[index];
-    
-            // hover-div의 위치와 크기 설정
-            // hoverDiv.style.left = `${rect.left + 10}px`; // 오른쪽 여백 고려
-            hoverDiv.style.left = `${rect.left-10}px`; // 오른쪽 여백 고려
-            hoverDiv.style.top = `${rect.top + window.scrollY}px`; // 스크롤 위치 반영
-            hoverDiv.style.display = 'block'; // hover-div 표시
-        });
-    
-        chart.addEventListener('mouseout', () => {
-            const hoverDiv = hoverDivs[index];
-            hoverDiv.style.display = 'none'; // hover-div 숨김
-        });
+        document.getElementById('searchButton').addEventListener('click', function() {
+        const query = document.getElementById('search').value.trim(); // 입력값의 앞뒤 공백 제거
+        if (query) {
+            // 검색어를 처리하는 로직 (예: 서버로 전송)
+            // 예시: 영화 제목에 따라 상세 페이지로 이동
+            const moviePageUrl = `/movie-detail.html?title=${encodeURIComponent(query)}`;
+            window.location.href = moviePageUrl; // 상세 페이지로 이동
+        } else {
+            alert('검색어를 입력해주세요.');
+        }
     });
     </script>
     </html>
-    
+        
