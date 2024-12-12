@@ -48,6 +48,8 @@
             font-size: 18px;
             padding: 0 0 0 220px;
             background-color: black;
+            border-bottom: 2px solid rgb(239, 132, 0);
+            
         }
         .dropmenu li a {
             color: #fff;

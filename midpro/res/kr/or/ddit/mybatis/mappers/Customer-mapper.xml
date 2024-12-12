@@ -21,6 +21,14 @@
 		select * from customer where customer_id = #{customer_id} and cust_pw = #{cus_pw}	
 	
 	</select>
+
+<select id="getAllCustomer" resultType="cusVO">
+
+	select * from customer
+
+</select>
+</mapper>
+
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
 <!-- update customer set  -->
 <!-- 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email},  -->
@@ -40,5 +48,7 @@
 <!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
+
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </mapper>
 

@@ -51,7 +51,7 @@ public class CustomerDaoImpl implements ICustomerDao{
 		List<CustomerVO>custList = null;
 		
 		try {
-			custList = session.selectList("Customer.custList");
+			custList = session.selectList("Customer.getAllCustomer");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
