@@ -17,24 +17,24 @@
     )
 </insert>
 
-<update id="updateCustomer" parameterType="cusVO">
-update customer set 
-			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email}, 
-			cust_tel = #{cust_tel} , cust_postcode=#{cust_postcod}, cust_add = #{cust_add}, cust_detailadd=#{cust_detailadd},
-			cust_grade=#{cust_grade}, cust_delete=#{cust_delete}, a
-		where customer_id = #{customer_id}
-</update>
+<!-- <update id="updateCustomer" parameterType="cusVO"> -->
+<!-- update customer set  -->
+<!-- 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email},  -->
+<!-- 			cust_tel = #{cust_tel} , cust_postcode=#{cust_postcod}, cust_add = #{cust_add}, cust_detailadd=#{cust_detailadd}, -->
+<!-- 			cust_grade=#{cust_grade}, cust_delete=#{cust_delete}, a -->
+<!-- 		where customer_id = #{customer_id} -->
+<!-- </update> -->
 
-<select id="getAllCustomer" resultType="cusVO">
-		select * from customer
-	</select>
+<!-- <select id="getAllCustomer" resultType="cusVO"> -->
+<!-- 		select * from customer -->
+<!-- 	</select> -->
 	
-	<select id="getCustomerCount" parameterType="string" resultType="int">
-		select count(*) cnt from customer where customer_id = #{customer_id}
-	</select>
+<!-- 	<select id="getCustomerCount" parameterType="string" resultType="int"> -->
+<!-- 		select count(*) cnt from customer where customer_id = #{customer_id} -->
+<!-- 	</select> -->
 	
-	<select id="getCustomer" parameterType="string" resultType="cusVo">
-		select * from customer where customer_id=#{customer_id}
-	</select>
+<!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
+<!-- 		select * from customer where customer_id=#{customer_id} -->
+<!-- 	</select> -->
 </mapper>
 
