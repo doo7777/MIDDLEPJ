@@ -1,25 +1,32 @@
 package Vo;
 
 public class NoticeVO {
-	private int notice_id;
+	private String notice_id;
 	private String title;
 	private String content;
 	private String post_date;
-	private int notice_view;
+	private String notice_view;
+	private String notice_sort;
 	
-	public int getNotice_id() {
+	public String getNotice_sort() {
+		return notice_sort;
+	}
+	public void setNotice_sort(String notice_sort) {
+		this.notice_sort = notice_sort;
+	}
+	public String getNotice_id() {
 		return notice_id;
 	}
-	public void setNotice_id(int notice_id) {
+	public void setNotice_id(String notice_id) {
 		this.notice_id = notice_id;
 	}
 	public String getTitle() {
 		return title;
 	}
-	public int getNotice_view() {
+	public String getNotice_view() {
 		return notice_view;
 	}
-	public void setNotice_view(int notice_view) {
+	public void setNotice_view(String notice_view) {
 		this.notice_view = notice_view;
 	}
 	public void setTitle(String title) {
@@ -40,8 +47,10 @@ public class NoticeVO {
 	@Override
 	public String toString() {
 		return "NoticeVO [notice_id=" + notice_id + ", title=" + title + ", content=" + content + ", post_date="
-				+ post_date + ", notice_view=" + notice_view + "]";
+				+ post_date + ", notice_view=" + notice_view + ", notice_sort=" + notice_sort + "]";
 	}
+	
+	
 	
 	
 	

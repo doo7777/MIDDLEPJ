@@ -59,7 +59,7 @@
 	<mappers>
 <!-- 		<mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
 		<mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
-		<mapper resource="kr/or/ddit/mybatis/mappers/Notice-mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
 	</mappers>
 	
 </configuration>
