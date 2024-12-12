@@ -29,7 +29,8 @@
 <!-- 		<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/> -->
 		<typeAlias type="Vo.CustomerVO" alias="cusVO"/>
 		<typeAlias type="Vo.NoticeVO" alias="noticeVO"/>
-		<typeAlias type="Vo.ㅡMovieVO" alias="movieVO"/>
+		<typeAlias type="Vo.MovieVO" alias="movieVO"/>
+		<typeAlias type="Vo.TheaterVO" alias="theaVO"/>
 		
 	</typeAliases>
 	
@@ -62,6 +63,7 @@
 		<mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
 	</mappers>
 	
 </configuration>

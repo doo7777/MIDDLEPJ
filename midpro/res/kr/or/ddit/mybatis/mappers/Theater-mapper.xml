@@ -3,34 +3,20 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
-<mapper namespace="member">
+<mapper namespace="Theater">
 
-	<insert id="insertMember" parameterType="memVo">
-		insert into mymember (mem_id, mem_pass, mem_name, mem_tel, mem_addr, mem_photo) 
-		values( #{mem_id}, #{mem_pass}, #{mem_name}, #{mem_tel}, #{mem_addr}, #{mem_photo})
-	</insert>
-	
-	<delete id="deleteMember" parameterType="string">
-		delete from mymember where mem_id = #{mem_id} 
-	</delete>
-	
-	<update id="updateMember" parameterType="memVo"> 
-		update mymember set 
-			mem_pass = #{mem_pass} , mem_name = #{mem_name}, 
-			mem_tel = #{mem_tel} , mem_addr = #{mem_addr}, mem_photo=#{mem_photo}
-		where mem_id = #{mem_id}
-	</update>
-	
-	<select id="getAllMember" resultType="memVo">
-		select * from mymember
+	<!-- 전체 영화관을 보여줌 -->
+	<select id="getAllTheater" resultType="theaVO">
+		select * from theater
 	</select>
 	
-	<select id="getMemberCount" parameterType="string" resultType="int">
-		select count(*) cnt from mymember where mem_id = #{mem_id}
-	</select>
 	
-	<select id="getMember" parameterType="string" resultType="memVo">
-		select * from mymember where mem_id=#{mem_id}
+
+
+	<!-- 영화관명을 받아서 그 영화관의 정보를 보여줌 -->
+	<select id="getTheater" parameterType="string" resultType="theaVO">
+		select * from theater
+		where theater_name like concat ('%', #{theater_name}, '%')
 	</select>
 
 </mapper>
