@@ -635,6 +635,26 @@
                         <h4 id="btnfont" class="service center">고객센터</h4>
                     </div>
                 </div>
+<<<<<<< HEAD
+            </div>   
+        <div id="company">company</div> <!-- 회사 정보 영역 -->
+    </div>
+</body>
+<script>
+const login = document.querySelector('.fa-lock');
+const myPage = document.querySelector('.fa-user');
+const menu = document.querySelector('.fa-bars');
+const sidebar = document.querySelector('.sidebar');
+const closeButton = document.querySelector('.fa-xmark');
+const sidebarContent = document.querySelector('.sidebar-content');
+let signup = "";
+// 사이드바 열기닫기
+function moveSidebar(){
+    sidebar.classList.toggle('open');
+    signup = document.querySelector('#join');
+    signup.addEventListener('click',function(){
+    	window.location.href = '/midpro/customer/Signup.jsp';
+=======
                 <div class="sidebar">
                     <p>
                     <i class="fa-solid fa-xmark"></i>
@@ -834,6 +854,7 @@
                         </form>  `;
         moveSidebar();                
        
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     });
     //회원가입 버튼 누르면 회원가입 URL로 이동
     
