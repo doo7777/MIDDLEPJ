@@ -6,7 +6,7 @@
 <mapper namespace="Customer">
 
 									<!-- 회원가입 매퍼  -->
-									
+
 	<insert id="insertCustomer" parameterType="cusVO">
 	    INSERT INTO CUSTOMER (
 	        CUSTOMER_ID, CUST_PW, CUST_NAME, 
@@ -28,6 +28,7 @@
 
 </select>
 </mapper>
+
 
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
 <!-- update customer set  -->
