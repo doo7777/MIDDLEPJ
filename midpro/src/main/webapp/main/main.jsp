@@ -1,8 +1,5 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -583,7 +580,6 @@
               justify-content: left;
             } */
 
-
 			.policy_list { 
 	            display: flex; 
 	            flex-wrap: wrap; 
@@ -622,6 +618,7 @@
 
 
 
+
         </style>
     </head>
     <body>
@@ -633,7 +630,7 @@
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                     <div class="icon-text">
-                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-solid fa-lock" id="loginbutton"></i>
                         <h4 id="btnfont" class="login">로그인</h4>
                     </div>
                     <div class="icon-text">
@@ -701,7 +698,6 @@
             </div>
             <hr>
 
-
 			<div id="movie_play"><!-- 영화 재생 영역 -->
 			    <video autoplay muted loop>
 			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
@@ -709,7 +705,6 @@
 			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
 			    </video>
 			</div>
-
 
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
@@ -809,7 +804,7 @@
     
     
     <script>
-    const login = document.querySelector('.fa-lock');
+    const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
@@ -830,12 +825,38 @@
        }
    }
 
-// 서버에서 전달받은 파라미터 값에 따라 moveSidebar() 함수 호출
+    
+//     const login = document.querySelector("#login"); //ID login을 검색
+//     if(login){
+//     	login.addEventListener('click',function(e){
+//     		e.preventDefault(); // 기본 폼 제출 방지
+//     		 const logindata = $('loginform').serialize();
+    		
+//     		   $.ajax({
+//     	            url: '/customer/cusLogin.do', // 로그인 처리 URL
+//     	            type: 'POST',
+//     	            data: logindata,
+//     	            success: function(resp) {
+//     	                if (resp.success) {
+//     	                    // 로그인 성공 시 리다이렉트
+//     	                    window.location.href = '/main/mian.jsp'; // 로그인 완료된 홈페이지 URL
+//     	                } else {
+//     	                    alert('로그인 실패: ' + response.message);
+//     	                }
+//     	            },
+//     	            error: function(xhr) {
+//     	                alert('서버 오류: ' + xhr.status);
+//     	            }
+//     	        });
+//     	}
+    	
+//     }
+    
    const barParam = '<%=request.getParameter("bar")%>';
    if (barParam == 'on') {
 	   sidebarContent.innerHTML = ` 
            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-           <form action="/login" method="POST">
+           <form action="/login" method="POST" id="loginform">
                <label for="username">I D:</label>
                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
                <label for="password">PW:</label>
@@ -848,7 +869,6 @@
        moveSidebar();
    }
 
-
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -858,12 +878,13 @@
                 <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
                 <label for="password">PW:</label>
                 <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                <button type="submit" class="loginBtn">Login</button>
+                <button type="submit" class="loginBtn" id=login"">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
+
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -938,17 +959,12 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-
         const videoPlayer = document.getElementById('movie_play');
         const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
 
         function movie_play() {
             const randomNum = Math.floor(Math.random() * 3) + 1;
             return randomNum; // 난수를 반환
-
-
-        }
-
 
 
 
@@ -984,5 +1000,5 @@
 </script>
     
 
-
     </html>
+    
