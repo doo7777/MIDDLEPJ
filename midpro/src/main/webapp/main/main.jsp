@@ -353,6 +353,38 @@
             font-weight: bold; 
             margin-bottom: 20px; 
         }
+        .policy_list { /* 회사소개 */
+            display: flex; 
+            flex-wrap: wrap; 
+            list-style: none; 
+            padding: 10; 
+            margin: 0 495px; 
+        } 
+        .policy_list li { 
+            margin-right: 15px; /* 단어 사이 간격 조절 */
+            padding: 0; 
+        }
+        .company_info_wrap { /* 주소 */
+            display: flex; 
+            align-items: center; 
+            margin-left: 505px; 
+        } 
+        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
+            margin: 0; 
+            padding: 1; 
+        } 
+        .company_info_list { 
+            display: inline; 
+            align-items: right; 
+        } 
+        .company_info_list dt  { 
+            display: inline; 
+            margin-right: 1px; 
+        } 
+        .company_info_list dd { 
+            display: inline; 
+            margin-right: 1px; 
+        }
     </style>
 </head>
 <body>
@@ -465,7 +497,35 @@
                     </div>
                 </div>
             </div>   
-        <div id="company">company</div> <!-- 회사 정보 영역 -->
+        <!-- 회사 정보 영역 -->
+        <div id="company" class="sect-ad">
+            <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
+        </div>
+        <div class="policy_list" style="color: white;">
+            <li><a href="" target="_blank">회사소개</a></li>
+            <li><a href="" target="_blank">채용정보</a></li>
+            <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
+            <li><a href="">이용약관</a></li>
+            <li><a href="">편성기준</a></li>
+            <li><a href=""><strong>개인정보처리방침</strong></a></li>
+            <li><a href="">법적고지</a></li>
+            <li><a href="">이메일주소무단수집거부</a></li>
+        </div>
+        <hr width="950px">
+        <div class="company_info_wrap" style="color: white;">
+            <div class="company_info">
+                <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
+                <dl class="company_info_list">
+                    <dt>이사장 :</dt>
+                    <dt>김형응</dt>
+                    <dd>사업자등록번호 :</dd>
+                    <dt>306-82-05291</dt>
+                    <dd>대표전화 :</dd>
+                    <dt>042-222-8202</dt>
+                </dl>
+                <p>&copy; DGV. All Rights Reserved</p>
+            </div>
+        </div>
     </div>
 </body>
 <script>
