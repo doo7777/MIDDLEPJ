@@ -1,6 +1,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -581,39 +583,39 @@
               justify-content: left;
             } */
 
-         .policy_list { 
-               display: flex; 
-               flex-wrap: wrap; 
-               list-style: none; 
-               padding: 10; 
-               margin: 0 440px; 
-           } 
-           .policy_list li { 
-               margin-right: 15px; /* 단어 사이 간격 조절 */
-               padding: 0; 
-           }
-           .company_info_wrap { /* 주소 */
-               display: flex; 
-               align-items: center; 
-               margin-left: 450px; 
-           } 
-           
-           .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-               margin: 0; 
-               padding: 1; 
-           } 
-           .company_info_list { 
-               display: inline; 
-               align-items: right; 
-           } 
-           .company_info_list dt  { 
-               display: inline; 
-               margin-right: 1px; 
-           } 
-           .company_info_list dd { 
-               display: inline; 
-               margin-right: 1px; 
-           }
+			.policy_list { 
+	            display: flex; 
+	            flex-wrap: wrap; 
+	            list-style: none; 
+	            padding: 10; 
+	            margin: 0 440px; 
+	        } 
+	        .policy_list li { 
+	            margin-right: 15px; /* 단어 사이 간격 조절 */
+	            padding: 0; 
+	        }
+	        .company_info_wrap { /* 주소 */
+	            display: flex; 
+	            align-items: center; 
+	            margin-left: 450px; 
+	        } 
+	        
+	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
+	            margin: 0; 
+	            padding: 1; 
+	        } 
+	        .company_info_list { 
+	            display: inline; 
+	            align-items: right; 
+	        } 
+	        .company_info_list dt  { 
+	            display: inline; 
+	            margin-right: 1px; 
+	        } 
+	        .company_info_list dd { 
+	            display: inline; 
+	            margin-right: 1px; 
+	        }
 
 
 
@@ -628,7 +630,7 @@
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                     <div class="icon-text">
-                        <i class="fa-solid fa-lock" id="loginbutton"></i>
+                        <i class="fa-solid fa-lock"></i>
                         <h4 id="btnfont" class="login">로그인</h4>
                     </div>
                     <div class="icon-text">
@@ -695,13 +697,13 @@
                 </button>
             </div>
             <hr>
-            <div id="movie_play"><!-- 영화 재생 영역 -->
-                <video autoplay muted loop>
-                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
-                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-                </video>
-            </div>
+			<div id="movie_play"><!-- 영화 재생 영역 -->
+			    <video autoplay muted loop>
+			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+			        <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+			    </video>
+			</div>
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
                 <h4>|</h4>
@@ -800,7 +802,7 @@
     
     
     <script>
-    const login = document.querySelector('#loginbutton');
+    const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
@@ -853,7 +855,6 @@
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
-
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -927,37 +928,43 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-    const videoPlayer = document.getElementById('movie_play');
-   
-    function movie_play(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-   
-    function loadRandomVideo() {
-        const randomVideo = movie_play(1, 3);
-        const sources = videoPlayer.querySelectorAll('source');
-   
-        sources.forEach(source => source.src = '');
-   
-        switch (randomVideo) {
-            case 1:
-                sources[0].src = 'sorce/영상 소스파일1.mp4';
-                break;
-            case 2:
-                sources[1].src = 'sorce/영상 소스파일1.mp4';
-                break;
-            case 3:
-                sources[2].src = 'sorce/영상 소스파일1.mp4';
-                break;
-        }
-   
-        videoPlayer.load();
-    }
-   
-    loadRandomVideo();
-    videoPlayer.addEventListener('ended', loadRandomVideo);
-   });
+        const videoPlayer = document.getElementById('movie_play');
+        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
 
-    </script>
-    </html>
+        function movie_play() {
+            const randomNum = Math.floor(Math.random() * 3) + 1;
+            return randomNum; // 난수를 반환
+        }
+
+        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
+        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
+
+        function movie_play() {
+            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
+            return randomNum; // 난수를 반환
+        }
+
+        function loadRandomVideo() {
+            const randomNum = movie_play(); // 난수 생성
+
+            // 모든 소스의 src를 초기화
+            for (let i = 0; i < sourcesElement.length; i++) {
+                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
+            }
+
+            // 선택된 소스의 src를 설정
+            videoPlayerElement.src = sourcesElement[randomNum].src;
+
+            // videoPlayer가 비디오 요소인지 확인
+            if (videoPlayerElement instanceof HTMLVideoElement) {
+                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
+            } else {
+                console.error('videoPlayer is not a valid video element');
+            }
+        }
+
+        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+    });
+</script>
     
+    </html>

@@ -17,11 +17,10 @@ public class CusSignup extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/customer/Signup.jsp").forward(request, response);
+        request.getRequestDispatcher("/Signup.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("post로 들어오고 있냐?");
     	request.setCharacterEncoding("utf-8");
     	response.setCharacterEncoding("utf-8");
     	response.setContentType("text/html charset=utf-8");
