@@ -29,7 +29,11 @@
 <!-- 		<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/> -->
 		<typeAlias type="Vo.CustomerVO" alias="cusVO"/>
 		<typeAlias type="Vo.NoticeVO" alias="noticeVO"/>
+<<<<<<< HEAD
 <!-- 		<typeAlias type="Vo.ㅡMovieVO" alias="movieVO"/> -->
+=======
+		
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 		
 	</typeAliases>
 	
@@ -61,7 +65,11 @@
 <!-- 		<mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
 		<mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
+<<<<<<< HEAD
 <!-- 		<mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
+=======
+		
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	</mappers>
 	
 </configuration>
