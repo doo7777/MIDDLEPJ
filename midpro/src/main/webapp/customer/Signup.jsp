@@ -75,7 +75,8 @@
    	    <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="50px">
         <h1>회원가입</h1>
         
-        <form action="<%=request.getContextPath() %>/cussignup.do" method="post">
+<%--         <form action="<%=request.getContextPath() %>/cussignup.do" method="post"> --%>
+        <form onsubmit="goMain(event)">
         <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
         <div id="id">
             <input type="text" id="cust_id" name="cust_id" required placeholder="ID를 입력하세요." pattern="[a-zA-Z][a-zA-Z0-9]{2,7}">
@@ -125,6 +126,52 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+
+function goMain(e) {
+    e.preventDefault();
+    
+    const data = $('form').serialize(); // key=value...로 문자열 정보를 만들어서
+
+    $.ajax({ 
+        url: '/midpro/cussignup.do',
+        type: 'post',
+        data: data,
+        success: function(resp) {
+            // 응답결과에 대해 분기처리해주자
+            if (resp > 0) {
+                alert("회원 가입 성공하였습니다");
+                // 성공 상태를 로컬 스토리지에 저장
+                localStorage.setItem('signupSuccess', 'true');
+                // 회원 가입 성공 시에만 location.href를 설정
+                location.href = "<%=request.getContextPath() %>/main/main.jsp?bar=on";
+            } else {
+                alert("회원 가입 실패하였습니다");
+            }
+        },
+        error: function(xhr) {
+            alert(xhr.status);
+        }
+        // ,dataType:'text' 
+    }); 
+}
+
+// 페이지가 로드될 때 성공 상태를 확인
+$(document).ready(function() {
+    if (localStorage.getItem('signupSuccess') === 'true') {
+        // 성공 상태가 있으면 로컬 스토리지에서 제거
+        localStorage.removeItem('signupSuccess');
+    } else {
+        // 성공 상태가 없으면 다른 로직을 실행
+    }
+});
+
+// window.onload = function() {
+<%--     var message = "<%= request.getAttribute("registrationMessage") %>"; --%>
+//     alert(message);
+//     // 알림창을 닫은 후 메인 페이지로 이동
+<%--     window.location.href = "<%= request.getContextPath() %>/main/main.jsp"; --%>
+// };
+
 //주소 검색 이벤트
 $('#addrBtn').on('click',addr);
 
