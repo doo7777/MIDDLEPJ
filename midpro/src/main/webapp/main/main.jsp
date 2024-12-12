@@ -537,7 +537,7 @@
 
             #noticeClient { 
                 color: white; 
-                width: 1000px; /* 고정 너비 */ 
+                width: 580px; /* 고정 너비 */ 
                 margin-left: 250px; 
             } 
             .notice_wrap dt, .notice_wrap dd { 
@@ -704,34 +704,34 @@
             </div>
             <br><br>
             <div id="noticeClient" style="color: white;">
-                    <div id="notice_wrap" class="notice_wrap">
-                    <dl>
-                        <dt><strong>공지사항</strong></dt>
+                <div id="notice_wrap" class="notice_wrap">
+                <dl>
+                    <dt><strong>공지사항</strong></dt>
+                    <dd>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
+                        <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                    </dd>
+                    </dl>
+                </div>
+
+                <div class="client_wrap">
+                    <dl class="client_list">
+                        <dt><strong>고객센터</strong></dt>
                         <dd>
-                            <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
-                            <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                            <strong>1234-1234</strong>
+                            <p>
+                                고객센터 운영시간 (평일 09:00~18:00) <br>
+                                업무시간 외 자동응답 안내 불가능합니다.
+                            </p>
                         </dd>
-                        </dl>
+                    </dl>
+                    <div class="client_btn_wrap" id="client_btn_wrap">
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                     </div>
-    
-                    <div class="client_wrap">
-                        <dl class="client_list">
-                            <dt><strong>고객센터</strong></dt>
-                            <dd>
-                                <strong>1234-1234</strong>
-                                <p>
-                                    고객센터 운영시간 (평일 09:00~18:00) <br>
-                                    업무시간 외 자동응답 안내 불가능합니다.
-                                </p>
-                            </dd>
-                        </dl>
-                        <div class="client_btn_wrap" id="client_btn_wrap">
-                            <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                        </div>
-                    </div>
-                </div>   
+                </div>
+            </div>   
             <!-- 회사 정보 영역 -->
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>

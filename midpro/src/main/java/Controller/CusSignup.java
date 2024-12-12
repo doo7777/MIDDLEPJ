@@ -17,12 +17,12 @@ public class CusSignup extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/customer/Signup.jsp").forward(request, response);
+        request.getRequestDispatcher("/Signup.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("post로 들어오고 있냐?");
     	request.setCharacterEncoding("utf-8");
+    	response.setContentType("utf-8");
         // 파라미터 수신
         String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
@@ -49,7 +49,7 @@ public class CusSignup extends HttpServlet {
         int result = service.insertCustomer(custVo);
 
         if (result > 0) {
-            response.sendRedirect(request.getContextPath() + "/StartMain.jsp");
+            response.sendRedirect(request.getContextPath() + "/main/main.jsp");
         } else {
             response.getWriter().println("<h1>회원가입 실패. 다시 시도해주세요.</h1>");
         }
