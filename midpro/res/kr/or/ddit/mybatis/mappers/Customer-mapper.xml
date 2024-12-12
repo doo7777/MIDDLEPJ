@@ -21,7 +21,7 @@
 update customer set 
 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email}, 
 			cust_tel = #{cust_tel} , cust_postcode=#{cust_postcod}, cust_add = #{cust_add}, cust_detailadd=#{cust_detailadd},
-			cust_grade=#{cust_grade}, cust_delete=#{cust_delete}
+			cust_grade=#{cust_grade}, cust_delete=#{cust_delete}, a
 		where customer_id = #{customer_id}
 </update>
 

@@ -11,13 +11,13 @@ import Service.CustomerServiceImpl;
 import ServiceInterface.ICustomerService;
 import Vo.CustomerVO;
 
-@WebServlet("/cusInsert.do")
-public class CustInsert extends HttpServlet {
+@WebServlet("/cussignup.do")
+public class CusSignup extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/customer/CustomerInsert.jsp").forward(request, response);
+        request.getRequestDispatcher("/customer/Signup.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
