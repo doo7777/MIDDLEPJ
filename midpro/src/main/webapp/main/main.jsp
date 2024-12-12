@@ -535,45 +535,57 @@
                 font-size: 18px;
             }
 
-            /* #noticeClient{
-             display: flex;
-              justify-content: left;
-            } */
-
-			.policy_list { 
-			border:1px solid black; 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	        } 
-/* 	        .policy_list li {  */
-/* 	            margin-right: 15px; /* 단어 사이 간격 조절 */ */
-/* 	            padding: 0;  */
-/* 	        } */
-	        .company_info_wrap { /* 주소 */
-	            display: flex; 
-	            align-items: center; 
-	            margin-left: 450px; 
-	        } 
-	        
-	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-	            margin: 0; 
-	            padding: 1; 
-	        } 
-	        .company_info_list { 
-	            display: inline; 
-	            align-items: right; 
-	        } 
-	        .company_info_list dt  { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        } 
-	        .company_info_list dd { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        }
+            #noticeClient { 
+                color: white; 
+                width: 1000px; /* 고정 너비 */ 
+                margin-left: 250px; 
+            } 
+            .notice_wrap dt, .notice_wrap dd { 
+                display: inline-block; 
+            } 
+            .notice_wrap a { 
+                margin-right: 10px; 
+                color: white; /* 링크 색상을 하얀색으로 설정 */ 
+                text-decoration: none; /* 밑줄 제거 */
+            } 
+            .client_list {
+                display: flex;
+            }
+            .client_list dt, .client_list dd { 
+                display: inline-block; 
+            } 
+            .sect-ad {
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            /* 회사정보(소개,채용) */
+            .policy_list { 
+                width: 1000px; /* 고정 너비 */ 
+                margin-left: 530px; 
+            } 
+            .policy_list a { 
+                margin-right: 10px; 
+                display: inline-block; 
+            }
+            /* 회사정보(주소) */
+            .company_info { 
+                width: 1000px; /* 고정 너비 */ 
+                display: block;
+                margin-left: 530px; 
+                display: inline-block; 
+            }  
+            .company_info _wrap { 
+                width: 1000px; 
+                color: white; 
+                display: inline-block; 
+            } 
+            .company_info address { 
+                display: inline-block; 
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            .company_info_list dt, .company_info_list dd { 
+                display: inline-block; 
+                margin-right: 10px; 
+            }
 
 
 
@@ -707,9 +719,10 @@
                             <dt><strong>고객센터</strong></dt>
                             <dd>
                                 <strong>1234-1234</strong>
-                                <span>고객센터 운영시간 (평일 09:00~18:00)
-                                     업무시간 외 자동응답 안내 불가능합니다.
-                                </span>
+                                <p>
+                                    고객센터 운영시간 (평일 09:00~18:00) <br>
+                                    업무시간 외 자동응답 안내 불가능합니다.
+                                </p>
                             </dd>
                         </dl>
                         <div class="client_btn_wrap" id="client_btn_wrap">
@@ -732,8 +745,8 @@
                 <a href=""><strong>개인정보처리방침</strong></a>
                 <a href="">법적고지</a>
                 <a href="">이메일주소무단수집거부</a>
-                <a href="" target="_blank">윤리경영</a>
             </div>
+            <br>
             <br>
             <hr>
             <br>
@@ -765,16 +778,6 @@
     let signup = "";
 
     // 사이드바 열기닫기
-<<<<<<< HEAD
-    function moveSidebar(){
-        sidebar.classList.toggle('open');
-        signup = document.querySelector('#join');
-        signup.addEventListener('click',function(){
-            window.location.href = '/midpro/customer/Signup.jsp';
-        });
-    }
-    
-=======
 	function moveSidebar() {
 	    sidebar.classList.toggle('open');
 	    
@@ -787,7 +790,6 @@
 	    }
 	}
   
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -824,136 +826,6 @@
         moveSidebar(); 
     });
 
-<<<<<<< HEAD
-    // 메뉴 클릭 시 사이드바 내용 업데이트
-    if (menu) { // menu가 정의되어 있을 때만 이벤트 리스너 추가
-        menu.addEventListener('click', function() {
-            sidebarContent.innerHTML = `
-                <h3>빠른 메뉴 찾기</h3>
-                <div class="smallMenu">
-                    <input type="checkbox" id="upperMenu1">
-                    <label for="upperMenu1">영화</label>
-                    <div><p>영화하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu2">
-                    <label for="upperMenu2">극장</label>
-                    <div><p>극장하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu3">
-                    <label for="upperMenu3">예매</label>
-                    <div><p>예매하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu4">
-                    <label for="upperMenu4">스토어</label>
-                    <div><p>스토어하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu5">
-                    <label for="upperMenu5">이벤트</label>
-                    <div><p>이벤트하위메뉴들</p></div>
-                    <input type="checkbox" id="upperMenu6">
-                    <label for="upperMenu6">혜택</label>
-                    <div><p>혜택하위메뉴들</p></div>
-                </div>`;
-            moveSidebar();
-        });
-    } else {
-        console.error('Menu icon not found!');
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayer = document.getElementById('videoPlayer');
-    
-        function movie_play(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-    
-        function loadRandomVideo() {
-            const randomVideo = movie_play(1, 3);
-            const sources = videoPlayer.querySelectorAll('source');
-    
-            sources.forEach(source => source.src = '');
-    
-            switch (randomVideo) {
-                case 1:
-                    sources[0].src = 'sorce/영상 소스파일1.mp4';
-                    break;
-                case 2:
-                    sources[1].src = 'sorce/영상 소스파일2.mp4';
-                    break;
-                case 3:
-                    sources[2].src = 'sorce/영상 소스파일3.mp4';
-                    break;
-            }
-    
-            videoPlayer.load();
-        }
-    
-        loadRandomVideo();
-        videoPlayer.addEventListener('ended', loadRandomVideo);
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.header');
-        const charts = document.querySelectorAll('.chart');
-        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
-    
-        if (header) {
-            header.addEventListener('click', function(event) {
-                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
-                if (event.target.closest('.menu-button')) {
-                    charts.forEach((chart) => {
-                        chart.classList.remove('show');
-                        chart.classList.add('hide');
-                    });
-    
-                    setTimeout(() => {
-                        charts.forEach((chart, index) => {
-                            setTimeout(() => {
-                                chart.classList.remove('hide');
-                                chart.classList.add('show');
-                            }, index * 100);
-                        });
-                    }, 500);
-                }
-            });
-    
-            charts.forEach((chart, index) => {
-                setTimeout(() => {
-                    chart.classList.add('show');
-                }, index * 100);
-            });
-        }
-    
-        const buttons = document.querySelectorAll('.menu-button');
-    
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    
-        // '더 많은 영화보기' 버튼 클릭 시 애니메이션을 적용하지 않도록 설정
-        if (movieListButton) {
-            movieListButton.addEventListener('click', function(event) {
-                // 애니메이션을 적용하지 않음
-                charts.forEach((chart) => {
-                    chart.classList.remove('show'); // 애니메이션을 제거
-                });
-            });
-        }
-    });
-    
-        document.getElementById('searchButton').addEventListener('click', function() {
-        const query = document.getElementById('search').value.trim(); // 입력값의 앞뒤 공백 제거
-        if (query) {
-            // 검색어를 처리하는 로직 (예: 서버로 전송)
-            // 예시: 영화 제목에 따라 상세 페이지로 이동
-            const moviePageUrl = `/movie-detail.html?title=${encodeURIComponent(query)}`;
-            window.location.href = moviePageUrl; // 상세 페이지로 이동
-        } else {
-            alert('검색어를 입력해주세요.');
-        }
-    });
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     </script>
     
     </html>
