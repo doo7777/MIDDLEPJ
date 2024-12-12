@@ -638,28 +638,6 @@
                         <h4 id="btnfont" class="service center">고객센터</h4>
                     </div>
                 </div>
-
-
-            </div>   
-        <div id="company">company</div> <!-- 회사 정보 영역 -->
-    </div>
-</body>
-<script>
-const login = document.querySelector('.fa-lock');
-const myPage = document.querySelector('.fa-user');
-const menu = document.querySelector('.fa-bars');
-const sidebar = document.querySelector('.sidebar');
-const closeButton = document.querySelector('.fa-xmark');
-const sidebarContent = document.querySelector('.sidebar-content');
-let signup = "";
-// 사이드바 열기닫기
-function moveSidebar(){
-    sidebar.classList.toggle('open');
-    signup = document.querySelector('#join');
-    signup.addEventListener('click',function(){
-    	window.location.href = '/midpro/customer/Signup.jsp';
-
-
                 <div class="sidebar">
                     <p>
                     <i class="fa-solid fa-xmark"></i>
@@ -839,26 +817,6 @@ function moveSidebar(){
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
-
-                        <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-                        <form action="/login" method="POST">
-                        <label for="username">I D:</label>
-                        <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                            
-                        <label for="password">PW:</label>
-                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                            
-                        <button type="submit" class="loginBtn">Login</button>
-        
-                        <h6>아직 회원이 아니세요?</h6>
-                        <button type="button" id="join" class="signupBtn">회원가입</button>
-        
-                        <h6><a href=#>비밀번호를 잊어버렸다면?</a></h6>
-                        </form>  `;
-        moveSidebar();                
-       
-
-
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
                 <label for="username">I D:</label>
@@ -871,7 +829,6 @@ function moveSidebar(){
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
-
 
     });
     
