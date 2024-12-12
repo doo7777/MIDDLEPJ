@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +7,8 @@
         <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
- 	 <style>
+        <style>
+            
             /* 전체 화면 사이즈 */
             body {
                 margin: 0;
@@ -109,13 +111,13 @@
 
             /* 비디오 영역 */
             hr{
-                margin: 0;
+                margin: -20px 0 0;
                 border: none;
                 height: 2px;
                 background-color: #ef8400;
             }
             #movie_play {
-                height: 580px;
+                height: 550px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -291,7 +293,7 @@
             .search-container {
                 position: relative;
                 display: inline-block;
-                left: 1380px;
+                left: 1393px;
                 bottom: 60px;
             }
             .search-container input[type="text"] {
@@ -604,6 +606,7 @@
                     </div>
                 </div>
 
+
             </div>   
         <div id="company">company</div> <!-- 회사 정보 영역 -->
     </div>
@@ -622,6 +625,7 @@ function moveSidebar(){
     signup = document.querySelector('#join');
     signup.addEventListener('click',function(){
     	window.location.href = '/midpro/customer/Signup.jsp';
+
 
                 <div class="sidebar">
                     <p>
@@ -752,7 +756,7 @@ function moveSidebar(){
     <script>
     const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
-    const menu = document.querySelector('.fa-bars');
+    // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
@@ -766,14 +770,10 @@ function moveSidebar(){
         });
     }
     
-    //로그인버튼누르면 사이드 바 뜸
-    login.addEventListener('click', function() { 
-        // if(sidebar.style.right === '0px') {
-        //     sidebar.style.right = '-300px'; //닫기
-        // } else {
-        //     sidebar.style.right = '0px'; //열기
-        // }
+    // 로그인 버튼 클릭 시 사이드바 열기
+    login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
+
                         <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
                         <form action="/login" method="POST">
                         <label for="username">I D:</label>
@@ -792,18 +792,28 @@ function moveSidebar(){
         moveSidebar();                
        
 
+
+            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <form action="/login" method="POST">
+                <label for="username">I D:</label>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
+                <label for="password">PW:</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
+                <button type="submit" class="loginBtn">Login</button>
+                <h6>아직 회원이 아니세요?</h6>
+                <button type="button" id="join" class="signupBtn">회원가입</button>
+                <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+            </form>`;
+        moveSidebar();   
+
+
     });
-    //회원가입 버튼 누르면 회원가입 URL로 이동
-    
-    /* signup.addEventListener('click',function(){
-        window.location.href = '/customer/CustomerInsert.jsp';
-    }); */
+
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
     closeButton.addEventListener('click', function() {
-        // sidebar.style.right = '-300px';
         moveSidebar(); 
     });
-    
+
     // ESC 눌러서 사이드 바 닫기
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
@@ -812,41 +822,44 @@ function moveSidebar(){
         }
     });
     
+    // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() { 
-        // if(sidebar.style.right === '0px') {
-        //     sidebar.style.right = '-300px'; //닫기
-        // } else {
-        //     sidebar.style.right = '0px'; //열기
-        // }
-        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`
+        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
+
     
-    menu.addEventListener('click', function(){
-        sidebarContent.innerHTML = `
-                        <h3> 빠른 메뉴 찾기</h3>
-                        <div class= "smallMenu">
-                        <input type="checkbox" id="upperMenu1">
-                        <label for="upperMenu1">영화</label>
-                        <div><p>영화하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu2">
-                        <label for="upperMenu2">극장</label>
-                        <div><p>극장하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu3">
-                        <label for="upperMenu3">예매</label>
-                        <div><p>예매하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu4">
-                        <label for="upperMenu4">스토어</label>
-                        <div><p>스토어하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu5">
-                        <label for="upperMenu5">이벤트</label>
-                        <div><p>이벤트하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu6">
-                        <label for="upperMenu6">혜택</label>
-                        <div><p>혜택하위메뉴들</p></div>
-                    </div>`;
-        moveSidebar();
-    });   
+    // 메뉴 클릭 시 사이드바 내용 업데이트
+    if (menu) { // menu가 정의되어 있을 때만 이벤트 리스너 추가
+        menu.addEventListener('click', function() {
+            sidebarContent.innerHTML = `
+                <h3>빠른 메뉴 찾기</h3>
+                <div class="smallMenu">
+                    <input type="checkbox" id="upperMenu1">
+                    <label for="upperMenu1">영화</label>
+                    <div><p>영화하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu2">
+                    <label for="upperMenu2">극장</label>
+                    <div><p>극장하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu3">
+                    <label for="upperMenu3">예매</label>
+                    <div><p>예매하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu4">
+                    <label for="upperMenu4">스토어</label>
+                    <div><p>스토어하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu5">
+                    <label for="upperMenu5">이벤트</label>
+                    <div><p>이벤트하위메뉴들</p></div>
+                    <input type="checkbox" id="upperMenu6">
+                    <label for="upperMenu6">혜택</label>
+                    <div><p>혜택하위메뉴들</p></div>
+                </div>`;
+            moveSidebar();
+        });
+    } else {
+        console.error('Menu icon not found!');
+    }
+
     
     document.addEventListener('DOMContentLoaded', function() {
         const videoPlayer = document.getElementById('videoPlayer');
@@ -943,6 +956,7 @@ function moveSidebar(){
             alert('검색어를 입력해주세요.');
         }
     });
+    
     </script>
     </html>
     
