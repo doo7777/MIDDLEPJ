@@ -693,11 +693,13 @@
                 </button>
             </div>
             <hr>
-            <div id="movie_play"><!-- 영화 재생 영역 -->
-                <video autoplay muted loop>
-                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
-                </video>
-            </div>
+			<div id="movie_play"><!-- 영화 재생 영역 -->
+			    <video autoplay muted loop>
+			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+			        <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+			    </video>
+			</div>
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
                 <h4>|</h4>
@@ -805,17 +807,17 @@
     let signup = "";
 
     // 사이드바 열기닫기
-	function moveSidebar() {
-	    sidebar.classList.toggle('open');
-	    
-	    // 사이드바가 열릴 때마다 signup 버튼을 찾기
-	    const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-	    if (signup) { // signup 버튼이 존재하는지 확인
-	        signup.addEventListener('click', function() {
-	            window.location.href = '/midpro/customer/Signup.jsp';
-	        });
-	    }
-	}
+    function moveSidebar() {
+        sidebar.classList.toggle('open');
+        
+        // 사이드바가 열릴 때마다 signup 버튼을 찾기
+        const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
+        if (signup) { // signup 버튼이 존재하는지 확인
+            signup.addEventListener('click', function() {
+                window.location.href = '/midpro/customer/Signup.jsp';
+            });
+        }
+    }
   
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
@@ -832,7 +834,6 @@
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
-
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -852,7 +853,98 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
+    
+    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.header');
+        const charts = document.querySelectorAll('.chart');
+        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
+    
+        if (header) {
+            header.addEventListener('click', function(event) {
+                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
+                if (event.target.closest('.menu-button')) {
+                    charts.forEach((chart) => {
+                        chart.classList.remove('show');
+                        chart.classList.add('hide');
+                    });
+    
+                    setTimeout(() => {
+                        charts.forEach((chart, index) => {
+                            setTimeout(() => {
+                                chart.classList.remove('hide');
+                                chart.classList.add('show');
+                            }, index * 100);
+                        });
+                    }, 500);
+                }
+            });
+    
+            charts.forEach((chart, index) => {
+                setTimeout(() => {
+                    chart.classList.add('show');
+                }, index * 100);
+            });
+        }
+        const buttons = document.querySelectorAll('.menu-button');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    
+        // '더 많은 영화보기' 버튼 클릭 시 애니메이션을 적용하지 않도록 설정
+        if (movieListButton) {
+            movieListButton.addEventListener('click', function(event) {
+                // 애니메이션을 적용하지 않음
+                charts.forEach((chart) => {
+                    chart.classList.remove('show'); // 애니메이션을 제거
+                });
+            });
+        }
+    });
 
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoPlayer = document.getElementById('movie_play');
+        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
+
+        function movie_play() {
+            const randomNum = Math.floor(Math.random() * 3) + 1;
+            return randomNum; // 난수를 반환
+        }
+
+        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
+        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
+
+        function movie_play() {
+            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
+            return randomNum; // 난수를 반환
+        }
+
+        function loadRandomVideo() {
+            const randomNum = movie_play(); // 난수 생성
+
+            // 모든 소스의 src를 초기화
+            for (let i = 0; i < sourcesElement.length; i++) {
+                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
+            }
+
+            // 선택된 소스의 src를 설정
+            videoPlayerElement.src = sourcesElement[randomNum].src;
+
+            // videoPlayer가 비디오 요소인지 확인
+            if (videoPlayerElement instanceof HTMLVideoElement) {
+                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
+            } else {
+                console.error('videoPlayer is not a valid video element');
+            }
+        }
+
+        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+    });
+</script>
+    
     </html>
     
