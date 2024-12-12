@@ -17,7 +17,7 @@ public class CusSignup extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/customer/Signup.jsp").forward(request, response);
+        request.getRequestDispatcher("/Signup.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
