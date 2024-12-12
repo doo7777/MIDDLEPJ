@@ -49,6 +49,4 @@
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
 
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
-</mapper>
 

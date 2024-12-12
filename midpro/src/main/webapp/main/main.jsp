@@ -810,7 +810,6 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
-    let signup = "";
     
     // 사이드바 열기닫기
    function moveSidebar() {
@@ -826,34 +825,34 @@
    }
 
     
-//     const login = document.querySelector("#login"); //ID login을 검색
-//     if(login){
-//     	login.addEventListener('click',function(e){
-//     		e.preventDefault(); // 기본 폼 제출 방지
-//     		 const logindata = $('loginform').serialize();
+    const login1 = document.querySelector("#login"); //ID login을 검색
+    if(login1){
+    	login1.addEventListener('click',function(e){
+    		e.preventDefault(); // 기본 폼 제출 방지
+    		const logindata = document.querySelector('#loginform').serialize();
     		
-//     		   $.ajax({
-//     	            url: '/customer/cusLogin.do', // 로그인 처리 URL
-//     	            type: 'POST',
-//     	            data: logindata,
-//     	            success: function(resp) {
-//     	                if (resp.success) {
-//     	                    // 로그인 성공 시 리다이렉트
-//     	                    window.location.href = '/main/mian.jsp'; // 로그인 완료된 홈페이지 URL
-//     	                } else {
-//     	                    alert('로그인 실패: ' + response.message);
-//     	                }
-//     	            },
-//     	            error: function(xhr) {
-//     	                alert('서버 오류: ' + xhr.status);
-//     	            }
-//     	        });
-//     	}
+    		   $.ajax({
+    	            url: '/customer/cusLogin.do', // 로그인 처리 URL
+    	            type: 'POST',
+    	            data: logindata,
+    	            success: function(resp) {
+    	                if (resp.success) {
+    	                    // 로그인 성공 시 리다이렉트
+    	                    window.location.href = '/main/mian.jsp'; // 로그인 완료된 홈페이지 URL
+    	                } else {
+    	                    alert('로그인 실패: ' + response.message);
+    	                }
+    	            },
+    	            error: function(xhr) {
+    	                alert('서버 오류: ' + xhr.status);
+    	            }
+    	        });
+    	}
     	
-//     }
+    }
     
    const barParam = '<%=request.getParameter("bar")%>';
-   if (barParam == 'on') {
+   if (barParam === 'on') {
 	   sidebarContent.innerHTML = ` 
            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
            <form action="/login" method="POST" id="loginform">
@@ -959,12 +958,6 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        const videoPlayer = document.getElementById('movie_play');
-        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * 3) + 1;
-            return randomNum; // 난수를 반환
 
 
 
@@ -990,6 +983,7 @@
             // videoPlayer가 비디오 요소인지 확인
             if (videoPlayerElement instanceof HTMLVideoElement) {
                 videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
+                videoPlayerElement.play(); // 비디오 자동 재생
             } else {
                 console.error('videoPlayer is not a valid video element');
             }
