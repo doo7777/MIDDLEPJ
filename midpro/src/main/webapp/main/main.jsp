@@ -747,7 +747,7 @@
             window.location.href = '/midpro/customer/CustomerInsert.jsp';
         });
     }
-    
+    D
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
