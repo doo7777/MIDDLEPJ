@@ -115,7 +115,7 @@
             <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
             <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
             <br>
-			<div id="signup">
+			<div id="join">
             <button type="submit" >회원가입</button>
             </div>
         </form>
