@@ -33,7 +33,7 @@ public interface IOne_On_One_BoardDao {
 //	 * @param Board_ID
 //	 * @return
 //	 */
-//	public int getBoadrCount(int Board_ID); 보류
+//	public int getBoadrCount(int Board_ID); 
 	/**
 	 * 게시글 번호로 게시물 검색
 	 * @param Board_ID

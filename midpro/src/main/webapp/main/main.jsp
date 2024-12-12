@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +7,8 @@
         <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
- 	 <style>
+        <style>
+            
             /* 전체 화면 사이즈 */
             body {
                 margin: 0;
@@ -109,13 +111,13 @@
 
             /* 비디오 영역 */
             hr{
-                margin: 0;
+                margin: -20px 0 0;
                 border: none;
                 height: 2px;
                 background-color: #ef8400;
             }
             #movie_play {
-                height: 580px;
+                height: 550px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -291,7 +293,7 @@
             .search-container {
                 position: relative;
                 display: inline-block;
-                left: 1380px;
+                left: 1393px;
                 bottom: 60px;
             }
             .search-container input[type="text"] {
@@ -729,27 +731,23 @@
     </body>
     
     
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+    <script>
     const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
-    const menu = document.querySelector('.fa-bars'); // menu 요소 정의
+    // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     let signup = "";
-
     // 사이드바 열기닫기
-    function moveSidebar() {
+    function moveSidebar(){
         sidebar.classList.toggle('open');
         signup = document.querySelector('#join');
-        if (signup) { // signup이 정의된 경우에만 이벤트 리스너 추가
-            signup.addEventListener('click', function() {
-                window.location.href = '/midpro/customer/CustomerInsert.jsp';
-            });
-        }
+        signup.addEventListener('click',function(){
+            window.location.href = '/midpro/customer/CustomerInsert.jsp';
+        });
     }
-
+    
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
@@ -764,7 +762,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
-        moveSidebar();                
+        moveSidebar();   
+
     });
 
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -772,19 +771,21 @@ document.addEventListener('DOMContentLoaded', function() {
         moveSidebar(); 
     });
 
-    // ESC 눌러서 사이드바 닫기
+    // ESC 눌러서 사이드 바 닫기
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
+            // sidebar.style.right = '-300px';
             moveSidebar(); 
         }
     });
-
+    
     // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() { 
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
 
+    
     // 메뉴 클릭 시 사이드바 내용 업데이트
     if (menu) { // menu가 정의되어 있을 때만 이벤트 리스너 추가
         menu.addEventListener('click', function() {
@@ -815,7 +816,104 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Menu icon not found!');
     }
-});
-</script>
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoPlayer = document.getElementById('videoPlayer');
+    
+        function movie_play(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    
+        function loadRandomVideo() {
+            const randomVideo = movie_play(1, 3);
+            const sources = videoPlayer.querySelectorAll('source');
+    
+            sources.forEach(source => source.src = '');
+    
+            switch (randomVideo) {
+                case 1:
+                    sources[0].src = 'sorce/영상 소스파일1.mp4';
+                    break;
+                case 2:
+                    sources[1].src = 'sorce/영상 소스파일2.mp4';
+                    break;
+                case 3:
+                    sources[2].src = 'sorce/영상 소스파일3.mp4';
+                    break;
+            }
+    
+            videoPlayer.load();
+        }
+    
+        loadRandomVideo();
+        videoPlayer.addEventListener('ended', loadRandomVideo);
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.header');
+        const charts = document.querySelectorAll('.chart');
+        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
+    
+        if (header) {
+            header.addEventListener('click', function(event) {
+                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
+                if (event.target.closest('.menu-button')) {
+                    charts.forEach((chart) => {
+                        chart.classList.remove('show');
+                        chart.classList.add('hide');
+                    });
+    
+                    setTimeout(() => {
+                        charts.forEach((chart, index) => {
+                            setTimeout(() => {
+                                chart.classList.remove('hide');
+                                chart.classList.add('show');
+                            }, index * 100);
+                        });
+                    }, 500);
+                }
+            });
+    
+            charts.forEach((chart, index) => {
+                setTimeout(() => {
+                    chart.classList.add('show');
+                }, index * 100);
+            });
+        }
+    
+        const buttons = document.querySelectorAll('.menu-button');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    
+        // '더 많은 영화보기' 버튼 클릭 시 애니메이션을 적용하지 않도록 설정
+        if (movieListButton) {
+            movieListButton.addEventListener('click', function(event) {
+                // 애니메이션을 적용하지 않음
+                charts.forEach((chart) => {
+                    chart.classList.remove('show'); // 애니메이션을 제거
+                });
+            });
+        }
+    });
+    
+        document.getElementById('searchButton').addEventListener('click', function() {
+        const query = document.getElementById('search').value.trim(); // 입력값의 앞뒤 공백 제거
+        if (query) {
+            // 검색어를 처리하는 로직 (예: 서버로 전송)
+            // 예시: 영화 제목에 따라 상세 페이지로 이동
+            const moviePageUrl = `/movie-detail.html?title=${encodeURIComponent(query)}`;
+            window.location.href = moviePageUrl; // 상세 페이지로 이동
+        } else {
+            alert('검색어를 입력해주세요.');
+        }
+    });
+    
+    </script>
     </html>
     
