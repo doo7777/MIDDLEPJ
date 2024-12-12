@@ -28,6 +28,7 @@ public class NoticeInsert extends HttpServlet {
 	String content = request.getParameter("content");
 	String post_date = request.getParameter("post_date");
 	String notice_view = request.getParameter("notive_view");
+	String notice_sort = request.getParameter("notice_sort");
 	
 	NoticeVO noticeVO = new NoticeVO();
 	noticeVO.setNotice_id(notice_id);
@@ -35,9 +36,13 @@ public class NoticeInsert extends HttpServlet {
 	noticeVO.setContent(content);
 	noticeVO.setPost_date(post_date);
 	noticeVO.setNotice_view(notice_view);
+	noticeVO.setNotice_sort(notice_sort);
 	
 	INoticeService service = NoticeServiceImpl.getInstance();
 	int result = service.insertNotice(noticeVO);
+	
+	String noticeSort = request.getParameter("notice_sort");
+	System.out.println("notice_sort: " + noticeSort);
 	
 	if(result>0) {
 		response.sendRedirect(request.getContextPath()+"/notice/InsertNotice.jsp");
