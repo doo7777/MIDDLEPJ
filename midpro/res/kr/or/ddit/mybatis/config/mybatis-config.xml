@@ -3,7 +3,6 @@
    PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
          "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
    <!-- DB 연결 정보가 저장된 propertis파일 정보 설정 -->
    <properties resource="kr/or/ddit/mybatis/config/dbinfo.properties"/>
    
@@ -30,7 +29,7 @@
 <!--       <typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/> -->
       <typeAlias type="Vo.CustomerVO" alias="cusVO"/>
       <typeAlias type="Vo.NoticeVO" alias="noticeVO"/>
-      <typeAlias type="Vo.MovieVO" alias="movieVO"/>
+      
       
    </typeAliases>
    
@@ -62,8 +61,17 @@
 <!--       <mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
       <mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
-      <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/>
+      
    </mappers>
    
-
 </configuration>
+
+
+
+
+
+
+
+
+         
+         
