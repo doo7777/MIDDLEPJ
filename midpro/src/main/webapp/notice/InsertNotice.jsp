@@ -67,8 +67,8 @@
         <form action="noticeInsert.do" method="post">
             <!-- 번호는 자동 생성될 수 있으므로 입력하지 않음 -->
             
-            <label for="category">구분:</label>
-            <select id="category" name="category" required>
+            <label for="notice_sort">구분:</label>
+            <select id="notice_sort" name="notice_sort" required>
                 <option value="">선택하세요</option>
                 <option value="시스템점검">시스템점검</option>
                 <option value="극장">극장</option>
