@@ -603,7 +603,7 @@
                         <h4 id="btnfont" class="service center">고객센터</h4>
                     </div>
                 </div>
-<<<<<<< HEAD
+
             </div>   
         <div id="company">company</div> <!-- 회사 정보 영역 -->
     </div>
@@ -622,7 +622,7 @@ function moveSidebar(){
     signup = document.querySelector('#join');
     signup.addEventListener('click',function(){
     	window.location.href = '/midpro/customer/Signup.jsp';
-=======
+
                 <div class="sidebar">
                     <p>
                     <i class="fa-solid fa-xmark"></i>
@@ -791,7 +791,7 @@ function moveSidebar(){
                         </form>  `;
         moveSidebar();                
        
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
+
     });
     //회원가입 버튼 누르면 회원가입 URL로 이동
     
