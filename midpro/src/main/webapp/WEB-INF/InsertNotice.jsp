@@ -67,14 +67,14 @@
         <form action="noticeInsert.do" method="post">
             <!-- 번호는 자동 생성될 수 있으므로 입력하지 않음 -->
             
-            <label for="category">구분:</label>
-            <select id="category" name="category" required>
-                <option value="">선택하세요</option>
-                <option value="시스템점검">시스템점검</option>
-                <option value="극장">극장</option>
-                <option value="행사/이벤트">행사/이벤트</option>
-                <option value="기타">기타</option>
-            </select>
+<!--             <label for="category">구분:</label> -->
+<!--             <select id="category" name="category" required> -->
+<!--                 <option value="">선택하세요</option> -->
+<!--                 <option value="시스템점검">시스템점검</option> -->
+<!--                 <option value="극장">극장</option> -->
+<!--                 <option value="행사/이벤트">행사/이벤트</option> -->
+<!--                 <option value="기타">기타</option> -->
+<!--             </select> -->
 
             <label for="title">제목:</label>
             <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
