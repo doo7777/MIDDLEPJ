@@ -18,75 +18,7 @@
     )
 </insert>
 
-<!-- 공지사항 수정 -->
-<update id="updateNotice" parameterType="noticeVO">
-update notice set
-      title=#{title}, content=#{content}, post_date=#{post_date}
-       where notice_id = #{notice_id}
-</update>
 
-
-<!-- 전제 공지사항 조회 -->
-<select id= "getAllNotce" resultType="noticeVO">
-  select * from notice
-</select>
-
-<!-- 공지사항 삭제 -->
-<delete id="deleteNotice" parameterType="int">
-    delete from notice
-    where notice_id = #{notice_id}
-</delete>
-  
-  <!-- 게시물 번호로 공지사항 조회 -->
-  <select id ="getNoitce"  parameterType="int" resultType="noticeVO">
-     select * from notice
-    where notice_id = #{notice_id}
-  </select>
-  
- <!-- ==================================================== -->
-  
-
-<!-- ===================  ONE_ON_ONE 부분입니다================ -->
-
-<!-- 1대1 게시판 추가 -->
-<insert id= "insertOneOnOneBoard" parameterType="one_on_one_boardVO">
-insert into one_on_one_board(
- oneonone_id,  cutomer_id, person_name, person_tel, person_email, location,
- question_type, subject, content, fileimg, writedate, res_board, response_board_content
-)values( #{oneonone_id}, #{customer_id}, #{person_name}, #{person_tel}, #{person_email}, #{location},
-        #{question_type}, #{subject}, #{content}, #{fileimg}, #{writedate}, #{res_board}, #{response_board_content})
-</insert>
-<!-- 1대1 게시판 삭제 -->
-<delete id="deleteOneOnOneBoard" parameterType="one_on_one_boardVO">
-   delete from one_on_one_board
-   where oneonone_id = #{oneonone_id}
-</delete>
-<!-- 1대1 게시판 수정 -->
-<update id="updateOneOnOneBoard" parameterType="one_on_one_boardVO">
-    update one_on_one_board set
-        customer_id = #{customer_id},
-        person_name = #{person_name},
-        person_tel = #{person_tel},
-        person_email = #{person_email},
-        location = #{location},
-        question_type = #{question_type},
-        subject = #{subject},
-        content = #{content},
-        fileimg = #{fileimg},
-        writedate = #{writedate},
-        res_board = #{res_board},
-        response_board_content = #{response_board_content}
-    where oneonone_id = #{oneonone_id}
-</update>
-<!-- 1대1 게시판 전체 조회 -->
-<select id= "getAllOneOnOneBoard" resultType="one_on_one_boardVO">
-  select * from One_On_One_Board
-</select>
- <!-- 1대1 게시물 번호로 게시물 검색 -->
-   <select id ="getOneOnOneBoard"  parameterType="int" resultType="one_on_one_boardVO">
-     select * from notice
-    where notice_id = #{notice_id}
-  </select>
 
 
 </mapper>
