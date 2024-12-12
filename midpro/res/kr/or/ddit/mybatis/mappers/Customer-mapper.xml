@@ -16,6 +16,7 @@
         #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
     )
 </insert>
+<<<<<<< HEAD
 
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
 <!-- update customer set  -->
@@ -36,5 +37,7 @@
 <!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
 </mapper>
 
