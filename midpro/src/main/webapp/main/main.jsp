@@ -581,39 +581,39 @@
               justify-content: left;
             } */
 
-			.policy_list { 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
-	        .company_info_wrap { /* 주소 */
-	            display: flex; 
-	            align-items: center; 
-	            margin-left: 450px; 
-	        } 
-	        
-	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-	            margin: 0; 
-	            padding: 1; 
-	        } 
-	        .company_info_list { 
-	            display: inline; 
-	            align-items: right; 
-	        } 
-	        .company_info_list dt  { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        } 
-	        .company_info_list dd { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        }
+         .policy_list { 
+               display: flex; 
+               flex-wrap: wrap; 
+               list-style: none; 
+               padding: 10; 
+               margin: 0 440px; 
+           } 
+           .policy_list li { 
+               margin-right: 15px; /* 단어 사이 간격 조절 */
+               padding: 0; 
+           }
+           .company_info_wrap { /* 주소 */
+               display: flex; 
+               align-items: center; 
+               margin-left: 450px; 
+           } 
+           
+           .company_info address, .company_info_list, .company_info p { /* 주소간격 */
+               margin: 0; 
+               padding: 1; 
+           } 
+           .company_info_list { 
+               display: inline; 
+               align-items: right; 
+           } 
+           .company_info_list dt  { 
+               display: inline; 
+               margin-right: 1px; 
+           } 
+           .company_info_list dd { 
+               display: inline; 
+               margin-right: 1px; 
+           }
 
 
 
@@ -638,28 +638,6 @@
                         <h4 id="btnfont" class="service center">고객센터</h4>
                     </div>
                 </div>
-
-
-            </div>   
-        <div id="company">company</div> <!-- 회사 정보 영역 -->
-    </div>
-</body>
-<script>
-const login = document.querySelector('.fa-lock');
-const myPage = document.querySelector('.fa-user');
-const menu = document.querySelector('.fa-bars');
-const sidebar = document.querySelector('.sidebar');
-const closeButton = document.querySelector('.fa-xmark');
-const sidebarContent = document.querySelector('.sidebar-content');
-let signup = "";
-// 사이드바 열기닫기
-function moveSidebar(){
-    sidebar.classList.toggle('open');
-    signup = document.querySelector('#join');
-    signup.addEventListener('click',function(){
-    	window.location.href = '/midpro/customer/Signup.jsp';
-
-
                 <div class="sidebar">
                     <p>
                     <i class="fa-solid fa-xmark"></i>
@@ -827,41 +805,21 @@ function moveSidebar(){
     let signup = "";
 
     // 사이드바 열기닫기
-	function moveSidebar() {
-	    sidebar.classList.toggle('open');
-	    
-	    // 사이드바가 열릴 때마다 signup 버튼을 찾기
-	    const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-	    if (signup) { // signup 버튼이 존재하는지 확인
-	        signup.addEventListener('click', function() {
-	            window.location.href = '/midpro/customer/Signup.jsp';
-	        });
-	    }
-	}
+   function moveSidebar() {
+       sidebar.classList.toggle('open');
+       
+       // 사이드바가 열릴 때마다 signup 버튼을 찾기
+       const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
+       if (signup) { // signup 버튼이 존재하는지 확인
+           signup.addEventListener('click', function() {
+               window.location.href = '/midpro/customer/Signup.jsp';
+           });
+       }
+   }
   
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
-
-                        <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-                        <form action="/login" method="POST">
-                        <label for="username">I D:</label>
-                        <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                            
-                        <label for="password">PW:</label>
-                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                            
-                        <button type="submit" class="loginBtn">Login</button>
-        
-                        <h6>아직 회원이 아니세요?</h6>
-                        <button type="button" id="join" class="signupBtn">회원가입</button>
-        
-                        <h6><a href=#>비밀번호를 잊어버렸다면?</a></h6>
-                        </form>  `;
-        moveSidebar();                
-       
-
-
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
                 <label for="username">I D:</label>
@@ -874,7 +832,6 @@ function moveSidebar(){
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
-
 
     });
     
