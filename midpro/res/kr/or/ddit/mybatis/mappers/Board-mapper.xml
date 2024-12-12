@@ -11,12 +11,11 @@
                      
 <!-- 공지사항 추가 -->
 <insert id="insertNotice" parameterType="noticeVO">
-insert into notice (
-      notice_id, title, content, post_date)
-      values(
-      #{notice_id},#{title},#{content},#{post_date}
-      )
- )
+    INSERT INTO notice (
+        notice_id, title, content, post_date
+    ) VALUES (
+        NOTICE_SEQ.NEXTVAL, #{title}, #{content}, sysdate
+    )
 </insert>
 
 <!-- 공지사항 수정 -->
@@ -88,7 +87,12 @@ insert into one_on_one_board(
      select * from notice
     where notice_id = #{notice_id}
   </select>
+
  </mapper>
+
+
+
+
  
 
 
