@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="<%=request.getContextPath() %>/member/memberList.do">회원 목록 보기</a>
+<a href="<%=request.getContextPath() %>/member/memberList.do">회원 목록 보기</a><br>
+<a href="<%=request.getContextPath() %>/noticeInsert.do">공지글(Notice)등록하기</a>
 </body>
 </html>

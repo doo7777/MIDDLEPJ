@@ -29,8 +29,8 @@ public interface INoticeDao {
 	 */
 	public List<NoticeVO> getAllNotice();
 	/**
-	 * 게시물 번호(공지사항 번호)로 공지사항 정보 보여줌
-	 * @param notice_id
+	 * 게시물 제목으로 공지글 검색
+	 * @param title
 	 * @return
 	 */
 	public NoticeVO getNotice(String title);

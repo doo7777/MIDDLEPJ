@@ -58,6 +58,19 @@
             border: none;
             
         }
+        
+        .sidebar input {
+            background-color: black;
+            color: white;
+            border-color: rgb(0, 0, 0);
+            padding: 5px;
+            min-height: 20px;
+            min-width: 250px;
+            margin-bottom: 10px; /* 입력 필드 간격 */
+            font-size: 16px; /* 글자 크기 */
+            border-radius: 5px;
+            padding-left: 40px; /* 아이콘이 겹치지 않도록 왼쪽에 패딩 추가 */
+        }
 
         .sidebar button {
             background-color: white;
@@ -162,7 +175,10 @@
             max-width: 1500px;
             margin: 0 auto;
         }
-
+		#noticeClient{
+		 display: flex;
+		  justify-content: left;
+		}
         .package, .ticket, .giftcard {
             color: black;
             background: white;
@@ -342,7 +358,7 @@
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <source src="sorce/img/DGV-로고.png" type="image/png">
+            <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
             <div class="topIcon">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fa-regular fa-user"></i>
@@ -407,12 +423,14 @@
             <div class="package">
                 <i class="fa-solid fa-plus"></i>
                 <h3>패키지</h3>
-                <img src="./image/나랑-너-패키지.jpg" width=150px height=150px>
+                <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" width=150px height=150px>
+                <img src="sorce/img/패키지(완료)/우리-패키지.jpg" width=150px height=150px>
             </div>    
             <div class="ticket">
                 <i class="fa-solid fa-plus"></i>
                 <h3>영화관람권</h3>
-                <img src="./image/4DX-영화관람권.jpg" width=150px height=150px>
+                <img src="sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" width=150px height=150px>
+                <img src="sorce/img/영화관람권(완료)/CGV-영화관람권.jpg" width=150px height=150px>
             </div>    
             <div class="giftcard">
                 <i class="fa-solid fa-plus"></i>
@@ -420,11 +438,12 @@
                 기프트카드 사진 넣을 곳
             </div>  
         </div>
+        <br><br>
         <div id="noticeClient" style="color: white;">
                 <div id="notice_wrap" class="notice_wrap">
                     <dt><strong>공지사항</strong></dt>
                     <dd>
-                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내</a>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
                         <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
                     </dd>
                 </div>
@@ -435,14 +454,14 @@
                         <dd>
                             <strong>1234-1234</strong>
                             <span>고객센터 운영시간 (평일 09:00~18:00)
-                                <p>업무시간 외 자동응답 안내 가능합니다.</p>
+                                <p>업무시간 외 자동응답 안내 불가능합니다.</p>
                             </span>
                         </dd>
                     </dl>
                     <div class="client_btn_wrap" id="client_btn_wrap">
-                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a>
-                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>
-                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                     </div>
                 </div>
             </div>   
@@ -474,6 +493,7 @@ login.addEventListener('click', function() {
     //     sidebar.style.right = '0px'; //열기
     // }
     sidebarContent.innerHTML = ` 
+    				<img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
                     <form action="/login" method="POST">
                     <label for="username">I D:</label>
                     <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
@@ -521,7 +541,6 @@ myPage.addEventListener('click', function() {
 });
 
 menu.addEventListener('click', function(){
-    moveSidebar();
     sidebarContent.innerHTML = `
                     <h3> 빠른 메뉴 찾기</h3>
                     <div class= "smallMenu">
@@ -544,6 +563,7 @@ menu.addEventListener('click', function(){
                     <label for="upperMenu6">혜택</label>
                     <div><p>혜택하위메뉴들</p></div>
                 </div>`;
+    moveSidebar();
 });   
 </script>
 </html>

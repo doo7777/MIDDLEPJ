@@ -21,6 +21,7 @@ public class CustInsert extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("post로 들어오고 있냐?");
     	request.setCharacterEncoding("utf-8");
         // 파라미터 수신
         String cust_id = request.getParameter("cust_id");

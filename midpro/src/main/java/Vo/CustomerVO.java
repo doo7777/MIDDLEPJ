@@ -12,7 +12,7 @@ public class CustomerVO {
 	private String cust_detailadd;
 	private String cust_grade;
 	private String cust_delete;
-	private int role;
+	private int adminrole;
 	
 	public String getCustomer_id() {
 		return customer_id;
@@ -77,17 +77,17 @@ public class CustomerVO {
 	
 
 	public int getRole() {
-		return role;
+		return adminrole;
 	}
 	public void setRole(int role) {
-		this.role = role;
+		this.adminrole = role;
 	}
 	@Override
 	public String toString() {
 		return "CustomerVO [customer_id=" + customer_id + ", cust_pw=" + cust_pw + ", cust_name=" + cust_name
 				+ ", cust_email=" + cust_email + ", cust_tel=" + cust_tel + ", cust_postcode=" + cust_postcode
 				+ ", cust_add=" + cust_add + ", cust_detailadd=" + cust_detailadd + ", cust_grade=" + cust_grade
-				+ ", cust_delete=" + cust_delete + ", role=" + role + "]";
+				+ ", cust_delete=" + cust_delete + ", adminrole=" + adminrole + "]";
 	}
 	
 	
