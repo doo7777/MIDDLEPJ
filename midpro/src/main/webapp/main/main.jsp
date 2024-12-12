@@ -540,19 +540,18 @@
               justify-content: left;
             } */
 
-<<<<<<< HEAD
-=======
 			.policy_list { 
+			border:1px solid black; 
 	            display: flex; 
 	            flex-wrap: wrap; 
 	            list-style: none; 
 	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
 	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
+	        } 
+/* 	        .policy_list li {  */
+/* 	            margin-right: 15px; /* 단어 사이 간격 조절 */ */
+/* 	            padding: 0;  */
+/* 	        } */
 	        .company_info_wrap { /* 주소 */
 	            display: flex; 
 	            align-items: center; 
@@ -578,7 +577,6 @@
 
 
 
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
         </style>
     </head>
     <body>
@@ -726,15 +724,15 @@
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
             <div class="policy_list" style="color: white;">
-                <li><a href="" target="_blank">회사소개</a></li>
-                <li><a href="" target="_blank">채용정보</a></li>
-                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">편성기준</a></li>
-                <li><a href=""><strong>개인정보처리방침</strong></a></li>
-                <li><a href="">법적고지</a></li>
-                <li><a href="">이메일주소무단수집거부</a></li>
-                <li><a href="" target="_blank">윤리경영</a></li>
+                <a href="" target="_blank">회사소개</a>
+                <a href="" target="_blank">채용정보</a>
+                <a href="" target="_blank">광고/제휴/출점문의</a>
+                <a href="">이용약관</a>
+                <a href="">편성기준</a>
+                <a href=""><strong>개인정보처리방침</strong></a>
+                <a href="">법적고지</a>
+                <a href="">이메일주소무단수집거부</a>
+                <a href="" target="_blank">윤리경영</a>
             </div>
             <br>
             <hr>
