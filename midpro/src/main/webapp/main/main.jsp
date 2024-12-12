@@ -389,41 +389,6 @@
                 /* text-decoration: none; */ /* 텍스트 장식 제거 */
              /* }  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
             .sidebar {
                 display: flex; /* Flexbox 사용 */
                 justify-content: center; /* 수평 중앙 정렬 */
@@ -540,10 +505,6 @@
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
-    
-           
-    
-            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -572,15 +533,10 @@
                 font-size: 18px;
             }
 
-
-
             /* #noticeClient{
              display: flex;
               justify-content: left;
             } */
-
-
-
 
         </style>
     </head>
@@ -591,7 +547,7 @@
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                     <div class="icon-text">
-                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-solid fa-lock" id="loginbutton"></i>
                         <h4 id="btnfont" class="login">로그인</h4>
                     </div>
                     <div class="icon-text">
@@ -603,31 +559,9 @@
                         <h4 id="btnfont" class="service center">고객센터</h4>
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>   
-        <div id="company">company</div> <!-- 회사 정보 영역 -->
-    </div>
-</body>
-<script>
-const login = document.querySelector('.fa-lock');
-const myPage = document.querySelector('.fa-user');
-const menu = document.querySelector('.fa-bars');
-const sidebar = document.querySelector('.sidebar');
-const closeButton = document.querySelector('.fa-xmark');
-const sidebarContent = document.querySelector('.sidebar-content');
-let signup = "";
-// 사이드바 열기닫기
-function moveSidebar(){
-    sidebar.classList.toggle('open');
-    signup = document.querySelector('#join');
-    signup.addEventListener('click',function(){
-    	window.location.href = '/midpro/customer/Signup.jsp';
-=======
                 <div class="sidebar">
-                    <p>
                     <i class="fa-solid fa-xmark"></i>
                     <div class="sidebar-content"></div>
-                    </p>
                 </div>    
             </div>
     
@@ -720,11 +654,13 @@ function moveSidebar(){
             <br><br>
             <div id="noticeClient" style="color: white;">
                     <div id="notice_wrap" class="notice_wrap">
+                    <dl>
                         <dt><strong>공지사항</strong></dt>
                         <dd>
                             <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
                             <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
                         </dd>
+                        </dl>
                     </div>
     
                     <div class="client_wrap">
@@ -733,7 +669,7 @@ function moveSidebar(){
                             <dd>
                                 <strong>1234-1234</strong>
                                 <span>고객센터 운영시간 (평일 09:00~18:00)
-                                    <p>업무시간 외 자동응답 안내 불가능합니다.</p>
+                                     업무시간 외 자동응답 안내 불가능합니다.
                                 </span>
                             </dd>
                         </dl>
@@ -750,7 +686,7 @@ function moveSidebar(){
     
     
     <script>
-    const login = document.querySelector('.fa-lock');
+    const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
@@ -762,7 +698,7 @@ function moveSidebar(){
         sidebar.classList.toggle('open');
         signup = document.querySelector('#join');
         signup.addEventListener('click',function(){
-            window.location.href = '/midpro/customer/CustomerInsert.jsp';
+            window.location.href = '/midpro/customer/Signup.jsp';
         });
     }
     
@@ -791,7 +727,6 @@ function moveSidebar(){
                         </form>  `;
         moveSidebar();                
        
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     });
     //회원가입 버튼 누르면 회원가입 URL로 이동
     
@@ -822,31 +757,31 @@ function moveSidebar(){
         moveSidebar(); 
     });
     
-    menu.addEventListener('click', function(){
-        sidebarContent.innerHTML = `
-                        <h3> 빠른 메뉴 찾기</h3>
-                        <div class= "smallMenu">
-                        <input type="checkbox" id="upperMenu1">
-                        <label for="upperMenu1">영화</label>
-                        <div><p>영화하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu2">
-                        <label for="upperMenu2">극장</label>
-                        <div><p>극장하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu3">
-                        <label for="upperMenu3">예매</label>
-                        <div><p>예매하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu4">
-                        <label for="upperMenu4">스토어</label>
-                        <div><p>스토어하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu5">
-                        <label for="upperMenu5">이벤트</label>
-                        <div><p>이벤트하위메뉴들</p></div>
-                        <input type="checkbox" id="upperMenu6">
-                        <label for="upperMenu6">혜택</label>
-                        <div><p>혜택하위메뉴들</p></div>
-                    </div>`;
-        moveSidebar();
-    });   
+//     menu.addEventListener('click', function(){
+//         sidebarContent.innerHTML = `
+//                         <h3> 빠른 메뉴 찾기</h3>
+//                         <div class= "smallMenu">
+//                         <input type="checkbox" id="upperMenu1">
+//                         <label for="upperMenu1">영화</label>
+//                         <div><p>영화하위메뉴들</p></div>
+//                         <input type="checkbox" id="upperMenu2">
+//                         <label for="upperMenu2">극장</label>
+//                         <div><p>극장하위메뉴들</p></div>
+//                         <input type="checkbox" id="upperMenu3">
+//                         <label for="upperMenu3">예매</label>
+//                         <div><p>예매하위메뉴들</p></div>
+//                         <input type="checkbox" id="upperMenu4">
+//                         <label for="upperMenu4">스토어</label>
+//                         <div><p>스토어하위메뉴들</p></div>
+//                         <input type="checkbox" id="upperMenu5">
+//                         <label for="upperMenu5">이벤트</label>
+//                         <div><p>이벤트하위메뉴들</p></div>
+//                         <input type="checkbox" id="upperMenu6">
+//                         <label for="upperMenu6">혜택</label>
+//                         <div><p>혜택하위메뉴들</p></div>
+//                     </div>`;
+//         moveSidebar();
+//     });   
     
     document.addEventListener('DOMContentLoaded', function() {
         const videoPlayer = document.getElementById('videoPlayer');
@@ -943,6 +878,8 @@ function moveSidebar(){
             alert('검색어를 입력해주세요.');
         }
     });
+        
     </script>
+    
     </html>
     
