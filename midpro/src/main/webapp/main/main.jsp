@@ -13,7 +13,7 @@
                 width: 100%;
                 overflow-x: hidden;
                 overflow-y: auto;
-                background: blue;
+                background: black;
             }
             div {
                 border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
