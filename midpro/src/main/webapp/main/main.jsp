@@ -530,8 +530,11 @@
                 font-size: 18px;
             }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
             #noticeClient { 
                 color: white; 
                 width: 580px; /* 고정 너비 */ 
@@ -558,7 +561,7 @@
             .company_info { 
                 width: 1000px; /* 고정 너비 */ 
                 display: block;
-                margin-left: 530px; 
+                margin-left: 200px; 
                 display: inline-block; 
             }  
             .company_info _wrap { 
@@ -574,7 +577,48 @@
                 display: inline-block; 
                 margin-right: 10px; 
             }
+<<<<<<< HEAD
             /* 로그인 버튼(우측) */
+=======
+            
+
+
+
+         .policy_list { 
+               display: flex; 
+               flex-wrap: wrap; 
+               list-style: none; 
+               padding: 10; 
+               margin: 0 440px; 
+           } 
+           .policy_list li { 
+               margin-right: 15px; /* 단어 사이 간격 조절 */
+               padding: 0; 
+           }
+           .company_info_wrap { /* 주소 */
+               display: flex; 
+               align-items: center; 
+               margin-left: 450px; 
+           } 
+           
+           .company_info address, .company_info_list, .company_info p { /* 주소간격 */
+               margin: 0; 
+               padding: 1; 
+           } 
+           .company_info_list { 
+               display: inline; 
+               align-items: right; 
+           } 
+           .company_info_list dt  { 
+               display: inline; 
+               margin-right: 1px; 
+           } 
+           .company_info_list dd { 
+               display: inline; 
+               margin-right: 1px; 
+           }
+			/* 로그인 버튼(우측) */
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
             .loginBtn { 
                 margin-top: 10px; 
             }
@@ -723,7 +767,7 @@
                 </div>  
             </div>
             <br><br>
-            <div id="noticeClient" style="color: white;">
+           <div id="noticeClient" style="color: white;">
                 <div id="notice_wrap" class="notice_wrap">
                 <dl>
                     <dt><strong>공지사항</strong></dt>
