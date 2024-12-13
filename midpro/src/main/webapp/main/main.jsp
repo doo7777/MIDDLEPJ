@@ -570,7 +570,26 @@
                display: inline; 
                margin-right: 1px; 
            }
-
+			/* 로그인 버튼(우측) */
+            .loginBtn { 
+                margin-top: 10px; 
+            }
+            .IDBtn, .PWBtn { 
+                width: 225px; /* 상자 크기 조정 */ 
+                height: 30px;
+                padding: 10px; /* 여백 추가 */ 
+            }
+            input[type="text"], input[type="password"] { 
+                background-color: transparent; /* 배경색을 투명하게 설정 */ 
+                border: 1px solid #ffffff; /* 테두리 추가 (선택사항) */ 
+            }
+            .IDBtn_box .PWBtn_box { 
+                margin-top: -100px; 
+            }
+            .IDBtn, .PWBtn { 
+                display: flex; 
+                align-items: center; /* 요소를 중간 정렬 */ 
+            }
 
 
         </style>
@@ -733,19 +752,6 @@
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
-            <div class="policy_list" style="color: white;">
-               <ul>
-                <li><a href="" target="_blank">회사소개</a></li>
-                <li><a href="" target="_blank">채용정보</a></li>
-                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">편성기준</a></li>
-                <li><a href=""><strong>개인정보처리방침</strong></a></li>
-                <li><a href="">법적고지</a></li>
-                <li><a href="">이메일주소무단수집거부</a></li>
-                <li><a href="" target="_blank">윤리경영</a></li>
-                </ul>
-            </div>
             <br>
             <hr>
             <br>
@@ -777,15 +783,22 @@
     const sidebarContent = document.querySelector('.sidebar-content');
     
     
+
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
-            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+        	 <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <%if(result==null){%>
-                <label for="username">I D:</label>
-                <input type="text" id="username" name="cust_id" placeholder="아이디를 입력하세요" required><br>
-                <label for="password">PW:</label>
-                <input type="password" id="password" name="cust_pw" placeholder="비밀번호를 입력하세요" required><br><br>
+            <div class="IDBtn"> 
+            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
+            <br><br> 
+        </div> 
+        <div class="PWBtn"> 
+        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
+        <br><br> 
+    </div>
                 <button type="submit" class="login" id="login">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
                 <button type="button" id="join" class="signupBtn">회원가입</button>
@@ -797,7 +810,7 @@
                 <%}%>
             </form>`;
     };
-            
+    
     
 
     function moveSidebar() {
