@@ -63,6 +63,7 @@ public class CustomerDaoImpl implements ICustomerDao{
 	@Override
 	public CustomerVO getCustomer(String cus_ID, String cus_pw) {
 		SqlSession session = MybatisUtil.getSqlSession();
+		CustomerVO loginCustomerVo = null;
 		
 		CustomerVO customerVo = new CustomerVO();
 		customerVo.setCustomer_id(cus_ID);
@@ -70,14 +71,14 @@ public class CustomerDaoImpl implements ICustomerDao{
 		
 		
 		try {
-			customerVo = session.selectOne("Customer.getCustomerdetail", customerVo);
+			loginCustomerVo = session.selectOne("Customer.getCustomerdetail", customerVo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			if(session!=null) session.close();
 		}
 		
-		return customerVo;
+		return loginCustomerVo;
 	}
 
 }

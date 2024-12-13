@@ -1,3 +1,4 @@
+<%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -284,10 +285,6 @@
             }
 
 
-
-
-
-
             /* 상단 검색창 */
             .search-container {
                 position: relative;
@@ -315,10 +312,6 @@
                 color: white; /* 아이콘 색상 */
                 font-size: 18px; /* 아이콘 크기 */
             }
-
-
-
-
 
             
             /* #movie_play video {
@@ -389,42 +382,6 @@
                 /* ext-align: center; */ /* 텍스트 중앙 정렬 */
                 /* text-decoration: none; */ /* 텍스트 장식 제거 */
              /* }  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
             .sidebar {
                 display: flex; /* Flexbox 사용 */
                 justify-content: center; /* 수평 중앙 정렬 */
@@ -616,11 +573,12 @@
 
 
 
-
-
-
         </style>
+        
     </head>
+    
+   <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
+    
     <body>
     	
     
@@ -631,7 +589,11 @@
                 <div class="topIcon">
                     <div class="icon-text">
                         <i class="fa-solid fa-lock" id="loginbutton"></i>
+                        <%if(result==null){ %>
                         <h4 id="btnfont" class="login">로그인</h4>
+                        <%}else{ %>
+                        <h4 id="btnfont" class="logout">로그아웃</h4>
+                        <%} %>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
@@ -772,6 +734,7 @@
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
             <div class="policy_list" style="color: white;">
+            	<ul>
                 <li><a href="" target="_blank">회사소개</a></li>
                 <li><a href="" target="_blank">채용정보</a></li>
                 <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
@@ -781,6 +744,7 @@
                 <li><a href="">법적고지</a></li>
                 <li><a href="">이메일주소무단수집거부</a></li>
                 <li><a href="" target="_blank">윤리경영</a></li>
+                </ul>
             </div>
             <br>
             <hr>
@@ -804,87 +768,85 @@
     
     
     <script>
+    
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
-    let signup = "";
     
-    // 사이드바 열기닫기
-   function moveSidebar() {
-       sidebar.classList.toggle('open');
-       
-       // 사이드바가 열릴 때마다 signup 버튼을 찾기
-       const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-       if (signup) { // signup 버튼이 존재하는지 확인
-           signup.addEventListener('click', function() {
-               window.location.href = '/midpro/customer/Signup.jsp';
-           });
-       }
-   }
-
-    
-//     const login = document.querySelector("#login"); //ID login을 검색
-//     if(login){
-//     	login.addEventListener('click',function(e){
-//     		e.preventDefault(); // 기본 폼 제출 방지
-//     		 const logindata = $('loginform').serialize();
-    		
-//     		   $.ajax({
-//     	            url: '/customer/cusLogin.do', // 로그인 처리 URL
-//     	            type: 'POST',
-//     	            data: logindata,
-//     	            success: function(resp) {
-//     	                if (resp.success) {
-//     	                    // 로그인 성공 시 리다이렉트
-//     	                    window.location.href = '/main/mian.jsp'; // 로그인 완료된 홈페이지 URL
-//     	                } else {
-//     	                    alert('로그인 실패: ' + response.message);
-//     	                }
-//     	            },
-//     	            error: function(xhr) {
-//     	                alert('서버 오류: ' + xhr.status);
-//     	            }
-//     	        });
-//     	}
-    	
-//     }
-    
-   const barParam = '<%=request.getParameter("bar")%>';
-   if (barParam == 'on') {
-	   sidebarContent.innerHTML = ` 
-           <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-           <form action="/login" method="POST" id="loginform">
-               <label for="username">I D:</label>
-               <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-               <label for="password">PW:</label>
-               <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-               <button type="submit" class="loginBtn">Login</button>
-               <h6>아직 회원이 아니세요?</h6>
-               <button type="button" id="join" class="signupBtn">회원가입</button>
-               <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-           </form>`;
-       moveSidebar();
-   }
-
-    // 로그인 버튼 클릭 시 사이드바 열기
-    login.addEventListener('click', function() {
+    function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-            <form action="/login" method="POST">
+            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
+            <%if(result==null){%>
                 <label for="username">I D:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
+                <input type="text" id="username" name="cust_id" placeholder="아이디를 입력하세요" required><br>
                 <label for="password">PW:</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                <button type="submit" class="loginBtn" id=login"">Login</button>
+                <input type="password" id="password" name="cust_pw" placeholder="비밀번호를 입력하세요" required><br><br>
+                <button type="submit" class="login" id="login">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+                <%}else{%>
+                <%=result.getCust_name()%>님 반갑습니다!!<br>
+                현재 DGV 등급<%=result.getCust_grade()%>등급
+                <button type="button" id="logout">로그아웃</button>
+                <%}%>
             </form>`;
-        moveSidebar();   
+            
+            /*
+            const login1 = document.querySelector("#login");
+            console.log("login1", login1)
+            if (login1) {
+                login1.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const logindata = $('#loginform').serialize(); 
 
+                    $.ajax({
+                        url: '<%=request.getContextPath()%>/cusLogin.do',
+                        type: 'POST',
+                        data: logindata,
+                        success: function(resp) {
+                            if (resp.success=='ok') {
+                                window.location.href = '/main/main.jsp';
+                                
+                            } else {
+                                alert('로그인 실패: ' + resp.message);
+                            }
+                        },
+                        error: function(xhr) {
+                            alert('서버 오류: ' + xhr.status);
+                        },
+                        dataType : 'json'
+                    });
+                });
+            }     
+            */
+    }
+
+    function moveSidebar() {
+        sidebar.classList.toggle('open');
+        const signup = document.querySelector('#join');
+        if (signup) {
+            signup.addEventListener('click', function() {
+                window.location.href = '/midpro/customer/Signup.jsp';
+            });
+        }
+    }
+
+
+
+    const barParam = '<%=request.getParameter("bar")%>';
+    if (barParam === 'on') {
+        updateSidebarContent();
+        moveSidebar();
+    }
+
+    login.addEventListener('click', function() {
+        updateSidebarContent();
+        moveSidebar();
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -959,12 +921,6 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        const videoPlayer = document.getElementById('movie_play');
-        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * 3) + 1;
-            return randomNum; // 난수를 반환
 
 
 
@@ -990,6 +946,7 @@
             // videoPlayer가 비디오 요소인지 확인
             if (videoPlayerElement instanceof HTMLVideoElement) {
                 videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
+                videoPlayerElement.play(); // 비디오 자동 재생
             } else {
                 console.error('videoPlayer is not a valid video element');
             }
