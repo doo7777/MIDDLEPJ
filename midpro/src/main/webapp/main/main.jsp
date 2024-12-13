@@ -530,11 +530,6 @@
                 font-size: 18px;
             }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
             #noticeClient { 
                 color: white; 
                 width: 580px; /* 고정 너비 */ 
@@ -577,9 +572,6 @@
                 display: inline-block; 
                 margin-right: 10px; 
             }
-<<<<<<< HEAD
-            /* 로그인 버튼(우측) */
-=======
             
 
 
@@ -618,7 +610,6 @@
                margin-right: 1px; 
            }
 			/* 로그인 버튼(우측) */
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
             .loginBtn { 
                 margin-top: 10px; 
             }
@@ -997,7 +988,7 @@
             }
         }
 
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출 
     });
 </script>
     
