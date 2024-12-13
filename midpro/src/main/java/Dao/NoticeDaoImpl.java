@@ -36,7 +36,7 @@ public class NoticeDaoImpl implements INoticeDao{
 	}
 
 	@Override
-	public int deleteNotice(int notice_ID) {
+	public int deleteNotice(String notice_ID) {
 		SqlSession session = MybatisUtil.getSqlSession();
 		
 		int cnt = 0;

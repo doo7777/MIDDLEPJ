@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<%@page import="Vo.CustomerVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 <!DOCTYPE html>
 <html lang="en">
     <head>

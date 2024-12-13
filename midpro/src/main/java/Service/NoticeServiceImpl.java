@@ -31,7 +31,7 @@ public class NoticeServiceImpl implements INoticeService{
 	}
 
 	@Override
-	public int deleteNotice(int notice_ID) {
+	public int deleteNotice(String notice_ID) {
 		// TODO Auto-generated method stub
 		return dao.deleteNotice(notice_ID);
 	}
