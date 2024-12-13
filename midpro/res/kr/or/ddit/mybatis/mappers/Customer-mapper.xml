@@ -18,7 +18,7 @@
 	</insert>
 	
 	<select id="getCustomerdetail" resultType="cusVO" parameterType="cusVO">
-		select * from customer where customer_id = #{customer_id} and cust_pw = #{cus_pw}	
+		select * from customer where customer_id = #{customer_id} and cust_pw = #{cust_pw}	
 	
 	</select>
 

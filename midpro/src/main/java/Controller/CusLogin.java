@@ -5,6 +5,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
+
 import java.io.IOException;
 
 import Service.CustomerServiceImpl;
@@ -22,17 +25,24 @@ public class CusLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
     	response.setCharacterEncoding("utf-8");
-    	response.setContentType("text/html charset=utf-8");
+    	response.setContentType("application/json; charset=utf-8");
     	
     	String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
     	
         ICustomerService service = CustomerServiceImpl.getInstance();
         
-        
-    	//db확인 
         CustomerVO result = service.getCustomer(cust_id, cust_pw);
-        response.getWriter().print(result);
+        
+        HttpSession session = request.getSession();
+        String jsonData = "{\"success\" : \"fail\" }";
+        
+        if(result!=null) {
+        	session.setAttribute("ok", result);
+        	jsonData = "{\"success\" : \"ok\" }";
+        }
+        response.sendRedirect(request.getContextPath()+"/main/main.jsp");
+        //response.getWriter().print(jsonData);
     	
     	
     	
