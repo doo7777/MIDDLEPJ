@@ -7,6 +7,7 @@
 
 									<!-- 회원가입 매퍼  -->
 
+
 	<insert id="insertCustomer" parameterType="cusVO">
 	    INSERT INTO CUSTOMER (
 	        CUSTOMER_ID, CUST_PW, CUST_NAME, 
@@ -18,7 +19,7 @@
 	</insert>
 	
 	<select id="getCustomerdetail" resultType="cusVO" parameterType="cusVO">
-		select * from customer where customer_id = #{customer_id} and cust_pw = #{cus_pw}	
+		select * from customer where customer_id = #{customer_id} and cust_pw = #{cust_pw}	
 	
 	</select>
 
@@ -28,6 +29,7 @@
 
 </select>
 </mapper>
+
 
 
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
@@ -49,5 +51,4 @@
 <!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
-
 

@@ -1,3 +1,4 @@
+<%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
                 margin: 0;
                 width: 100%;
                 overflow-x: hidden;
-                overflow-y: auto;
+                /* overflow-y: auto; */ 
                 background: black;
             }
             div {
@@ -26,7 +27,8 @@
                 height: 140px; 
                 overflow: hidden;
                 display: flex; 
-                flex-direction: column;
+                position: relative; 
+                /* flex-direction: column; */
             }
             #top_menu {
                 overflow: auto; 
@@ -43,7 +45,45 @@
                 left: 390px;
                 top: 90px;
                 font-weight: bold;
+                overflow: hidden;
+                white-space: nowrap; 
             }
+
+
+
+            /* 우측 상단 메뉴 아이콘 */
+            .fa-headset, .fa-regular, .fa-lock {
+                font-size: 24px;
+                color: #ffffff;
+                /* align-items: center; */
+                cursor: pointer;
+                padding: 10px;
+            }
+            .topIcon {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+                border: none;
+                max-width: 100%;
+                flex-wrap: nowrap;
+                transform: translateX(1390px); 
+            }
+            .icon-text {
+                display: flex;
+                flex-direction: column; /* 수직 정렬 */
+                align-items: center; /* 수평 중앙 정렬 */
+                color: white;
+                position: relative;
+                white-space: nowrap;
+            }
+            #btnfont{
+                display: flex;
+                position: relative;
+                top: -15px;
+            }
+
+
 
 
             /* 상단 메뉴바 */
@@ -128,10 +168,14 @@
 
             /* 무비차트, 상영예정작, 무비추천 */
             .header {
+                width: 100%;
                 padding: 0 0 0 270px;
                 margin-bottom: 40px;
                 display: flex;
                 margin-top: -10px;
+                overflow: hidden;
+                white-space: nowrap; 
+                position: relative;
             }
             .menu-button h2, .header h2{
                 color: gray;
@@ -147,35 +191,45 @@
 
 
             /* 더 많은 영화보기 */
-            #movie-list {
+            .movie-list {
                 color: gray;
                 background: none;
                 border: none;
                 align-items: center;
                 font-size: 10pt;
                 position: absolute; /* 절대 위치 설정 */
-                left: 74%; 
+                top: 10%;
+                left: 1450px; 
+                white-space: nowrap; 
             }
 
 
             /* 무비 순위 목록 */
             #movie_chart {
-                display: flex; 
-                justify-content: center; 
-                padding: 0; 
-                position: relative;
+                /* display: flex;  */
+                /* justify-content: center;  */
+                /* padding: 0;  */
+                /* position: relative; */
                 height: 450px; 
+                /* width: 100%; */
+                /* overflow: hidden; */
             }
             .chart {
                 width: 200px;
                 height: 300px;
                 margin: 0 10px;
-                display: inline-block;
+                /* display: inline-block; */
                 background-color: white;
                 border-radius: 25px;
                 transform: translateY(20px);
                 transition: opacity 0.5s ease, transform 0.5s ease;
+                text-align: center;
+                /* flex-shrink: 0; */
+                flex: 0 0 200px;
             }
+
+
+
 
 
             
@@ -193,20 +247,25 @@
 
             /* 패키지, 영화관람권, 기프트카드 */
             #store {
-                height: 300px; 
+                height: 320px; 
                 display: flex;
-                justify-content: center;
+                /* justify-content: center; */
                 gap: 20px;
+                /* overflow: hidden; */
                 /* width: 100%; */
                 /* max-width: 1500px; */
                 /* margin: 0 auto; */
+                /* position: relative; */ /* 또는 absolute */
+                /* margin-left: -240px; */ /* 원하는 위치로 조정 */
+                /* width: 100%; */
             }
             .package, .ticket, .giftcard {
                 background: white;
                 border-radius: 10px;
                 text-align: center;
                 position: relative; /*아래 storeButton을 절대위치로 설정하기위해*/
-                width: 450px;
+                width: 430px;
+                flex: 0 0 auto;
                 padding-top: 10px; /*안에 글자 조금 내려가게 윗부분 패딩설정*/
                 /* color: black; */
                 /* border-color: white; */
@@ -244,46 +303,27 @@
             /* 공지사항, 고객센터, FAQ */
             #noticeClient { 
                 color: white; 
+                width: 580px; /* 고정 너비 */ 
+                margin-left: 250px; 
                 padding: 0 25px; /* 좌우 패딩 설정 */ 
                 border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
                 border-radius: 10px; 
                 display: inline-block; /* 내용에 맞게 테두리 조절 */ 
-                margin-left: 220px; /* 화면에서 오른쪽으로 이동 */
             } 
-
-
-            /* 우측 상단 메뉴 아이콘 */
-            .fa-headset, .fa-regular, .fa-lock {
-                font-size: 24px;
-                color: #ffffff;
-                /* align-items: center; */
-                cursor: pointer;
-                padding: 10px;
-            }
-            .topIcon {                
-                position: relative;
-                right: 250px;
-                top: 50px;
-                /* height: 2500px; */
+            .notice_wrap dt, .notice_wrap dd { 
+                display: inline-block; 
+            } 
+            .notice_wrap a { 
+                margin-right: 10px; 
+                color: white; /* 링크 색상을 하얀색으로 설정 */ 
+                text-decoration: none; /* 밑줄 제거 */
+            } 
+            .client_list {
                 display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 20px;
             }
-            .icon-text {
-                display: flex;
-                flex-direction: column; /* 수직 정렬 */
-                align-items: center; /* 수평 중앙 정렬 */
-                color: white;
-                position: relative;
-            }
-            #btnfont{
-                display: flex;
-                position: relative;
-                top: -15px;
-            }
-
-
+            .client_list dt, .client_list dd { 
+                display: inline-block; 
+            } 
 
 
 
@@ -292,7 +332,7 @@
             .search-container {
                 position: relative;
                 display: inline-block;
-                left: 1393px;
+                left: 1370px;
                 bottom: 60px;
             }
             .search-container input[type="text"] {
@@ -319,111 +359,35 @@
 
 
 
+            /* 예매하기 아이콘 */  
+            .reservation_btn {
+                display: inline-flex; /* Flexbox 사용 */
+                align-items: center; /* 수직 중앙 정렬 */
+                padding: 20px 30px; /* 패딩 조정 (더 크게) */
+                font-size: 18px; /* 글자 크기 조정 */
+                background-color: #ef8400; /* 배경색 */
+                color: white; /* 글자색 */
+                border-radius: 5px; /* 모서리 둥글게 */
+                cursor: pointer; /* 마우스 커서 변경 */
+                width: 50px; /* 너비 조정 (필요에 따라 조정) */
+                height: 2px; /* 높이 조정 (필요에 따라 조정) */
+                text-align: center; /* 텍스트 중앙 정렬 */
+                margin-top: 320px; /* 위쪽 여백 추가 (아래로 이동) */
+            }
+
+            .reservation_btn:hover {
+                background-color: #d68a00; /* 호버 시 배경색 변경 */
+            }
+
 
             
-            /* #movie_play video {
-                max-height: 100%;
-                object-fit: cover;
-                margin-bottom: 20px;
-            } */
-
-            /* .dropmenu li a:hover, .dropmenu ul li:hover > a {
-                display: inline-block; 
-                border-bottom: 2px solid white; 
-            } */
-            /* .highlight:hover {
-                display: inline-block; 
-                border-bottom: 2px solid white; 
-                padding-bottom: 2px; 
-            } */
-    
-            /* .dropmenu li:hover ul {
-                display: block; 
+            /* 회사소개 */
+            #company {
+                height: 400px; /* 회사 정보 영역의 높이 설정 */
+                margin-top: 5%;
+                color: white;
+                
             }
-    
-
-            .dropmenu li ul a {
-                display: block; 
-                height: 50px; 
-                font-size: 14px; 
-                margin: 0; 
-                padding: 0 10px 0 15px; 
-                text-align: left; 
-                text-decoration: none; 
-            }
-     */
-            /* .dropmenu li ul a:hover {
-                text-decoration: none; 하위 메뉴 항목에 마우스를 올려도 하얀 선이 생기지 않도록 설정
-                color: #FFFFFF; 마우스 오버 시 글자색 변경
-            } */
-    
-            /* .dropmenu p {
-                clear: left; 왼쪽 정렬 해제
-            } */
-
-            /* .dropmenu { */
-                /* border: none; */ /* 드롭다운 메뉴의 테두리 제거 */
-                /* padding: 0; */ /* 기본 패딩 제거 */
-                /* font: "sans-serif"; */ /* 글꼴 설정 */
-                /* font-size: 18px; */ /* 글꼴 크기 설정 */
-                /* padding: 0 0 0 200px; */ /* 상단 메뉴바 위치 조정 */
-                /* background-color: black; */ /* 상단 메뉴바 배경색 */
-            /* } */
-    
-            /* .dropmenu ul { */
-                /* background: black; */ /* 드롭다운 메뉴 배경색 설정 */
-                /* height: 70px; */ /* 메뉴 높이 설정 */
-                /* list-style: none; */ /* 리스트 스타일 제거 */
-                /* margin: 0; */ /* 기본 여백 제거 */
-                /* padding: 0; */ /* 기본 패딩 제거 */
-            /* } */
-    
-
-             /* .dropmenu li a {  */
-                /* background: white; */ /* 메뉴 항목 배경색 설정 */
-                /* color: #fff; */ /* 메뉴 항목 글자색 설정 */
-                /* display: block; */ /* 블록 요소로 설정 */
-                /* line-height: 70px; */ /* 메뉴 항목의 수직 중앙 정렬 */
-                /* margin: 0; */ /* 기본 여백 제거 */
-                /* padding: 0 25px; */ /* 좌우 패딩 설정 */
-                /* ext-align: center; */ /* 텍스트 중앙 정렬 */
-                /* text-decoration: none; */ /* 텍스트 장식 제거 */
-             /* }  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
             .sidebar {
                 display: flex; /* Flexbox 사용 */
@@ -460,6 +424,7 @@
                 min-height:5px; 
                 min-width: 250px;
             }
+            
     
             /* 로그인 버튼 hover 효과 */
             .sidebar button.loginBtn:hover {
@@ -541,10 +506,6 @@
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
-    
-           
-    
-            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -573,13 +534,6 @@
                 font-size: 18px;
             }
 
-
-
-            /* #noticeClient{
-             display: flex;
-              justify-content: left;
-            } */
-
 			.policy_list { 
 	            display: flex; 
 	            flex-wrap: wrap; 
@@ -591,47 +545,33 @@
 	            margin-right: 15px; /* 단어 사이 간격 조절 */
 	            padding: 0; 
 	        }
-	        .company_info_wrap { /* 주소 */
-	            display: flex; 
-	            align-items: center; 
-	            margin-left: 450px; 
-	        } 
-	        
-	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-	            margin: 0; 
-	            padding: 1; 
-	        } 
-	        .company_info_list { 
-	            display: inline; 
-	            align-items: right; 
-	        } 
-	        .company_info_list dt  { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        } 
-	        .company_info_list dd { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        }
-
-
-
-
 
 
         </style>
+        
     </head>
-    <body>
-    	
     
+   <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
+    
+    <body>
+       
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
+            
                 <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
+                
+                
+                
                     <div class="icon-text">
                         <i class="fa-solid fa-lock" id="loginbutton"></i>
+
+                        <%if(result==null){ %>
                         <h4 id="btnfont" class="login">로그인</h4>
+                        <%}else{ %>
+                        <h4 id="btnfont" class="logout">로그아웃</h4>
+                        <%} %>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
@@ -658,7 +598,7 @@
                             <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                         </ul>
                     </li>
-                    <li><a href="#" class="highlight" id="current">기모찡</a></li> <!-- 극장 메뉴 항목 -->
+                    <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
                     <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
                         <ul>
                             <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
@@ -698,13 +638,14 @@
             </div>
             <hr>
 
-			<div id="movie_play"><!-- 영화 재생 영역 -->
-			    <video autoplay muted loop>
-			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
-			        <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			    </video>
-			</div>
+
+         <div id="movie_play"><!-- 영화 재생 영역 -->
+             <video autoplay muted loop>
+                 <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+                 <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+                 <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
+             </video>
+         </div>
 
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
@@ -712,18 +653,31 @@
                 <button type="button" class="menu-button"><h2>상영예정작</h2></button>
                 <h4>|</h4>
                 <button type="button" class="menu-button"><h2>무비추천</h2></button>
-                <button type="button" id="movie-list"><h3>더 많은 영화보기 +</h3></button> 
+                <button type="button" class="movie-list"><h3>더 많은 영화보기 +</h3></button> 
             </div>
     
-            <div id="movie_chart">
-                <div class="chart"></div>
-                <div class="chart"></div>
-                <div class="chart"></div>
-                <div class="chart"></div>
-                <div class="chart"></div>
+            <div class="header" id="movie_chart">
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
+                <div class="chart">
+                    <div class="chart reservation_btn">예매</div>
+                </div>
             </div>
 
-            <div id="store"> <!-- 스토어 영역 -->
+            <div class= header id="store"> <!-- 스토어 영역 -->
                 <div class="package">
                     <i class="fa-solid fa-plus"></i>
                     <h3>패키지</h3>
@@ -737,7 +691,6 @@
                 <div class="giftcard">
                     <i class="fa-solid fa-plus"></i>
                     <h3>기프트카드</h3>
-                    기프트카드 사진 넣을 곳
                 </div>  
             </div>
             <br><br>
@@ -749,15 +702,16 @@
                             <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
                         </dd>
                     </div>
-    
+
                     <div class="client_wrap">
                         <dl class="client_list">
                             <dt><strong>고객센터</strong></dt>
                             <dd>
-                                <strong>1234-1234</strong>
-                                <span>고객센터 운영시간 (평일 09:00~18:00)
-                                    <p>업무시간 외 자동응답 안내 불가능합니다.</p>
-                                </span>
+                                <strong>042-222-8202</strong>
+                                <p>
+                                    고객센터 운영시간 (평일 09:00~18:00) <br>
+                                    업무시간 외 자동응답 안내 불가능합니다.
+                                </p>
                             </dd>
                         </dl>
                         <div class="client_btn_wrap" id="client_btn_wrap">
@@ -766,44 +720,26 @@
                             <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                         </div>
                     </div>
-                </div>   
+                </div> 
             <!-- 회사 정보 영역 -->
+
             <div id="company" class="sect-ad">
-                <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
-            </div>
-            <div class="policy_list" style="color: white;">
-                <li><a href="" target="_blank">회사소개</a></li>
-                <li><a href="" target="_blank">채용정보</a></li>
-                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">편성기준</a></li>
-                <li><a href=""><strong>개인정보처리방침</strong></a></li>
-                <li><a href="">법적고지</a></li>
-                <li><a href="">이메일주소무단수집거부</a></li>
-                <li><a href="" target="_blank">윤리경영</a></li>
-            </div>
-            <br>
-            <hr>
-            <br>
-            <div class="company_info_wrap" style="color: white;">
-                <div class="company_info">
+                <hr>
                     <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                    <dl class="company_info_list">
                         <dt>이사장 :</dt>
                         <dt>김형응</dt>
                         <dd>사업자등록번호 :</dd>
                         <dt>306-82-05291</dt>
                         <dd>대표전화 :</dd>
                         <dt>042-222-8202</dt>
-                    </dl>
                     <p>&copy; DGV. All Rights Reserved</p>
-                </div>
             </div>
         </div>
     </body>
     
     
     <script>
+
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
@@ -811,79 +747,66 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
-    // 사이드바 열기닫기
-   function moveSidebar() {
-       sidebar.classList.toggle('open');
-       
-       // 사이드바가 열릴 때마다 signup 버튼을 찾기
-       const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-       if (signup) { // signup 버튼이 존재하는지 확인
-           signup.addEventListener('click', function() {
-               window.location.href = '/midpro/customer/Signup.jsp';
-           });
-       }
-   }
-
     
-    const login1 = document.querySelector("#login"); //ID login을 검색
-    if(login1){
-    	login1.addEventListener('click',function(e){
-    		e.preventDefault(); // 기본 폼 제출 방지
-    		const logindata = document.querySelector('#loginform').serialize();
-    		
-    		   $.ajax({
-    	            url: '/customer/cusLogin.do', // 로그인 처리 URL
-    	            type: 'POST',
-    	            data: logindata,
-    	            success: function(resp) {
-    	                if (resp.success) {
-    	                    // 로그인 성공 시 리다이렉트
-    	                    window.location.href = '/main/mian.jsp'; // 로그인 완료된 홈페이지 URL
-    	                } else {
-    	                    alert('로그인 실패: ' + response.message);
-    	                }
-    	            },
-    	            error: function(xhr) {
-    	                alert('서버 오류: ' + xhr.status);
-    	            }
-    	        });
-    	}
-    	
-    }
-    
-   const barParam = '<%=request.getParameter("bar")%>';
-   if (barParam === 'on') {
-	   sidebarContent.innerHTML = ` 
-           <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-           <form action="/login" method="POST" id="loginform">
-               <label for="username">I D:</label>
-               <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-               <label for="password">PW:</label>
-               <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-               <button type="submit" class="loginBtn">Login</button>
-               <h6>아직 회원이 아니세요?</h6>
-               <button type="button" id="join" class="signupBtn">회원가입</button>
-               <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-           </form>`;
-       moveSidebar();
-   }
-
-    // 로그인 버튼 클릭 시 사이드바 열기
-    login.addEventListener('click', function() {
+    function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-            <form action="/login" method="POST">
-                <label for="username">I D:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                <label for="password">PW:</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                <button type="submit" class="loginBtn" id=login"">Login</button>
+            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
+            <%if(result==null){%>
+            <div class="IDBtn"> 
+            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
+            <br><br> 
+        </div> 
+        <div class="PWBtn"> 
+        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
+        <br><br> 
+    </div>
+                <button type="submit" class="login" id="login">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+                <%}else{%>
+                <%=result.getCust_name()%>님 반갑습니다!!<br>
+                현재 DGV 등급 :<%=result.getCust_grade()%>등급
+                <button type="button" id="logout">로그아웃</button>
+                <%}%>
             </form>`;
-        moveSidebar();   
+    }; 
+    
 
+    function moveSidebar() {
+        sidebar.classList.toggle('open');
+        <%if(result==null){%>
+        const signup = document.querySelector('#join');
+        if (signup) {
+            signup.addEventListener('click', function() {
+                window.location.href = '/midpro/customer/Signup.jsp';
+            });
+        }
+        <%}else{%>
+        const logout = document.querySelector("#logout");
+        if(logout){
+           logout.addEventListener('click',function(){
+              window.location.href = "<%=request.getContextPath()%>/cusLogout.do";
+           });
+        }
+        <%}%>
+        
+    }
+
+
+
+    const barParam = '<%=request.getParameter("bar")%>';
+    if (barParam === 'on') {
+        updateSidebarContent();
+        moveSidebar();
+    }
+
+    login.addEventListener('click', function() {
+        updateSidebarContent();
+        moveSidebar();
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -903,7 +826,6 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
-    
     // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
     document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('.header');
@@ -944,21 +866,9 @@
                 this.classList.add('active');
             });
         });
-    
-        // '더 많은 영화보기' 버튼 클릭 시 애니메이션을 적용하지 않도록 설정
-        if (movieListButton) {
-            movieListButton.addEventListener('click', function(event) {
-                // 애니메이션을 적용하지 않음
-                charts.forEach((chart) => {
-                    chart.classList.remove('show'); // 애니메이션을 제거
-                });
-            });
-        }
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-
-
 
 
         const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
@@ -991,8 +901,8 @@
 
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
     });
+    
 </script>
+</html>
     
-
-    </html>
-    
+ 

@@ -100,8 +100,9 @@
             <label for="cust_email">이메일<span class="rq"> *</span></label>
             <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
 
-            <label for="cust_tel">전화번호<span class="rq"> *</span></label>
-            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}">
+            <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
+            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
+            <button type="button" id="sucbutton">본인인증</button>   <span id="suc"></span>
 
             <label for="cust_post">우편번호<span class="rq"> *</span></label>
             <div>
@@ -125,12 +126,13 @@
 </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>
 <script>
 
 function goMain(e) {
     e.preventDefault();
     
-    const data = $('form').serialize(); // key=value...로 문자열 정보를 만들어서
+    const data = $('form').serialize();  // key=value...로 문자열 정보를 만들어서
 
     $.ajax({ 
         url: '/midpro/cussignup.do',
@@ -217,8 +219,14 @@ $('#idChk').on('click',function(){
     });
  });
  
- 
- 
+function requestIdentityVerification() {
+	  PortOne.requestIdentityVerification({
+	    storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
+	    identityVerificationId: "test_m4metadw",
+	    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+	  });
+	}
+ $('#sucbutton').on('click',requestIdentityVerification);
  
  
  
