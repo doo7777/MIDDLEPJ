@@ -793,7 +793,7 @@
                 <%}else{%>
                 <%=result.getCust_name()%>님 반갑습니다!!<br>
                 현재 DGV 등급 :<%=result.getCust_grade()%>등급
-                <button type="submit" id="logout">로그아웃</button>
+                <button type="button" id="logout">로그아웃</button>
                 <%}%>
             </form>`;
     };
@@ -802,12 +802,21 @@
 
     function moveSidebar() {
         sidebar.classList.toggle('open');
+        <%if(result==null){%>
         const signup = document.querySelector('#join');
         if (signup) {
             signup.addEventListener('click', function() {
                 window.location.href = '/midpro/customer/Signup.jsp';
             });
         }
+        <%}else{%>
+        const logout = document.querySelector("#logout");
+        if(logout){
+        	logout.addEventListener('click',function(){
+        		window.location.href = "<%=request.getContextPath()%>/cusLogout.do";
+        	});
+        }
+        <%}%>
         
     }
 
