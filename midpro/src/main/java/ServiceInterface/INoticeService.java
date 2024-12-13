@@ -17,7 +17,7 @@ public interface INoticeService {
 	 * @param notice_ID
 	 * @return
 	 */
-	public int deleteNotice(int notice_ID);
+	public int deleteNotice(String notice_ID);
 	/**
 	 * 공지사항 수정
 	 * @param noticeVO

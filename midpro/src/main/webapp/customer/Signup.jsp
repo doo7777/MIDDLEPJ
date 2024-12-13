@@ -100,8 +100,9 @@
             <label for="cust_email">이메일<span class="rq"> *</span></label>
             <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
 
-            <label for="cust_tel">전화번호<span class="rq"> *</span></label>
-            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}">
+            <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
+            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
+            <button type="button" id="sucbutton">본인인증</button>   <span id="suc"></span>
 
             <label for="cust_post">우편번호<span class="rq"> *</span></label>
             <div>
@@ -125,12 +126,14 @@
 </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <script>
 
 function goMain(e) {
     e.preventDefault();
     
-    const data = $('form').serialize(); // key=value...로 문자열 정보를 만들어서
+    const data = $('form').serialize();  // key=value...로 문자열 정보를 만들어서
 
     $.ajax({ 
         url: '/midpro/cussignup.do',
@@ -217,10 +220,37 @@ $('#idChk').on('click',function(){
     });
  });
  
+function requestIdentityVerification() {
+	  PortOne.requestIdentityVerification({
+	    storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
+	    identityVerificationId: "test_m4metadw",
+	    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+	    
+	  });
+	}
+ $('#sucbutton').on('click',requestIdentityVerification);
  
- 
- 
- 
+//  const response = await PortOne.requestIdentityVerification({
+// 	  /* 객체 생략 */
+// 	  alert("인증 완료");
+// 	});
+// 	// 프로세스가 제대로 완료되지 않은 경우 에러 코드가 존재합니다
+// 	if (response.code !== undefined) {
+// 	  return alert(response.message);
+// 	}
+
+// 	const verificationResult = await fetch("{서버의 인증 정보를 받는 endpoint}", {
+// 	  method: "POST",
+// 	  headers: { "Content-Type": "application/json" },
+// 	  body: JSON.stringify({
+// 	    identityVerificationId,
+// 	  }),
+// 	});
+	
+// 	PortOne.requestIdentityVerification({
+// 		  /* 파라미터 생략 */
+// 		  redirectUrl: `${BASE_URL}/identity-verification-redirect`,
+// 		});
  
 </script>
 </html>
