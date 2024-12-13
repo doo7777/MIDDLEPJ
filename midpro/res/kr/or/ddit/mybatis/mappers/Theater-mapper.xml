@@ -16,7 +16,7 @@
 	<!-- 영화관명을 받아서 그 영화관의 정보를 보여줌 -->
 	<select id="getTheater" parameterType="string" resultType="theaVO">
 		select * from theater
-		where theater_name like concat ('%', #{theater_name}, '%')			
+		where theater_name like '%'||#{theater_name} ||'%'			
 	</select>
 
 </mapper>
