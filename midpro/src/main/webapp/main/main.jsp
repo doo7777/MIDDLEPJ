@@ -498,10 +498,6 @@
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
-    
-           
-    
-            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -530,6 +526,59 @@
                 font-size: 18px;
             }
 
+<<<<<<< HEAD
+            #noticeClient { 
+                color: white; 
+                width: 580px; /* 고정 너비 */ 
+                margin-left: 250px; 
+            } 
+            .notice_wrap dt, .notice_wrap dd { 
+                display: inline-block; 
+            } 
+            .notice_wrap a { 
+                margin-right: 10px; 
+                color: white; /* 링크 색상을 하얀색으로 설정 */ 
+                text-decoration: none; /* 밑줄 제거 */
+            } 
+            .client_list {
+                display: flex;
+            }
+            .client_list dt, .client_list dd { 
+                display: inline-block; 
+            } 
+            .sect-ad {
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            /* 회사정보(소개,채용) */
+            .policy_list { 
+                width: 1000px; /* 고정 너비 */ 
+                margin-left: 530px; 
+            } 
+            .policy_list a { 
+                margin-right: 10px; 
+                display: inline-block; 
+            }
+            /* 회사정보(주소) */
+            .company_info { 
+                width: 1000px; /* 고정 너비 */ 
+                display: block;
+                margin-left: 530px; 
+                display: inline-block; 
+            }  
+            .company_info _wrap { 
+                width: 1000px; 
+                color: white; 
+                display: inline-block; 
+            } 
+            .company_info address { 
+                display: inline-block; 
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            .company_info_list dt, .company_info_list dd { 
+                display: inline-block; 
+                margin-right: 10px; 
+            }
+=======
 
 
             /* #noticeClient{
@@ -599,8 +648,6 @@
    <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
     
     <body>
-       
-    
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
                 <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
@@ -624,10 +671,8 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <p>
                     <i class="fa-solid fa-xmark"></i>
                     <div class="sidebar-content"></div>
-                    </p>
                 </div>    
             </div>
     
@@ -723,35 +768,52 @@
             </div>
             <br><br>
             <div id="noticeClient" style="color: white;">
-                    <div id="notice_wrap" class="notice_wrap">
-                        <dt><strong>공지사항</strong></dt>
+                <div id="notice_wrap" class="notice_wrap">
+                <dl>
+                    <dt><strong>공지사항</strong></dt>
+                    <dd>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
+                        <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                    </dd>
+                    </dl>
+                </div>
+
+                <div class="client_wrap">
+                    <dl class="client_list">
+                        <dt><strong>고객센터</strong></dt>
                         <dd>
-                            <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
-                            <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                            <strong>1234-1234</strong>
+                            <p>
+                                고객센터 운영시간 (평일 09:00~18:00) <br>
+                                업무시간 외 자동응답 안내 불가능합니다.
+                            </p>
                         </dd>
+                    </dl>
+                    <div class="client_btn_wrap" id="client_btn_wrap">
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                     </div>
-    
-                    <div class="client_wrap">
-                        <dl class="client_list">
-                            <dt><strong>고객센터</strong></dt>
-                            <dd>
-                                <strong>1234-1234</strong>
-                                <span>고객센터 운영시간 (평일 09:00~18:00)
-                                    <p>업무시간 외 자동응답 안내 불가능합니다.</p>
-                                </span>
-                            </dd>
-                        </dl>
-                        <div class="client_btn_wrap" id="client_btn_wrap">
-                            <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                        </div>
-                    </div>
-                </div>   
+                </div>
+            </div>   
             <!-- 회사 정보 영역 -->
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
+            <div class="policy_list" style="color: white;">
+               <ul>
+                <li><a href="" target="_blank">회사소개</a></li>
+                <li><a href="" target="_blank">채용정보</a></li>
+                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
+                <li><a href="">이용약관</a></li>
+                <li><a href="">편성기준</a></li>
+                <li><a href=""><strong>개인정보처리방침</strong></a></li>
+                <li><a href="">법적고지</a></li>
+                <li><a href="">이메일주소무단수집거부</a></li>
+                <li><a href="" target="_blank">윤리경영</a></li>
+                </ul>
+            </div>
+            <br>
             <br>
             <hr>
             <br>
@@ -774,7 +836,6 @@
     
     
     <script>
-    
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
@@ -782,11 +843,10 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
-    
 
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
-        	 <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <%if(result==null){%>
             <div class="IDBtn"> 
@@ -863,6 +923,7 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
+
     
     // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
     document.addEventListener('DOMContentLoaded', function() {
@@ -955,4 +1016,3 @@
     
 
     </html>
-    
