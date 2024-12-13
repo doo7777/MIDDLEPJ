@@ -866,8 +866,6 @@
         
     }
 
-
-
     const barParam = '<%=request.getParameter("bar")%>';
     if (barParam === 'on') {
         updateSidebarContent();
@@ -893,8 +891,11 @@
     
     // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() { 
-        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
-        moveSidebar(); 
+    	<%if(result==null){%>
+    	alert("로그인 후 이용해주세요");
+        <%}else{%>
+        alert("로그인된 상태~");
+        <%}%>
     });
 
     
