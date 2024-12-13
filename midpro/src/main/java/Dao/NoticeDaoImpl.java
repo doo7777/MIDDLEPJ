@@ -43,6 +43,7 @@ public class NoticeDaoImpl implements INoticeDao{
 			
 		try {
 			cnt = session.delete("Board.deleteNotice",notice_ID);
+			if(cnt>0) session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db연결실패~~~");

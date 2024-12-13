@@ -42,7 +42,8 @@
 </head>
 <body>
     <h1 style="text-align: center;">공지사항</h1>
-    <form action="bulkDeleteNotice.do" method="post">
+
+    <form action="deleteNotice.do" method="post">
         <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
         <table>
             <thead>
@@ -70,8 +71,10 @@
                 <td><%=notice.getPost_date() %></td>
                 <td><%=notice.getNotice_view() %></td>
                 <td>
+                    <!-- 게시글 삭제 버튼 -->
                     <form action="deleteNotice.do" method="post" style="margin: 0;">
-                        <input type="hidden" name="notice_id" value="<%=notice.getNotice_id() %>">
+                        <!-- notice_id를 hidden 필드로 전송 -->
+                        <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
                         <button type="submit" class="delete-btn">삭제</button>
                     </form>
                 </td>
@@ -83,6 +86,7 @@
             </tbody>
         </table>
     </form>
+
     <script>
         // "전체 선택" 체크박스 기능 추가
         document.getElementById("selectAll").addEventListener("click", function() {
@@ -90,5 +94,7 @@
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
         });
     </script>
+
+    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
 </body>
 </html>
