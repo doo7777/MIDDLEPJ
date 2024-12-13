@@ -1,28 +1,34 @@
 package Controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 import Service.CustomerServiceImpl;
 import ServiceInterface.ICustomerService;
 import Vo.CustomerVO;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/cussignup.do")
 public class CusSignup extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     	request.setCharacterEncoding("utf-8");
         request.getRequestDispatcher("/Signup.jsp").forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     	request.setCharacterEncoding("utf-8");
-    	response.setContentType("utf-8");
+    	response.setCharacterEncoding("utf-8");
+    	response.setContentType("text/html charset=utf-8");
+
         // 파라미터 수신
         String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
@@ -47,11 +53,14 @@ public class CusSignup extends HttpServlet {
         // 서비스 호출
         ICustomerService service = CustomerServiceImpl.getInstance();
         int result = service.insertCustomer(custVo);
+        
+        response.getWriter().print(result);
 
-        if (result > 0) {
-            response.sendRedirect(request.getContextPath() + "/main/main.jsp");
-        } else {
-            response.getWriter().println("<h1>회원가입 실패. 다시 시도해주세요.</h1>");
-        }
+		/*
+		 * if (result > 0) { response.sendRedirect(request.getContextPath() +
+		 * "/main/main.jsp"); } else {
+		 * response.getWriter().println("<h1>회원가입 실패. 다시 시도해주세요.</h1>"); }
+		 */
+
     }
 }

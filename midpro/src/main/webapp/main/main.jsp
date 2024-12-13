@@ -577,18 +577,26 @@
                 display: inline-block; 
                 margin-right: 10px; 
             }
-
-            .inline-block { 
-            display: inline-block; 
-            vertical-align: middle; /* 수직 정렬 */ 
-            } 
-            
-            input[type="text"] { 
-            vertical-align: middle; /* 수직 정렬 */ 
+            /* 로그인 버튼(우측) */
+            .loginBtn { 
+                margin-top: 10px; 
             }
-
-
-
+            .IDBtn, .PWBtn { 
+                width: 225px; /* 상자 크기 조정 */ 
+                height: 30px;
+                padding: 10px; /* 여백 추가 */ 
+            }
+            input[type="text"], input[type="password"] { 
+                background-color: transparent; /* 배경색을 투명하게 설정 */ 
+                border: 1px solid #ffffff; /* 테두리 추가 (선택사항) */ 
+            }
+            .IDBtn_box .PWBtn_box { 
+                margin-top: -100px; 
+            }
+            .IDBtn, .PWBtn { 
+                display: flex; 
+                align-items: center; /* 요소를 중간 정렬 */ 
+            }
         </style>
     </head>
     <body>
@@ -763,7 +771,7 @@
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
-    const closeButton = document.querySelector('.fa-xmark');
+    const closeButton = document.querySelector('.fa-xmark')d;
     const sidebarContent = document.querySelector('.sidebar-content');
     let signup = "";
 
@@ -785,17 +793,22 @@
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
-                <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="25" height="25" class="inline-block">
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="25" height="25" class="inline-block">
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
+                <div class="IDBtn"> 
+                    <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+                    <input type="text" title="아이디" id="txtUserId" name="txtUserId" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
+                    <br><br> 
+                </div> 
+                <div class="PWBtn"> 
+                    <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+                    <input type="password" title="패스워드" id="txtPassword" name="txtPassword" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
+                    <br><br> 
+                </div> 
                 <button type="submit" class="loginBtn">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
-
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -817,6 +830,5 @@
     });
 
     </script>
-    
     </html>
     
