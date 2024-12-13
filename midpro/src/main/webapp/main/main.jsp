@@ -776,6 +776,7 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
+    
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
@@ -791,40 +792,13 @@
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
                 <%}else{%>
                 <%=result.getCust_name()%>님 반갑습니다!!<br>
-                현재 DGV 등급<%=result.getCust_grade()%>등급
-                <button type="button" id="logout">로그아웃</button>
+                현재 DGV 등급 :<%=result.getCust_grade()%>등급
+                <button type="submit" id="logout">로그아웃</button>
                 <%}%>
             </form>`;
+    };
             
-            /*
-            const login1 = document.querySelector("#login");
-            console.log("login1", login1)
-            if (login1) {
-                login1.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const logindata = $('#loginform').serialize(); 
-
-                    $.ajax({
-                        url: '<%=request.getContextPath()%>/cusLogin.do',
-                        type: 'POST',
-                        data: logindata,
-                        success: function(resp) {
-                            if (resp.success=='ok') {
-                                window.location.href = '/main/main.jsp';
-                                
-                            } else {
-                                alert('로그인 실패: ' + resp.message);
-                            }
-                        },
-                        error: function(xhr) {
-                            alert('서버 오류: ' + xhr.status);
-                        },
-                        dataType : 'json'
-                    });
-                });
-            }     
-            */
-    }
+    
 
     function moveSidebar() {
         sidebar.classList.toggle('open');
@@ -834,6 +808,7 @@
                 window.location.href = '/midpro/customer/Signup.jsp';
             });
         }
+        
     }
 
 

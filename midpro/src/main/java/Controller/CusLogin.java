@@ -45,9 +45,6 @@ public class CusLogin extends HttpServlet {
         //response.getWriter().print(jsonData);
     	
     	
-    	
-    	
-    	
 	}
 
 }
