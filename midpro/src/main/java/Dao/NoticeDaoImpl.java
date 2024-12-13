@@ -62,8 +62,19 @@ public class NoticeDaoImpl implements INoticeDao{
 
 	@Override
 	public List<NoticeVO> getAllNotice() {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<NoticeVO>noticeList =null;
+		
+		try {
+			noticeList = session.selectList("Board.getAllNotice");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session!=null) session.close();
+		}
+		
+		return noticeList;
 	}
 
 	@Override

@@ -44,9 +44,8 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 
 	@Override
-	public CustomerVO getCustomer(String cus_ID) {
-		// TODO Auto-generated method stub
-		return null;
+	public CustomerVO getCustomer(String cus_ID, String cus_pw) {
+		return dao.getCustomer(cus_ID, cus_pw);
 	}
 
 }
