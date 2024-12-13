@@ -13,17 +13,21 @@
 	  width: 50%;
 	  margin: auto;
 	}
+	th {
+	  background-color: lightgrey;
+	}
 </style>
 </head>
 <body>
 	<h2>영화관 정보</h2>
+	<br><hr><br>	
 	<table>
 		<thead>
 		<tr>
-			<th>지점ID</th>
-			<th>사진</th>
+			<th>지역</th>
 			<th>영화관명</th>
 			<th>주소</th>
+			<th>사진</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -33,10 +37,10 @@
                 for (TheaterVO tList : thea) {
         %>
         <tr>
-        	<td><%=tList.getTheater_id() %></td>
-        	<td><img src="<%=tList.getTheater_img() %>" alt="영화관이미지"></td>
-        	<td><%=tList.getTheater_name() %></td>
+        	<td><%=tList.getTheater_do() %></td>
+        	<td><a href="<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>"><%=tList.getTheater_name() %></a></td>
         	<td><%=tList.getTheater_address() %></td>
+        	<td><img src="<%=tList.getTheater_img() %>" alt="영화관이미지"></td>
         </tr>
          <% 
                 }
