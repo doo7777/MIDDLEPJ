@@ -991,7 +991,4 @@
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출 
     });
 </script>
-    
-
-    </html>
-    
+</html>
