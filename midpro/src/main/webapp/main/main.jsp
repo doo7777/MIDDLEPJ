@@ -526,7 +526,6 @@
                 font-size: 18px;
             }
 
-<<<<<<< HEAD
             #noticeClient { 
                 color: white; 
                 width: 580px; /* 고정 너비 */ 
@@ -549,20 +548,11 @@
             .sect-ad {
                 width: 1000px; /* 고정 너비 */ 
             } 
-            /* 회사정보(소개,채용) */
-            .policy_list { 
-                width: 1000px; /* 고정 너비 */ 
-                margin-left: 530px; 
-            } 
-            .policy_list a { 
-                margin-right: 10px; 
-                display: inline-block; 
-            }
             /* 회사정보(주소) */
             .company_info { 
                 width: 1000px; /* 고정 너비 */ 
                 display: block;
-                margin-left: 530px; 
+                margin-left: 200px; 
                 display: inline-block; 
             }  
             .company_info _wrap { 
@@ -578,13 +568,9 @@
                 display: inline-block; 
                 margin-right: 10px; 
             }
-=======
+            
 
 
-            /* #noticeClient{
-             display: flex;
-              justify-content: left;
-            } */
 
          .policy_list { 
                display: flex; 
@@ -767,7 +753,7 @@
                 </div>  
             </div>
             <br><br>
-            <div id="noticeClient" style="color: white;">
+           <div id="noticeClient" style="color: white;">
                 <div id="notice_wrap" class="notice_wrap">
                 <dl>
                     <dt><strong>공지사항</strong></dt>
@@ -799,19 +785,6 @@
             <!-- 회사 정보 영역 -->
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
-            </div>
-            <div class="policy_list" style="color: white;">
-               <ul>
-                <li><a href="" target="_blank">회사소개</a></li>
-                <li><a href="" target="_blank">채용정보</a></li>
-                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">편성기준</a></li>
-                <li><a href=""><strong>개인정보처리방침</strong></a></li>
-                <li><a href="">법적고지</a></li>
-                <li><a href="">이메일주소무단수집거부</a></li>
-                <li><a href="" target="_blank">윤리경영</a></li>
-                </ul>
             </div>
             <br>
             <br>
