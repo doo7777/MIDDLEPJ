@@ -1,16 +1,6 @@
-안되는거 : 회원가입, 동영상 난수재생
-- 난수재생은 거의다 수정해가고 나머지 다 수정완료 / 작동확ㅇ니
-
-
-
-
-
-
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -401,41 +391,6 @@
                 /* text-decoration: none; */ /* 텍스트 장식 제거 */
              /* }  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
             .sidebar {
                 display: flex; /* Flexbox 사용 */
                 justify-content: center; /* 수평 중앙 정렬 */
@@ -552,10 +507,6 @@
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
             }
-    
-           
-    
-            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -584,63 +535,70 @@
                 font-size: 18px;
             }
 
-
-
-            /* #noticeClient{
-             display: flex;
-              justify-content: left;
-            } */
-
-
-			.policy_list { 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
-	        .company_info_wrap { /* 주소 */
-	            display: flex; 
-	            align-items: center; 
-	            margin-left: 450px; 
-	        } 
-	        
-	        .company_info address, .company_info_list, .company_info p { /* 주소간격 */
-	            margin: 0; 
-	            padding: 1; 
-	        } 
-	        .company_info_list { 
-	            display: inline; 
-	            align-items: right; 
-	        } 
-	        .company_info_list dt  { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        } 
-	        .company_info_list dd { 
-	            display: inline; 
-	            margin-right: 1px; 
-	        }
-
+            #noticeClient { 
+                color: white; 
+                width: 580px; /* 고정 너비 */ 
+                margin-left: 250px; 
+            } 
+            .notice_wrap dt, .notice_wrap dd { 
+                display: inline-block; 
+            } 
+            .notice_wrap a { 
+                margin-right: 10px; 
+                color: white; /* 링크 색상을 하얀색으로 설정 */ 
+                text-decoration: none; /* 밑줄 제거 */
+            } 
+            .client_list {
+                display: flex;
+            }
+            .client_list dt, .client_list dd { 
+                display: inline-block; 
+            } 
+            .sect-ad {
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            /* 회사정보(소개,채용) */
+            .policy_list { 
+                width: 1000px; /* 고정 너비 */ 
+                margin-left: 530px; 
+            } 
+            .policy_list a { 
+                margin-right: 10px; 
+                display: inline-block; 
+            }
+            /* 회사정보(주소) */
+            .company_info { 
+                width: 1000px; /* 고정 너비 */ 
+                display: block;
+                margin-left: 530px; 
+                display: inline-block; 
+            }  
+            .company_info _wrap { 
+                width: 1000px; 
+                color: white; 
+                display: inline-block; 
+            } 
+            .company_info address { 
+                display: inline-block; 
+                width: 1000px; /* 고정 너비 */ 
+            } 
+            .company_info_list dt, .company_info_list dd { 
+                display: inline-block; 
+                margin-right: 10px; 
+            }
 
 
 
         </style>
     </head>
     <body>
-    	
-    
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
                 <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                     <div class="icon-text">
-                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-solid fa-lock" id="loginbutton"></i>
                         <h4 id="btnfont" class="login">로그인</h4>
                     </div>
                     <div class="icon-text">
@@ -653,10 +611,8 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <p>
                     <i class="fa-solid fa-xmark"></i>
                     <div class="sidebar-content"></div>
-                    </p>
                 </div>    
             </div>
     
@@ -707,15 +663,11 @@
                 </button>
             </div>
             <hr>
-
-			<div id="movie_play"><!-- 영화 재생 영역 -->
-			    <video autoplay muted loop>
-			        <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
-			        <source src="sorce/영상 소스파일2.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			        <source src="sorce/영상 소스파일3.mp4" type="video/mp4"> <!-- 최종 파일명 수정해야됨 -->
-			    </video>
-			</div>
-
+            <div id="movie_play"><!-- 영화 재생 영역 -->
+                <video autoplay muted loop>
+                    <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="header">
                 <button type="button" class="menu-button"><h2>무비차트</h2></button>
                 <h4>|</h4>
@@ -752,46 +704,49 @@
             </div>
             <br><br>
             <div id="noticeClient" style="color: white;">
-                    <div id="notice_wrap" class="notice_wrap">
-                        <dt><strong>공지사항</strong></dt>
+                <div id="notice_wrap" class="notice_wrap">
+                <dl>
+                    <dt><strong>공지사항</strong></dt>
+                    <dd>
+                        <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
+                        <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                    </dd>
+                    </dl>
+                </div>
+
+                <div class="client_wrap">
+                    <dl class="client_list">
+                        <dt><strong>고객센터</strong></dt>
                         <dd>
-                            <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
-                            <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
+                            <strong>1234-1234</strong>
+                            <p>
+                                고객센터 운영시간 (평일 09:00~18:00) <br>
+                                업무시간 외 자동응답 안내 불가능합니다.
+                            </p>
                         </dd>
+                    </dl>
+                    <div class="client_btn_wrap" id="client_btn_wrap">
+                        <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                        <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
                     </div>
-    
-                    <div class="client_wrap">
-                        <dl class="client_list">
-                            <dt><strong>고객센터</strong></dt>
-                            <dd>
-                                <strong>1234-1234</strong>
-                                <span>고객센터 운영시간 (평일 09:00~18:00)
-                                    <p>업무시간 외 자동응답 안내 불가능합니다.</p>
-                                </span>
-                            </dd>
-                        </dl>
-                        <div class="client_btn_wrap" id="client_btn_wrap">
-                            <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                            <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                        </div>
-                    </div>
-                </div>   
+                </div>
+            </div>   
             <!-- 회사 정보 영역 -->
             <div id="company" class="sect-ad">
                 <iframe src="" width="100%" height="10" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
             </div>
             <div class="policy_list" style="color: white;">
-                <li><a href="" target="_blank">회사소개</a></li>
-                <li><a href="" target="_blank">채용정보</a></li>
-                <li><a href="" target="_blank">광고/제휴/출점문의</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">편성기준</a></li>
-                <li><a href=""><strong>개인정보처리방침</strong></a></li>
-                <li><a href="">법적고지</a></li>
-                <li><a href="">이메일주소무단수집거부</a></li>
-                <li><a href="" target="_blank">윤리경영</a></li>
+                <a href="" target="_blank">회사소개</a>
+                <a href="" target="_blank">채용정보</a>
+                <a href="" target="_blank">광고/제휴/출점문의</a>
+                <a href="">이용약관</a>
+                <a href="">편성기준</a>
+                <a href=""><strong>개인정보처리방침</strong></a>
+                <a href="">법적고지</a>
+                <a href="">이메일주소무단수집거부</a>
             </div>
+            <br>
             <br>
             <hr>
             <br>
@@ -814,14 +769,14 @@
     
     
     <script>
-    const login = document.querySelector('.fa-lock');
+    const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     let signup = "";
-    
+
     // 사이드바 열기닫기
    function moveSidebar() {
        sidebar.classList.toggle('open');
@@ -834,34 +789,15 @@
            });
        }
    }
-
-    
-// 서버에서 전달받은 파라미터 값에 따라 moveSidebar() 함수 호출
-   const barParam = '<%=request.getParameter("bar")%>';
-   if (barParam == 'on') {
-	   sidebarContent.innerHTML = ` 
-           <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-           <form action="/login" method="POST">
-               <label for="username">I D:</label>
-               <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-               <label for="password">PW:</label>
-               <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-               <button type="submit" class="loginBtn">Login</button>
-               <h6>아직 회원이 아니세요?</h6>
-               <button type="button" id="join" class="signupBtn">회원가입</button>
-               <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-           </form>`;
-       moveSidebar();
-   }
-
+  
     // 로그인 버튼 클릭 시 사이드바 열기
     login.addEventListener('click', function() {
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="/login" method="POST">
-                <label for="username">I D:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                <label for="password">PW:</label>
+               <img src="sorce/img/로그인/ID.png" alt="아이디" id="ID" width="25" height="25"><br>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br><br>
+                <img src="sorce/img/로그인/PW.png" alt="비밀번호" id="PW" width="25" height="25"><br>
                 <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
                 <button type="submit" class="loginBtn">Login</button>
                 <h6>아직 회원이 아니세요?</h6>
@@ -869,6 +805,7 @@
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             </form>`;
         moveSidebar();   
+
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -888,102 +825,8 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
+
+    </script>
     
-    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.header');
-        const charts = document.querySelectorAll('.chart');
-        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
-    
-        if (header) {
-            header.addEventListener('click', function(event) {
-                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
-                if (event.target.closest('.menu-button')) {
-                    charts.forEach((chart) => {
-                        chart.classList.remove('show');
-                        chart.classList.add('hide');
-                    });
-    
-                    setTimeout(() => {
-                        charts.forEach((chart, index) => {
-                            setTimeout(() => {
-                                chart.classList.remove('hide');
-                                chart.classList.add('show');
-                            }, index * 100);
-                        });
-                    }, 500);
-                }
-            });
-    
-            charts.forEach((chart, index) => {
-                setTimeout(() => {
-                    chart.classList.add('show');
-                }, index * 100);
-            });
-        }
-        const buttons = document.querySelectorAll('.menu-button');
-        
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    
-        // '더 많은 영화보기' 버튼 클릭 시 애니메이션을 적용하지 않도록 설정
-        if (movieListButton) {
-            movieListButton.addEventListener('click', function(event) {
-                // 애니메이션을 적용하지 않음
-                charts.forEach((chart) => {
-                    chart.classList.remove('show'); // 애니메이션을 제거
-                });
-            });
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const videoPlayer = document.getElementById('movie_play');
-        const sources = videoPlayer.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * 3) + 1;
-            return randomNum; // 난수를 반환
-
-        }
-
-
-
-        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
-        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
-            return randomNum; // 난수를 반환
-        }
-
-        function loadRandomVideo() {
-            const randomNum = movie_play(); // 난수 생성
-
-            // 모든 소스의 src를 초기화
-            for (let i = 0; i < sourcesElement.length; i++) {
-                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
-            }
-
-            // 선택된 소스의 src를 설정
-            videoPlayerElement.src = sourcesElement[randomNum].src;
-
-            // videoPlayer가 비디오 요소인지 확인
-            if (videoPlayerElement instanceof HTMLVideoElement) {
-                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
-            } else {
-                console.error('videoPlayer is not a valid video element');
-            }
-        }
-
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
-    });
-</script>
-    
-
     </html>
+    
