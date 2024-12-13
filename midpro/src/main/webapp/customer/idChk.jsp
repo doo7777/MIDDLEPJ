@@ -15,7 +15,7 @@
    ResultSet rs =  null;
 
    try{
-      //JDBC이용해서 DB에 접근하고 결과 얻기
+      //JDBC이용해서 DB에 접근하고 결과 얻기52
       
       //0. 라이브러리 준비 - ojdbc.jar
       //1. 드라이버 로딩
