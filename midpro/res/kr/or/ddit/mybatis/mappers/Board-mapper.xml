@@ -26,6 +26,10 @@
 	delete from notice where notice_id = #{notice_id}
 </delete>
 
+ <update id="NoticeCount_view">
+ 	update notice set notice_view =  notice_view+1 where notice_id = #{notice_id}
+ </update>
+
  </mapper>
 
 

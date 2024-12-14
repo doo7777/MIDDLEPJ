@@ -35,5 +35,12 @@ public interface INoticeDao {
 	 */
 	public NoticeVO getNotice(String title);
 	
+	/**12.14일추가(영준)
+	 * 게시글 id를 받아 view카운트 조회수 증가
+	 * @param notice_ID
+	 * @return
+	 */
+	public int CountNoticeView(String notice_ID);
+	
 
 }
