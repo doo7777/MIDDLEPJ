@@ -335,12 +335,10 @@
 	            padding: 0; 
 	        }
 
-			#movie-title,
-			#rating,
-			#release-date,
-			#cast {
-			    color: white; /* 하얀색 */
-			}
+			#movie-detail {
+			color: white;
+		    
+		}
 
             nav {
                 display: flex;
@@ -460,7 +458,7 @@
             <hr>
 
             <!-- 영화 메인 영역 -->
-             <div class="movie-detail">
+             <div id="movie-detail">
         	<!-- 포스터와 제목은 버튼 위에 위치 -->
         	<div class="movie-header">
             <img id="movie-poster" src="" alt="영화 포스터">
@@ -681,42 +679,55 @@
         { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", cast: ["홍경", "노윤서"] }
         ];
 
-        // URL에서 영화 인덱스 가져오기
+     	// URL에서 영화 인덱스 가져오기
         const urlParams = new URLSearchParams(window.location.search);
-        const movieIndex = urlParams.get('index'); // 전달된 인덱스 값
+        const movieInfo = parseInt(urlParams.get('index'));
 
-     	// movies 배열에서 해당 영화 정보 찾기
-        const movie = movies[movieIndex];
-        
-     	// 영화 정보를 표시할 요소들
-        const movieDetailBox = document.querySelector(".movie-detail");
-        const poster = document.querySelector("#movie-poster");
-        const title = document.querySelector("#movie-title");
-        const cast = document.querySelector("#cast");
-        const rating = document.querySelector("#rating");
-        const releaseDate = document.querySelector("#release-date");
-
-        // 영화 정보 표시
-        poster.src = movie.image;
-        poster.alt = `\${movie.title} 포스터`;
-        title.innerText = movie.title;
-        rating.innerText = `평점: \${movie.rating}`;
-        releaseDate.innerText = `개봉일: \${movie.releaseDate}`;
-        // 출연진 표시
-        if (movie.cast && movie.cast.length > 0) {
-            cast.innerText = `출연진: ${movie.cast.join(", ")}`;
-        } else {
-            cast.innerText = "출연진: 정보 없음";
+        // 유효한 index 값 확인
+        if (isNaN(movieInfo) || movieInfo < 0 || movieInfo >= movies.length) {
+            console.error("유효하지 않은 영화 인덱스입니다.");
+            return; // 인덱스가 유효하지 않으면 종료
         }
         
-     	// 영화 상세 정보 추가
+        // 해당 영화 데이터 가져옴
+        const movie = movies[movieInfo];
+        
+        
+        const movieDetail = document.querySelector("#movie-detail");
+
+        // 영화 상세 정보를 표시할 HTML
+        const movieDetailBox = document.createElement("div");
+        movieDetailBox.className = "movieDetailBox";
+
+        // 포스터
+        const poster = document.createElement("img");
+        poster.src = movie.image;
+        poster.alt = `\${movie.title} 포스터`;
+        poster.className = "moviePoster";
+
+        // 영화 제목
+        const title = document.createElement("h1");
+        title.innerText = movie.title;
+
+        // 개봉일
+        const releaseDate = document.createElement("p");
+        releaseDate.innerText = `개봉일: \${movie.releaseDate}`;
+
+        // 평점
+        const rating = document.createElement("p");
+        rating.innerText = `평점: \${movie.rating}`;
+        
+        // 출연진
+        const cast = document.createElement("p");
+        cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
+
+        // 영화 상세 정보 추가
         movieDetailBox.appendChild(poster);
         movieDetailBox.appendChild(title);
         movieDetailBox.appendChild(releaseDate);
         movieDetailBox.appendChild(rating);
         movieDetailBox.appendChild(cast);
 
-        // movieDetail에 movieDetailBox 추가
         movieDetail.appendChild(movieDetailBox);
         
     });
