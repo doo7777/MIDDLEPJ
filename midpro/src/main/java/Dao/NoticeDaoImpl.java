@@ -36,13 +36,14 @@ public class NoticeDaoImpl implements INoticeDao{
 	}
 
 	@Override
-	public int deleteNotice(int notice_ID) {
+	public int deleteNotice(String notice_ID) {
 		SqlSession session = MybatisUtil.getSqlSession();
 		
 		int cnt = 0;
 			
 		try {
 			cnt = session.delete("Board.deleteNotice",notice_ID);
+			if(cnt>0) session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db연결실패~~~");
@@ -82,6 +83,24 @@ public class NoticeDaoImpl implements INoticeDao{
 	public NoticeVO getNotice(String title ) {
 
 		return null;
+	}
+	@Override
+	public int CountNoticeView(String notice_ID) {
+		SqlSession session =MybatisUtil.getSqlSession();
+		
+		int cnt =0;
+		
+		try {
+			cnt = session.update("Board.NoticeCount_view");
+			if(cnt>0) session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(session !=null) session.close();
+		}
+		
+		
+		return cnt;
 	}
 
 }

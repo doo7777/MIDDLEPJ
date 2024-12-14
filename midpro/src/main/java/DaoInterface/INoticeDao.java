@@ -16,7 +16,7 @@ public interface INoticeDao {
 	 * @param notice_ID
 	 * @return
 	 */
-	public int deleteNotice(int notice_ID);
+	public int deleteNotice(String notice_ID);
 	/**
 	 * 공지사항 수정
 	 * @param noticeVO
@@ -34,6 +34,14 @@ public interface INoticeDao {
 	 * @return
 	 */
 	public NoticeVO getNotice(String title);
+	
+	/**12.14일추가(영준)
+	 * 게시글 id를 받아 view카운트 조회수 증가
+	 * @param notice_ID
+	 * @return
+	 */
+	public int CountNoticeView(String notice_ID);
+	
 	
 
 }

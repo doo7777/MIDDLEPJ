@@ -7,6 +7,7 @@
 
 									<!-- 회원가입 매퍼  -->
 
+
 	<insert id="insertCustomer" parameterType="cusVO">
 	    INSERT INTO CUSTOMER (
 	        CUSTOMER_ID, CUST_PW, CUST_NAME, 
@@ -30,6 +31,7 @@
 </mapper>
 
 
+
 <!-- <update id="updateCustomer" parameterType="cusVO"> -->
 <!-- update customer set  -->
 <!-- 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email},  -->
@@ -50,5 +52,8 @@
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
