@@ -12,21 +12,20 @@ import ServiceInterface.INoticeService;
 
 @WebServlet("/deleteNotice.do")
 public class DeleteNotice extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		String notice_ID = request.getParameter("notice_ID");
-		
-		INoticeService service = NoticeServiceImpl.getInstance();
-		service.deleteNotice(notice_ID);
-		
-		response.sendRedirect(request.getContextPath() + "/noticeList.do");
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        
+        String notice_id = request.getParameter("notice_id");
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
+        INoticeService service = NoticeServiceImpl.getInstance();
+        int result = service.deleteNotice(notice_id);
 
+        if (result > 0) {
+            response.sendRedirect(request.getContextPath() + "/noticeList.do");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/fail.jsp");
+        }
+    }
 }

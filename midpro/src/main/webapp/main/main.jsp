@@ -568,7 +568,6 @@
 	            padding: 0; 
 	        }
 
-
         </style>
         
     </head>
@@ -754,6 +753,7 @@
                 </div>
             </div>
         </div>
+        
     </body>
     
     
@@ -774,12 +774,12 @@
             <%if(result==null){%>
             <div class="IDBtn"> 
             <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
-            <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
+            <input type="text" title="아이디" id="username" name="cust_id"  required class="IDBtn_box">
             <br><br> 
         </div> 
         <div class="PWBtn"> 
         <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
-        <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
+        <input type="password" title="패스워드" id="password" name="cust_pw"  required class="PWBtn_box">
         <br><br> 
     </div>
                 <button type="submit" class="login" id="login">Login</button>

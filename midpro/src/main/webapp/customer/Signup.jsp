@@ -133,6 +133,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <script>
 
 function goMain(e) {
@@ -230,11 +231,32 @@ function requestIdentityVerification() {
 	    storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
 	    identityVerificationId: "test_m4metadw",
 	    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+	    
 	  });
 	}
  $('#sucbutton').on('click',requestIdentityVerification);
  
- 
+//  const response = await PortOne.requestIdentityVerification({
+// 	  /* 객체 생략 */
+// 	  alert("인증 완료");
+// 	});
+// 	// 프로세스가 제대로 완료되지 않은 경우 에러 코드가 존재합니다
+// 	if (response.code !== undefined) {
+// 	  return alert(response.message);
+// 	}
+
+// 	const verificationResult = await fetch("{서버의 인증 정보를 받는 endpoint}", {
+// 	  method: "POST",
+// 	  headers: { "Content-Type": "application/json" },
+// 	  body: JSON.stringify({
+// 	    identityVerificationId,
+// 	  }),
+// 	});
+	
+// 	PortOne.requestIdentityVerification({
+// 		  /* 파라미터 생략 */
+// 		  redirectUrl: `${BASE_URL}/identity-verification-redirect`,
+// 		});
  
 </script>
 </html>
