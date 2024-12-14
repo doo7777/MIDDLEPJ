@@ -5,16 +5,16 @@
 
 <mapper namespace="Review">
 
-    <insert id="insertReview" parameterType="Vo.ReviewVO">
-        INSERT INTO REVIEW (MOVIE_ID, CUSTOMER_ID, REV_STAR, REV_CONTENT, REV_DATE)
-        VALUES (#{movie_id}, #{customer_id}, #{rev_star}, #{rev_content}, SYSDATE)
+    <insert id="insertReview" parameterType="reviewVO">
+        INSERT INTO REVIEW (REVIEW_NUM,MOVIE_ID, CUSTOMER_ID, REV_STAR, REV_CONTENT, REV_DATE)
+        VALUES (#{review_num}, #{movie_id}, #{customer_id}, #{rev_star}, #{rev_content}, SYSDATE)
     </insert>
 
     <delete id="deleteReview" parameterType="int">
         DELETE FROM REVIEW WHERE REVIEW_NUM = #{review_num}
     </delete>
 
-    <update id="updateReview" parameterType="Vo.ReviewVO">
+    <update id="updateReview" parameterType="reviewVO">
         UPDATE REVIEW
         SET MOVIE_ID = #{movie_id},
             CUSTOMER_ID = #{customer_id},
@@ -24,7 +24,7 @@
         WHERE REVIEW_NUM = #{review_num}
     </update>
 
-    <select id="getAllReview" resultType="Vo.ReviewVO">
+    <select id="getAllReview" resultType="reviewVO">
         SELECT * FROM REVIEW
     </select>
     
