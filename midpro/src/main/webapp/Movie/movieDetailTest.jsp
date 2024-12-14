@@ -334,12 +334,21 @@
 	            margin-right: 15px; /* 단어 사이 간격 조절 */
 	            padding: 0; 
 	        }
+	        
+	       
 
-			#movie-detail {
-			color: white;
-		    
-		}
-
+			.moviePoster {
+		    max-width: 200px;
+		    height: auto;
+		    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+			}
+			
+			.movieDetailBox h1, p {
+		    font-size: 14px;
+		    margin-bottom: 10px;
+		    color: white;
+			}
+		
             nav {
                 display: flex;
                 justify-content: space-around;
@@ -465,13 +474,6 @@
             <h1 id="movie-title"></h1>
         	</div>
             
-            <nav>
-                <button infoMenu ="cast">감독및출연진</button>
-                <button infoMenu ="trailer">트레일러</button>
-                <button infoMenu ="poster">스틸</button>
-                <button infoMenu ="rating">평점</button>
-                <button infoMenu ="schedule">상영시간표</button>
-            </nav>
             <main>
                 <div id="cast" class="tab-content">
                     <h1>감독 및 출연진</h1>
@@ -497,6 +499,13 @@
                     <h1>상영시간표</h1>
                     <p>상영 시간표 정보</p>
                 </div>
+                <nav>
+                <button infoMenu ="cast">감독및출연진</button>
+                <button infoMenu ="trailer">트레일러</button>
+                <button infoMenu ="poster">스틸</button>
+                <button infoMenu ="rating">평점</button>
+                <button infoMenu ="schedule">상영시간표</button>
+            	</nav>
              </main>
              </div>   
 
