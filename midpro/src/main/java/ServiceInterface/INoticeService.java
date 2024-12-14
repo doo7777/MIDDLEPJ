@@ -44,4 +44,5 @@ public interface INoticeService {
 	 */
 	public int CountNoticeView(String notice_ID);
 	
+	
 }

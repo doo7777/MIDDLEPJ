@@ -42,5 +42,6 @@ public interface INoticeDao {
 	 */
 	public int CountNoticeView(String notice_ID);
 	
+	
 
 }

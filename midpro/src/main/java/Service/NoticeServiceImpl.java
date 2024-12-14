@@ -59,6 +59,7 @@ public class NoticeServiceImpl implements INoticeService{
 		// TODO Auto-generated method stub
 		return dao.CountNoticeView(notice_ID);
 	}
+
 	
 	
 
