@@ -34,8 +34,7 @@
 		<typeAlias type="Vo.TheaterVO" alias="theaVO"/>
 		<typeAlias type="Vo.ScheduleVO" alias="scheduleVO"/>
 		<typeAlias type="Vo.ReviewVO" alias="reviewVO"/>
-		
-		
+
 	</typeAliases>
 	
 	<!-- DB 연결 설정 -->
@@ -66,8 +65,9 @@
 <!-- 		<mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
 		<mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
-<!-- 		<mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
+ 		<mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
 	</mappers>
 	
 
