@@ -675,6 +675,12 @@
 
         // movieList에 movieItem 추가
         movieList.appendChild(movieItem);
+        
+     	// 포스터 클릭 시 새 페이지로 이동 ??????????수정
+        poster.addEventListener("click", () => {
+        	const index = movies.indexOf(movie); // 현재 영화의 인덱스
+            window.location.href = `movieDetailTest.jsp?index=${index}`; // URL에 영화 인덱스를 파라미터로 전달
+        });
 
          
 
