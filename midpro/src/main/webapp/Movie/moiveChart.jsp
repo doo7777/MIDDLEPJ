@@ -629,6 +629,10 @@
         // 포스터를 감싸는 movieListBox
         const movieListBox = document.createElement("div");
         movieListBox.className = "movieListBox";
+        
+     	// 포스터 영역
+        const posterBox = document.createElement("div");
+        posterBox.className = "posterBox";
 
         // 포스터
         const poster = document.createElement("img");
