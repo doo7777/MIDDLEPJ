@@ -18,10 +18,17 @@ public class NoticeList extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       INoticeService service = NoticeServiceImpl.getInstance();
+      
+      String notice_id = request.getParameter("notice_id");
+      
+      if(notice_id != null) {
+    	  service.CountNoticeView(notice_id);
+      }
+      
       List<NoticeVO>noticeList = service.getAllNotice();
       
-      request.setAttribute("noticeList", noticeList);
       
+      request.setAttribute("noticeList", noticeList);
       request.getRequestDispatcher("/notice/NoticeList.jsp").forward(request, response);
    }
 

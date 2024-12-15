@@ -55,9 +55,9 @@ public class NoticeServiceImpl implements INoticeService{
 	}
 
 	@Override
-	public int CountNoticeView(String notice_ID) {
+	public int CountNoticeView(String notice_id) {
 		// TODO Auto-generated method stub
-		return dao.CountNoticeView(notice_ID);
+		return dao.CountNoticeView(notice_id);
 	}
 
 	

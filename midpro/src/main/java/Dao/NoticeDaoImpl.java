@@ -85,13 +85,13 @@ public class NoticeDaoImpl implements INoticeDao{
 		return null;
 	}
 	@Override
-	public int CountNoticeView(String notice_ID) {
+	public int CountNoticeView(String notice_id) {
 		SqlSession session =MybatisUtil.getSqlSession();
 		
 		int cnt =0;
 		
 		try {
-			cnt = session.update("Board.NoticeCount_view");
+			cnt = session.update("Board.NoticeCount_view",notice_id);
 			if(cnt>0) session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

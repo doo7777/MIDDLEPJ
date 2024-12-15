@@ -42,6 +42,6 @@ public interface INoticeService {
 	 * @param noticeId
 	 * @return
 	 */
-	public int CountNoticeView(String notice_ID);
+	public int CountNoticeView(String notice_id);
 	
 }

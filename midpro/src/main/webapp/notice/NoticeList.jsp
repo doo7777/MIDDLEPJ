@@ -58,8 +58,8 @@
             <tr>
                 <th><input type="checkbox" id="selectAll"></th>
                 <th>번호</th>
-                <th>구분</th>
-                <th>제목 ID</th>
+                <th>유형</th>
+                <th>제목</th>
                 <th>등록일</th>
                 <th>조회수</th>
                 <th>삭제</th>
