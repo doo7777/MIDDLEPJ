@@ -322,6 +322,7 @@
             align-items: center; /* 중앙 정렬 */
             width: 200px; /* 각 포스터 및 버튼의 영역 */
             position: relative; /* 제목과 개봉일을 상대적으로 배치할 수 있게 */
+            
         }
 
         .moviePoster {

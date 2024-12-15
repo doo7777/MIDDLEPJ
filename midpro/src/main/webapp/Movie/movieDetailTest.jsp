@@ -338,6 +338,9 @@
 	       
 			#movie-detail {
 			position: relative;
+			padding: 10px;
+		    max-width: 1200px;
+		    margin: auto;
 			}
 			
 			.movieDetailBox {
@@ -371,15 +374,17 @@
 			
 			.infoBox h1 {
 		    font-size: 24px;
-		    margin-bottom: 10px;
+		    margin-bottom: 8px;
 		    color: white;
 			}
 		
 			.infoBox p {
-			    margin: 5px 0;
 			    font-size: 16px;
 			    color: white;
+			    margin: 0; /* 각 항목 간 간격을 없앰 */
+    			padding: 0; /* 추가적인 여백을 제거 */
 			}
+			
 			
 			
             nav {
