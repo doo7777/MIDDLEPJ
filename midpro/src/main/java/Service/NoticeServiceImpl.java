@@ -49,9 +49,9 @@ public class NoticeServiceImpl implements INoticeService{
 	}
 
 	@Override
-	public NoticeVO getNotice(String title) {
+	public List<NoticeVO> searchNotice (String title) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.searchNotice(title);
 	}
 
 	@Override

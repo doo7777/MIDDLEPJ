@@ -38,6 +38,10 @@
  <select id="detailNotice" resultType="noticeVO">
  	select * from notice
  </select>
+ 
+ <select id="searchNotice" resultType="noticeVO">
+   SELECT * FROM notice WHERE title LIKE '%' || #{title} || '%'
+ </select>
 
  </mapper>
 

@@ -51,6 +51,12 @@
 <body>
     <h1 style="text-align: center;">공지사항</h1>
 
+    <!-- 검색 폼 -->
+    <form action="searchNotice.do" method="get" style="text-align: center; margin-bottom: 20px;">
+        <input type="text" name="title" placeholder="제목 검색" style="padding: 5px; width: 200px;">
+        <button type="submit" style="padding: 5px 10px;">검색</button>
+    </form>
+
     <!-- 삭제 처리 폼 -->
     <form action="deleteNotice.do" method="post">
         <!-- 일괄 삭제 버튼 -->

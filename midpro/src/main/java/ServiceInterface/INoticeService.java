@@ -34,7 +34,7 @@ public interface INoticeService {
 	 * @param title
 	 * @return
 	 */
-	public NoticeVO getNotice(String title);
+	public List<NoticeVO> searchNotice (String title);
 	
 
 	/**12.14일추가(영준)
