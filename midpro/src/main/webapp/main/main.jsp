@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -1472,7 +1471,7 @@
         
     </head>
     
-   <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
+<%--    <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>  --%>
     
     <body>
        

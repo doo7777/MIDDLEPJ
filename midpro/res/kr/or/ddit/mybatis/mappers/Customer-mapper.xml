@@ -51,9 +51,3 @@
 <!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
 <!-- 		select * from customer where customer_id=#{customer_id} -->
 <!-- 	</select> -->
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
