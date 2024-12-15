@@ -51,8 +51,11 @@
 <body>
     <h1 style="text-align: center;">공지사항</h1>
 
+    <!-- 삭제 처리 폼 -->
     <form action="deleteNotice.do" method="post">
-        <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
+        <!-- 일괄 삭제 버튼 -->
+        <button type="submit" name="action" value="bulk-delete" class="bulk-delete-btn">일괄 삭제</button>
+
         <table>
             <thead>
             <tr>
@@ -85,6 +88,7 @@
                     for (NoticeVO notice : noticeList) {
             %>
             <tr>
+                <!-- 체크박스 추가 -->
                 <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
                 <td><%=notice.getNotice_id() %></td>
                 <td><%=notice.getNotice_sort() %></td>
@@ -95,6 +99,7 @@
                 <td><%=notice.getPost_date() %></td>
                 <td><%=notice.getNotice_view() %></td>
                 <td>
+                    <!-- 개별 삭제 버튼 -->
                     <form action="deleteNotice.do" method="post" style="margin: 0;">
                         <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
                         <button type="submit" class="delete-btn">삭제</button>
@@ -108,7 +113,7 @@
             </tbody>
         </table>
     </form>
-============================
+
     <% 
         // 상세보기 영역 출력
         if (selectedNotice != null) {
