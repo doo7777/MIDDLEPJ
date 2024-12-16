@@ -39,9 +39,20 @@
  	select * from notice
  </select>
  
+<!--   공지사항 검색 -->
  <select id="searchNotice" resultType="noticeVO">
    SELECT * FROM notice WHERE title LIKE '%' || #{title} || '%'
  </select>
+ 
+<!--  공지사항 수정  -->
+<update id="updateNotice" parameterType="noticeVO">
+
+	update notice set title = #{title}, content= #{content}, notice_sort = #{notice_sort}
+        where notice_id= #{notice_id}
+	
+</update>
+ 
+ 
 
  </mapper>
 
