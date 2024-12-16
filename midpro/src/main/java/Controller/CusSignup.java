@@ -31,7 +31,7 @@ public class CusSignup extends HttpServlet {
 
         // 파라미터 수신
         String cust_id = request.getParameter("cust_id");
-        String cust_pw = request.getParameter("cust_pw");
+        String cust_pw = request.getParameter("cust_pw2");
         String cust_name = request.getParameter("cust_name");
         String cust_email = request.getParameter("cust_email");
         String cust_tel = request.getParameter("cust_tel");

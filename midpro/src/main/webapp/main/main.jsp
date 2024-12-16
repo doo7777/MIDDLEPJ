@@ -10,6 +10,11 @@
         <style>
             
             /* 전체 화면 사이즈 */
+            #main{
+                position: relative;
+                left: 2px;
+            }
+            
             body {
                 margin: 0;
                 width: 100%;
@@ -154,6 +159,8 @@
                 border: none;
                 height: 2px;
                 background-color: #ef8400;
+                position: relative;
+                left: -2px;
             }
             #movie_play {
                 height: 550px;
@@ -382,12 +389,27 @@
 
             
             /* 회사소개 */
+            .bottom_line{
+                margin-top: 100px;
+            }
+            .parent {
+                position: relative; /* 부모 요소에 상대 위치 설정 */
+            }
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
-                margin-top: 5%;
                 color: white;
-                
+                width: 700px; /* 고정 너비 유지 */
+                margin: 0; /* 기본 여백 제거 */
+                margin-top: 100px; /* 위쪽 여백 */
+                text-align: center;
+                overflow: hidden; /* 내용이 잘리도록 설정 */
+                position: absolute; /* 절대 위치 설정 */
+                transform: translateX(100%);
             }
+            
+            
+            
+            
     
             .sidebar {
                 display: flex; /* Flexbox 사용 */
@@ -567,18 +589,26 @@
                         <i class="fa-solid fa-lock" id="loginbutton"></i>
 
                         <%if(result==null){ %>
-                        <h4 id="btnfont" class="login">로그인</h4>
+                        <h4 id="btnfont1" class="login">로그인</h4>
                         <%}else{ %>
-                        <h4 id="btnfont" class="logout">로그아웃</h4>
+                        <h4 id="btnfont2" class="logout">로그아웃</h4>
                         <%} %>
+                        <script>
+						    window.onload = function() {
+						        <% if(result != null) { %>
+						            alert("로그인 되었습니다.");
+						        <% }else{ %>
+						        <% } %>
+						    };
+						</script>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
-                        <h4 id="btnfont" class="mypage">마이페이지</h4>
+                        <h4 id="btnfont3" class="mypage">마이페이지</h4>
                     </div>
                     <div class="icon-text">
-                        <i class="fas fa-headset"></i> 
-                        <h4 id="btnfont" class="service center">고객센터</h4>
+                        <i class="fas fa-headset"id="btn4"></i> 
+                        <h4 id="btnfont4" class="service center">고객센터</h4>
                     </div>
                 </div>
                 <div class="sidebar">
@@ -721,23 +751,20 @@
                     </div>
                 </div> 
             <!-- 회사 정보 영역 -->
+            <hr class="bottom_line">
 
             <div id="company" class="sect-ad">
-                <hr>
+                <div class="company_text">
                     <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                        <dt>이사장 :</dt>
-                        <dt>김형응</dt>
-                        <dd>사업자등록번호 :</dd>
-                        <dt>306-82-05291</dt>
-                        <dd>대표전화 :</dd>
-                        <dt>042-222-8202</dt>
-                    <p>&copy; DGV. All Rights Reserved</p>
+                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
+                    &copy; DGV. All Rights Reserved
+                </div>
             </div>
         </div>
         
     </body>
     
-    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
 
     const login = document.querySelector('#loginbutton');
@@ -747,6 +774,9 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
+    $('#btn4').on('click',function(){
+  	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+   }); 
     
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
