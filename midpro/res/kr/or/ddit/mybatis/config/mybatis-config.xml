@@ -34,6 +34,7 @@
       <typeAlias type="Vo.TheaterVO" alias="theaVO"/>
       <typeAlias type="Vo.ScheduleVO" alias="scheduleVO"/>
       <typeAlias type="Vo.ReviewVO" alias="reviewVO"/>
+      <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
       
       
    </typeAliases>
