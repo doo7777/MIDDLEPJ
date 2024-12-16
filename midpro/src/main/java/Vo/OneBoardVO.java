@@ -15,7 +15,6 @@ public class OneBoardVO {
 	private String res_board;
 	private String response_board_content;
 	public String getOneonone_id() {
-		
 		return oneonone_id;
 	}
 	public void setOneonone_id(String oneonone_id) {
