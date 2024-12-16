@@ -1,12 +1,7 @@
-<%@page import="Vo.TheaterVO"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map"%>
 
 <%@page import="Vo.CustomerVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -573,36 +568,6 @@
 	            margin-right: 15px; /* 단어 사이 간격 조절 */
 	            padding: 0; 
 	        }
-	        
-	        #TheaterMain {
-                color: white;
-                margin-left: 260px;
-                width: 1360px;
-                height: 400px;
-                background-color: rgb(52, 52, 52);
-                display: flex; /* Flexbox 사용 */
-                justify-content: center; /* 가로 방향 가운데 정렬 */
-                align-items: center; /* 세로 방향 가운데 정렬 */
-            }
-
-            .spot {
-                display: flex; /* Flexbox 사용 */
-                width: 1280px;
-                height: 330px;
-                border-radius: 20px;
-                border: solid white;
- 
-            }
-
-            button {
-                background: none; /* 배경 제거 */
-                border: none; /* 테두리 제거 */
-                color: inherit; /* 부모 요소의 글꼴 색상 상속 */
-                padding: 0; /* 패딩 제거 */
-                font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
-                cursor: pointer; /* 커서 모양 변경 */
-                margin: 5px 0; /* 버튼 간의 간격 */
-            }
 
 
         </style>
@@ -616,7 +581,7 @@
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="/sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
@@ -695,49 +660,25 @@
                 </button>
             </div>
             <hr>
-    <h2 class="movie">영화관 정보</h2>
-    <br><br>
-        <div id="TheaterMain">
-        <div class="spot">
-            <% 
-                List<TheaterVO> thea = (List<TheaterVO>) request.getAttribute("thea");
-                if (thea != null) {
-                    // 지역별 영화관을 저장할 맵 생성
-                    Map<String, List<TheaterVO>> regionMap = new HashMap<>();
-                    for (TheaterVO tList : thea) {
-                        String region = tList.getTheater_do(); // 지역 정보
-                        if (!regionMap.containsKey(region)) {
-                            regionMap.put(region, new ArrayList<>()); // 지역이 없으면 새 리스트 생성
-                        }
-                        regionMap.get(region).add(tList); // 해당 지역 리스트에 추가
-                    }
 
-                    // 지역별로 버튼 생성
-                    for (String region : regionMap.keySet()) {
-            %>
-            <div class="region">
-                <h3><%= region %></h3> <!-- 지역 이름 표시 -->
-                <% 
-                    for (TheaterVO tList : regionMap.get(region)) {
-                %>
-                <button type="button" onclick="location.href='<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>';">
-                    <%= tList.getTheater_name() %>
-                </button>
-                <% 
-                    }
-                %>
-            </div>
-            <% 
-                    }
-                } else {
-            %>
-            <div>등록된 영화관 정보가 없습니다.</div>
-            <% 
-                }
-            %>  
-        </div>
-    </div>
-    <!-- 회사 정보 영역 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- 회사 정보 영역 -->
             <hr class="bottom_line">
 
             <div id="company" class="sect-ad">
