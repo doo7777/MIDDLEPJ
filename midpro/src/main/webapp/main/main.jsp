@@ -1,6 +1,3 @@
-이게 어제 저녁에 끝나고 풀하고 합친거
-
-
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -559,18 +556,17 @@
                 font-size: 18px;
             }
 
-         .policy_list { 
-               display: flex; 
-               flex-wrap: wrap; 
-               list-style: none; 
-               padding: 10; 
-               margin: 0 440px; 
-           } 
-           .policy_list li { 
-               margin-right: 15px; /* 단어 사이 간격 조절 */
-               padding: 0; 
-           }
-
+			.policy_list { 
+	            display: flex; 
+	            flex-wrap: wrap; 
+	            list-style: none; 
+	            padding: 10; 
+	            margin: 0 440px; 
+	        } 
+	        .policy_list li { 
+	            margin-right: 15px; /* 단어 사이 간격 조절 */
+	            padding: 0; 
+	        }
 
         </style>
         
@@ -757,6 +753,7 @@
                 </div>
             </div>
         </div>
+        
     </body>
     
     
@@ -777,12 +774,12 @@
             <%if(result==null){%>
             <div class="IDBtn"> 
             <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
-            <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
+            <input type="text" title="아이디" id="username" name="cust_id"  required class="IDBtn_box">
             <br><br> 
         </div> 
         <div class="PWBtn"> 
         <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
-        <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
+        <input type="password" title="패스워드" id="password" name="cust_pw"  required class="PWBtn_box">
         <br><br> 
     </div>
                 <button type="submit" class="login" id="login">Login</button>

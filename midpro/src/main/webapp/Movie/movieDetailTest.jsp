@@ -334,14 +334,60 @@
 	            margin-right: 15px; /* 단어 사이 간격 조절 */
 	            padding: 0; 
 	        }
-
-			#movie-title,
-			#rating,
-			#release-date,
-			#cast {
-			    color: white; /* 하얀색 */
+	        
+	       
+			#movie-detail {
+			position: relative;
+			padding: 10px;
+		    max-width: 1200px;
+		    margin: auto;
 			}
-
+			
+			.movieDetailBox {
+		    display: flex;               /* 부모 요소에 flexbox를 적용 */
+		    gap: 20px; /* 간격 추가 */
+    		padding: 20px;
+			}
+			
+			/* 포스터 박스 */
+			.posterBox {
+			    flex: 1; /* 가변 크기 */
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			}
+			
+			.moviePoster {
+		    max-width: 200px;
+		    height: auto;
+		    margin-right: 10px;          /* 포스터와 영화 정보 사이의 간격 */
+			}			
+			
+			/* 정보 박스 */
+			.infoBox {
+			    flex: 2; /* 포스터보다 더 큰 영역 */
+			    display: flex;
+			    flex-direction: column;
+			    justify-content: space-between;
+			    margin: 5px;
+			}
+			
+			
+			.infoBox h1 {
+		    font-size: 24px;
+		    margin-bottom: 8px;
+		    color: white;
+			}
+		
+			.infoBox p {
+			    font-size: 16px;
+			    color: white;
+			    margin: 0; /* 각 항목 간 간격을 없앰 */
+    			padding: 0; /* 추가적인 여백을 제거 */
+			}
+			
+			
+			
             nav {
                 display: flex;
                 justify-content: space-around;
@@ -350,6 +396,7 @@
                 padding: 10px 0;
                 max-width: 50%; /* 화면의 반만 차지 */
                 margin: 0 auto; /* 중앙 정렬 */
+                margin-bottom: 5px;  /* 버튼과 탭 내용 간의 간격 */
             }
             nav button {
                 background: none;
@@ -364,7 +411,9 @@
             }
             .tab-content {
                 display: none;
-                margin: 20px;
+                margin-top: 20px;  /* 탭 내용과 버튼 간의 간격 */
+                color: white;
+                
             }
             .tab-content.active {
                 display: block;
@@ -460,45 +509,39 @@
             <hr>
 
             <!-- 영화 메인 영역 -->
-             <div class="movie-detail">
-        	<!-- 포스터와 제목은 버튼 위에 위치 -->
-        	<div class="movie-header">
-            <img id="movie-poster" src="" alt="영화 포스터">
-            <h1 id="movie-title"></h1>
+             <div id="movie-detail">
+
         	</div>
             
-            <nav>
-                <button infoMenu ="cast">감독및출연진</button>
-                <button infoMenu ="trailer">트레일러</button>
-                <button infoMenu ="poster">스틸</button>
-                <button infoMenu ="rating">평점</button>
-                <button infoMenu ="schedule">상영시간표</button>
-            </nav>
             <main>
-                <div id="cast" class="tab-content">
-                    <h1>감독 및 출연진</h1>
-                    <ul>
-                        <li>배우 1: 이름</li>
-                        <li>배우 2: 이름</li>
-                        <li>배우 3: 이름</li>
-                    </ul>
+            	<nav>
+                <button data-tab ="summary">줄거리</button>
+                <button data-tab ="trailer">트레일러</button>
+                <button data-tab ="poster">스틸</button>
+                <button data-tab ="rating">리뷰</button>
+                <button data-tab ="schedule">상영시간표</button>
+            	</nav>
+            	<!-- 탭 내용들 -->
+                <div id="summary" class="tab-content">
+                    <h1>줄거리</h1>
+                    <p id="movie-summary"></p>
                 </div>
                 <div id="trailer" class="tab-content">
                     <h1>트레일러</h1>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/트레일러URL" title="YouTube 트레일러"></iframe>
                 </div>
                 <div id="poster" class="tab-content">
                     <h1>스틸 이미지</h1>
                     <p>여기에 스틸 이미지 추가</p>
                 </div>
-                <div id="rating" class="tab-content">
-                    <h1>평점</h1>
-                    <p>평점 정보</p>
+                <div id="review" class="tab-content">
+                    <h1>리뷰</h1>
+                    <p>리뷰 내용</p>
                 </div>
                 <div id="schedule" class="tab-content">
                     <h1>상영시간표</h1>
                     <p>상영 시간표 정보</p>
                 </div>
+                
              </main>
              </div>   
 
@@ -663,61 +706,110 @@
         });
 
         const movies = [
-        { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", cast: ["주원", "곽도원", "유재명"] },
-        { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", cast: ["김윤석", "이승기", "김성령", "이순재"] },
-        { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", cast: ["현빈", "박정민", "조우진"] },
-        { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", cast: ["아우이 크라발호" , "드웨인 존슨"] },
-        { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", cast: ["아리아나 그란데", "신시아 에리보"] },
-        { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", cast: ["빌 스카스가드", "FKA 트위그스"] },
-        { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
-        { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", cast: ["킬리언 머피", "에밀리 왓슨"] },
-        { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", cast: ["이와타 미츠오", "사사키 노조무"] },
-        { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", cast: ["박영남", "강희선", "김환진"] },
-        { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", cast:["다큐멘터리"] },
-        { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
-        { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["송강호", "박정민", "장윤주"] },
-        { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["티모시 샬라메", "젠데이아 콜먼"] },
-        { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", cast: ["이목", "조우녕"] },
-        { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", cast: ["홍경", "노윤서"] }
+        { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", director: "곽경택", cast: ["주원", "곽도원", "유재명", "이유영"], },
+        { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", director: "양우석", cast: ["김윤석", "이승기", "김성령", "이순재"] },
+        { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", director: "우민호", cast: ["현빈", "박정민", "조우진", "전여빈"] },
+        { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", director: "데이비드 데릭 주니어", cast: ["아우이 크라발호" , "드웨인 존슨"] },
+        { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", director: "존 추", cast: ["아리아나 그란데", "신시아 에리보", "조나단 베일리"] },
+        { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", director: "루퍼트 샌더스", cast: ["빌 스카스가드", "FKA 트위그스"] },
+        { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", director: "곤 사토시", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
+        { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", director: "팀 밀란츠", cast: ["킬리언 머피", "에밀리 왓슨"] },
+        { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", director: "오토모 가츠히로", cast: ["이와타 미츠오", "사사키 노조무"] },
+        { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
+        { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", director: "애몽", cast:["다큐멘터리"] },
+        { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", director: "코랄리 파르자", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
+        { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", director: "신연식", cast: ["송강호", "박정민", "장윤주"] },
+        { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", director: "드니 빌뇌브", cast: ["티모시 샬라메", "젠데이아 콜먼", "레베카 퍼거슨", "오스카 아이삭"] },
+        { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", director: "맹걸 라이", cast: ["이목", "조우녕"] },
+        { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", director: "조선호", cast: ["홍경", "노윤서", "김민주", "정용주"] }
         ];
 
-        // URL에서 영화 인덱스 가져오기
+     	// URL에서 영화 인덱스 가져오기
         const urlParams = new URLSearchParams(window.location.search);
-        const movieIndex = urlParams.get('index'); // 전달된 인덱스 값
+        const movieIndex = parseInt(urlParams.get('index'));
 
-     	// movies 배열에서 해당 영화 정보 찾기
-        const movie = movies[movieIndex];
-        
-     	// 영화 정보를 표시할 요소들
-        const movieDetailBox = document.querySelector(".movie-detail");
-        const poster = document.querySelector("#movie-poster");
-        const title = document.querySelector("#movie-title");
-        const cast = document.querySelector("#cast");
-        const rating = document.querySelector("#rating");
-        const releaseDate = document.querySelector("#release-date");
-
-        // 영화 정보 표시
-        poster.src = movie.image;
-        poster.alt = `\${movie.title} 포스터`;
-        title.innerText = movie.title;
-        rating.innerText = `평점: \${movie.rating}`;
-        releaseDate.innerText = `개봉일: \${movie.releaseDate}`;
-        // 출연진 표시
-        if (movie.cast && movie.cast.length > 0) {
-            cast.innerText = `출연진: ${movie.cast.join(", ")}`;
-        } else {
-            cast.innerText = "출연진: 정보 없음";
+        // 유효한 index 값 확인
+        if (isNaN(movieIndex) || movieIndex < 0 || movieIndex >= movies.length) {
+            console.error("유효하지 않은 영화 인덱스입니다.");
+            return; // 인덱스가 유효하지 않으면 종료
         }
         
-     	// 영화 상세 정보 추가
-        movieDetailBox.appendChild(poster);
-        movieDetailBox.appendChild(title);
-        movieDetailBox.appendChild(releaseDate);
-        movieDetailBox.appendChild(rating);
-        movieDetailBox.appendChild(cast);
+        // 해당 영화 데이터 가져옴
+        const movie = movies[movieIndex];
+        
+        
+        const movieDetail = document.querySelector("#movie-detail");
 
-        // movieDetail에 movieDetailBox 추가
+        // 영화 상세 정보를 표시할 HTML
+        const movieDetailBox = document.createElement("div");
+        movieDetailBox.className = "movieDetailBox";
+
+        
+     	// 포스터 영역
+        const posterBox = document.createElement("div");
+        posterBox.className = "posterBox";
+
+        // 포스터
+        const poster = document.createElement("img");
+        poster.src = movie.image;
+        poster.alt = `\${movie.title} 포스터`;
+        poster.className = "moviePoster";
+        posterBox.appendChild(poster);
+        
+     	// 정보 영역
+        const infoBox = document.createElement("div");
+        infoBox.className = "infoBox";
+
+        // 영화 제목
+        const title = document.createElement("h1");
+        title.innerText = movie.title;
+
+        // 개봉일
+        const releaseDate = document.createElement("p");
+        releaseDate.innerText = `개봉일: \${movie.releaseDate}`;
+
+        // 평점
+        const rating = document.createElement("p");
+        rating.innerText = `평점: \${movie.rating}`;
+        
+        // 감독
+        const director = document.createElement("p");
+        director.innerText = `감독: \${movie.director}`;
+        
+        // 출연진
+        const cast = document.createElement("p");
+        cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
+
+     	// 정보 영역에 추가
+        infoBox.appendChild(title);
+        infoBox.appendChild(releaseDate);
+        infoBox.appendChild(rating);
+        infoBox.appendChild(director);
+        infoBox.appendChild(cast);
+
+        // movieDetailBox에 포스터와 정보를 추가
+        movieDetailBox.appendChild(posterBox);
+        movieDetailBox.appendChild(infoBox);
         movieDetail.appendChild(movieDetailBox);
+
+     	// 영화 정보 영역은 항상 보이도록 하되, 탭 전환만 적용
+        const tabButtons = document.querySelectorAll("nav button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        // 기본적으로 첫 번째 탭을 활성화
+        tabContents.forEach(content => content.classList.remove("active"));
+        tabContents[0].classList.add("active"); // 첫 번째 탭 내용 표시
+
+        // 탭 클릭 시 해당 콘텐츠 표시
+        tabButtons.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // 모든 탭 내용 숨기기
+                tabContents.forEach(content => content.classList.remove("active"));
+                // 클릭한 탭의 내용 표시
+                const targetContent = document.getElementById(tab.dataset.tab);
+                targetContent.classList.add("active");
+            });
+        });    
         
     });
 	

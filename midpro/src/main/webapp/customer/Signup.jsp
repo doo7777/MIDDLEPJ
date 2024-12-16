@@ -295,28 +295,56 @@ $('#sucbutton').on('click', function() {
 });
 
 async function requestIdentityVerification() {
-    const random = Math.floor(Math.random() * 9999);  // 클라이언트에서 난수 생성
-    const idVal = $('#cust_id').val() + random;
+    // 클라이언트에서 난수 생성
+    const random = Math.floor(Math.random() * 9999);  
+    const idVal = $('#cust_id').val() + random;  // 고객 ID와 난수를 결합한 값
 
-    const response = await PortOne.requestIdentityVerification({
-        storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
-        identityVerificationId: idVal,
-        channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
-    });
-    
-    console.log("response", response);
- 	// 프로세스가 제대로 완료되지 않은 경우 에러 코드가 존재합니다
-    if (response.code !== undefined) {
-      return alert(response.message);
+    try {
+        // 본인인증 요청 (PortOne SDK 호출)
+        const response = await PortOne.requestIdentityVerification({
+            storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",  // 본인인증을 요청하는 store ID
+            identityVerificationId: idVal,  // 고유한 본인인증 ID
+            channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",  // 채널 키
+        });
+
+        // 인증 성공 여부 확인
+        if (response && response.code !== undefined) {
+            // 인증이 성공한 경우
+            console.log("본인 인증 성공: ", response.code);
+            alert("본인 인증이 성공했습니다.");
+            $('#suc').text("본인인증 완료");
+        } else {
+            // 인증 실패한 경우
+            alert("본인 인증에 실패했습니다: " + (response.message || "알 수 없는 오류"));
+            console.log("본인 인증 실패: ", response);  // 실패 원인 확인을 위한 로그
+        }
+
+        // 인증 완료 후, 서버에서 본인인증 결과 확인
+        const verificationResult = await fetch(`http://localhost/midpro/verifyIdentity.do`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                identityVerificationId: idVal,  // 본인인증 ID를 서버에 전달
+            }),
+        });
+
+        // 서버 응답 처리
+        if (!verificationResult.ok) {
+            throw new Error('서버에서 오류가 발생했습니다.');
+        }
+
+        const resultData = await verificationResult.json();
+        if (resultData.status === "VERIFIED") {
+            console.log("본인 인증이 완료되었습니다.");
+        } else {
+            console.log("본인 인증 실패", resultData);
+        }
+
+    } catch (error) {
+        // 오류 발생 시 처리
+        console.error("본인 인증 요청 중 오류가 발생했습니다.", error);
+        alert("본인 인증 요청 중 오류가 발생했습니다.");
     }
-
-    const verificationResult = await fetch(`https://api.iamport.kr/certifications/${idVal}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        identityVerificationId : idVal,
-      }),
-    });
 }
  
 </script>

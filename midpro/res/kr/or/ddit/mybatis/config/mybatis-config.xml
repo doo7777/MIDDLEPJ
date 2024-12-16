@@ -68,6 +68,8 @@
       <mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
 <!--       <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
       <mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
+      
    </mappers>
    
 
