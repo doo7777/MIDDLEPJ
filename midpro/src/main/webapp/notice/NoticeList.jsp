@@ -1,3 +1,4 @@
+<%@page import="Vo.CustomerVO"%>
 <%@page import="Vo.NoticeVO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Optional"%>
@@ -49,14 +50,19 @@
 
         function hideUpdateForm() {
             document.getElementById("updateForm").style.display = "none";
+            
         }
     </script>
 </head>
+<%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
 <body>
     <h1 style="text-align: center;">DGV 고객센터</h1>
     <!-- 검색 폼 -->  
     <div style="display: flex; align-items: center; margin-left: 200px;"><br><br>
     	<h2 style="margin: 0;">공지사항</h2> 
+    	<% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+    <a href="<%= request.getContextPath() %>/noticeInsert.do">공지글(Notice) 등록하기</a>
+		<% } %>
 	</div>
 <!-- 	<div style="display: flex; align-items: center; margin-right: 200px;"> -->
 <!--     <form action="searchNotice.do" method="get" style="margin-left: 20px;"> -->
