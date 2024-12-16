@@ -369,6 +369,7 @@
 			    display: flex;
 			    flex-direction: column;
 			    justify-content: space-between;
+			    margin: 5px;
 			}
 			
 			
@@ -705,22 +706,22 @@
         });
 
         const movies = [
-        { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", cast: ["주원", "곽도원", "유재명"], },
-        { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", cast: ["김윤석", "이승기", "김성령", "이순재"] },
-        { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", cast: ["현빈", "박정민", "조우진"] },
-        { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", cast: ["아우이 크라발호" , "드웨인 존슨"] },
-        { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", cast: ["아리아나 그란데", "신시아 에리보"] },
-        { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", cast: ["빌 스카스가드", "FKA 트위그스"] },
-        { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
-        { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", cast: ["킬리언 머피", "에밀리 왓슨"] },
-        { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", cast: ["이와타 미츠오", "사사키 노조무"] },
-        { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", cast: ["박영남", "강희선", "김환진"] },
-        { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", cast:["다큐멘터리"] },
-        { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
-        { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["송강호", "박정민", "장윤주"] },
-        { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["티모시 샬라메", "젠데이아 콜먼"] },
-        { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", cast: ["이목", "조우녕"] },
-        { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", cast: ["홍경", "노윤서"] }
+        { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", director: "곽경택", cast: ["주원", "곽도원", "유재명", "이유영"], },
+        { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", director: "양우석", cast: ["김윤석", "이승기", "김성령", "이순재"] },
+        { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", director: "우민호", cast: ["현빈", "박정민", "조우진", "전여빈"] },
+        { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", director: "데이비드 데릭 주니어", cast: ["아우이 크라발호" , "드웨인 존슨"] },
+        { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", director: "존 추", cast: ["아리아나 그란데", "신시아 에리보", "조나단 베일리"] },
+        { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", director: "루퍼트 샌더스", cast: ["빌 스카스가드", "FKA 트위그스"] },
+        { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", director: "곤 사토시", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
+        { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", director: "팀 밀란츠", cast: ["킬리언 머피", "에밀리 왓슨"] },
+        { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", director: "오토모 가츠히로", cast: ["이와타 미츠오", "사사키 노조무"] },
+        { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
+        { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", director: "애몽", cast:["다큐멘터리"] },
+        { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", director: "코랄리 파르자", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
+        { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", director: "신연식", cast: ["송강호", "박정민", "장윤주"] },
+        { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", director: "드니 빌뇌브", cast: ["티모시 샬라메", "젠데이아 콜먼", "레베카 퍼거슨", "오스카 아이삭"] },
+        { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", director: "맹걸 라이", cast: ["이목", "조우녕"] },
+        { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", director: "조선호", cast: ["홍경", "노윤서", "김민주", "정용주"] }
         ];
 
      	// URL에서 영화 인덱스 가져오기
@@ -771,6 +772,10 @@
         const rating = document.createElement("p");
         rating.innerText = `평점: \${movie.rating}`;
         
+        // 감독
+        const director = document.createElement("p");
+        director.innerText = `감독: \${movie.director}`;
+        
         // 출연진
         const cast = document.createElement("p");
         cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
@@ -779,6 +784,7 @@
         infoBox.appendChild(title);
         infoBox.appendChild(releaseDate);
         infoBox.appendChild(rating);
+        infoBox.appendChild(director);
         infoBox.appendChild(cast);
 
         // movieDetailBox에 포스터와 정보를 추가
