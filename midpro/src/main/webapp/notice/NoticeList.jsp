@@ -1,5 +1,6 @@
 <%@page import="Vo.CustomerVO"%>
 <%@page import="Vo.NoticeVO"%>
+<%@page import="Vo.OneBoardVO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Optional"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -78,6 +79,7 @@
 <!--             <th>번호</th> -->
             <th>유형</th>
             <th>제목</th>
+            <th>내용</th>
             <th>등록일</th>
             <th>조회수</th>
         </tr>
@@ -108,6 +110,7 @@
                 <!-- 제목 클릭 시 notice_id 전달 -->
                 <a href="?notice_id=<%=notice.getNotice_id() %>"><%=notice.getTitle() %></a>
             </td>
+            <td><%=notice.getContent() %></td>
             <td><%=notice.getPost_date() %></td>
             <td><%=notice.getNotice_view() %></td>
         </tr>
@@ -140,7 +143,6 @@
         </form>
         <button onclick="showUpdateForm()" class="update-btn">수정</button>
 		<% } %>
-        <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
     </div>
 
     <!-- 수정 폼 출력 -->
@@ -172,6 +174,78 @@
     <% 
         }
     %>
-    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
+    <div id="onebyone">
+    	<table>
+        <thead>
+        <tr>
+<!--             <th>번호</th> -->
+            <th>제목</th>
+            <th>내용</th>
+            <th>등록일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% 
+            List<OneBoardVO> OneBoardList = (List<OneBoardVO>) request.getAttribute("OneBoardList");
+            String selectedOneBoardId = request.getParameter("ONEONONE_id");
+            OneBoardVO selectedOneBoard = null;
+
+            // 선택된 OneBoard_id로 OneboardVO 찾기
+            if (selectedOneBoardId != null && OneBoardList != null) {
+                for (OneBoardVO oneboard : OneBoardList) {
+                    if (selectedOneBoardId.equals(String.valueOf(oneboard.getOneonone_id()))) {
+                        selectedOneBoard = oneboard;
+                        break;
+                    }
+                }
+            }
+
+            if (OneBoardList != null) {
+                for (OneBoardVO oneboard : OneBoardList) {
+        %>
+        <tr>
+<%--             <td><%=notice.getNotice_id() %></td> --%>
+            <td><%=oneboard.getCustomer_id() %></td>
+            <td>
+                <!-- 제목 클릭 시 notice_id 전달 -->
+<%--                 <a href="?notice_id=<%=oneboard.getNotice_id() %>"><%=notice.getTitle() %></a> --%>
+            </td>
+            <td><%=oneboard.getContent() %></td>
+<%--             <td><%=notice.getPost_date() %></td> --%>
+<%--             <td><%=notice.getNotice_view() %></td> --%>
+        </tr>
+        <% 
+                }
+            }
+        %>
+        </tbody>
+    </table>
+     <% 
+        // 상세보기 영역 출력
+        if (selectedOneBoard != null) {
+    %>
+    <div class="detail-section">
+        <h2>1:1문의 상세보기</h2>
+<%--         <p><strong>번호:</strong> <%= selectedNotice.getNotice_id() %></p> --%>
+<%--         <p><strong>구분:</strong> <%= selectedNotice.getNotice_sort() %></p> --%>
+        <p><strong>제목:</strong> <%= selectedOneBoard.getSubject() %></p>
+        <p><strong>내용:</strong> <%= selectedOneBoard.getContent() %></p>        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
+        <p><strong>작성자:</strong> <%= selectedOneBoard.getCustomer_id() %></p>
+<%--         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p> --%>
+
+        <!-- 수정/삭제 버튼 -->
+        <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+        
+        <form action="deleteNotice.do" method="post" style="display: inline-block;">
+            <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
+            <button type="submit" class="delete-btn">삭제</button>
+        </form>
+        <button onclick="showUpdateForm()" class="update-btn">수정</button>
+		<% } %>
+	 <% 
+        }
+   	 %>
+    </div>
+    </div>
 </body>
 </html>
