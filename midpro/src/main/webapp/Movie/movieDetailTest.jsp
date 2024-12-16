@@ -342,6 +342,7 @@
 			padding: 10px 0px;
 		    max-width: 1200px;
 		    margin: auto;
+		    margin-bottom: 40px;
 			}
 			
 			.movieDetailBox {
@@ -394,6 +395,18 @@
     			padding: 0; /* 추가적인 여백을 제거 */
     			line-height: 1.2; /* 줄 간격 조정 */
 			}
+			
+			.reservationButton {
+		    background-color: rgb(239, 132, 0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100px;
+		}
 			
 			
 			
@@ -788,6 +801,19 @@
         // 출연진
         const cast = document.createElement("p");
         cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
+        
+     	// 영화 정보 영역에 예매 버튼 추가
+        const reservationButton = document.createElement("button");
+        reservationButton.innerText = "예매하기";
+        reservationButton.className = "reservationButton";
+
+        // 예매 버튼 클릭 이벤트
+        reservationButton.addEventListener("click", () => {
+            alert(`\${movie.title}의 예매 페이지로 이동합니다.`);
+            // 예매 페이지로 이동하고 싶다면 아래와 같이 URL을 추가할 수 있습니다.
+            // window.location.href = "예매페이지 URL";
+        });
+
 
      	// 정보 영역에 추가
         infoBox.appendChild(title);
@@ -795,6 +821,7 @@
         infoBox.appendChild(rating);
         infoBox.appendChild(director);
         infoBox.appendChild(cast);
+        infoBox.appendChild(reservationButton);
 
         // movieDetailBox에 포스터와 정보를 추가
         movieDetailBox.appendChild(posterBox);
