@@ -25,7 +25,7 @@ public class ReviewServiceImpl implements IReviewService{
 	@Override
 	public int insertReview(ReviewVO reviewVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertReview(reviewVO);
 	}
 
 	@Override
