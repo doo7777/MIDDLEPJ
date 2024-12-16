@@ -39,7 +39,7 @@ public class NoticeServiceImpl implements INoticeService{
 	@Override
 	public int updateNotice(NoticeVO noticeVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.updateNotice(noticeVO);
 	}
 
 	@Override

@@ -1,53 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="Customer">
 
-									<!-- 회원가입 매퍼  -->
+                           <!-- 회원가입 매퍼  -->
 
 
-	<insert id="insertCustomer" parameterType="cusVO">
-	    INSERT INTO CUSTOMER (
-	        CUSTOMER_ID, CUST_PW, CUST_NAME, 
-	        CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
-	    ) VALUES (
-	        #{customer_id}, #{cust_pw}, #{cust_name}, 
-	        #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
-	    )
-	</insert>
-	
-	<select id="getCustomerdetail" resultType="cusVO" parameterType="cusVO">
-		select * from customer where customer_id = #{customer_id} and cust_pw = #{cust_pw}	
-	
-	</select>
+   <insert id="insertCustomer" parameterType="cusVO">
+       INSERT INTO CUSTOMER (
+           CUSTOMER_ID, CUST_PW, CUST_NAME, 
+           CUST_EMAIL, CUST_TEL, CUST_POSTCODE, CUST_ADD, CUST_DETAILADD
+       ) VALUES (
+           #{customer_id}, #{cust_pw}, #{cust_name}, 
+           #{cust_email}, #{cust_tel}, #{cust_postcode}, #{cust_add}, #{cust_detailadd}
+       )
+   </insert>
+   
+   <select id="getCustomerdetail" resultType="cusVO" parameterType="cusVO">
+      select * from customer where customer_id = #{customer_id} and cust_pw = #{cust_pw}   
+   
+   </select>
 
 <select id="getAllCustomer" resultType="cusVO">
 
-	select * from customer
+   select * from customer
 
 </select>
 </mapper>
-
-
-
-<!-- <update id="updateCustomer" parameterType="cusVO"> -->
-<!-- update customer set  -->
-<!-- 			cust_pw = #{cust_pw} , cust_name = #{cust_name}, cust_email=#{cust_email},  -->
-<!-- 			cust_tel = #{cust_tel} , cust_postcode=#{cust_postcod}, cust_add = #{cust_add}, cust_detailadd=#{cust_detailadd}, -->
-<!-- 			cust_grade=#{cust_grade}, cust_delete=#{cust_delete}, a -->
-<!-- 		where customer_id = #{customer_id} -->
-<!-- </update> -->
-
-<!-- <select id="getAllCustomer" resultType="cusVO"> -->
-<!-- 		select * from customer -->
-<!-- 	</select> -->
-	
-<!-- 	<select id="getCustomerCount" parameterType="string" resultType="int"> -->
-<!-- 		select count(*) cnt from customer where customer_id = #{customer_id} -->
-<!-- 	</select> -->
-	
-<!-- 	<select id="getCustomer" parameterType="string" resultType="cusVo"> -->
-<!-- 		select * from customer where customer_id=#{customer_id} -->
-<!-- 	</select> -->
