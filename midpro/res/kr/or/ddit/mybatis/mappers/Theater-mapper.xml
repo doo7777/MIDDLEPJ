@@ -8,6 +8,7 @@
 	<!-- 전체 영화관을 보여줌 -->
 	<select id="getAllTheater" resultType="theaVO">
 		select * from theater
+		order by theater_id, theater_name
 	</select>
 	
 	

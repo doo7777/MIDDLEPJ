@@ -20,7 +20,8 @@
 </head>
 <body>
 	<h2>영화관 정보</h2>
-	<br><hr><br>	
+	<br><hr><br>
+	<br><br><br>	
 	<table>
 		<thead>
 		<tr>
@@ -54,5 +55,7 @@
         %>  
 		</tbody>
 	</table>
+	
+	
 </body>
 </html>

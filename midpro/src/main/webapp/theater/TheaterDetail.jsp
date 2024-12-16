@@ -6,11 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-/* 	#closeBtn {
-	  
-	} */
-</style>
+
 <script>
         function openRateTable() {
             // 새 창을 열고 요금표 HTML을 작성
@@ -42,7 +38,7 @@
                             <td>18,000원</td>
                         </tr>
                         <tr>
-                            <td>조조</td>
+                            <td>조조 및 심야</td>
                             <td>14,000원</td>
                         </tr>
                     </table>
@@ -72,12 +68,16 @@
 		String tspot1 = vo.getTheater_spot1();
 		String tspot2 = vo.getTheater_spot2();
 	%>
-	
+<!-- 영화관 정보 영역 -->
 	<h3><%=tnm %></h3>
 	*공지*<br>
 	<%=tno %><br><br>
 	
-	이미지 자리 : <%=timg %><br><br>	
+	이미지 자리 : <br>	
+	<img src="<%=request.getContextPath() %>/theaterImage.do?theaterName=
+				<%=vo.getTheater_name() %>" width="1000" height="500">
+	<br><br>
+	
 	
 	주소 : <%=tadd %><br><br>
 	전화번호 : <%=ttel %><br><br>
@@ -88,24 +88,44 @@
 	<hr><br>
 	
 	
-	지도 api 영역
+	
 <!-- 지도 api 영역 -->
 	<div id="map" style="width:500px;height:400px;"></div>
 	<!-- 실제 지도를 그리는 Javascript API -->
 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=b988732ec0d52355546afa135081f218"></script>
 	<script>
-		var container = document.getElementById('map');				// 지도를 담을 영역의 DOM 레퍼런스
+		var container = document.getElementById('map');				// 지도를 표시할 영역(div)
 		var options = {												// 지도 생성할 때 필요한 기본 옵션
 				
 // 			center: new kakao.maps.LatLng(36.321059, 127.408915),	// 지도의 중심좌표
-			center: new kakao.maps.LatLng(<%=tspot1 %>, <%=tspot2 %>),	// 지도의 중심좌표
+			center: new kakao.maps.LatLng(<%=tspot1 %>, <%=tspot2 %>),	// 지도의 중심좌표 
 			
 			level: 3												// 지도의 레벨(확대, 축소 정도)
 		};
 
 		var map = new kakao.maps.Map(container, options);			// 지도 생성 및 객체 리턴
+		
+				
+		// 마커 표시하기 --------------------------------------------------------------------------------------
+		var markerPosition  = new kakao.maps.LatLng(<%=tspot1 %>, <%=tspot2 %>); // 마커가 표시될 위치
+
+		var marker = new kakao.maps.Marker({						// 마커 생성
+		    position: markerPosition
+		});
+
+		marker.setMap(map); 										// 마커가 지도 위에 표시되도록 설정
+		//marker.setMap(null);										// 마커 제거 코드
+		
+		// 컨트롤 올리기 ---------------------------------------------------------------------------------------
+		var mapTypeControl = new kakao.maps.MapTypeControl(); 		// 지도 타입 전환할 수 있는 컨트롤 생성
+		
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT); // 지도에 타입컨트롤 추가, 표시 위치 설정
+		
+		var zoomControl = new kakao.maps.ZoomControl();				// 확대축소 제어할 줌 컨트롤 생성
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);		 // 지도에 줌컨트롤 추가, 표시 위치 설정
+		
 	</script>
-<!-- 지도 api 영역 -->
+
 	
 	
 	<hr><br>
