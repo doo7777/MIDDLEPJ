@@ -34,6 +34,7 @@ public class TheaterImage extends HttpServlet {
 		String imgFile = theaVo.getTheater_img();
 		if(imgFile==null) imgFile = "noImage.jpg";
 		
+		
 		// 이미지가 저장된 폴더 설정
 		String filepath = getServletContext().getRealPath("/theater/영화관이미지");
 		File file = new File(filepath, imgFile);

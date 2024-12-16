@@ -106,6 +106,7 @@
 		var map = new kakao.maps.Map(container, options);			// 지도 생성 및 객체 리턴
 		
 				
+		
 		// 마커 표시하기 --------------------------------------------------------------------------------------
 		var markerPosition  = new kakao.maps.LatLng(<%=tspot1 %>, <%=tspot2 %>); // 마커가 표시될 위치
 
@@ -113,6 +114,7 @@
 		    position: markerPosition
 		});
 
+		
 		marker.setMap(map); 										// 마커가 지도 위에 표시되도록 설정
 		//marker.setMap(null);										// 마커 제거 코드
 		
