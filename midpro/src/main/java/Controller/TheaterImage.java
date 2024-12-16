@@ -66,8 +66,7 @@ public class TheaterImage extends HttpServlet {
 			}
 		}
 		
-		
-		
+				
 	}
 
 	

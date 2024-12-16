@@ -20,7 +20,6 @@ public class TheaterDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		
 		String thName = request.getParameter("theater_name");
 		
 		ITheaterService service = TheaterServiceImpl.getInstance();

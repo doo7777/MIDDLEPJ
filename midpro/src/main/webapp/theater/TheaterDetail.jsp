@@ -118,6 +118,7 @@
 		marker.setMap(map); 										// 마커가 지도 위에 표시되도록 설정
 		//marker.setMap(null);										// 마커 제거 코드
 		
+		
 		// 컨트롤 올리기 ---------------------------------------------------------------------------------------
 		var mapTypeControl = new kakao.maps.MapTypeControl(); 		// 지도 타입 전환할 수 있는 컨트롤 생성
 		
