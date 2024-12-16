@@ -45,7 +45,7 @@ public class NoticeInsert extends HttpServlet {
 	System.out.println("notice_sort: " + noticeSort);
 	
 	if(result>0) {
-		response.sendRedirect(request.getContextPath()+"/notice/InsertNotice.jsp");
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
 		
 	}else {
 		response.getWriter().println("<h1>공지글 등록실패</h1>");

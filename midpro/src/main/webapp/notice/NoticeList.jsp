@@ -1,5 +1,6 @@
 <%@page import="Vo.NoticeVO"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Optional"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,11 +39,19 @@
             cursor: pointer;
             text-align: center;
         }
+        .detail-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>
     <h1 style="text-align: center;">공지사항</h1>
-    <form action="bulkDeleteNotice.do" method="post">
+
+    <form action="deleteNotice.do" method="post">
         <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
         <table>
             <thead>
@@ -59,6 +68,19 @@
             <tbody>
             <% 
                 List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
+                String selectedNoticeId = request.getParameter("notice_id");
+                NoticeVO selectedNotice = null;
+
+                // 선택된 notice_id로 NoticeVO 찾기
+                if (selectedNoticeId != null && noticeList != null) {
+                    for (NoticeVO notice : noticeList) {
+                        if (selectedNoticeId.equals(String.valueOf(notice.getNotice_id()))) {
+                            selectedNotice = notice;
+                            break;
+                        }
+                    }
+                }
+
                 if (noticeList != null) {
                     for (NoticeVO notice : noticeList) {
             %>
@@ -66,12 +88,15 @@
                 <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
                 <td><%=notice.getNotice_id() %></td>
                 <td><%=notice.getNotice_sort() %></td>
-                <td><%=notice.getTitle() %></td>
+                <td>
+                    <!-- 제목 클릭 시 notice_id 전달 -->
+                    <a href="?notice_id=<%=notice.getNotice_id() %>"><%=notice.getTitle() %></a>
+                </td>
                 <td><%=notice.getPost_date() %></td>
                 <td><%=notice.getNotice_view() %></td>
                 <td>
                     <form action="deleteNotice.do" method="post" style="margin: 0;">
-                        <input type="hidden" name="notice_id" value="<%=notice.getNotice_id() %>">
+                        <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
                         <button type="submit" class="delete-btn">삭제</button>
                     </form>
                 </td>
@@ -83,6 +108,25 @@
             </tbody>
         </table>
     </form>
+============================
+    <% 
+        // 상세보기 영역 출력
+        if (selectedNotice != null) {
+    %>
+    <div class="detail-section">
+        <h2>게시글 상세보기</h2>
+        <p><strong>번호:</strong> <%= selectedNotice.getNotice_id() %></p>
+        <p><strong>구분:</strong> <%= selectedNotice.getNotice_sort() %></p>
+        <p><strong>제목:</strong> <%= selectedNotice.getTitle() %></p>
+        <p><strong>내용:</strong> <%= selectedNotice.getContent() %></p>
+        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
+        <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p>
+        <a href="<%=request.getContextPath() %>/noticeList.do">목록으로 돌아가기</a>
+    </div>
+    <% 
+        }
+    %>
+
     <script>
         // "전체 선택" 체크박스 기능 추가
         document.getElementById("selectAll").addEventListener("click", function() {
@@ -90,5 +134,7 @@
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
         });
     </script>
+
+    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
 </body>
 </html>

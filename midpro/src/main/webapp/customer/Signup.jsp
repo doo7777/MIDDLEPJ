@@ -1,85 +1,97 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-        }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="date"],
-        input[type="tel"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        button {
-/*             margin-top: 20px; */
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #007BFF;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            float:right;
-            display: inline;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        #cust_id, 
-        #cust_post{
-        width : 420px;
-        }
-        #id{
-        display :inline-block;
-        }
-        #signup{
-        display:flex;
-        justify-content:center;
-        width:500px;
-        }
-    </style>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+            }
+            .container {
+                display: flex; /* flexbox 사용 */
+                flex-direction: column; /* 수직 정렬 */
+                align-items: center; /* 가운데 정렬 */
+                width: 50%;
+                margin: 50px auto;
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                margin: 10px 0 5px;
+                font-weight: bold;
+            }
+            input[type="text"],
+            input[type="password"],
+            input[type="email"],
+            input[type="date"],
+            input[type="tel"] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                width: 85%; /* 부모 요소의 너비에 맞게 조정 */
+                max-width: 528px; /* 최대 너비 설정 */
+                box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 계산 */
+            }
+
+            button {
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background: #ef8400;
+                color: #fff;
+                font-size: 1rem;
+                cursor: pointer;
+
+            }
+            button:hover {
+                background: #ef8400;
+            }
+            #cust_detailAdd{
+                width: 85%;
+            }
+            #cust_post{
+                width: 100px;
+            }
+            #cust_add{
+                width: 403px;
+            }
+            #id{
+                width:75%;
+            }
+            #join {
+                width: 100%; /* 부모 요소의 너비에 맞게 조정 */
+                position: relative;
+                left: 400px;
+            }
+            #sucbutton{
+             align-items: center;
+            }
+
+        </style>
+    </head>
 <body>
     <div class="container">
-   	    <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="50px">
-        <h1>회원가입</h1>
-        
+   	    <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="150px">
         <form onsubmit="goMain(event)">
         <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
-        <div id="id">
+        	<div id="id">
             <input type="text" id="cust_id" name="cust_id" required placeholder="ID를 입력하세요."
-             pattern="[a-zA-Z][a-zA-Z0-9]{2,7}">
+             pattern="[a-zA-Z][a-zA-Z0-9]{2,7}" >
                         
              <button type="button" class="btn btn-success btn-sm" id="idChk">중복검사</button>
 			</div>
@@ -90,32 +102,31 @@
 			<label for="cust_pw2">비밀번호 확인<span class="rq"> *<span id="pwchk2"></span></span></label>
 			<input type="password" id="cust_pw2" name="cust_pw2" required placeholder="비밀번호를 입력하세요."
 			       onkeyup="checkPasswordMatch()"> <!-- 비밀번호 확인 onkeyup 이벤트 -->
-             
+             <br>
+            <button type=button id="sucbutton" style=width:250px>본인 인증</button><span id="suc"></span>
+            
             <label for="cust_name">이름<span class="rq"> *</span></label>
             <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
 
 		    <label for="cust_bir">생년월일<span class="rq"> *</span></label>
 		    <input type="date" class="form-control" id="bir" name="cust_bir" required>
 		    
+            <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
+            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
+
             <label for="cust_email">이메일<span class="rq"> *</span></label>
             <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
 
-            <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
-            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
-            <button type=button id="sucbutton">본인 인증</button><span id="suc"></span>
            
-            <label for="cust_post">우편번호<span class="rq"> *</span></label>
-            <div>
-            <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호를 입력하세요.">
-            
-			<button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
-			</div>
-			
-            <label for="cust_add">주소<span class="rq"> *</span></label>
-            <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요.">
+            <label for="cust_post">주소<span class="rq"> *</span></label>
+                <div class="tel-container">
+                <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호" readonly>
+                <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요." readonly>
+                <button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
+                </div>
+                <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
+                <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
 
-            <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
-            <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
             <br>
 			<div id="join">
             <button type="submit" id='sign'>회원가입</button>
@@ -193,7 +204,7 @@ $(document).ready(function() {
     }
 });
 
-function checkPasswordMatch() {
+function checkPasswordMatch() { //비밀번호가 비밀번호 확인과 맞는지 실시간 체크 함수
     const pw1 = $('#cust_pw1').val();
     const pw2 = $('#cust_pw2').val();
     
@@ -212,20 +223,32 @@ function checkPasswordMatch() {
     }
 }
 //주소 검색 이벤트
-$('#addrBtn').on('click',addr);
+$('#addrBtn').on('click', addr);
 
 function addr() {
-     new daum.Postcode({
-         oncomplete: function(data) {
-           
-             document.getElementById('cust_post').value = data.zonecode;   //우편번호
-             // jsp파일은 백틱을 사용한 탬플릿리터럴과 el tag형식이 사용해 충돌될 수 있으므로 백틱 사용시 $앞쪽에 \(백슬래시)를 붙여 쓰자
-             document.getElementById("cust_add").value = data.roadAddress + "(" + data.jibunAddress + ")"; //도로명 주소
-             document.getElementById("sample4_jibunAddress").value = data.jibunAddress; //지번 주소
-             
-         }
-     }).open();
- }
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 요소가 존재하는지 확인한 후 value 설정
+            var custPost = document.getElementById('cust_post');
+            if (custPost) {
+                custPost.value = data.zonecode;   // 우편번호
+            }
+
+            var custAdd = document.getElementById("cust_add");
+            if (custAdd) {
+                custAdd.value = data.roadAddress + "(" + data.jibunAddress + ")"; // 도로명 주소
+            }
+
+            var sample4JibunAddress = document.getElementById("sample4_jibunAddress");
+            if (sample4JibunAddress) {
+                sample4JibunAddress.value = data.jibunAddress; // 지번 주소
+            }
+
+            // 주소 선택 후 팝업 창 닫기
+            window.close() 
+        }
+    }).open();
+}
  
 //id중복검사
 $('#idChk').on('click',function(){
@@ -263,22 +286,36 @@ $('#idChk').on('click',function(){
 });
 //본인인증 버튼 클릭 시 처리
 $('#sucbutton').on('click', function() {
-    if ($('#cust_id').val()=='' || $('#disp').text() == "사용 불가" ){
+    if ($('#cust_id').val()=='' || $('#disp').text() == "사용불가" ){
         alert('ID 중복검사 미인증');
     } else {
         requestIdentityVerification();
-        $('#suc').text("본인인증 완료");
+//         $('#suc').text("본인인증 완료");
     }
 });
 
-function requestIdentityVerification() {
+async function requestIdentityVerification() {
     const random = Math.floor(Math.random() * 9999);  // 클라이언트에서 난수 생성
     const idVal = $('#cust_id').val() + random;
 
-    PortOne.requestIdentityVerification({
+    const response = await PortOne.requestIdentityVerification({
         storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
         identityVerificationId: idVal,
         channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+    });
+    
+    console.log("response", response);
+ 	// 프로세스가 제대로 완료되지 않은 경우 에러 코드가 존재합니다
+    if (response.code !== undefined) {
+      return alert(response.message);
+    }
+
+    const verificationResult = await fetch(`https://api.iamport.kr/certifications/${idVal}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        identityVerificationId : idVal,
+      }),
     });
 }
  
