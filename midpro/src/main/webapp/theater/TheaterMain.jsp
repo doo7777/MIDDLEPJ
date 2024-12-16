@@ -584,24 +584,39 @@
                 justify-content: center; /* 가로 방향 가운데 정렬 */
                 align-items: center; /* 세로 방향 가운데 정렬 */
             }
+            .movie{
+            	color: white;
+            	position: relative;
+            	left: 260px;
+            	top: 8px;
+            }
 
             .spot {
                 display: flex; /* Flexbox 사용 */
+                align-items: center; /* 가로 방향 가운데 정렬 */
                 width: 1280px;
                 height: 330px;
                 border-radius: 20px;
                 border: solid white;
+                justify-content: center;
  
             }
 
             button {
-                background: none; /* 배경 제거 */
-                border: none; /* 테두리 제거 */
-                color: inherit; /* 부모 요소의 글꼴 색상 상속 */
-                padding: 0; /* 패딩 제거 */
-                font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
-                cursor: pointer; /* 커서 모양 변경 */
-                margin: 5px 0; /* 버튼 간의 간격 */
+			    background: none; /* 배경 제거 */
+			    border: none; /* 테두리 제거 */
+			    color: inherit; /* 부모 요소의 글꼴 색상 상속 */
+			    padding: 0; /* 패딩 제거 */
+			    font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
+			    cursor: pointer; /* 커서 모양 변경 */
+			    margin: 5px 0; /* 버튼 간의 간격 */
+            }
+            .region{
+			    margin: 20px;
+			    border: none;
+			    display: flex; /* Flexbox 사용 */
+			    flex-direction: column; /* 세로 방향으로 정렬 */
+			    align-items: center; /* 가로 방향 가운데 정렬 */
             }
 
 
@@ -616,7 +631,7 @@
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="/sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <img src="main/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
