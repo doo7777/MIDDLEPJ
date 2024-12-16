@@ -9,7 +9,7 @@
 
 <script>
         function openRateTable() {
-            // 새 창을 열고 요금표 HTML을 작성
+            // 새 창을 열고 요금표 HTML을 작성 //
             var newWindow = window.open("", "요금표", "width=400,height=300");
             newWindow.document.write(`
                 <html>
