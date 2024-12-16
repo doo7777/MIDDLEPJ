@@ -9,7 +9,7 @@
 <%@page import="Vo.CustomerVO"%>
 <!DOCTYPE html>
 <html lang="en">
-    <head>d
+    <head>
         <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
