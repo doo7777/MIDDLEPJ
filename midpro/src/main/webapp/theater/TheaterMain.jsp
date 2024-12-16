@@ -2,6 +2,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
 
 <%@page import="Vo.CustomerVO"%>
 <!DOCTYPE html>
@@ -613,7 +616,7 @@
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="main/sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <img src="/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
@@ -694,18 +697,36 @@
             <hr>
     <h2 class="movie">영화관 정보</h2>
     <br><br>
-    <div id="TheaterMain">
+        <div id="TheaterMain">
         <div class="spot">
             <% 
                 List<TheaterVO> thea = (List<TheaterVO>) request.getAttribute("thea");
                 if (thea != null) {
+                    // 지역별 영화관을 저장할 맵 생성
+                    Map<String, List<TheaterVO>> regionMap = new HashMap<>();
                     for (TheaterVO tList : thea) {
+                        String region = tList.getTheater_do(); // 지역 정보
+                        if (!regionMap.containsKey(region)) {
+                            regionMap.put(region, new ArrayList<>()); // 지역이 없으면 새 리스트 생성
+                        }
+                        regionMap.get(region).add(tList); // 해당 지역 리스트에 추가
+                    }
+
+                    // 지역별로 버튼 생성
+                    for (String region : regionMap.keySet()) {
             %>
-            <button type="button" onclick="location.href='<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>';">
-                <ul>
-                    <li><%=tList.getTheater_name() %></li>
-                </ul>
-            </button>
+            <div class="region">
+                <h3><%= region %></h3> <!-- 지역 이름 표시 -->
+                <% 
+                    for (TheaterVO tList : regionMap.get(region)) {
+                %>
+                <button type="button" onclick="location.href='<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>';">
+                    <%= tList.getTheater_name() %>
+                </button>
+                <% 
+                    }
+                %>
+            </div>
             <% 
                     }
                 } else {
