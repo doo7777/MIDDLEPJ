@@ -385,7 +385,7 @@
 			.infoBox h1 {
 		    font-size: 24px;
 		    margin-bottom: 15px;
-		    color: white;
+		    color: rgb(239, 132, 0);
 			}
 		
 			.infoBox p {
