@@ -9,6 +9,7 @@
         <title>DGV</title> <!-- 문서 제목 -->
         <style>
             
+            
             /* 전체 화면 사이즈 */
             body {
                 margin: 0;
@@ -338,15 +339,19 @@
 	       
 			#movie-detail {
 			position: relative;
-			padding: 10px;
+			padding: 10px 0px;
 		    max-width: 1200px;
 		    margin: auto;
 			}
 			
 			.movieDetailBox {
 		    display: flex;               /* 부모 요소에 flexbox를 적용 */
-		    gap: 20px; /* 간격 추가 */
-    		padding: 20px;
+		    gap: 10px; /* 간격 추가 */
+    		padding: 10px;
+    		/*background-color: white;*/
+    		border-radius: 10px;
+    		width: 100%; /* 너비를 부모의 100%로 설정 */
+    		max-width: 900px; /* 영화 정보 박스 최대 너비 제한 */
 			}
 			
 			/* 포스터 박스 */
@@ -355,12 +360,13 @@
 			    display: flex;
 			    justify-content: center;
 			    align-items: center;
+			    border-style: none;
 			}
 			
 			.moviePoster {
 		    max-width: 200px;
 		    height: auto;
-		    margin-right: 10px;          /* 포스터와 영화 정보 사이의 간격 */
+		    margin-right: 5px;          /* 포스터와 영화 정보 사이의 간격 */
 			}			
 			
 			/* 정보 박스 */
@@ -368,22 +374,25 @@
 			    flex: 2; /* 포스터보다 더 큰 영역 */
 			    display: flex;
 			    flex-direction: column;
-			    justify-content: space-between;
-			    margin: 5px;
+			    justify-content: flex-start;
+			    gap: 0; /* 추가 간격 제거 */
+    			margin: 5px;
+    			border-style: none;
 			}
 			
 			
 			.infoBox h1 {
 		    font-size: 24px;
-		    margin-bottom: 8px;
+		    margin-bottom: 15px;
 		    color: white;
 			}
 		
 			.infoBox p {
 			    font-size: 16px;
 			    color: white;
-			    margin: 0; /* 각 항목 간 간격을 없앰 */
+			    margin: 10px; /* 각 항목 간 간격을 없앰 */
     			padding: 0; /* 추가적인 여백을 제거 */
+    			line-height: 1.2; /* 줄 간격 조정 */
 			}
 			
 			
@@ -430,7 +439,7 @@
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
@@ -715,7 +724,7 @@
         { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", director: "곤 사토시", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
         { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", director: "팀 밀란츠", cast: ["킬리언 머피", "에밀리 왓슨"] },
         { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", director: "오토모 가츠히로", cast: ["이와타 미츠오", "사사키 노조무"] },
-        { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
+        { title: "극장판 짱구는 못말려", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
         { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", director: "애몽", cast:["다큐멘터리"] },
         { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", director: "코랄리 파르자", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
         { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", director: "신연식", cast: ["송강호", "박정민", "장윤주"] },
