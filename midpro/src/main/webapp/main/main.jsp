@@ -1,4 +1,3 @@
-
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -569,7 +568,6 @@
 	            padding: 0; 
 	        }
 
-
         </style>
         
     </head>
@@ -591,18 +589,26 @@
                         <i class="fa-solid fa-lock" id="loginbutton"></i>
 
                         <%if(result==null){ %>
-                        <h4 id="btnfont" class="login">로그인</h4>
+                        <h4 id="btnfont1" class="login">로그인</h4>
                         <%}else{ %>
-                        <h4 id="btnfont" class="logout">로그아웃</h4>
+                        <h4 id="btnfont2" class="logout">로그아웃</h4>
                         <%} %>
+                        <script>
+						    window.onload = function() {
+						        <% if(result != null) { %>
+						            alert("로그인 되었습니다.");
+						        <% }else{ %>
+						        <% } %>
+						    };
+						</script>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
-                        <h4 id="btnfont" class="mypage">마이페이지</h4>
+                        <h4 id="btnfont3" class="mypage">마이페이지</h4>
                     </div>
                     <div class="icon-text">
-                        <i class="fas fa-headset"></i> 
-                        <h4 id="btnfont" class="service center">고객센터</h4>
+                        <i class="fas fa-headset"id="btn4"></i> 
+                        <h4 id="btnfont4" class="service center">고객센터</h4>
                     </div>
                 </div>
                 <div class="sidebar">
@@ -744,58 +750,93 @@
                         </div>
                     </div>
                 </div> 
-                
-                
-                
-                
-        <!-- 회사 정보 영역 -->
-        <hr class="bottom_line">
-        <div id="company" class="sect-ad">
-            <div class="company_text">
-                <address>(34908) 대전광역시 중구 계룡로 846, 3-4층</address> 
-                <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
-                &copy; DGV. All Rights Reserved
+            <!-- 회사 정보 영역 -->
+            <hr class="bottom_line">
+
+            <div id="company" class="sect-ad">
+                <div class="company_text">
+                    <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
+                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
+                    &copy; DGV. All Rights Reserved
+                </div>
             </div>
         </div>
-    </div>
-</body>
+        
+    </body>
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-    const login = document.querySelector('.fa-lock');
+
+    const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
     // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
-    let signup = "";
+    
+    $('#btn4').on('click',function(){
+  	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+   }); 
+    
+    function updateSidebarContent() {
+        sidebarContent.innerHTML = ` 
+            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
+            <%if(result==null){%>
+            <div class="IDBtn"> 
+            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <input type="text" title="아이디" id="username" name="cust_id"  required class="IDBtn_box">
+            <br><br> 
+        </div> 
+        <div class="PWBtn"> 
+        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <input type="password" title="패스워드" id="password" name="cust_pw"  required class="PWBtn_box">
+        <br><br> 
+    </div>
+                <button type="submit" class="login" id="login">Login</button>
+                <h6>아직 회원이 아니세요?</h6>
+                <button type="button" id="join" class="signupBtn">회원가입</button>
+                <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+                <%}else{%>
+                <%=result.getCust_name()%>님 반갑습니다!!<br>
+                현재 DGV 등급 :<%=result.getCust_grade()%>등급
+                <button type="button" id="logout">로그아웃</button>
+                <%}%>
+            </form>`;
+    }; 
+    
 
-    // 사이드바 열기닫기
     function moveSidebar() {
         sidebar.classList.toggle('open');
-        
-        // 사이드바가 열릴 때마다 signup 버튼을 찾기
-        const signup = document.querySelector('#join'); // ID를 '#join'으로 수정
-        if (signup) { // signup 버튼이 존재하는지 확인
+        <%if(result==null){%>
+        const signup = document.querySelector('#join');
+        if (signup) {
             signup.addEventListener('click', function() {
                 window.location.href = '/midpro/customer/Signup.jsp';
             });
         }
+        <%}else{%>
+        const logout = document.querySelector("#logout");
+        if(logout){
+           logout.addEventListener('click',function(){
+              window.location.href = "<%=request.getContextPath()%>/cusLogout.do";
+           });
+        }
+        <%}%>
+        
     }
-  
-    // 로그인 버튼 클릭 시 사이드바 열기
+
+
+
+    const barParam = '<%=request.getParameter("bar")%>';
+    if (barParam === 'on') {
+        updateSidebarContent();
+        moveSidebar();
+    }
+
     login.addEventListener('click', function() {
-        sidebarContent.innerHTML = ` 
-            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-            <form action="/login" method="POST">
-                <label for="username">I D:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required><br>
-                <label for="password">PW:</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required><br><br>
-                <button type="submit" class="loginBtn">Login</button>
-                <h6>아직 회원이 아니세요?</h6>
-                <button type="button" id="join" class="signupBtn">회원가입</button>
-                <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-            </form>`;
-        moveSidebar();   
+        updateSidebarContent();
+        moveSidebar();
     });
     
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
@@ -815,8 +856,83 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar(); 
     });
+    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.header');
+        const charts = document.querySelectorAll('.chart');
+        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
     
+        if (header) {
+            header.addEventListener('click', function(event) {
+                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
+                if (event.target.closest('.menu-button')) {
+                    charts.forEach((chart) => {
+                        chart.classList.remove('show');
+                        chart.classList.add('hide');
+                    });
+    
+                    setTimeout(() => {
+                        charts.forEach((chart, index) => {
+                            setTimeout(() => {
+                                chart.classList.remove('hide');
+                                chart.classList.add('show');
+                            }, index * 100);
+                        });
+                    }, 500);
+                }
+            });
+    
+            charts.forEach((chart, index) => {
+                setTimeout(() => {
+                    chart.classList.add('show');
+                }, index * 100);
+            });
+        }
+        const buttons = document.querySelectorAll('.menu-button');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
 
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
+        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
+
+        function movie_play() {
+            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
+            return randomNum; // 난수를 반환
+        }
+
+        function loadRandomVideo() {
+            const randomNum = movie_play(); // 난수 생성
+
+            // 모든 소스의 src를 초기화
+            for (let i = 0; i < sourcesElement.length; i++) {
+                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
+            }
+
+            // 선택된 소스의 src를 설정
+            videoPlayerElement.src = sourcesElement[randomNum].src;
+
+            // videoPlayer가 비디오 요소인지 확인
+            if (videoPlayerElement instanceof HTMLVideoElement) {
+                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
+                videoPlayerElement.play(); // 비디오 자동 재생
+            } else {
+                console.error('videoPlayer is not a valid video element');
+            }
+        }
+
+        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+    });
+    
 </script>
 </html>
     
+ 
