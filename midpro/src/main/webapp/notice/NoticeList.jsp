@@ -132,11 +132,14 @@
         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p>
 
         <!-- 수정/삭제 버튼 -->
+        <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+        
         <form action="deleteNotice.do" method="post" style="display: inline-block;">
             <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
             <button type="submit" class="delete-btn">삭제</button>
         </form>
         <button onclick="showUpdateForm()" class="update-btn">수정</button>
+		<% } %>
         <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
     </div>
 
