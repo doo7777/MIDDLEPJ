@@ -64,7 +64,7 @@
 <body>
     <div class="container">
         <h1>공지사항 게시판</h1>
-        <form action="noticeInsert.do" method="post">
+        <form action="<%= request.getContextPath() %>/noticeInsert.do" method="post">
             <!-- 번호는 자동 생성될 수 있으므로 입력하지 않음 -->
             
             <label for="notice_sort">구분:</label>

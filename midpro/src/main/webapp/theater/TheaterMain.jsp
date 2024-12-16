@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+        <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
         <style>
@@ -562,19 +562,19 @@
                 font-size: 18px;
             }
 
-			.policy_list { 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
-	        
-	        #TheaterMain {
+         .policy_list { 
+               display: flex; 
+               flex-wrap: wrap; 
+               list-style: none; 
+               padding: 10; 
+               margin: 0 440px; 
+           } 
+           .policy_list li { 
+               margin-right: 15px; /* 단어 사이 간격 조절 */
+               padding: 0; 
+           }
+           
+           #TheaterMain {
                 color: white;
                 margin-left: 260px;
                 width: 1360px;
@@ -617,6 +617,10 @@
 			    display: flex; /* Flexbox 사용 */
 			    flex-direction: column; /* 세로 방향으로 정렬 */
 			    align-items: center; /* 가로 방향 가운데 정렬 */
+            }
+            .region{
+               margin: 20px;
+               border: none;
             }
 
 

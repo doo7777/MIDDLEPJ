@@ -74,8 +74,6 @@ public class CustomerVO {
 	public void setCust_delete(String cust_delete) {
 		this.cust_delete = cust_delete;
 	}
-	
-
 	public int getRole() {
 		return adminrole;
 	}

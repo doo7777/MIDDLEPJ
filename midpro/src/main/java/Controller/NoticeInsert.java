@@ -42,10 +42,9 @@ public class NoticeInsert extends HttpServlet {
 	int result = service.insertNotice(noticeVO);
 	
 	String noticeSort = request.getParameter("notice_sort");
-	System.out.println("notice_sort: " + noticeSort);
 	
 	if(result>0) {
-		response.sendRedirect(request.getContextPath()+"/index.jsp");
+		response.sendRedirect(request.getContextPath()+"/noticeList.do");
 		
 	}else {
 		response.getWriter().println("<h1>공지글 등록실패</h1>");
