@@ -49,6 +49,7 @@ public class NoticeDaoImpl implements INoticeDao{
 			System.out.println("db연결실패~~~");
 		} finally {
 			if(session != null) session.close();
+			
 		}
 		
 		return cnt;
@@ -56,9 +57,20 @@ public class NoticeDaoImpl implements INoticeDao{
 
 	@Override
 	public int updateNotice(NoticeVO noticeVO) {
+		SqlSession session = MybatisUtil.getSqlSession();
 		
+		int cnt =0;
 		
-		return 0;
+		try {
+			cnt = session.update("Board.updateNotice",noticeVO);
+			if(cnt>0) session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session !=null) session.close();
+		}
+		
+		return cnt;
 	}
 
 	@Override
