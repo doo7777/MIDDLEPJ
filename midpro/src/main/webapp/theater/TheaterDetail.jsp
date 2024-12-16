@@ -127,7 +127,7 @@
 	</script>
 
 	
-	
+	<hr>
 	<hr><br>
 	<input type="button" id="timeBtn" value="상영시간표">
 	<button onclick="openRateTable()">요금표 보기</button>
