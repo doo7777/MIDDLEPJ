@@ -389,7 +389,7 @@
 			}
 		
 			.infoBox p {
-			    font-size: 16px;
+			    font-size: 14px;
 			    color: white;
 			    margin: 10px; /* 각 항목 간 간격을 없앰 */
     			padding: 0; /* 추가적인 여백을 제거 */
@@ -406,7 +406,11 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
             width: 100px;
-		}
+			}
+			
+			.reservationButton:hover {
+            font-weight: bold;
+        	}
 			
 			
 			
