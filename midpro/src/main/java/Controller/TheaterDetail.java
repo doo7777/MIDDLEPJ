@@ -26,7 +26,7 @@ public class TheaterDetail extends HttpServlet {
 		TheaterVO thVo = service.getTheater(thName);
 		
 		request.setAttribute("theaterVo", thVo);
-		//
+		
 		request.getRequestDispatcher("/theater/TheaterDetail.jsp").forward(request, response);
 		
 	}

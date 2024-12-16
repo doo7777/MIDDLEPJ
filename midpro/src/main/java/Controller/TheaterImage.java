@@ -24,7 +24,7 @@ public class TheaterImage extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		//
+		
 		// 파라미터로 넘어온 영화관명
 		String theaNm = request.getParameter("theaterName");
 		
