@@ -82,37 +82,9 @@
                 color: #fff;
                 font-size: 1rem;
                 cursor: pointer;
-<<<<<<< HEAD
-
-            }
-            button:hover {
-                background: #ef8400;
-            }
-            #cust_detailAdd{
-                width: 85%;
-            }
-            #cust_post{
-                width: 100px;
-            }
-            #cust_add{
-                width: 403px;
-            }
-            #id{
-                width:75%;
-            }
-            #join {
-                width: 100%; /* 부모 요소의 너비에 맞게 조정 */
-=======
                 float: right;
                 display: inline;
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
                 position: relative;
-<<<<<<< HEAD
-                left: 400px;
-            }
-            #sucbutton{
-             align-items: center;
-=======
                 left: -8%;
             }
             #sucbutton{
@@ -135,7 +107,6 @@
             
             #id{
             display :inline-block;
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             }
 
             #signup{
@@ -146,27 +117,6 @@
         </style>
     </head>
 <body>
-<<<<<<< HEAD
-    <div class="container">
-   	    <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="150px">
-        <form onsubmit="goMain(event)">
-        <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
-        	<div id="id">
-            <input type="text" id="cust_id" name="cust_id" required placeholder="ID를 입력하세요."
-             pattern="[a-zA-Z][a-zA-Z0-9]{2,7}" >
-                        
-             <button type="button" class="btn btn-success btn-sm" id="idChk">중복검사</button>
-			</div>
-			<label for="cust_pw1">비밀번호<span class="rq"> *<span id="pwchk1"></span></span></label>
-			<input type="password" id="cust_pw1" name="cust_pw1" required placeholder="비밀번호를 입력하세요." 
-			       pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+\|]).{8,}">
-			
-			<label for="cust_pw2">비밀번호 확인<span class="rq"> *<span id="pwchk2"></span></span></label>
-			<input type="password" id="cust_pw2" name="cust_pw2" required placeholder="비밀번호를 입력하세요."
-			       onkeyup="checkPasswordMatch()"> <!-- 비밀번호 확인 onkeyup 이벤트 -->
-             <br>
-            <button type=button id="sucbutton" style=width:250px>본인 인증</button><span id="suc"></span>
-=======
     <div id="container">
         <form onsubmit="goMain(event)">
         <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
@@ -186,20 +136,13 @@
              <br>
              <br>
             <button type=button id="sucbutton">본인 인증</button><span id="suc"></span>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             
             <label for="cust_name">이름<span class="rq"> *</span></label>
             <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
 
-<<<<<<< HEAD
-		    <label for="cust_bir">생년월일<span class="rq"> *</span></label>
-		    <input type="date" class="form-control" id="bir" name="cust_bir" required>
-		    
-=======
           <label for="cust_bir">생년월일<span class="rq"> *</span></label>
           <input type="date" class="form-control" id="bir" name="cust_bir" required>
           
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
             <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
 
@@ -217,22 +160,12 @@
                 <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
 
             <br>
-<<<<<<< HEAD
-			<div id="join">
-            <button type="submit" id='sign'>회원가입</button>
-            </div>
-        </form>
-    </div>
-    
-</body>
-=======
          <div id="join">
             <button type="submit" id='sign'>회원가입</button>
             </div>
         </form>
       </div>
     </body>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>

@@ -2,7 +2,7 @@ package DaoInterface;
 
 import java.util.List;
 
-import Vo.OneBoard;
+import Vo.OneBoardVO;
 
 public interface IOneBoardDao {
 	/**
@@ -10,7 +10,7 @@ public interface IOneBoardDao {
 	 * @param boardVO
 	 * @return
 	 */
-	public int insertBoard(OneBoard boardVO);
+	public int insertBoard(OneBoardVO boardVO);
 	/**
 	 * 게시물 삭제
 	 * @param Board_ID
@@ -22,12 +22,12 @@ public interface IOneBoardDao {
 	 * @param boardVO
 	 * @return
 	 */
-	public int updateBoard(OneBoard boardVO);
+	public int updateBoard(OneBoardVO boardVO);
 	/**
 	 * 전체 게시판 보기
 	 * @return
 	 */
-	public List<OneBoard> getAllBoard();
+	public List<OneBoardVO> getAllBoard();
 //	/**
 //	 * 게시물 글 번호로 게시글 갯수 검색
 //	 * @param Board_ID
@@ -39,5 +39,5 @@ public interface IOneBoardDao {
 	 * @param Board_ID
 	 * @return
 	 */
-	public OneBoard getBoard(int Board_ID);
+	public OneBoardVO getBoard(int Board_ID);
 }

@@ -3,7 +3,7 @@ package Dao;
 import java.util.List;
 
 import DaoInterface.IOneBoardDao;
-import Vo.OneBoard;
+import Vo.OneBoardVO;
 
 public class OneBoardDaoImpl implements IOneBoardDao{
 	
@@ -16,19 +16,19 @@ public class OneBoardDaoImpl implements IOneBoardDao{
 	}
 	
 	@Override
-	public int insertBoard(OneBoard boardVO) {
+	public int insertBoard(OneBoardVO boardVO) {
 		return 0;
 	}
 	@Override
-	public int updateBoard(OneBoard boardVO) {
+	public int updateBoard(OneBoardVO boardVO) {
 		return 0;
 	}
 	@Override
-	public List<OneBoard> getAllBoard() {
+	public List<OneBoardVO> getAllBoard() {
 		return null;
 	}
 	@Override
-	public OneBoard getBoard(int Board_ID) {
+	public OneBoardVO getBoard(int Board_ID) {
 		return null;
 	}
 	

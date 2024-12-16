@@ -51,6 +51,18 @@
         where notice_id= #{notice_id}
 	
 </update>
+
+<!-- <!-- 1:1문의 등록 --> -->
+<!-- <insert id="insertOneBoard" parameterType="OneBoardVO"> -->
+<!-- insert into oneboard(ONEONONE_ID,CUSTOMER_ID,PERSON_NAME,PERSON_TEL,PERSON_EMAIL, -->
+<!-- 					QUESTION_TYPE,SUBJECT,CONTENT,WRITEDATE) -->
+<!--     values(NOTICE_SEQ.NEXTVAL, #{customer_id},#{person_name},#{},#{},#{},#{],#{},sysdate); -->
+<!-- </insert> -->
+
+
+<!-- <delete id="deleteOneBoard" parameterType="String"> -->
+<!-- 	delete from oneboard where oneonone_id = #{oneonone_id} -->
+<!-- </delete> -->
  
  
 

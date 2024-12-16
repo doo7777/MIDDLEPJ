@@ -1,6 +1,6 @@
 package Vo;
 
-public class OneBoard {
+public class OneBoardVO {
 	private String oneonone_id;
 	private String customer_id;
 	private String person_name;
@@ -15,6 +15,7 @@ public class OneBoard {
 	private String res_board;
 	private String response_board_content;
 	public String getOneonone_id() {
+		
 		return oneonone_id;
 	}
 	public void setOneonone_id(String oneonone_id) {
