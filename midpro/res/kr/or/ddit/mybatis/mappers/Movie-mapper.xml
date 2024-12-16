@@ -2,57 +2,17 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        
-<mapper namespace="movie">
 
-<!-- 영화 전체 상영시간표 조회 -->
-<select id= "getAllSchedule" resultType="scheduleVO">
-  select * from schedule
-</select>
+<mapper namespace="Movie">
 
+	<!-- 특정 영화 정보 조회 -->
+	<select id="getMovieDetail" resultType="movieVO" parameterType="string">
+		SELECT * FROM MOVIE WHERE MOVIE_ID = #{movie_id}
+	</select>
 
+	<!-- 모든 영화 정보 조회 -->
+	<select id="getAllMovies" resultType="movieVO">
+		SELECT * FROM MOVIE
+	</select>
 
-<!-- 영화 상영시간표 조회 -->
-<select id= "getSchedule"  parameterType="int" resultType="scheduleVO">
-select * from schedule
-where schedule_id = #{schedule_id}
-</select>
-
-<!-- 전체 영화 조회 -->
-<select id= "getAllMovie" resultType="movieVO">
-  select * from movie
-</select>
-
-<!-- 영화이름으로 영화 조회 -->
-<select id ="getMovie"  parameterType="String" resultType="movieVO">
-select * from movie
-where movie_name = #{movie_name}
-</select>
-
-<!-- 리뷰 작성 -->
-<insert id="insertReview" parameterType="reviewVO">
-    INSERT INTO review (
-        review_num, movie_id, customer_id, rev_star, rev_content, rev_date
-    ) VALUES (
-        #{review_num}, #{movie_id}, #{customer_id}, #{rev_star}, #{rev_content}, #{rev_date}
-    )
-</insert>
-
-<!-- 리뷰 삭제 --> 
-<delete id="deleteReview" parameterType="int">
-    delete from Review
-    where review_num = #{review_num}
-</delete>
-	
-<!-- 리뷰 수정 -->
-	<update id="updateReview" parameterType="#{movie_id}, #{customer_id}, #{rev_star}, #{rev_content}, #{rev_date}VO">
-update review set
-     rev_star=#{rev_star},rev_content= #{rev_content}, rev_date=#{rev_date}
-       where review_num = #{review_num}
-       </update>
-<!-- 리뷰 조회 -->
-<select id="getAllReview" resultType="reviewVO">
-select * from review
-</select>
- 
 </mapper>

@@ -43,6 +43,7 @@ public class NoticeDaoImpl implements INoticeDao{
 			
 		try {
 			cnt = session.delete("Board.deleteNotice",notice_ID);
+			if(cnt>0) session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db연결실패~~~");
@@ -79,9 +80,40 @@ public class NoticeDaoImpl implements INoticeDao{
 
 	@Override
 
-	public NoticeVO getNotice(String title ) {
-
-		return null;
+	public List<NoticeVO> searchNotice (String title) {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<NoticeVO>searchNotice=null;
+		
+		try {
+			searchNotice = session.selectList("Board.searchNotice",title);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session !=null) session.close();
+		}
+		
+		return searchNotice;
+	}
+	
+	@Override
+	public int CountNoticeView(String notice_id) {
+		SqlSession session =MybatisUtil.getSqlSession();
+		
+		int cnt =0;
+		
+		try {
+			cnt = session.update("Board.NoticeCount_view",notice_id);
+			if(cnt>0) session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(session !=null) session.close();
+		}
+		
+		
+		return cnt;
 	}
 
 }

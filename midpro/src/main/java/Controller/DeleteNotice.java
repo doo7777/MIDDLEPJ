@@ -12,21 +12,38 @@ import ServiceInterface.INoticeService;
 
 @WebServlet("/deleteNotice.do")
 public class DeleteNotice extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		String notice_ID = request.getParameter("notice_ID");
-		
-		INoticeService service = NoticeServiceImpl.getInstance();
-		service.deleteNotice(notice_ID);
-		
-		response.sendRedirect(request.getContextPath() + "/noticeList.do");
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        
+        INoticeService service = NoticeServiceImpl.getInstance();
+        
+        //선택된 게시물들 일괄삭제
+        String[] notice_ids = request.getParameterValues("notice_ids");
+        
+        //하나의 게시글만 삭제
+        String notice_id = request.getParameter("notice_id");
+        
+        int result=0;
+        
+        if(notice_ids !=null && notice_ids.length>0) {
+//        	service.deleteNotice(notice_id);
+        	for(String id : notice_ids) {
+        		result += service.deleteNotice(id);
+        	}
+        }
+        if(notice_id != null) {
+        	result += service.deleteNotice(notice_id);
+        }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
+        
 
+
+        if (result > 0) {
+            response.sendRedirect(request.getContextPath() + "/noticeList.do");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/fail.jsp");
+        }
+    }
 }

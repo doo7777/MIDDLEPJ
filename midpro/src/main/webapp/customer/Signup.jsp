@@ -1,133 +1,140 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-        }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="date"],
-        input[type="tel"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        button {
-/*             margin-top: 20px; */
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #007BFF;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            float:right;
-            display: inline;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        #cust_id, 
-        #cust_post{
-        width : 420px;
-        }
-        #id{
-        display :inline-block;
-        }
-        #signup{
-        display:flex;
-        justify-content:center;
-        width:500px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-   	    <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="50px">
-        <h1>회원가입</h1>
-        
-<%--         <form action="<%=request.getContextPath() %>/cussignup.do" method="post"> --%>
-        <form onsubmit="goMain(event)">
-        <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
-        <div id="id">
-            <input type="text" id="cust_id" name="cust_id" required placeholder="ID를 입력하세요." pattern="[a-zA-Z][a-zA-Z0-9]{2,7}">
-                        
-             <button type="button" class="btn btn-success btn-sm" id="idChk">중복검사</button>
-			</div>
-            <label for="cust_pw">비밀번호<span class="rq"> *</span></label>
-            <input type="password" id="cust_pw1" name="cust_pw" required placeholder="비밀번호를 입력하세요." 
-             pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$%\^&amp;\*\(\)_\+\|]).{8,}">
-             
-             <label for="cust_pw">비밀번호 확인<span class="rq"> *</span></label>
-            <input type="password" id="cust_pw2" name="cust_pw" required placeholder="비밀번호를 입력하세요." 
-             pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$%\^&amp;\*\(\)_\+\|]).{8,}"> 
-             
-            <label for="cust_name">이름<span class="rq"> *</span></label>
-            <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+            }
+            .container {
+                display: flex; /* flexbox 사용 */
+                flex-direction: column; /* 수직 정렬 */
+                align-items: center; /* 가운데 정렬 */
+                width: 50%;
+                margin: 50px auto;
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                margin: 10px 0 5px;
+                font-weight: bold;
+            }
+            input[type="text"],
+            input[type="password"],
+            input[type="email"],
+            input[type="date"],
+            input[type="tel"] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                width: 85%; /* 부모 요소의 너비에 맞게 조정 */
+                max-width: 528px; /* 최대 너비 설정 */
+                box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 계산 */
+            }
 
-		    <label for="cust_bir">생년월일<span class="rq"> *</span></label>
-		    <input type="date" class="form-control" id="bir" name="cust_bir" required>
-		    
-            <label for="cust_email">이메일<span class="rq"> *</span></label>
-            <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
+            button {
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background: #ef8400;
+                color: #fff;
+                font-size: 1rem;
+                cursor: pointer;
 
-            <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
-            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
-            <button type="button" id="sucbutton">본인인증</button>   <span id="suc"></span>
+            }
+            button:hover {
+                background: #ef8400;
+            }
+            #cust_detailAdd{
+                width: 523px;
+            }
+            #cust_post{
+                width: 100px;
+            }
+            #cust_add{
+                width: 403px;
+            }
+            #id{
+                display :inline-block;
+            }
+            #join {
+                width: 100%; /* 부모 요소의 너비에 맞게 조정 */
+                position: relative;
+                left: 650px;
+            }
 
-            <label for="cust_post">우편번호<span class="rq"> *</span></label>
-            <div>
-            <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호를 입력하세요.">
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo" width ="50px">
+            <h1>회원가입</h1>
             
-			<button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
-			</div>
-			
-            <label for="cust_add">주소<span class="rq"> *</span></label>
-            <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요.">
-
-            <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
-            <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
-            <br>
-			<div id="join">
-            <button type="submit" >회원가입</button>
-            </div>
-        </form>
-    </div>
+    <%--         <form action="<%=request.getContextPath() %>/cussignup.do" method="post"> --%>
+            <form onsubmit="goMain(event)">
+            <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
+            <div id="id">
+                <input type="text" id="cust_id" name="cust_id" required placeholder="ID를 입력하세요." pattern="[a-zA-Z][a-zA-Z0-9]{2,7}">
+                            
+                 <button type="button" class="btn btn-success btn-sm" id="idChk">중복검사</button>
+                </div>
+                <label for="cust_pw">비밀번호<span class="rq"> *</span></label>
+                <input type="password" id="cust_pw1" name="cust_pw" required placeholder="비밀번호를 입력하세요." 
+                 pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$%\^&amp;\*\(\)_\+\|]).{8,}">
+                 
+                 <label for="cust_pw">비밀번호 확인<span class="rq"> *</span></label>
+                <input type="password" id="cust_pw2" name="cust_pw" required placeholder="비밀번호를 입력하세요." 
+                 pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$%\^&amp;\*\(\)_\+\|]).{8,}"> 
+                 
+                <label for="cust_name">이름<span class="rq"> *</span></label>
+                <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
     
-</body>
+                <label for="cust_bir">생년월일<span class="rq"> *</span></label>
+                <input type="date" class="form-control" id="bir" name="cust_bir" required>
+                
+                <label for="cust_email">이메일<span class="rq"> *</span></label>
+                <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
+                
+                <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
+                <div>
+                <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}">
+                <button type="button" id="sucbutton">본인인증</button>   <span id="suc"></span>
+                </div>
+
+                <label for="cust_post">주소<span class="rq"> *</span></label>
+                <div class="tel-container">
+                <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호" readonly>
+                <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요." readonly>
+                <button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
+                </div>
+                <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
+                <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
+                <br>
+                <div id="join">
+                <button type="submit" >회원가입</button>
+                </div>
+            </form>
+        </div>
+    </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>
-<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <script>
 
 function goMain(e) {
@@ -225,32 +232,11 @@ function requestIdentityVerification() {
 	    storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",
 	    identityVerificationId: "test_m4metadw",
 	    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
-	    
 	  });
 	}
  $('#sucbutton').on('click',requestIdentityVerification);
  
-//  const response = await PortOne.requestIdentityVerification({
-// 	  /* 객체 생략 */
-// 	  alert("인증 완료");
-// 	});
-// 	// 프로세스가 제대로 완료되지 않은 경우 에러 코드가 존재합니다
-// 	if (response.code !== undefined) {
-// 	  return alert(response.message);
-// 	}
-
-// 	const verificationResult = await fetch("{서버의 인증 정보를 받는 endpoint}", {
-// 	  method: "POST",
-// 	  headers: { "Content-Type": "application/json" },
-// 	  body: JSON.stringify({
-// 	    identityVerificationId,
-// 	  }),
-// 	});
-	
-// 	PortOne.requestIdentityVerification({
-// 		  /* 파라미터 생략 */
-// 		  redirectUrl: `${BASE_URL}/identity-verification-redirect`,
-// 		});
+ 
  
 </script>
 </html>

@@ -4,6 +4,7 @@
          "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
    <!-- DB 연결 정보가 저장된 propertis파일 정보 설정 -->
    <properties resource="kr/or/ddit/mybatis/config/dbinfo.properties"/>
    
@@ -68,8 +69,12 @@
       <mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
 <!--       <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
       <mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
+      
    </mappers>
    
 
+
 </configuration>
+
 

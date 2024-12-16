@@ -63,5 +63,6 @@
         %>
     </tbody>
     </table>
+    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
 </body>
 </html>

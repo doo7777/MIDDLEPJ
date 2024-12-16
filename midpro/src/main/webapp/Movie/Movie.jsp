@@ -1,18 +1,18 @@
-<%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
     <meta charset="UTF-8">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>DGV</title>
+    <title>Document</title>
     <style>
         body {
             margin: 0;
             width: 100%;
             overflow-x: hidden;
-/*             overflow-y: auto; */
+            overflow-y: auto;
             background: black;
         }
         div {
@@ -22,8 +22,7 @@
             height: 140px; 
             overflow: hidden;
             display: flex; 
-            position: relative; 
-            /* flex-direction: column; */
+            flex-direction: column;
         }
         #top_menu {
             overflow: auto; 
@@ -41,35 +40,37 @@
             top: 90px;
             font-weight: bold;
         }
-       	.dropmenu {
-           height: 70px;
-           overflow: auto;
-           width: 100%;
-           border: none;
-           padding: 0;
-           font-size: 18px;
-           padding: 0 0 0 220px;
-           background-color: black;
-       }                                                                                                                                                                                                                                                                                                         
-       .dropmenu li a {
-           color: #fff;
-           display: block;
-           line-height: 70px;
-           margin: 0;
-           padding: 0 50px;
-           text-align: center;
-           text-decoration: none;
-       }
-       .dropmenu ul {
-           height: 70px;
-           list-style: none;
-           margin: 0;
-           padding: 0;
-       }
-       .dropmenu li {
-           float: left;
-           padding: 0;
-       }
+        .dropmenu {
+            height: 70px;
+            overflow: auto;
+            width: 100%;
+            border: none;
+            padding: 0;
+            font-size: 18px;
+            padding: 0 0 0 220px;
+            background-color: black;
+            
+            
+        }                                                                                                                                                                                                                                                                                                         
+        .dropmenu li a {
+            color: #fff;
+            display: block;
+            line-height: 70px;
+            margin: 0;
+            padding: 0 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .dropmenu ul {
+            height: 70px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .dropmenu li {
+            float: left;
+            padding: 0;
+        }
 
         /* 하위메뉴 */
         .dropmenu li:hover ul {
@@ -100,21 +101,21 @@
 
         /* 우측 상단 메뉴 아이콘 */
         .fa-headset, .fa-regular, .fa-lock {
-            font-size: 24px;
-            color: #ffffff;
-            /* align-items: center; */
-            cursor: pointer;
-            padding: 10px;
+                font-size: 24px;
+                color: #ffffff;
+                /* align-items: center; */
+                cursor: pointer;
+                padding: 10px;
         }
         .topIcon {                
+            position: relative;
+            right: 250px;
+            top: 50px;
+            /* height: 2500px; */
             display: flex;
             justify-content: flex-end;
             align-items: center;
             gap: 20px;
-            border: none;
-            max-width: 100%;
-            flex-wrap: nowrap;
-            transform: translateX(1390px);
         }
         .icon-text {
             display: flex;
@@ -122,38 +123,12 @@
             align-items: center; /* 수평 중앙 정렬 */
             color: white;
             position: relative;
-            white-space: nowrap;
         }
         #btnfont{
             display: flex;
             position: relative;
             top: -15px;
         }
-        /* 공지사항, 고객센터, FAQ */
-        #noticeClient { 
-            color: white; 
-            width: 580px; /* 고정 너비 */ 
-            margin-left: 250px; 
-            padding: 0 25px; /* 좌우 패딩 설정 */ 
-            border: 1px solid #f4f4f4; /* 흰색 테두리 */ 
-            border-radius: 10px; 
-            display: inline-block; /* 내용에 맞게 테두리 조절 */ 
-        } 
-        .notice_wrap dt, .notice_wrap dd { 
-            display: inline-block; 
-        } 
-        .notice_wrap a { 
-            margin-right: 10px; 
-            color: white; /* 링크 색상을 하얀색으로 설정 */ 
-            text-decoration: none; /* 밑줄 제거 */
-        } 
-        .client_list {
-            display: flex;
-        }
-        .client_list dt, .client_list dd { 
-            display: inline-block; 
-        } 
-    
         /* 상단 검색창 */
         .search-container {
             position: relative;
@@ -181,13 +156,6 @@
             color: white; /* 아이콘 색상 */
             font-size: 18px; /* 아이콘 크기 */
         }    
-        
-        /* 회사소개 */
-         #company {
-             height: 400px; /* 회사 정보 영역의 높이 설정 */
-             margin-top: 5%;
-             color: white;
-         }
 
         .sidebar {
             display: flex; /* Flexbox 사용 */
@@ -322,7 +290,6 @@
             align-items: center; /* 중앙 정렬 */
             width: 200px; /* 각 포스터 및 버튼의 영역 */
             position: relative; /* 제목과 개봉일을 상대적으로 배치할 수 있게 */
-            
         }
 
         .moviePoster {
@@ -386,43 +353,33 @@
             transform: scale(1.05); /* 확대 효과 */
             
         }
-        
+
+        #movie_chart{
+            height: 400px;
+        }
+        #bottom{
+            height: 250px;
+        }
+        #company{
+            height: 400px;
+        }
     </style>
 </head>
-
-<%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
-
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo">
-            <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
+            <img src="./image/logo.png" alt="로고" class="logo">
             <div class="topIcon">
-            
-                <div class="icon-text">
-                    <i class="fa-solid fa-lock" id="loginbutton"></i>
-
-                    <%if(result==null){ %>
-                    <h4 id="btnfont" class="login">로그인</h4>
-                    <%}else{ %>
-                    <h4 id="btnfont" class="logout">로그아웃</h4>
-                    <%} %>
-                </div>
-                <div class="icon-text">
-                    <i class="fa-regular fa-user"></i>
-                    <h4 id="btnfont" class="mypage">마이페이지</h4>
-                </div>
-                <div class="icon-text">
-                    <i class="fas fa-headset"></i> 
-                    <h4 id="btnfont" class="service center">고객센터</h4>
-                </div>
-              </div>
-                <div class="sidebar">
-                    <p>
-                    <i class="fa-solid fa-xmark"></i>
-                    <div class="sidebar-content"></div>
-                    </p>
-                </div> 
+                <i class="fa-solid fa-lock"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="sidebar">
+                <p>
+                <i class="fa-solid fa-xmark"></i>
+                <div class="sidebar-content"></div>
+                </p>
+            </div>    
         </div>
 
         <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
@@ -465,84 +422,26 @@
                 </li>
             </ul>
         </div>
-        <div class="search-container">
-           <input type="text" id="search" placeholder="검색어 입력">
-           <button type="button" id="searchButton">
-               <i class="fa-solid fa-magnifying-glass"></i>
-           </button>
-        </div>
-        <hr>
 
         <div id="movie_list"><!-- 영화 목록 영역 -->
  
         </div>
         
-        <div id="company" class="sect-ad"> <!-- 회사 정보 영역 -->
-        	<hr>
-                <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                    <dt>이사장 :</dt>
-                    <dt>김형응</dt>
-                    <dd>사업자등록번호 :</dd>
-                    <dt>306-82-05291</dt>
-                    <dd>대표전화 :</dd>
-                    <dt>042-222-8202</dt>
-                <p>&copy; DGV. All Rights Reserved</p>
-            </div>
+        <div id="company">company</div> <!-- 회사 정보 영역 -->
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    const login = document.querySelector('#loginbutton');
+    const login = document.querySelector('.fa-lock');
     const myPage = document.querySelector('.fa-user');
     const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
-    function updateSidebarContent() {
-        sidebarContent.innerHTML = ` 
-            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
-            <%if(result==null){%>
-            <div class="IDBtn"> 
-            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
-            <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
-            <br><br> 
-        </div> 
-        <div class="PWBtn"> 
-        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
-        <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
-        <br><br> 
-    </div>
-                <button type="submit" class="login" id="login">Login</button>
-                <h6>아직 회원이 아니세요?</h6>
-                <button type="button" id="join" class="signupBtn">회원가입</button>
-                <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
-                <%}else{%>
-                <%=result.getCust_name()%>님 반갑습니다!!<br>
-                현재 DGV 등급 :<%=result.getCust_grade()%>등급
-                <button type="button" id="logout">로그아웃</button>
-                <%}%>
-            </form>`;
-    };
-    
     // 사이드바 열기닫기
     function moveSidebar(){
         sidebar.classList.toggle('open');
-        <%if(result==null){%>
-        const signup = document.querySelector('#join');
-        if (signup) {
-            signup.addEventListener('click', function() {
-                window.location.href = '/midpro/customer/Signup.jsp';
-            });
-        }
-        <%}else{%>
-        const logout = document.querySelector("#logout");
-        if(logout){
-           logout.addEventListener('click',function(){
-              window.location.href = "<%=request.getContextPath()%>/cusLogout.do";
-           });
-        }
-        <%}%>
     }
     
     //로그인버튼누르면 사이드 바 뜸
@@ -571,53 +470,74 @@
         moveSidebar();                
     });
     
-    const barParam = '<%=request.getParameter("bar")%>';
-    if (barParam === 'on') {
-        updateSidebarContent();
-        moveSidebar();
-    }
-
-    login.addEventListener('click', function() {
-        updateSidebarContent();
-        moveSidebar();
-    });
-    
     // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
     closeButton.addEventListener('click', function() {
+        // sidebar.style.right = '-300px';
         moveSidebar(); 
     });
     
     // ESC 눌러서 사이드 바 닫기
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
+            // sidebar.style.right = '-300px';
             moveSidebar(); 
         }
     });
     
-    // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() { 
-        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
+        // if(sidebar.style.right === '0px') {
+        //     sidebar.style.right = '-300px'; //닫기
+        // } else {
+        //     sidebar.style.right = '0px'; //열기
+        // }
+        sidebarContent.innerHTML = `<h3>마이페이지 내용 뭐 넣지?</h3>`
         moveSidebar(); 
+    });
+    
+    menu.addEventListener('click', function(){
+        moveSidebar();
+        sidebarContent.innerHTML = `
+                        <h3> 빠른 메뉴 찾기</h3>
+                        <div class= "smallMenu">
+                        <input type="checkbox" id="upperMenu1">
+                        <label for="upperMenu1">영화</label>
+                        <div><p>영화하위메뉴들</p></div>
+                        <input type="checkbox" id="upperMenu2">
+                        <label for="upperMenu2">극장</label>
+                        <div><p>극장하위메뉴들</p></div>
+                        <input type="checkbox" id="upperMenu3">
+                        <label for="upperMenu3">예매</label>
+                        <div><p>예매하위메뉴들</p></div>
+                        <input type="checkbox" id="upperMenu4">
+                        <label for="upperMenu4">스토어</label>
+                        <div><p>스토어하위메뉴들</p></div>
+                        <input type="checkbox" id="upperMenu5">
+                        <label for="upperMenu5">이벤트</label>
+                        <div><p>이벤트하위메뉴들</p></div>
+                        <input type="checkbox" id="upperMenu6">
+                        <label for="upperMenu6">혜택</label>
+                        <div><p>혜택하위메뉴들</p></div>
+                    </div>`;
     });
 
 
     const movies = [
-	{ title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", cast: ["주원", "곽도원", "유재명"] },
-    { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", cast: ["김윤석", "이승기", "김성령", "이순재"] },
-    { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", cast: ["현빈", "박정민", "조우진"] },
-    { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", cast: ["아우이 크라발호" , "드웨인 존슨"] },
-    { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", cast: ["아리아나 그란데", "신시아 에리보"] },
-    { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", cast: ["빌 스카스가드", "FKA 트위그스"] },
-    { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
-    { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", cast: ["킬리언 머피", "에밀리 왓슨"] },
-    { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", cast: ["이와타 미츠오", "사사키 노조무"] },
-    { title: "극장판 짱구는 못말려", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", cast: ["박영남", "강희선", "김환진"] },
-    { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", cast:["다큐멘터리"] },
-    { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
-    { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["송강호", "박정민", "장윤주"] },
-    { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", cast: ["티모시 샬라메", "젠데이아 콜먼"] },
-    { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", cast: ["이목", "조우녕"] },
-    { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", cast: ["홍경", "노윤서"] }
+    { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%" },
+    { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%" },
+    { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%" },
+    { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%" },
+    { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%" },
+    { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%" },
+    { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", rating: "90%" },
+    { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%" },
+    { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%" },
+    { title: "짱구", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%" },
+    { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%" },
+    { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%" },
+    { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%" },
+    { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%" },
+    { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%" },
+    { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%" }
     ];
 
     const movieList = document.querySelector("#movie_list");
@@ -630,10 +550,6 @@
         // 포스터를 감싸는 movieListBox
         const movieListBox = document.createElement("div");
         movieListBox.className = "movieListBox";
-        
-     	// 포스터 영역
-        const posterBox = document.createElement("div");
-        posterBox.className = "posterBox";
 
         // 포스터
         const poster = document.createElement("img");
@@ -673,6 +589,10 @@
         button.innerText = "예매하기";
 
         movieInfoBox.appendChild(button);
+        
+        $('button').on('click',function(){
+        	window.location.href = "123124.jsp"; // 이동할 JSP 파일 경로
+         })
 
         // movieItem에 포스터와 영화 정보 추가
         movieItem.appendChild(poster);
@@ -680,12 +600,6 @@
 
         // movieList에 movieItem 추가
         movieList.appendChild(movieItem);
-        
-     	// 포스터 클릭 시 새 페이지로 이동 ??????????수정
-        poster.addEventListener("click", () => {
-        	const index = movies.indexOf(movie); // 현재 영화의 인덱스
-            window.location.href = `movieDetailTest.jsp?index=\${index}`; // URL에 영화 인덱스를 파라미터로 전달
-        });
 
          
 

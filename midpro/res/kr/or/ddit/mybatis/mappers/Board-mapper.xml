@@ -18,13 +18,30 @@
     )
 </insert>
 
+<!-- 	공지사항 전체 리스트 조회 -->
 <select id="getAllNotice" resultType="noticeVO">
  select * from notice
 </select>
 
-<delete id="deleteNotice">
-	delete from notice where notice_id= #{notice_id}
+
+<!-- 	공지사항 삭제 -->
+<delete id="deleteNotice" parameterType="String">
+	delete from notice where notice_id = #{notice_id}
 </delete>
+
+<!-- 	공지사항 조회수 증가 -->
+ <update id="NoticeCount_view">
+ 	update notice set notice_view =  notice_view+1 where notice_id = #{notice_id}
+ </update>
+ 
+<!--  	공지사항 상세보기 -->
+ <select id="detailNotice" resultType="noticeVO">
+ 	select * from notice
+ </select>
+ 
+ <select id="searchNotice" resultType="noticeVO">
+   SELECT * FROM notice WHERE title LIKE '%' || #{title} || '%'
+ </select>
 
  </mapper>
 
