@@ -52,7 +52,28 @@
 	
 </update>
  
- 
+<!--  1:1문의 추가 -->
+<insert id="insertOneBoard" parameterType="OneBoardVO">
+    INSERT INTO ONEBOARD (
+        ONEONONE_ID, CUSTOMER_ID, PERSON_NAME, PERSON_TEL, PERSON_EMAIL, 
+        QUESTION_TYPE, SUBJECT, CONTENT, WRITEDATE
+    ) VALUES (
+       #{ONEONONE_ID}, #{CUSTOMER_ID}, #{PERSON_NAME}, #{PERSON_TEL}, 
+       #{PERSON_EMAIL}, #{QUESTION_TYPE}, #{SUBJECT}, #{CONTENT},
+        #{WRITEDATE}
+    )
+</insert>
+
+<!-- 1:1 전체 리스트 조회 -->
+<select id="getAllOneBoard" resultType="OneBoardVO">
+ select * from OneBoard
+</select>
+
+<!-- 	1:1 문의 삭제 -->
+<delete id="deleteOneBoard" parameterType="String">
+	delete from OneBoard where oneonone_id; = #{ONEONONE_ID}
+</delete>
+
 
  </mapper>
 

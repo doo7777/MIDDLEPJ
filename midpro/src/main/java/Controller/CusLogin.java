@@ -28,7 +28,6 @@ public class CusLogin extends HttpServlet {
     	
     	String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
-    	
         ICustomerService service = CustomerServiceImpl.getInstance();
         
         CustomerVO result = service.getCustomer(cust_id, cust_pw);
