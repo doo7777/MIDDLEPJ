@@ -98,14 +98,17 @@
                 width: 92%;
 
             }
-
-            button:hover {
+            #idChk:hover,
+            #addrBtn:hover,
+            #sign:hover,
+            #sucbutton:hover{
                 background: #af6204;
             }
-            #id{
             
+            #id{
             display :inline-block;
             }
+
             #signup{
             display:flex;
             justify-content:center;
