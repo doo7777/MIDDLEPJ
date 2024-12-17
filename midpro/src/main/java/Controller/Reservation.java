@@ -22,14 +22,13 @@ public class Reservation extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		request.getRequestDispatcher("/MovieC.jsp").forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text:html charset=utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		
 		//데이터 가져오기
 		String customer_id = request.getParameter("customer_id");
@@ -56,8 +55,7 @@ public class Reservation extends HttpServlet {
 	            request.setAttribute("errorMessage", "예약 실패. 다시 시도해 주세요.");
 	        }
 
-	    
-	
+	    response.sendRedirect(request.getContextPath()+"/Reservation/MovieC.jsp");
 		
 	}
 

@@ -56,12 +56,20 @@
 
         <input type="submit" value="예매하기">
     </form>
+<%-- MovieC.jsp --%>
+<%
+    String successMessage = (String) session.getAttribute("successMessage");
+    String errorMessage = (String) session.getAttribute("errorMessage");
 
-    <c:if test="${not empty successMessage}">
-        <p style="color: green;">${successMessage}</p>
-    </c:if>
-    <c:if test="${not empty errorMessage}">
-        <p style="color: red;">${errorMessage}</p>
-    </c:if>
+    if (successMessage != null) {
+        out.println("<p>" + successMessage + "</p>");
+        session.removeAttribute("successMessage"); // 메시지를 한 번만 보여주기 위해 삭제
+    }
+
+    if (errorMessage != null) {
+        out.println("<p>" + errorMessage + "</p>");
+        session.removeAttribute("errorMessage");
+    }
+%>
 </body>
 </html>
