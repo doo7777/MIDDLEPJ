@@ -623,7 +623,7 @@
                 <ul>
                     <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
                         <ul>
-                            <li><a href="#">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
+                            <li><a href="#" id="moviechart">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                             <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                         </ul>
                     </li>
@@ -773,6 +773,10 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
+    
+    $('#moviechart').on('click',function(){
+      window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
+    });
     
     $('#btn4').on('click',function(){
   	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
