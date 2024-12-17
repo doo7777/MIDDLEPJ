@@ -268,9 +268,7 @@
 </head>
 
 <body>
-    <div>
         <%@ include file="Top.jsp" %>
-    </div>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
             <source src="sorce/영상 소스파일1.mp4" type="video/mp4">

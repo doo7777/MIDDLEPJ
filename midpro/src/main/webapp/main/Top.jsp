@@ -26,6 +26,7 @@
             position: absolute;
             left: 250px;
             height: auto;
+            cursor:pointer;
         }
 
         .DGV {
@@ -235,6 +236,7 @@
             margin-top: 50px;
         }
     </style>
+    
 </head>
 <% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
 <body>
@@ -333,9 +335,17 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
-
-    $('#moviechart').on('click', function() {
-        window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
+    
+    $('.logo').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#current').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/theaterList.do';
+    });
+    
+    $('#moviechart').on('click',function(){
+      window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
     });
 
     $('#btn4').on('click', function() {
