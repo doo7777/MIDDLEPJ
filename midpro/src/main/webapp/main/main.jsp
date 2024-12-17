@@ -227,10 +227,6 @@
         }
 
         /* 회사소개 */
-        .bottom_line {
-            margin-top: 100px;
-        }
-
         .parent {
             position: relative; /* 부모 요소에 상대 위치 설정 */
         }
