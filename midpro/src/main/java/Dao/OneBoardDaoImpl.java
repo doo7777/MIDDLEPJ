@@ -21,7 +21,7 @@ public class OneBoardDaoImpl implements IOneBoardDao{
 	
 	@Override
 	public int insertBoard(OneBoardVO OneBoardVO) {
-SqlSession session = MybatisUtil.getSqlSession();
+		SqlSession session = MybatisUtil.getSqlSession();
 		
 		int cnt = 0;
 		

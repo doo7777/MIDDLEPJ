@@ -174,6 +174,10 @@
     <% 
         }
     %>
+<<<<<<< HEAD
+    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
+    <a href="<%=request.getContextPath() %>/oneBoardInsert.do">1:1문의글로 이동</a>
+=======
     <div id="onebyone">
     	<table>
         <thead>
@@ -247,5 +251,6 @@
    	 %>
     </div>
     </div>
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </body>
 </html>

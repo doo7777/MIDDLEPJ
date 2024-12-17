@@ -3,9 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.util.List;
 
-import Service.OneBoardServiceImpl;
-import ServiceInterface.IOneBoardService;
-import Vo.OneBoardVO;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

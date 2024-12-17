@@ -572,7 +572,10 @@
                margin-right: 15px; /* 단어 사이 간격 조절 */
                padding: 0; 
            }
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
         </style>
         
@@ -600,13 +603,13 @@
                         <h4 id="btnfont2" class="logout">로그아웃</h4>
                         <%} %>
                         <script>
-						    window.onload = function() {
-						        <% if(result != null) { %>
-						            alert("로그인 되었습니다.");
-						        <% }else{ %>
-						        <% } %>
-						    };
-						</script>
+                      window.onload = function() {
+                          <% if(result != null) { %>
+                              alert("로그인 되었습니다.");
+                          <% }else{ %>
+                          <% } %>
+                      };
+                  </script>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
@@ -780,7 +783,7 @@
     const sidebarContent = document.querySelector('.sidebar-content');
     
     $('#btn4').on('click',function(){
-  	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+       window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
    }); 
     
     function updateSidebarContent() {
