@@ -22,6 +22,7 @@
 		where movie_name like '%'||#{movie_name} ||'%'			
 	</select>
 	
+	
 	<!-- 상영관ID를 받아서 해당 일정표를 보여줌 -->
 	<select id="getScheduleScreenId" parameterType="int" resultType="scheduleVO">
 		select * from schedule

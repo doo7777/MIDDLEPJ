@@ -1,19 +1,17 @@
 package Vo;
 
 public class MovieVO {
-	private int movie_id;
+	
 	private String movie_name;
 	private String plot;
 	private String product_year;
 	private String show_time;
 	private String start_date;
 	private String end_date;
-	public int getMovie_id() {
-		return movie_id;
-	}
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
-	}
+
+	
+
+
 	public String getMovie_name() {
 		return movie_name;
 	}
@@ -52,7 +50,7 @@ public class MovieVO {
 	}
 	@Override
 	public String toString() {
-		return "MovieVO [movie_id=" + movie_id + ", movie_name=" + movie_name +   ", plot="
+		return "MovieVO [movie_id=" + ", movie_name=" + movie_name +   ", plot="
 				+ plot + ", product_year=" + product_year + ", show_time=" + show_time + ", start_date=" + start_date
 				+ ", end_date=" + end_date + "]";
 	}

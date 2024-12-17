@@ -174,6 +174,10 @@
     <% 
         }
     %>
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     <div id="onebyone">
     	<table>
         <thead>
@@ -248,5 +252,9 @@
    	 %>
     </div>
     </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </body>
 </html>

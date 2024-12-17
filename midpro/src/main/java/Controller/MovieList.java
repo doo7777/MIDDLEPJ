@@ -8,32 +8,29 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import Service.ScheduleServiceImpl;
-import ServiceInterface.IScheduleService;
-import Vo.ScheduleVO;
+import Service.MovieServiceImpl;
+import ServiceInterface.IMovieService;
+import Vo.MovieVO;
 
-
-@WebServlet("/scheduleList.do")
-public class ScheduleList extends HttpServlet {
+@WebServlet("/movieList.do")
+public class MovieList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		IScheduleService service = ScheduleServiceImpl.getInstance();
+		IMovieService service = MovieServiceImpl.getInstance();
 		
-		List<ScheduleVO>scdList = service.getAllSchedule();
+		String movie_id = request.getParameter("movie_id");
 		
-		request.setAttribute("scd", scdList);
+		List<MovieVO> movieList = service.getAllMovie();
 		
-		request.getRequestDispatcher("/schedule/ScheduleList.jsp").forward(request, response);
+		request.setAttribute("movieList", movieList);
+		request.getRequestDispatcher("/Movie/movieList.jsp").forward(request, response);
+		
+		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

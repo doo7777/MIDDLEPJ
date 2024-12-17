@@ -14,8 +14,8 @@ import ServiceInterface.IReviewService;
 import Vo.ReviewVO;
 
 
-@WebServlet("/moviewReview.do")
-public class MoviewReview extends HttpServlet {
+@WebServlet("/movieReview.do")
+public class MovieReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
  
@@ -44,7 +44,7 @@ public class MoviewReview extends HttpServlet {
 		
 		// ReviewVO 객체 생성 및 값 설정
 		ReviewVO reviewVo = new ReviewVO();
-		reviewVo.setMovie_id(Integer.parseInt(movieId));
+		reviewVo.setMovie_name(movieId);
 		reviewVo.setCustomer_id(customerId);
 		reviewVo.setRev_star(Integer.parseInt(revStar));
 		reviewVo.setRev_content(revContent);

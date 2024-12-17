@@ -3,8 +3,10 @@ package Vo;
 
 public class ScheduleVO {
 	private int schedule_id;
+
 	private int screen_id;
 	private int theater_id;
+
 	private String movie_name;
 	private String start_time;
 	private String end_time;
@@ -21,9 +23,12 @@ public class ScheduleVO {
 	public void setSchedule_id(int schedule_id) {
 		this.schedule_id = schedule_id;
 	}
+
 	public int getScreen_id() {
 		return screen_id;
+
 	}
+
 	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
@@ -36,6 +41,7 @@ public class ScheduleVO {
 	public String getMovie_name() {
 		return movie_name;
 	}
+
 	public void setMovie_name(String movie_name) {
 		this.movie_name = movie_name;
 	}
@@ -68,12 +74,8 @@ public class ScheduleVO {
 		return screen_name;
 	}
 	public void setScreen_name(String screen_name) {
-		this.screen_name = screen_name;
+		this.screen_name = screen_name; 
 	}
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return "ScheduleVO [schedule_id=" + schedule_id + ", screen_id=" + screen_id + ", theater_id=" + theater_id
@@ -83,6 +85,11 @@ public class ScheduleVO {
 	}
 	
 	
+	
+	
+	
+	
+
 	
 	
 	

@@ -12,6 +12,11 @@ import Service.OneBoardServiceImpl;
 import ServiceInterface.IOneBoardService;
 import Vo.OneBoardVO;
 
+
+
+
+
+
 @WebServlet("/oneBoardInsert.do")
 public class OneBoardInsert extends HttpServlet {
     private static final long serialVersionUID = 1L;

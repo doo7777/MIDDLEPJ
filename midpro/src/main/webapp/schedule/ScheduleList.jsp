@@ -38,8 +38,9 @@
 		<th>날짜</th>
 	</tr>
 	</thead>
-	<tbody>
 	
+	<tbody>
+	 
 	<%
 		List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
 		if (scd != null){
