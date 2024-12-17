@@ -5,7 +5,6 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
         <style>
             
@@ -24,131 +23,6 @@
             }
             div {
                 border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
-            }
-
-
-            /* 최상단 */
-            #top {
-                height: 140px; 
-                overflow: hidden;
-                display: flex; 
-                position: relative; 
-                /* flex-direction: column; */
-            }
-            #top_menu {
-                overflow: auto; 
-            }
-            .logo {
-                width: 150px;
-                position: absolute;
-                left: 250px;
-                height: auto;
-            }
-            .DGV{
-                color: rgb(216, 216, 216);
-                position: absolute;
-                left: 390px;
-                top: 90px;
-                font-weight: bold;
-                overflow: hidden;
-                white-space: nowrap; 
-            }
-
-
-
-            /* 우측 상단 메뉴 아이콘 */
-            .fa-headset, .fa-regular, .fa-lock {
-                font-size: 24px;
-                color: #ffffff;
-                /* align-items: center; */
-                cursor: pointer;
-                padding: 10px;
-            }
-            .topIcon {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 20px;
-                border: none;
-                max-width: 100%;
-                flex-wrap: nowrap;
-                transform: translateX(1390px); 
-            }
-            .icon-text {
-                display: flex;
-                flex-direction: column; /* 수직 정렬 */
-                align-items: center; /* 수평 중앙 정렬 */
-                color: white;
-                position: relative;
-                white-space: nowrap;
-            }
-            #btnfont{
-                display: flex;
-                position: relative;
-                top: -15px;
-            }
-
-
-
-
-            /* 상단 메뉴바 */
-            .dropmenu {
-                height: 70px;
-                overflow: auto;
-                width: 100%;
-                border: none;
-                padding: 0;
-                font-size: 18px;
-                padding: 0 0 0 220px;
-                background-color: black;
-            }
-            .dropmenu li a {
-                color: #fff;
-                display: block;
-                line-height: 70px;
-                margin: 0;
-                padding: 0 50px;
-                text-align: center;
-                text-decoration: none;
-            }
-            .dropmenu ul {
-                height: 70px;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            .dropmenu li {
-                float: left;
-                padding: 0;
-            }
-
-
-
-            /* 하위메뉴 */
-            .dropmenu li:hover ul {
-                display: block; /* 마우스 올리면 하위메뉴 보여지기 */
-            }
-            .dropmenu li ul {
-                background: black; /* 하위 메뉴 배경색 설정 */
-                display: none; /* 기본적으로 하위 메뉴 숨김 */
-                height: auto; /* 하위 메뉴 높이 자동 설정 */
-                border: 0; /* 테두리 제거 */
-                position: absolute; /* 절대 위치 설정 */
-                z-index: 200; /* z-index 설정으로 다른 요소 위에 표시 */
-            }
-            .dropmenu li li {
-                display: block; /* 블록 요소로 설정 */
-                float: none; /* 수직 배치 */
-                margin: 0; /* 기본 여백 제거 */
-                width: 150px; /* 하위 메뉴 항목 너비 설정 */
-            }
-            .dropmenu li ul a {
-                font-size: 13px;
-                padding: 0 0 0 30px;
-                text-align: left;
-            }
-            .dropmenu li a:hover, .dropmenu ul li:hover > a {
-                border-bottom: 1px solid white;
             }
 
 
@@ -195,6 +69,9 @@
                 background: none; /* 버튼 디자인 제거 */
                 border: none; /* 버튼 디자인 제거 */
             }
+            .menu-button.active h2 {
+                color: white;
+            }
 
 
             /* 더 많은 영화보기 */
@@ -236,10 +113,6 @@
             }
 
 
-
-
-
-            
             /* 무비순위목록 애니메이션 */
             .chart.show {
                 opacity: 1;
@@ -305,6 +178,17 @@
                 width: 100%;
                 height: 32px;
             }
+            .fa-plus {
+                position: absolute;
+                top: 20px;
+                right: 10px;
+                padding: 4px 8px;
+                background-color: white;
+                border-radius: 8px;
+                color: black;
+                cursor: pointer;
+                
+            }
 
 
             /* 공지사항, 고객센터, FAQ */
@@ -331,39 +215,6 @@
             .client_list dt, .client_list dd { 
                 display: inline-block; 
             } 
-
-
-
-
-            /* 상단 검색창 */
-            .search-container {
-                position: relative;
-                display: inline-block;
-                left: 1370px;
-                bottom: 60px;
-            }
-            .search-container input[type="text"] {
-                padding: 10px 40px 10px 15px; /* 패딩 설정 */
-                border: 2px solid #ef8400; /* 테두리 색상 */
-                outline: none; /* 기본 테두리 색 제거 */
-                border-radius: 5px; /* 모서리 둥글게 */
-                background-color: black; /* 배경색 */
-                color: white; /* 글자색 */
-                font-size: 16px; /* 글자 크기 */
-            }
-            .search-container button {
-                position: absolute;
-                right: 5px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: none; /* 배경 제거 */
-                border: none; /* 테두리 제거 */
-                cursor: pointer; /* 커서 변경 */
-                color: white; /* 아이콘 색상 */
-                font-size: 18px; /* 아이콘 크기 */
-            }
-
-
 
 
             /* 예매하기 아이콘 */  
@@ -406,129 +257,6 @@
                 position: absolute; /* 절대 위치 설정 */
                 transform: translateX(100%);
             }
-            
-            
-            
-            
-    
-            .sidebar {
-                display: flex; /* Flexbox 사용 */
-                justify-content: center; /* 수평 중앙 정렬 */
-                align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
-                width: 300px;
-                height: 100%;
-                background: #ffffff !important;
-                position: fixed;
-                top: 0;
-                right: -300px;
-                z-index: 1;
-                transition: all 0.35s ease;
-                box-sizing: border-box;
-                text-align: center;
-            }
-    
-            .sidebar.open {
-                right: 0;
-            }
-    
-            .sidebar-content {
-                padding: 20px;
-                border: none;
-                
-            }
-    
-            .sidebar button {
-                background-color: white;
-                color: black;
-                cursor: pointer;
-                border-color: rgb(0, 0, 0);
-                padding: 15px;
-                min-height:5px; 
-                min-width: 250px;
-            }
-            
-    
-            /* 로그인 버튼 hover 효과 */
-            .sidebar button.loginBtn:hover {
-            background-color: black;
-            color: white;
-            font-weight: bold;
-            }
-    
-            /* 회원가입 버튼 hover 효과 */
-            .sidebar button.signupBtn:hover {
-            background-color: black; 
-            color: white;
-            font-weight: bold;
-            }
-    
-
-            /* 사이드 바 안에 있는 닫기 버튼 */
-            .fa-xmark {
-                color: black;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-    
-            /* <h3> 요소와 아이콘 사이에 간격 추가*/
-            .sidebar h3 {
-                margin-top: 50px;
-            }
-    
-            /* 하이퍼링크 */
-            a:hover {
-                color: red;
-            }
-    
-            /* 상단 메뉴아이콘 안의 메뉴들 */
-            input[id*="upperMenu"] {
-                display: none;
-                width: 100%;
-            }
-            input[id*="upperMenu"] + label {
-                display:block;
-                padding: 10px;
-                border: 1px solid;
-                border-bottom: 0;
-                color: white;
-                font-weight: bold;
-                background: black;
-                cursor: pointer;
-            }
-            input[id*="upperMenu"] + label + div {
-                max-height: 0;
-                transition: all .35s;
-                overflow: hidden;
-                
-            }
-            input[id*="upperMenu"]:checked + label + div {
-                max-height: 100px;
-            }
-    
-
-    
-            .fa-plus {
-                position: absolute;
-                top: 20px;
-                right: 10px;
-                padding: 4px 8px;
-                background-color: white;
-                border-radius: 8px;
-                color: black;
-                cursor: pointer;
-                
-            }
-            .menu-button.active h2 {
-                color: white;
-            }
-            #bottom {
-                height: 250px; /* 하단 영역의 높이 설정 */
-            }
-            #company {
-                height: 400px; /* 회사 정보 영역의 높이 설정 */
-            }
-
             .client_btn_wrap a { 
                 display: inline-block; 
                 margin-right: 10px; 
@@ -544,29 +272,16 @@
                 font-weight: bold; 
                 margin-bottom: 20px; 
             }
+            
 
 
-            .menubtn {
-                color: white;
-            }
-            .menubtn2 {
-                color: white;
-                border: none;
-                padding: 0;
-                font-size: 18px;
+            #bottom {
+                height: 250px; /* 하단 영역의 높이 설정 */
             }
 
-			.policy_list { 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
+
+
+
 
         </style>
         
@@ -660,16 +375,7 @@
                         </div>
                     </div>
                 </div> 
-            <!-- 회사 정보 영역 -->
-            <hr class="bottom_line">
 
-            <div id="company" class="sect-ad">
-                <div class="company_text">
-                    <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
-                    &copy; DGV. All Rights Reserved
-                </div>
-            </div>
         </div>
         
     </body>
