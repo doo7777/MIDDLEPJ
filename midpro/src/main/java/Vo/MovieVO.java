@@ -8,6 +8,7 @@ public class MovieVO {
 	private String show_time;
 	private String start_date;
 	private String end_date;
+	
 	public int getMovie_id() {
 		return movie_id;
 	}

@@ -44,6 +44,7 @@
         }
 
         /* 무비차트, 상영예정작, 무비추천 */
+        
         .header {
             width: 100%;
             padding: 0 0 0 270px;
@@ -227,6 +228,10 @@
         }
 
         /* 회사소개 */
+        .bottom_line {
+            margin-top: 100px;
+        }
+
         .parent {
             position: relative; /* 부모 요소에 상대 위치 설정 */
         }
@@ -264,7 +269,9 @@
 </head>
 
 <body>
+    <div>
         <%@ include file="Top.jsp" %>
+    </div>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
             <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
