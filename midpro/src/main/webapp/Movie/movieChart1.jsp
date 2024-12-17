@@ -18,6 +18,7 @@
         div {
             border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
         }
+        
         #top {
             height: 140px; 
             overflow: hidden;
@@ -305,6 +306,7 @@
             height: 400px; /* 회사 정보 영역의 높이 설정 */
         }
         
+        
         #movie_list {
             display: flex;
             flex-wrap: wrap; /* 공간이 부족하면 다음 줄로 이동 */
@@ -367,8 +369,8 @@
         }
 
         .reserveButton {
-            background-color: rgb(239, 132, 0);
-            color: white;
+            background-color: white;
+            color: black;
             border: none;
             padding: 10px 20px;
             font-size: 14px;
@@ -379,6 +381,9 @@
 
         .reserveButton:hover {
             font-weight: bold;
+            background-color: black;
+            color: white;
+            
         }
 
         /* 포스터에 마우스를 올렸을 때 확대 효과 */
