@@ -27,7 +27,10 @@ public class Reservation extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text:html charset=utf-8");
+		
 		//데이터 가져오기
 		String customer_id = request.getParameter("customer_id");
 		String movie_name = request.getParameter("movie_name");
@@ -42,9 +45,17 @@ public class Reservation extends HttpServlet {
 	    //서비스 호출
 	    IReservation_PaymentService service = Reservation_PaymentServiceImpl.getInstance();
 	    int result = service.insertReservation(reservationVO);
-	    List<MovieVO> aaaaa= service.getAllMovie();
-	    List<TheaterVO> bbbbb= service.getAllTheater();
+	       List<MovieVO> movieList = service.getAllMovie();
+	        List<TheaterVO> theaterList = service.getAllTheater();
+	        request.setAttribute("movieList", movieList);
+	        request.setAttribute("theaterList", theaterList);
 	    
+	     if (result > 0) {
+	            request.setAttribute("successMessage", "예약이 완료되었습니다.");
+	        } else {
+	            request.setAttribute("errorMessage", "예약 실패. 다시 시도해 주세요.");
+	        }
+
 	    
 	
 		

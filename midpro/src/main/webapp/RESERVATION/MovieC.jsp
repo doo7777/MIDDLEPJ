@@ -1,3 +1,4 @@
+<%@page import="Vo.CustomerVO"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,72 +8,60 @@
 <head>
     <title>영화 예약 시스템</title>
 </head>
+<%-- <%  CustomerVO customerVo = (CustomerVO)session.getAttribute("ok");%> --%>
 <body>
-    <h1>영화 예매 시스템</h1>
+    <h1>영화 예약 시스템</h1>
 
-    <form action="selectSeats.jsp" method="post">
-        <label for="movie">영화 선택:</label>
-        <select id="movie" name="movie">
-            <%
-                SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
-                try (SqlSession session = sqlSessionFactory.openSession()) {
-                    MovieMapper mapper = session.getMapper(MovieMapper.class);
-                    List<Movie> movies = mapper.getAllMovies();
-                    for (Movie movie : movies) {
-            %>
-                <option value="<%= movie.getTitle() %>"><%= movie.getTitle() %></option>
-            <%
-                    }
-                }
-            %>
+    <form action="reservation.do" method="post">
+        <label for="customer_id">고객 ID:</label>
+     <%--    <%=customerVo.getCust_name() %> --%>
+        <input type="text" id="customer_id" name="customer_id" required>
+        <br><br>
+        <label for="movie_name">영화 선택:</label>
+        <select id="movie_name" name="movie_name" required>
+
         </select>
         <br><br>
 
-        <label for="theater">극장 선택:</label>
-        <select id="theater" name="theater" onchange="updateHalls()">
-            <%
-                try (SqlSession session = sqlSessionFactory.openSession()) {
-                    List<Theater> theaters = mapper.getAllTheaters();
-                    for (Theater theater : theaters) {
-            %>
-                <option value="<%= theater.getId() %>"><%= theater.getName() %></option>
-            <%
-                    }
-                }
-            %>
+        <label for="theater_id">극장 선택:</label>
+        <select id="theater_id" name="theater_id" required>
         </select>
         <br><br>
 
         <label for="hall">관 선택:</label>
-        <select id="hall" name="hall">
+        <select id="hall" name="hall" required>
             <option value="1관">1관</option>
             <option value="2관">2관</option>
             <option value="3관">3관</option>
+            <option value="4관">4관</option>
+            <option value="5관">5관</option>
+            <!-- 추가 관 목록 -->
         </select>
         <br><br>
 
         <label for="date">날짜 선택:</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" required>
         <br><br>
 
         <label for="time">시간 선택:</label>
-        <select id="time" name="time">
+        <select id="time" name="time" required>
             <option value="10:00">10:00</option>
             <option value="12:00">12:00</option>
             <option value="14:00">14:00</option>
             <option value="16:00">16:00</option>
             <option value="18:00">18:00</option>
+            <!-- 추가 시간 목록 -->
         </select>
         <br><br>
 
-        <input type="submit" value="좌석 선택">
+        <input type="submit" value="예매하기">
     </form>
 
-    <script>
-        function updateHalls() {
-            // 선택된 극장에 따라 관 목록을 동적으로 업데이트하는 로직을 추가할 수 있습니다.
-            // AJAX를 통해 관 목록을 받아오는 기능을 구현합니다.
-        }
-    </script>
+    <c:if test="${not empty successMessage}">
+        <p style="color: green;">${successMessage}</p>
+    </c:if>
+    <c:if test="${not empty errorMessage}">
+        <p style="color: red;">${errorMessage}</p>
+    </c:if>
 </body>
 </html>
