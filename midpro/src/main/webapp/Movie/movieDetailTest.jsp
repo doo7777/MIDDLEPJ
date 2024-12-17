@@ -472,7 +472,7 @@
 			.arrow {
 			    background-color: transparent;
 			    color: white;
-			    font-size: 40px;
+			    font-size: 60px;
 			    font-weight: bold;
 			    cursor: pointer;
 			    padding: 10px;
@@ -621,9 +621,9 @@
                 </div>
                 <div id="poster" class="tab-content">
                     <div class="image-gallery">
-			        <button class="arrow left-arrow">&#8592;</button>
+			        <button class="arrow left-arrow"><</button>
 			        <img id="poster-image" src="" alt="스틸 이미지" />
-			        <button class="arrow right-arrow">&#8594;</button>
+			        <button class="arrow right-arrow">></button>
 			    </div>
                 </div>
                 <div id="review" class="tab-content">
