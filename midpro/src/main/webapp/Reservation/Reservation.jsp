@@ -124,7 +124,7 @@
             </div>
         </div>
     </div>
-
+    <img alt="하얼빈" src="/midpro/main/sorce/img/영화포스터/바텀 하얼빈.jpg">
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 </html>

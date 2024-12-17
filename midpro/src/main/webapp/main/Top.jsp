@@ -287,7 +287,7 @@
                     </ul>
                 </li>
                 <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
-                <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="reservation">예매</a> <!-- 예매 메뉴 항목 -->
                     <ul>
                         <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
                         <li><a href="#">상영스케줄</a></li> <!-- 하위 메뉴: 상영스케줄 -->
@@ -338,6 +338,10 @@
     
     $('.logo').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#reservation').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Reservation/Reservation.jsp'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
     });
     
     $('#current').on('click',function(){
