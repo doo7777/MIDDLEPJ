@@ -26,6 +26,323 @@
             }
 
 
+            /* 최상단 */
+            #top {
+                height: 140px; 
+                overflow: hidden;
+                display: flex; 
+                position: relative; 
+            }
+            #top_menu {
+                overflow: auto; 
+            }
+            .logo {
+                width: 150px;
+                position: absolute;
+                left: 250px;
+                height: auto;
+            }
+            .DGV{
+                color: rgb(216, 216, 216);
+                position: absolute;
+                left: 390px;
+                top: 90px;
+                font-weight: bold;
+                overflow: hidden;
+                white-space: nowrap; 
+            }
+
+
+            /* 우측 상단 메뉴 아이콘 */
+            .fa-headset, .fa-regular, .fa-lock {
+                font-size: 24px;
+                color: #ffffff;
+                cursor: pointer;
+                padding: 10px;
+            }
+            .topIcon {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+                border: none;
+                max-width: 100%;
+                flex-wrap: nowrap;
+                transform: translateX(1390px); 
+            }
+            .icon-text {
+                display: flex;
+                flex-direction: column; /* 수직 정렬 */
+                align-items: center; /* 수평 중앙 정렬 */
+                color: white;
+                position: relative;
+                white-space: nowrap;
+            }
+            #btnfont{
+                display: flex;
+                position: relative;
+                top: -15px;
+            }
+
+
+            /* 상단 메뉴바 */
+            .dropmenu {
+                height: 70px;
+                overflow: auto;
+                width: 100%;
+                border: none;
+                padding: 0;
+                font-size: 18px;
+                padding: 0 0 0 220px;
+                background-color: black;
+            }
+            .dropmenu li a {
+                color: #fff;
+                display: block;
+                line-height: 70px;
+                margin: 0;
+                padding: 0 50px;
+                text-align: center;
+                text-decoration: none;
+            }
+            .dropmenu ul {
+                height: 70px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .dropmenu li {
+                float: left;
+                padding: 0;
+            }
+
+
+
+            /* 하위메뉴 */
+            .dropmenu li:hover ul {
+                display: block; /* 마우스 올리면 하위메뉴 보여지기 */
+            }
+            .dropmenu li ul {
+                background: black; /* 하위 메뉴 배경색 설정 */
+                display: none; /* 기본적으로 하위 메뉴 숨김 */
+                height: auto; /* 하위 메뉴 높이 자동 설정 */
+                border: 0; /* 테두리 제거 */
+                position: absolute; /* 절대 위치 설정 */
+                z-index: 200; /* z-index 설정으로 다른 요소 위에 표시 */
+            }
+            .dropmenu li li {
+                display: block; /* 블록 요소로 설정 */
+                float: none; /* 수직 배치 */
+                margin: 0; /* 기본 여백 제거 */
+                width: 150px; /* 하위 메뉴 항목 너비 설정 */
+            }
+            .dropmenu li ul a {
+                font-size: 13px;
+                padding: 0 0 0 30px;
+                text-align: left;
+            }
+            .dropmenu li a:hover, .dropmenu ul li:hover > a {
+                border-bottom: 1px solid white;
+            }
+
+            /* 상단 검색창 */
+            .search-container {
+                position: relative;
+                display: inline-block;
+                left: 1370px;
+                bottom: 60px;
+            }
+            .search-container input[type="text"] {
+                padding: 10px 40px 10px 15px; /* 패딩 설정 */
+                border: 2px solid #ef8400; /* 테두리 색상 */
+                outline: none; /* 기본 테두리 색 제거 */
+                border-radius: 5px; /* 모서리 둥글게 */
+                background-color: black; /* 배경색 */
+                color: white; /* 글자색 */
+                font-size: 16px; /* 글자 크기 */
+            }
+            .search-container button {
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none; /* 배경 제거 */
+                border: none; /* 테두리 제거 */
+                cursor: pointer; /* 커서 변경 */
+                color: white; /* 아이콘 색상 */
+                font-size: 18px; /* 아이콘 크기 */
+            }
+
+            
+            /* 회사소개 */
+            .bottom_line{
+                margin-top: 100px;
+            }
+            .parent {
+                position: relative; /* 부모 요소에 상대 위치 설정 */
+            }
+            #company {
+                height: 400px; /* 회사 정보 영역의 높이 설정 */
+                color: white;
+                width: 700px; /* 고정 너비 유지 */
+                margin: 0; /* 기본 여백 제거 */
+                margin-top: 100px; /* 위쪽 여백 */
+                text-align: center;
+                overflow: hidden; /* 내용이 잘리도록 설정 */
+                position: absolute; /* 절대 위치 설정 */
+                transform: translateX(100%);
+            }
+    
+            .sidebar {
+                display: flex; /* Flexbox 사용 */
+                justify-content: center; /* 수평 중앙 정렬 */
+                align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
+                width: 300px;
+                height: 100%;
+                background: #ffffff !important;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                z-index: 1;
+                transition: all 0.35s ease;
+                box-sizing: border-box;
+                text-align: center;
+            }
+    
+            .sidebar.open {
+                right: 0;
+            }
+    
+            .sidebar-content {
+                padding: 20px;
+                border: none;
+                
+            }
+    
+            .sidebar button {
+                background-color: white;
+                color: black;
+                cursor: pointer;
+                border-color: rgb(0, 0, 0);
+                padding: 15px;
+                min-height:5px; 
+                min-width: 250px;
+            }
+            
+    
+            /* 로그인 버튼 hover 효과 */
+            .sidebar button.loginBtn:hover {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            }
+    
+            /* 회원가입 버튼 hover 효과 */
+            .sidebar button.signupBtn:hover {
+            background-color: black; 
+            color: white;
+            font-weight: bold;
+            }
+    
+
+            /* 사이드 바 안에 있는 닫기 버튼 */
+            .fa-xmark {
+                color: black;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+    
+            /* <h3> 요소와 아이콘 사이에 간격 추가*/
+            .sidebar h3 {
+                margin-top: 50px;
+            }
+    
+            /* 하이퍼링크 */
+            a:hover {
+                color: red;
+            }
+    
+            /* 상단 메뉴아이콘 안의 메뉴들 */
+            input[id*="upperMenu"] {
+                display: none;
+                width: 100%;
+            }
+            input[id*="upperMenu"] + label {
+                display:block;
+                padding: 10px;
+                border: 1px solid;
+                border-bottom: 0;
+                color: white;
+                font-weight: bold;
+                background: black;
+                cursor: pointer;
+            }
+            input[id*="upperMenu"] + label + div {
+                max-height: 0;
+                transition: all .35s;
+                overflow: hidden;
+                
+            }
+            input[id*="upperMenu"]:checked + label + div {
+                max-height: 100px;
+            }    
+    
+            .fa-plus {
+                position: absolute;
+                top: 20px;
+                right: 10px;
+                padding: 4px 8px;
+                background-color: white;
+                border-radius: 8px;
+                color: black;
+                cursor: pointer;
+                
+            }
+            .menu-button.active h2 {
+                color: white;
+            }
+            
+
+            .client_btn_wrap a { 
+                display: inline-block; 
+                margin-right: 10px; 
+                color: #f4f4f4; 
+                text-decoration: none; 
+            } 
+            .notice_wrap { 
+                font-weight: bold; 
+                margin-top: 20px; /* 위로 공간 추가 */ 
+                margin-bottom: 10px; 
+            }
+            .client_btn_wrap { 
+                font-weight: bold; 
+                margin-bottom: 20px; 
+            }
+
+
+            .menubtn {
+                color: white;
+            }
+            .menubtn2 {
+                color: white;
+                border: none;
+                padding: 0;
+                font-size: 18px;
+            }
+
+			.policy_list { 
+	            display: flex; 
+	            flex-wrap: wrap; 
+	            list-style: none; 
+	            padding: 10; 
+	            margin: 0 440px; 
+	        } 
+	        .policy_list li { 
+	            margin-right: 15px; /* 단어 사이 간격 조절 */
+	            padding: 0; 
+	        }
+	        
 	       
 			#movie-detail {
 			position: relative;
@@ -183,23 +500,13 @@
         
     </head>
     
-<<<<<<< HEAD
+   <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
     
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <%@ include file="/main/Top.jsp" %>
-=======
    
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
-=======
-        <%@ include file="/main/Top.jsp" %>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             
-<<<<<<< HEAD
                 <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
@@ -286,12 +593,9 @@
             </div>
             <hr>
 
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             <!-- 영화 메인 영역 -->
              <div id="movie-detail">
-							
+
         	</div>
             
             <main>
@@ -326,7 +630,8 @@
                     <p>상영 시간표 정보</p>
                 </div>
                 
-             </main> 
+             </main>
+             </div>   
 
             
         <%@ include file="/main/Bottom.jsp" %>
@@ -334,28 +639,146 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-<<<<<<< HEAD
 
-   
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
+    const login = document.querySelector('#loginbutton');
+    const myPage = document.querySelector('.fa-user');
+    const sidebar = document.querySelector('.sidebar');
+    const closeButton = document.querySelector('.fa-xmark');
+    const sidebarContent = document.querySelector('.sidebar-content');
+    
+    $('#btn4').on('click',function(){
+    	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+     }); 
+    
+    function updateSidebarContent() {
+        sidebarContent.innerHTML = ` 
+            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
+            <%if(result==null){%>
+            <div class="IDBtn"> 
+            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <input type="text" title="아이디" id="username" name="cust_id"  required class="IDBtn_box">
+            <br><br> 
+        </div> 
+        <div class="PWBtn"> 
+        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <input type="password" title="패스워드" id="password" name="cust_pw"  required class="PWBtn_box">
+        <br><br> 
+    </div>
+                <button type="submit" class="login" id="login">Login</button>
+                <h6>아직 회원이 아니세요?</h6>
+                <button type="button" id="join" class="signupBtn">회원가입</button>
+                <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+                <%}else{%>
+                <%=result.getCust_name()%>님 반갑습니다!!<br>
+                현재 DGV 등급 :<%=result.getCust_grade()%>등급
+                <button type="button" id="logout">로그아웃</button>
+                <%}%>
+            </form>`;
+    }; 
+    
+
+    function moveSidebar() {
+        sidebar.classList.toggle('open');
+        <%if(result==null){%>
+        const signup = document.querySelector('#join');
+        if (signup) {
+            signup.addEventListener('click', function() {
+                window.location.href = '/midpro/customer/Signup.jsp';
+            });
+        }
+        <%}else{%>
+        const logout = document.querySelector("#logout");
+        if(logout){
+           logout.addEventListener('click',function(){
+              window.location.href = "<%=request.getContextPath()%>/cusLogout.do";
+           });
+        }
+        <%}%>
+        
+    }
+
+
+
+    const barParam = '<%=request.getParameter("bar")%>';
+    if (barParam === 'on') {
+        updateSidebarContent();
+        moveSidebar();
+    }
+
+    login.addEventListener('click', function() {
+        updateSidebarContent();
+        moveSidebar();
+    });
+    
+    // 사이드바 닫기 버튼 클릭 시 사이드바 닫기
+    closeButton.addEventListener('click', function() {
+        moveSidebar(); 
+    });
+    
+    // ESC 눌러서 사이드 바 닫기
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            moveSidebar(); 
+        }
+    });
+    
+    // 마이페이지 클릭 시 메시지 표시
+    myPage.addEventListener('click', function() { 
+        sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
+        moveSidebar(); 
+    });
+    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.header');
+        const charts = document.querySelectorAll('.chart');
+        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
+    
+        if (header) {
+            header.addEventListener('click', function(event) {
+                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
+                if (event.target.closest('.menu-button')) {
+                    charts.forEach((chart) => {
+                        chart.classList.remove('show');
+                        chart.classList.add('hide');
+                    });
+    
+                    setTimeout(() => {
+                        charts.forEach((chart, index) => {
+                            setTimeout(() => {
+                                chart.classList.remove('hide');
+                                chart.classList.add('show');
+                            }, index * 100);
+                        });
+                    }, 500);
+                }
+            });
+    
+            charts.forEach((chart, index) => {
+                setTimeout(() => {
+                    chart.classList.add('show');
+                }, index * 100);
+            });
+        }
+        const buttons = document.querySelectorAll('.menu-button');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
         // 영화 js
         const tabs = document.querySelectorAll("nav button");
         const contents = document.querySelectorAll(".tab-content");
 
         tabs.forEach(tab => {
             tab.addEventListener("click", () => {
-                alert("눌렀닝?")
                 // 모든 탭 내용 숨기기
                 contents.forEach(content => content.classList.remove("active"));
                 // 클릭한 탭 내용 표시
                 document.getElementById(tab.dataset.tab).classList.add("active");
-                /*
-                console.log("체킁:",stillImages["영화1"][0]);
-                console.log("#"+tab.dataset.tab+"-image");
-                console.log("체로롱",tab);
-                */
-                document.querySelector("#"+tab.dataset.tab+"-image").src = stillImages["영화1"][0]
             });
         });
 
@@ -385,7 +808,7 @@
         // 유효한 index 값 확인
         if (isNaN(movieIndex) || movieIndex < 0 || movieIndex >= movies.length) {
             console.error("유효하지 않은 영화 인덱스입니다.");
-            //return; // 인덱스가 유효하지 않으면 종료
+            return; // 인덱스가 유효하지 않으면 종료
         }
         
         // 해당 영화 데이터 가져옴
@@ -498,31 +921,13 @@
         //);
      	
      	
-          //  /main/sorce/img/영화스틸컷/영화2/\${index + 1}.jpg
-
-
-        const stillImages = {}
-
-        for(let i=0; i<stills.length; i++){
-            stillImages[stills[i]]=[];
-            for(let j=1; j<=4; j++){
-                stillImages[stills[i]].push(`<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/\${stills[i]}/\${j}.jpg` )
-            }
-        }
-
-
-     console.log("체킁:",stillImages);
-      
-
-
-/*
         const stillImages = stills.flatMap(mv =>
         Array.from({ length: 4 }, (_, index) => {
-            <%-- return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
+<%--             return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
             return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
-	    });
-	    
-*/
+	        })
+	    );
+
         // 현재 보여지는 이미지의 인덱스
         let currentIndex = 0;
 
@@ -547,7 +952,12 @@
             posterImage.src = stillImages[currentIndex];
         });
         
-    </script>
+        console.log(stillImages);
+        
+    });
+	
+    
+</script>
 </html>
     
  
