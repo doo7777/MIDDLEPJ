@@ -184,7 +184,7 @@
 
 <body>
     <div>
-        <%@ include file="Top.jsp" %>
+        <%@ include file="/main/Top.jsp" %>
     </div>
     <!-- 스토어 -->
     <div class="store-container">
@@ -233,7 +233,7 @@
         </div>
     </div>
     
-    <%@ include file="Bottom.jsp" %>
+    <%@ include file="/main/Bottom.jsp" %>
 </body>
 
 <script>
