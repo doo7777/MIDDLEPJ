@@ -8,14 +8,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
         <style>
-            
-            
+
             /* 전체 화면 사이즈 */
+            #main{
+                position: relative;
+                left: 2px;
+            }
+            
             body {
                 margin: 0;
                 width: 100%;
                 overflow-x: hidden;
-                /* overflow-y: auto; */ 
                 background: black;
             }
             div {
@@ -29,7 +32,6 @@
                 overflow: hidden;
                 display: flex; 
                 position: relative; 
-                /* flex-direction: column; */
             }
             #top_menu {
                 overflow: auto; 
@@ -55,7 +57,6 @@
             .fa-headset, .fa-regular, .fa-lock {
                 font-size: 24px;
                 color: #ffffff;
-                /* align-items: center; */
                 cursor: pointer;
                 padding: 10px;
             }
@@ -174,11 +175,22 @@
 
             
             /* 회사소개 */
+            .bottom_line{
+                margin-top: 100px;
+            }
+            .parent {
+                position: relative; /* 부모 요소에 상대 위치 설정 */
+            }
             #company {
                 height: 400px; /* 회사 정보 영역의 높이 설정 */
-                margin-top: 5%;
                 color: white;
-                
+                width: 700px; /* 고정 너비 유지 */
+                margin: 0; /* 기본 여백 제거 */
+                margin-top: 100px; /* 위쪽 여백 */
+                text-align: center;
+                overflow: hidden; /* 내용이 잘리도록 설정 */
+                position: absolute; /* 절대 위치 설정 */
+                transform: translateX(100%);
             }
     
             .sidebar {
@@ -445,6 +457,33 @@
             .tab-content.active {
                 display: block;
             }
+            
+            /* 화살표 버튼 스타일 */
+			.arrow {
+			    background-color: transparent;
+			    color: white;
+			    font-size: 30px;
+			    cursor: pointer;
+			    padding: 10px;
+			    transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
+			    border: none;
+			}
+			
+			/* 왼쪽 화살표 */
+			.arrow.left-arrow {
+			    position: absolute;
+				top: 50%; /* 수직 중앙 */
+    			left: 10px;
+			    transform: translateY(-50%);
+			}
+			
+			/* 오른쪽 화살표 */
+			.arrow.right-arrow {
+			    position: absolute;
+				top: 50%; /* 수직 중앙 */
+    			right: 10px;
+			    transform: translateY(-50%);
+			}
 
         </style>
         
@@ -469,6 +508,14 @@
                         <%}else{ %>
                         <h4 id="btnfont" class="logout">로그아웃</h4>
                         <%} %>
+                        <script>
+						    window.onload = function() {
+						        <% if(result != null) { %>
+						            alert("로그인 되었습니다.");
+						        <% }else{ %>
+						        <% } %>
+						    };
+						</script>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
@@ -557,7 +604,6 @@
                     <h1>트레일러</h1>
                 </div>
                 <div id="poster" class="tab-content">
-                    <h1>스틸 이미지</h1>
                     <div class="image-gallery">
 			        <button class="arrow left-arrow">&#8592;</button>
 			        <img id="poster-image" src="" alt="스틸 이미지" />
@@ -577,32 +623,30 @@
              </div>   
 
             <!-- 회사 정보 영역 -->
-
+			<hr class="bottom_line">
             <div id="company" class="sect-ad">
-                <hr>
+            	<div class="company_text">
                     <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                        <dt>이사장 :</dt>
-                        <dt>김형응</dt>
-                        <dd>사업자등록번호 :</dd>
-                        <dt>306-82-05291</dt>
-                        <dd>대표전화 :</dd>
-                        <dt>042-222-8202</dt>
-                    <p>&copy; DGV. All Rights Reserved</p>
-            </div>
+                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
+                    &copy; DGV. All Rights Reserved
+            	</div>
+            </div>	
         </div>
         
     </body>
     
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
 
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
-    // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
+    $('#btn4').on('click',function(){
+    	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+     }); 
     
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
@@ -737,22 +781,22 @@
         });
 
         const movies = [
-        { title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", director: "곽경택", cast: ["주원", "곽도원", "유재명", "이유영"], },
-        { title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", director: "양우석", cast: ["김윤석", "이승기", "김성령", "이순재"] },
-        { title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", director: "우민호", cast: ["현빈", "박정민", "조우진", "전여빈"] },
-        { title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", director: "데이비드 데릭 주니어", cast: ["아우이 크라발호" , "드웨인 존슨"] },
-        { title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", director: "존 추", cast: ["아리아나 그란데", "신시아 에리보", "조나단 베일리"] },
-        { title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", director: "루퍼트 샌더스", cast: ["빌 스카스가드", "FKA 트위그스"] },
-        { title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", director: "곤 사토시", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
-        { title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", director: "팀 밀란츠", cast: ["킬리언 머피", "에밀리 왓슨"] },
-        { title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", director: "오토모 가츠히로", cast: ["이와타 미츠오", "사사키 노조무"] },
-        { title: "극장판 짱구는 못말려", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
-        { title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", director: "애몽", cast:["다큐멘터리"] },
-        { title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", director: "코랄리 파르자", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
-        { title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", director: "신연식", cast: ["송강호", "박정민", "장윤주"] },
-        { title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", director: "드니 빌뇌브", cast: ["티모시 샬라메", "젠데이아 콜먼", "레베카 퍼거슨", "오스카 아이삭"] },
-        { title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", director: "맹걸 라이", cast: ["이목", "조우녕"] },
-        { title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", director: "조선호", cast: ["홍경", "노윤서", "김민주", "정용주"] }
+        {id:1, title: "소방관", image: "../main/sorce/img/영화포스터/영화1.jpg", releaseDate: "2024.12.04", rating: "94%", director: "곽경택", cast: ["주원", "곽도원", "유재명", "이유영"], },
+        {id:2, title: "대가족", image: "../main/sorce/img/영화포스터/영화2.jpg", releaseDate: "2024.12.11", rating: "96%", director: "양우석", cast: ["김윤석", "이승기", "김성령", "이순재"] },
+        {id:3, title: "하얼빈", image: "../main/sorce/img/영화포스터/영화3.jpg", releaseDate: "2024.12.24", rating: "99%", director: "우민호", cast: ["현빈", "박정민", "조우진", "전여빈"] },
+        {id:4, title: "모아나2", image: "../main/sorce/img/영화포스터/영화4.jpg", releaseDate: "2024.11.27", rating: "92%", director: "데이비드 데릭 주니어", cast: ["아우이 크라발호" , "드웨인 존슨"] },
+        {id:5, title: "위키드", image: "../main/sorce/img/영화포스터/영화5.jpg", releaseDate: "2024.11.20", rating: "94%", director: "존 추", cast: ["아리아나 그란데", "신시아 에리보", "조나단 베일리"] },
+        {id:6, title: "더 크로우", image: "../main/sorce/img/영화포스터/영화6.jpg", releaseDate: "2024.12.11", rating: "69%", director: "루퍼트 샌더스", cast: ["빌 스카스가드", "FKA 트위그스"] },
+        {id:7, title: "크리스마스에 기적을 만날 확률", image: "../main/sorce/img/영화포스터/영화7.jpg", releaseDate: "2024.12.11", director: "곤 사토시", rating: "90%", cast: ["에모리 토오루", "오카모토 마야"] },
+        {id:8, title: "이처럼 사소한 것들", image: "../main/sorce/img/영화포스터/영화8.jpg", releaseDate: "2024.12.11", rating: "95%", director: "팀 밀란츠", cast: ["킬리언 머피", "에밀리 왓슨"] },
+        {id:9, title: "아키라", image: "../main/sorce/img/영화포스터/영화9.jpg", releaseDate: "2024.12.11", rating: "91%", director: "오토모 가츠히로", cast: ["이와타 미츠오", "사사키 노조무"] },
+        {id:10, title: "극장판 짱구는 못말려", image: "../main/sorce/img/영화포스터/영화10.jpg", releaseDate: "2024.12.18", rating: "99%", director: "사사키 시노부", cast: ["박영남", "강희선", "김환진"] },
+        {id:11, title: "퍼스트레이디", image: "../main/sorce/img/영화포스터/영화11.jpg", releaseDate: "2024.12.12", rating: "88%", director: "애몽", cast:["다큐멘터리"] },
+        {id:12, title: "서브스턴스", image: "../main/sorce/img/영화포스터/영화12.jpg", releaseDate: "2024.12.11", rating: "92%", director: "코랄리 파르자", cast:["데미 무어", "마가렛 퀄리", "데니스 퀘이드"] },
+        {id:13, title: "1승", image: "../main/sorce/img/영화포스터/영화13.jpg", releaseDate: "2024.12.04", rating: "93%", director: "신연식", cast: ["송강호", "박정민", "장윤주"] },
+        {id:14, title: "듄2", image: "../main/sorce/img/영화포스터/영화14.jpg", releaseDate: "2024.12.04", rating: "93%", director: "드니 빌뇌브", cast: ["티모시 샬라메", "젠데이아 콜먼", "레베카 퍼거슨", "오스카 아이삭"] },
+        {id:15, title: "여름날의 레몬그라스", image: "../main/sorce/img/영화포스터/영화15.jpg", releaseDate: "2024.11.27", rating: "83%", director: "맹걸 라이", cast: ["이목", "조우녕"] },
+        {id:16, title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", director: "조선호", cast: ["홍경", "노윤서", "김민주", "정용주"] }
         ];
 
      	// URL에서 영화 인덱스 가져오기
@@ -859,15 +903,28 @@
      	// 스틸 이미지 배열 (이미지 URL을 넣으세요)
         const stills = [
             '영화1', '영화2', '영화3', '영화4', '영화5',
-            '영화6', '영화7', '영화8', '영화9', '영화10'
+            '영화6', '영화7', '영화8', '영화9', '영화10',
+            '영화11', '영화12', '영화13', '영화14', '영화15', '영화16'
         ];
      	
+     	// JSP에서 contextPath를 JavaScript로 전달 (서버 측에서 경로 설정)
+        const contextPath = "${pageContext.request.contextPath}";
+     	
      	// 각 영화 폴더에서 4개의 이미지를 가져오는 경로 생성
-        const stillImages = stills.flatMap(movie =>
-            Array.from({ length: 4 }, (_, index) =>
-                `sorce/img/영화스틸컷/${movie}/\${index + 1}.jpg`
-            )
-        );
+        //const stillImages = stills.flatMap(movie =>
+        //    Array.from({ length: 4 }, (_, index) =>
+        //        `../main/sorce/img/영화스틸컷/영화${index + 1}/\${index + 1}.jpg`
+                
+        //    )
+        //);
+     	
+     	
+        const stillImages = stills.flatMap(mv =>
+        Array.from({ length: 4 }, (_, index) => {
+<%--             return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
+            return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
+	        })
+	    );
 
         // 현재 보여지는 이미지의 인덱스
         let currentIndex = 0;
@@ -883,6 +940,7 @@
         // 왼쪽 화살표 클릭 이벤트
         leftArrow.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + stillImages.length) % stillImages.length; // 이전 이미지로 이동
+            console.log(">>>>>>>>>",currentIndex);
             posterImage.src = stillImages[currentIndex];
         });
 
@@ -891,6 +949,8 @@
             currentIndex = (currentIndex + 1) % stillImages.length; // 다음 이미지로 이동
             posterImage.src = stillImages[currentIndex];
         });
+        
+        console.log(stillImages);
         
     });
 	
