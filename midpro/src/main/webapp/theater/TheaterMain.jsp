@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정 -->
+        <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>DGV</title> <!-- 문서 제목 -->
         <style>
@@ -562,19 +562,19 @@
                 font-size: 18px;
             }
 
-			.policy_list { 
-	            display: flex; 
-	            flex-wrap: wrap; 
-	            list-style: none; 
-	            padding: 10; 
-	            margin: 0 440px; 
-	        } 
-	        .policy_list li { 
-	            margin-right: 15px; /* 단어 사이 간격 조절 */
-	            padding: 0; 
-	        }
-	        
-	        #TheaterMain {
+         .policy_list { 
+               display: flex; 
+               flex-wrap: wrap; 
+               list-style: none; 
+               padding: 10; 
+               margin: 0 440px; 
+           } 
+           .policy_list li { 
+               margin-right: 15px; /* 단어 사이 간격 조절 */
+               padding: 0; 
+           }
+           
+           #TheaterMain {
                 color: white;
                 margin-left: 260px;
                 width: 1360px;
@@ -584,24 +584,43 @@
                 justify-content: center; /* 가로 방향 가운데 정렬 */
                 align-items: center; /* 세로 방향 가운데 정렬 */
             }
+            .movie{
+            	color: white;
+            	position: relative;
+            	left: 260px;
+            	top: 8px;
+            }
 
             .spot {
                 display: flex; /* Flexbox 사용 */
+                align-items: center; /* 가로 방향 가운데 정렬 */
                 width: 1280px;
                 height: 330px;
                 border-radius: 20px;
                 border: solid white;
+                justify-content: center;
  
             }
 
             button {
-                background: none; /* 배경 제거 */
-                border: none; /* 테두리 제거 */
-                color: inherit; /* 부모 요소의 글꼴 색상 상속 */
-                padding: 0; /* 패딩 제거 */
-                font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
-                cursor: pointer; /* 커서 모양 변경 */
-                margin: 5px 0; /* 버튼 간의 간격 */
+			    background: none; /* 배경 제거 */
+			    border: none; /* 테두리 제거 */
+			    color: inherit; /* 부모 요소의 글꼴 색상 상속 */
+			    padding: 0; /* 패딩 제거 */
+			    font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
+			    cursor: pointer; /* 커서 모양 변경 */
+			    margin: 5px 0; /* 버튼 간의 간격 */
+            }
+            .region{
+			    margin: 20px;
+			    border: none;
+			    display: flex; /* Flexbox 사용 */
+			    flex-direction: column; /* 세로 방향으로 정렬 */
+			    align-items: center; /* 가로 방향 가운데 정렬 */
+            }
+            .region{
+               margin: 20px;
+               border: none;
             }
 
 
@@ -616,7 +635,7 @@
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="/sorce/img/DGV-로고.png" alt="로고" class="logo">
+                <img src="main/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 

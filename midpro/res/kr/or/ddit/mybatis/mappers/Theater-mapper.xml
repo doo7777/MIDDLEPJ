@@ -8,11 +8,10 @@
 	<!-- 전체 영화관을 보여줌 -->
 	<select id="getAllTheater" resultType="theaVO">
 		select * from theater
+		order by theater_id, theater_name
 	</select>
 	
 	
-
-
 	<!-- 영화관명을 받아서 그 영화관의 정보를 보여줌 -->
 	<select id="getTheater" parameterType="string" resultType="theaVO">
 		select * from theater
