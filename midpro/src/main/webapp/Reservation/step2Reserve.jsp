@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>예매 | 깊이 빠져 보다,DGV</title>
 </head>
 <style>
 	body {
@@ -21,10 +21,16 @@
         margin: auto;
         
     }
+    #대가족{
+   	 display: flex;
+        flex-direction: row; /* 가로 방향으로 정렬 */
+        justify-content: center; /* 중앙 정렬 */
+        margin-left: 450px;
+    }
     #topOfTable {
         height: 30px;
         color: white;
-        
+     
     }
     td {
         position: relative; /* 버튼을 오른쪽 하단으로 배치하기 위한 설정 */
@@ -127,6 +133,7 @@
             <h2>관람 할인 안내</h2>
         </div>
     </div>
+     <img alt="대가족" src="/midpro/main/sorce/img/영화포스터/바텀 대가족.jpg" id="대가족">
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 <script>
