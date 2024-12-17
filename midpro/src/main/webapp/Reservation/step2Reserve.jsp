@@ -22,7 +22,10 @@
         
     }
     #대가족{
-   	 margin-left: 260px;
+   	 display: flex;
+        flex-direction: row; /* 가로 방향으로 정렬 */
+        justify-content: center; /* 중앙 정렬 */
+        margin-left: 450px;
     }
     #topOfTable {
         height: 30px;
