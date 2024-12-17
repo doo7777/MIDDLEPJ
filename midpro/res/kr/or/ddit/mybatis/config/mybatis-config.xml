@@ -37,6 +37,7 @@
       <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
       
       
+      
    </typeAliases>
    
    <!-- DB 연결 설정 -->
@@ -71,6 +72,7 @@
       <mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Schedule-mapper.xml"/>
+      
       
    </mappers>
    

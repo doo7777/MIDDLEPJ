@@ -35,6 +35,7 @@
 	</tr>
 	</thead>
 	<tbody>
+	
 	<%
 		List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
 		if (scd != null){

@@ -11,6 +11,7 @@ public class ScheduleVO {
 	private String schedule_date;
 	
 	
+	
 	public int getSchedule_id() {
 		return schedule_id;
 	}
