@@ -280,7 +280,7 @@
 
         <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
             <ul>
-                <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
+                <li><a href="#" class="highlight" id="movie2">영화</a> <!-- 기모찡 -->
                     <ul>
                         <li><a href="#" id="moviechart">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                         <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
@@ -346,6 +346,10 @@
     
     $('#moviechart').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
+    });
+    
+    $('#movie2').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
     });
 
     $('#btn4').on('click', function() {
