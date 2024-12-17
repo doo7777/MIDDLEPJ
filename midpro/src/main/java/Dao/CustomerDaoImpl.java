@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DaoInterface.ICustomerDao;
 import Util.MybatisUtil;
+import Util.PasswordUtil;
 import Vo.CustomerVO;
 
 public class CustomerDaoImpl implements ICustomerDao{
@@ -24,6 +25,9 @@ public class CustomerDaoImpl implements ICustomerDao{
 	public int insertCustomer(CustomerVO cusVO) {
 		SqlSession session = MybatisUtil.getSqlSession();
 		
+		  String hashedPassword = PasswordUtil.hashPassword(cusVO.getCust_pw());
+	        cusVO.setCust_pw(hashedPassword); // 해싱된 패스워드를 VO 객체에 설정
+	        
 		int cnt=0;
 		
 		try {

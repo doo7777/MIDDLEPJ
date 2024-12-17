@@ -178,8 +178,9 @@ function goMain(e) { //회원가입 버튼을 눌렀을때 작동되는 코드�
     const pw1 = $('#cust_pw1').val();
     const pw2 = $('#cust_pw2').val();
    const name = $('#cust_name').val();
-
-    if (id === '' || pw1 === '' || pw2 === '' || name === '') {
+  const mail = $('cust_email').val();
+  
+    if (id === '' || pw1 === '' || pw2 === '' || name === '' || mail ==='') {
         alert('모든 필드를 채워주세요.');
         return; // 조건이 만족되지 않으면 진행하지 않음
     }
