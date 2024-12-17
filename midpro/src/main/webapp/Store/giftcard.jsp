@@ -45,60 +45,7 @@
             transform: translateX(100%);
         }
 
-        /* 스토어 */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        h1 {
-            margin: 0;
-            color: white;
-            margin-top: 20px;
-        }
-        
-        h2, h3 {
-            margin: 0;
-            color: white;
-        }
-
-        /* 메인 컨테이너 */
-        .store-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: black;
-        }
-
-        /* 상단 타이틀 */
-        .store-header h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .store-menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 16px;
-            color: white;
-            gap: 50px;
-        }
-
-        .store-menu span {
-            cursor: pointer;
-            padding: 5px 10px;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .store-menu .active {
-            font-weight: bold;
-            color: white;
-            border-bottom: 2px solid white;
-        }
+       
 
         /* 기프트카드 설명 */
         .giftcard-title {
@@ -185,23 +132,9 @@
 <body>
     <div>
         <%@ include file="/main/Top.jsp" %>
+                          <%@ include file="/Store/StoreTop.jsp" %>
+        
     </div>
-    <!-- 스토어 -->
-    <div class="store-container">
-        <!-- 상단 타이틀 -->
-        <div class="store-header">
-            <h1>스토어</h1>
-            <div class="store-menu">
-                <span>패키지</span>
-                <span>영화관람권</span>
-                <span class="active">기프트카드</span>
-                <span>콤보</span>
-                <span>팝콘</span>
-                <span>음료</span>
-                <span>스낵</span>
-                <span>상품권소개</span>
-                </div>
-        </div>
 
         <!-- 기프트카드 설명 -->
         <div class="giftcard-title">
@@ -230,7 +163,6 @@
                 <span class="price">금액충전형</span>
             </div>
         </div>
-    </div>
     
     <%@ include file="/main/Bottom.jsp" %>
 </body>
