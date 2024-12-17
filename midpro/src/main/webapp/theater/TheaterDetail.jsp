@@ -106,9 +106,7 @@
         String tspot1 = vo.getTheater_spot1();
         String tspot2 = vo.getTheater_spot2();
     %>
-    <div>
-        <%@ include file="../main/Top.jsp" %>
-    </div>
+
     
     <h3 class="name">DGV <%=tnm %></h3>
     <div id="detail" style="background-image: url('<%=request.getContextPath() %>/theaterImage.do?theaterName=<%=vo.getTheater_name() %>'); background-size: cover; background-position: center;">
