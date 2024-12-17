@@ -199,7 +199,6 @@
                 <span>팝콘</span>
                 <span>음료</span>
                 <span>스낵</span>
-                <span>플레이존</span>
                 <span>상품권소개</span>
                 </div>
         </div>
