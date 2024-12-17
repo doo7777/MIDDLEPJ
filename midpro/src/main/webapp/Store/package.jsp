@@ -578,13 +578,13 @@
                 <!-- 패키지 아이템 목록 -->
                 <div class="package-grid">
                     <div class="package-item">
-                        `<%=request.getContextPath() %>/main/sorce/img/패키지/우리-패키지.jpg`;
+                        <img src="sorce/img/패키지(완료)/우리-패키지.jpg" alt="우리 패키지">
                         <h3>우리 패키지</h3>
                         <p>일반 영화 관람권 4매+더블콤보 1개</p>
                         <span class="price">62,000원 <del>66,000원</del></span>
                     </div>
                     <div class="package-item">
-                        `<%=request.getContextPath() %>/main/sorce/img/패키지(완료)/우리-패키지.jpg`;
+                        <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" alt="나랑 너 패키지">
                         <h3>나랑 너 패키지</h3>
                         <p>일반 영화 관람권 2매+CGV콤보 1개</p>
                         <span class="price">35,000원 <del>37,000원</del></span>
