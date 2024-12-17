@@ -77,6 +77,50 @@
         display: flex; /* 플렉스 박스 사용 */
         align-items: center; /* 수직 중앙 정렬 */
     }
+    
+	.bottom {
+	    margin-top: 20px;
+	    margin-left: 260px;
+	    width: 1360px;
+	    height: 100px;
+	    background-color: black;
+	    display: flex; /* 플렉스 박스를 사용하여 세로줄을 정렬 */
+	    justify-content: space-around; /* 세로줄 간의 간격을 균등하게 배치 */
+	    align-items: center; /* 세로줄을 수직 중앙에 정렬 */
+	}
+	
+	.vertical-line {
+	    width: 2px; /* 세로줄의 너비 */
+	    height: 50px; /* 세로줄의 높이 */
+	    background-color: gray; /* 세로줄의 색상 */
+	}
+
+.bottom ul {
+    color: gray;
+    list-style-type: none; /* 기본 리스트 스타일 제거 */
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+    width: 200px; /* 각 ul의 고정 너비 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+.button {
+    width: 100px; /* 버튼의 너비 */
+    height: 100px; /* 버튼의 높이 */
+    background-color: gray; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: center; /* 텍스트 중앙 정렬 */
+    align-items: center; /* 텍스트 수직 중앙 정렬 */
+    font-size: 16px; /* 텍스트 크기 */
+}
+
+.button:hover {
+    background-color: red; /* 호버 시 배경색 변경 */
+}
+
 </style>
 </head>
 <body>
@@ -105,7 +149,6 @@
             </div>
         </div>
 
-
         <div class="column">
             <div class="header date-header">날짜</div>
             <div class="item date-item">
@@ -124,6 +167,18 @@
             </div>
         </div>
     </div>
+    
+	<div class="bottom">
+	<ul>영화선택</ul>
+	    <div class="vertical-line"></div>
+	<ul>극장선택</ul>
+	    <div class="vertical-line"></div>
+	<ul>날짜선택</ul>
+	    <div class="vertical-line"></div>
+	<ul>시간선택</ul>
+		<button class="button">좌석선택</button>
+	
+	</div>
 
     <%@ include file="/main/Bottom.jsp" %>
 </body>
