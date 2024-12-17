@@ -5,6 +5,8 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
+<%@ page import="java.util.LinkedHashMap" %>
+<%@ page import="java.util.Comparator" %>
 
 <%@page import="Vo.CustomerVO"%>
 <!DOCTYPE html>
@@ -574,6 +576,10 @@
                padding: 0; 
            }
            
+           
+           
+           
+           
            #TheaterMain {
                 color: white;
                 margin-left: 260px;
@@ -585,27 +591,34 @@
                 align-items: center; /* 세로 방향 가운데 정렬 */
             }
 
+
             .spot {
                 display: flex; /* Flexbox 사용 */
+                align-items: center; /* 가로 방향 가운데 정렬 */
                 width: 1280px;
                 height: 330px;
                 border-radius: 20px;
                 border: solid white;
+                justify-content: center;
  
             }
+            .region{
+			    margin: 20px;
+			    border: none;
+			    display: flex; /* Flexbox 사용 */
+			    flex-direction: column; /* 세로 방향으로 정렬 */
+			    align-items: center; /* 가로 방향 가운데 정렬 */
+            }
+            
 
             button {
-                background: none; /* 배경 제거 */
-                border: none; /* 테두리 제거 */
-                color: inherit; /* 부모 요소의 글꼴 색상 상속 */
-                padding: 0; /* 패딩 제거 */
-                font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
-                cursor: pointer; /* 커서 모양 변경 */
-                margin: 5px 0; /* 버튼 간의 간격 */
-            }
-            .region{
-               margin: 20px;
-               border: none;
+			    background: none; /* 배경 제거 */
+			    border: none; /* 테두리 제거 */
+			    color: inherit; /* 부모 요소의 글꼴 색상 상속 */
+			    padding: 0; /* 패딩 제거 */
+			    font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
+			    cursor: pointer; /* 커서 모양 변경 */
+			    margin: 5px 0; /* 버튼 간의 간격 */
             }
 
 
@@ -699,59 +712,51 @@
                 </button>
             </div>
             <hr>
-    <h2 class="movie">영화관 정보</h2>
-    <br><br>
-        <div id="TheaterMain">
-        <div class="spot">
-            <% 
-                List<TheaterVO> thea = (List<TheaterVO>) request.getAttribute("thea");
-                if (thea != null) {
-                    // 지역별 영화관을 저장할 맵 생성
-                    Map<String, List<TheaterVO>> regionMap = new HashMap<>();
-                    for (TheaterVO tList : thea) {
-                        String region = tList.getTheater_do(); // 지역 정보
-                        if (!regionMap.containsKey(region)) {
-                            regionMap.put(region, new ArrayList<>()); // 지역이 없으면 새 리스트 생성
-                        }
-                        regionMap.get(region).add(tList); // 해당 지역 리스트에 추가
-                    }
+<h2 class="movie">영화관 정보</h2>
+<br><br>
+<div id="TheaterMain">
+    <div class="spot">
+        <% 
+            List<TheaterVO> thea = (List<TheaterVO>) request.getAttribute("thea");
+            if (thea != null) {
+                // theater_id 기준으로 정렬
+                thea.sort(Comparator.comparing(TheaterVO::getTheater_id));
 
-                    // 지역별로 버튼 생성
-                    for (String region : regionMap.keySet()) {
-            %>
-            <div class="region">
-                <h3><%= region %></h3> <!-- 지역 이름 표시 -->
-                <% 
-                    for (TheaterVO tList : regionMap.get(region)) {
-                %>
-                <button type="button" onclick="location.href='<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>';">
-                    <%= tList.getTheater_name() %>
-                </button>
-                <% 
+                // 지역별 영화관을 저장할 맵 생성
+                Map<String, List<TheaterVO>> regionMap = new LinkedHashMap<>();
+                for (TheaterVO tList : thea) {
+                    String region = tList.getTheater_do(); // 지역 정보
+                    if (!regionMap.containsKey(region)) {
+                        regionMap.put(region, new ArrayList<>()); // 지역이 없으면 새 리스트 생성
                     }
-                %>
-            </div>
+                    regionMap.get(region).add(tList); // 해당 지역 리스트에 추가
+                }
+
+                // 지역별로 버튼 생성
+                for (String region : regionMap.keySet()) {
+        %>
+        <div class="region">
+            <h3><%= region %></h3> <!-- 지역 이름 표시 -->
             <% 
-                    }
-                } else {
+                for (TheaterVO tList : regionMap.get(region)) {
             %>
-            <div>등록된 영화관 정보가 없습니다.</div>
+            <button type="button" onclick="location.href='<%=request.getContextPath()%>/theaterDetail.do?theater_name=<%=tList.getTheater_name() %>';">
+                <%= tList.getTheater_name() %>
+            </button>
             <% 
                 }
-            %>  
+            %>
         </div>
+        <% 
+                }
+            } else {
+        %>
+        <div>등록된 영화관 정보가 없습니다.</div>
+        <% 
+            }
+        %>  
     </div>
-    <!-- 회사 정보 영역 -->
-            <hr class="bottom_line">
-
-            <div id="company" class="sect-ad">
-                <div class="company_text">
-                    <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
-                    &copy; DGV. All Rights Reserved
-                </div>
-            </div>
-        </div>
+</div>
     </body>
     
     
@@ -767,16 +772,16 @@
     
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
-            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <img src="main/sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <%if(result==null){%>
             <div class="IDBtn"> 
-            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <img src="main/sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
             <input type="text" title="아이디" id="username" name="cust_id" data-title="아이디를 " data-message="입력하세요." required="required" class="IDBtn_box">
             <br><br> 
         </div> 
         <div class="PWBtn"> 
-        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <img src="main/sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
         <input type="password" title="패스워드" id="password" name="cust_pw" data-title="패스워드를 " data-message="입력하세요." required="required" class="PWBtn_box">
         <br><br> 
     </div>

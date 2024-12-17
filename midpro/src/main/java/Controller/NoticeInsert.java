@@ -17,7 +17,7 @@ public class NoticeInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	request.setCharacterEncoding("utf-8");
-	request.getRequestDispatcher("/notice/InsertNotice.jsp").forward(request, response);
+	request.getRequestDispatcher("/notice/NoticeInsert.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
