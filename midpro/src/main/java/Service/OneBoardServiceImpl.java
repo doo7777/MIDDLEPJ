@@ -27,8 +27,8 @@ public class OneBoardServiceImpl implements IOneBoardService{
 	}
 
 	@Override
-	public int deleteBoard(int Board_ID) {
-		return dao.deleteBoard(Board_ID);
+	public int deleteBoard(String oneonone_id) {
+		return dao.deleteBoard(oneonone_id);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public interface IOneBoardService {
 	 * @return
 	 */
 
-	public int deleteBoard(int Board_ID);
+	public int deleteBoard(String oneonone_id);
 	/**
 	 * 전체 게시판 보기
 	 * @return
