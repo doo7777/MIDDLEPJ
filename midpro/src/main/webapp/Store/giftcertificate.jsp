@@ -100,30 +100,30 @@
             border-bottom: 2px solid white;
         }
 
-        /* 스낵 설명 */
-        .snack-title {
+        /* 상품권 설명 */
+        .certificate-title {
             margin: 30px 0;
             text-align: left;
         }
 
-        .snack-title h2 {
+        .certificate-title h2 {
             font-size: 1.8rem;
             font-weight: bold;
         }
 
-        .snack-title p {
+        .certificate-title p {
             font-size: 1.2rem;
             color: white;
         }
 
-        /* 스낵 아이템 목록 */
-        .snack-grid {
+        /* 상품권 아이템 목록 */
+        .certificate-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
             gap: 20px;
         }
 
-        .snack-item {
+        .certificate-item {
             background: d;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -133,35 +133,35 @@
             transition: transform 0.3s ease;
         }
 
-        .snack-item:hover {
+        .certificate-item:hover {
             transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
         }
 
-        .snack-item img {
+        .certificate-item img {
             width: 100%;
             max-width: 180px; /* 이미지 크기 제한 */
             margin-bottom: 10px;
         }
 
-        .snack-item h3 {
+        .certificate-item h3 {
             font-size: 1.2rem;
             margin-bottom: 5px;
             font-weight: bold;
         }
 
-        .snack-item p {
+        .certificate-item p {
             font-size: 1rem;
             color: #666;
             margin-bottom: 10px;
         }
 
-        .snack-item .price {
+        .certificate-item .price {
             font-size: 1.2rem;
             font-weight: bold;
             color: #ef8400;
         }
 
-        .snack-item del {
+        .certificate-item del {
             font-size: 0.9rem;
             color: #999;
             margin-left: 5px;
@@ -169,13 +169,13 @@
 
         /* 반응형 디자인 */
         @media (max-width: 768px) {
-            .snack-grid {
+            .certificate-grid {
                 grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
             }
         }
 
         @media (max-width: 480px) {
-            .snack-grid {
+            .certificate-grid {
                 grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
             }
         }
@@ -198,33 +198,26 @@
                 <span>콤보</span>
                 <span>팝콘</span>
                 <span>음료</span>
-                <span class="active">스낵</span>
-                <span>상품권소개</span>
+                <span>스낵</span>
+                <span class="active">상품권소개</span>
                 </div>
         </div>
 
-        <!-- 스낵 설명 -->
-        <div class="snack-title">
-            <h2>스낵</h2>
-            <p>출출할땐 다양한 스낵이 정답이죠</p>
+        <!-- 상품권 설명 -->
+        <div class="certificate-title">
+            <h2>상품권 소개</h2>
+            <p>마음을 담아 선물하세요.</p>
         </div>
 
-        <!-- 스낵 아이템 목록 -->
-        <div class="snack-grid">
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈나쵸.jpg" alt="칠리치즈나쵸" />
-                <h3>칠리치즈나쵸</h3>
-                <span class="price">5,500원</span>
+        <!-- 상품권 아이템 목록 -->
+        <div class="certificate-grid">
+            <div class="certificate-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/상품권/CJ상품권.png" alt="CJ상품권" />
+                <h3>CJ상품권</h3>
             </div>
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈핫도그.jpg" alt="칠리치즈핫도그" />
-                <h3>칠리치즈핫도그</h3>
-                <span class="price">5,500원</span>
-            </div>
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/플레인핫도그.jpg" alt="플레인핫도그" />
-                <h3>플레인핫도그</h3>
-                <span class="price">5,000원</span>
+            <div class="certificate-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/상품권/영화관람권.png" alt="영화관람권" />
+                <h3>영화관람권</h3>
             </div>
         </div>
     </div>

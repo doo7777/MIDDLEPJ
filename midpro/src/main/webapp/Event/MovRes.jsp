@@ -45,138 +45,120 @@
             transform: translateX(100%);
         }
 
-        /* 스토어 */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        h1 {
-            margin: 0;
-            color: white;
-            margin-top: 20px;
-        }
-        
-        h2, h3 {
-            margin: 0;
-            color: white;
-        }
-
-        /* 메인 컨테이너 */
-        .store-container {
+        /* 전체 이벤트 페이지 스타일 */
+        .event-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             background-color: black;
         }
 
-        /* 상단 타이틀 */
-        .store-header h1 {
+        /* 상단 타이틀과 메뉴 */
+        .event-header {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .store-menu {
+        .event-header h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .event-menu {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
             font-size: 16px;
             color: white;
-            gap: 50px;
         }
 
-        .store-menu span {
+        .event-menu span {
             cursor: pointer;
             padding: 5px 10px;
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
         }
 
-        .store-menu .active {
+        .event-menu .active {
             font-weight: bold;
             color: white;
-            border-bottom: 2px solid white;
+            border-bottom-color: white;
         }
 
-        /* 스낵 설명 */
-        .snack-title {
-            margin: 30px 0;
-            text-align: left;
+        .event-menu .end-event {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            padding: 5px 10px;
         }
 
-        .snack-title h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .snack-title p {
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        /* 스낵 아이템 목록 */
-        .snack-grid {
+        /* 이벤트 카드 레이아웃 */
+        .event-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr); /* 4개의 열로 고정 */
+            gap: 20px; /* 카드 간격 */
+            max-height: 500px; /* 두 줄에 맞는 높이로 설정 */
+            margin-top: 50px;
         }
 
-        .snack-item {
-            background: d;
+        .event-card {
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
-            text-align: center;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        .snack-item:hover {
-            transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
+        .event-card:hover {
+            transform: translateY(-5px);
         }
 
-        .snack-item img {
+        .event-card img {
             width: 100%;
-            max-width: 180px; /* 이미지 크기 제한 */
-            margin-bottom: 10px;
+            height: 150px;
+            object-fit: cover;
         }
 
-        .snack-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .event-card p {
+            font-size: 14px;
             font-weight: bold;
+            margin: 10px;
         }
 
-        .snack-item p {
-            font-size: 1rem;
+        .event-card span {
+            display: block;
+            font-size: 12px;
             color: #666;
-            margin-bottom: 10px;
+            margin: 10px;
         }
 
-        .snack-item .price {
-            font-size: 1.2rem;
+        .red-text {
+            color: red;
             font-weight: bold;
-            color: #ef8400;
         }
 
-        .snack-item del {
-            font-size: 0.9rem;
-            color: #999;
-            margin-left: 5px;
-        }
-
-        /* 반응형 디자인 */
+        /* 반응형 스타일 */
         @media (max-width: 768px) {
-            .snack-grid {
-                grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
+            .event-menu {
+                font-size: 14px;
+                gap: 10px;
             }
-        }
 
-        @media (max-width: 480px) {
-            .snack-grid {
-                grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
+            .event-card img {
+                height: 120px;
+            }
+
+            .event-card p {
+                font-size: 12px;
+            }
+
+            .event-card span {
+                font-size: 10px;
             }
         }
     </style>
@@ -186,49 +168,61 @@
     <div>
         <%@ include file="/main/Top.jsp" %>
     </div>
-    <!-- 스토어 -->
-    <div class="store-container">
-        <!-- 상단 타이틀 -->
-        <div class="store-header">
-            <h1>스토어</h1>
-            <div class="store-menu">
-                <span>패키지</span>
-                <span>영화관람권</span>
-                <span>기프트카드</span>
-                <span>콤보</span>
-                <span>팝콘</span>
-                <span>음료</span>
-                <span class="active">스낵</span>
-                <span>상품권소개</span>
-                </div>
-        </div>
 
-        <!-- 스낵 설명 -->
-        <div class="snack-title">
-            <h2>스낵</h2>
-            <p>출출할땐 다양한 스낵이 정답이죠</p>
+    <div class="event-container">
+        <!-- 상단 메뉴 -->
+        <div class="event-header">
+            <h2>EVENT</h2>
+            <div class="event-menu">
+                <span>SPECIAL</span>
+                <span class="active">영화/예매</span>
+            </div>
         </div>
-
-        <!-- 스낵 아이템 목록 -->
-        <div class="snack-grid">
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈나쵸.jpg" alt="칠리치즈나쵸" />
-                <h3>칠리치즈나쵸</h3>
-                <span class="price">5,500원</span>
+    
+        <!-- 이벤트 카드 섹션 -->
+        <div class="event-grid">
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/a.png" alt="이벤트1" />
+                <p>[무파사-라이온킹] 이모티콘 이벤트</p>
+                <span>2024.12.06~2024.12.24</span>
             </div>
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈핫도그.jpg" alt="칠리치즈핫도그" />
-                <h3>칠리치즈핫도그</h3>
-                <span class="price">5,500원</span>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/b.png" alt="이벤트2" />
+                <p>[모아나2] 스페셜 핀 배지 이벤트</p>
+                <span>2024.12.10~2024.12.24</span>
             </div>
-            <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/플레인핫도그.jpg" alt="플레인핫도그" />
-                <h3>플레인핫도그</h3>
-                <span class="price">5,000원</span>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/c.png" alt="이벤트3" />
+                <p>[서브스턴스] 과몰입 이벤트</p>
+                <span>2024.12.06~2024.12.24<span class="red-text">D-1</span></span>
+            </div>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/d.png" alt="이벤트4" />
+                <p>[대가족] 효도 할인 쿠폰</p>
+                <span>2024.11.28~2024.12.31</span>
+            </div>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/e.png" alt="이벤트5" />
+                <p>[RM: RPWP] 3주차 현장 증정 이벤트</p>
+                <span>2024.12.16~2024.12.24</span>
+            </div>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/f.png" alt="이벤트6" />
+                <p>[엔시티 드림 미스터리 랩] 싱어롱 상영회</p>
+                <span>2024.12.16~2024.12.21<span class="red-text" style="color: #ef8400;">D-6</span></span>
+            </div>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/g.png" alt="이벤트7" />
+                <p>[극장판 주술회전 0] 순애 상영회</p>
+                <span>2024.12.16~2024.12.19<span class="red-text" style="color: #ef8400;">D-3</span></span>
+            </div>
+            <div class="event-card">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/h.png" alt="이벤트8" />
+                <p>[극장판 주술회전 0] 비주얼 보드 증정 이벤트</p>
+                <span>2024.12.16~2024.12.24<span class="red-text">D-1</span></span>
             </div>
         </div>
     </div>
-    
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 
@@ -309,6 +303,7 @@
                 console.error('videoPlayer is not a valid video element');
             }
         }
+
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
     });
 </script>
