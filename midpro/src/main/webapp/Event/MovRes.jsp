@@ -176,11 +176,6 @@
             <div class="event-menu">
                 <span id="special2">SPECIAL</span>
                 <span class="active">영화/예매</span>
-                <span>멤버십/CLUB</span>
-                <span>DGV 극장별</span>
-                <span>제휴/할인</span>
-                <span>당첨자 발표</span>
-                <span class="end-event">종료된 이벤트</span>
             </div>
         </div>
     
