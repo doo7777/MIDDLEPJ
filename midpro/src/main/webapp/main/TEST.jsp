@@ -327,122 +327,183 @@
                padding: 0; 
             }
 
-            /* 전체 이벤트 페이지 스타일 */
-            .event-container {
+            /* 고객센터 */
+            /* 전체 레이아웃 */
+            .customer-service-container {
+                display: flex;
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 20px;
-                background-color: black;
+                gap: 20px;
+                font-family: Arial, sans-serif;
+                color: white;
             }
 
-            /* 상단 타이틀과 메뉴 */
-            .event-header {
-                text-align: center;
-                margin-bottom: 20px;
+            /* 왼쪽 메뉴 */
+            .left-menu {
+                flex: 1;
             }
 
-            .event-header h2 {
-                font-size: 32px;
+            .menu-button {
+                background-color: #ef8400;
+                color: white;
+                border: none;
+                width: 100%;
+                padding: 10px;
                 font-weight: bold;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .left-menu ul {
+                margin-top: 20px;
+                list-style: none;
+                padding: 0;
+            }
+
+            .left-menu li {
+                padding: 10px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .left-menu li:hover {
+                background-color: #f8f8f8;
+                color: #ef8400;
+            }
+
+            .banner-image {
+                width: 100%;
+                margin-top: 20px;
+                border-radius: 5px;
+            }
+
+            /* 메인 컨텐츠 */
+            .main-content {
+                flex: 3;
+            }
+
+            .quick-search {
+                background-color: #ef8400;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+            .quick-search input {
+                width: 97%;
+                padding: 10px;
+                margin-top: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .quick-search-buttons{
+                border-color: transparent;
+                margin-top: 10px;
+            }
+
+            .quick-search-buttons span {
+                background-color: white;
+                color: #ef8400;
+                padding: 5px 10px;
+                margin: 5px;
+                border-radius: 5px;
+                display: inline-block;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .quick-options {
+                display: flex;
+                gap: 20px;
+                margin-top: 5px;
+            }
+
+            .option-box {
+                flex: 1;
+                text-align: center;
+                /* border: 1px solid #ddd; */
+                padding: 15px;
+                border-radius: 5px;
+            }
+
+            .option-box i {
+                font-size: 30px;
                 margin-bottom: 10px;
                 color: white;
-                margin-bottom: 30px;
+                height: 0.1px;
             }
 
-            .event-menu {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-                font-size: 16px;
+            .option-box button {
+                margin-top: 10px;
+                padding: 5px 10px;
+                background-color: #555;
                 color: white;
-            }
-
-            .event-menu span {
-                cursor: pointer;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            }
-
-            .event-menu .active {
-                font-weight: bold;
-                color: #ef8400;
-                border-bottom-color: #ef8400;
-            }
-
-            .event-menu .end-event {
-                background-color: #ef8400;
-                color: #fff;
+                border: none;
                 border-radius: 5px;
-                padding: 5px 10px;
+                cursor: pointer;
             }
 
-            /* 이벤트 카드 레이아웃 */
-            .event-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr); /* 4개의 열로 고정 */
-                gap: 20px; /* 카드 간격 */
-                max-height: 500px; /* 두 줄에 맞는 높이로 설정 */
-                margin-top: 50px;
+            .news {
+                padding-left: 3px;
+            }
+            .news span {
+                padding-left: 30px;
             }
 
-            .event-card {
-                background-color: #fff;
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
-
-            .event-card:hover {
-                transform: translateY(-5px);
-            }
-
-            .event-card img {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-            }
-
-            .event-card p {
+            .notice ul li {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
                 font-size: 14px;
+            }
+
+            .bottom-buttons {
+                display: flex;
+                gap: 20px;
+                margin-top: 5px;
+                color: black;
+            }
+
+            .button-box {
+                flex: 1;
+                text-align: center;
+                border: 1px solid #ddd;
+                padding: 20px;
                 font-weight: bold;
-                margin: 10px;
+                background-color: #f8f8f8;
+                border-radius: 5px;
             }
 
-            .event-card span {
-                display: block;
-                font-size: 12px;
-                color: #666;
-                margin: 10px;
+            .additional-services {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+                color: black;
             }
 
-            .red-text {
-                color: red;
-                font-weight: bold;
+            .service-card {
+                flex: 1;
+                background-color: #f8f8f8;
+                border: 1px solid #ddd;
+                padding: 15px;
+                text-align: center;
+                border-radius: 5px;
             }
 
-            /* 반응형 스타일 */
-            @media (max-width: 768px) {
-                .event-menu {
-                    font-size: 14px;
-                    gap: 10px;
-                }
-
-                .event-card img {
-                    height: 120px;
-                }
-
-                .event-card p {
-                    font-size: 12px;
-                }
-
-                .event-card span {
-                    font-size: 10px;
-                }
+            .service-card button {
+                margin-top: 10px;
+                padding: 5px 10px;
+                background-color: #333;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
             }
+
+
         </style>
     </head>
     
@@ -524,62 +585,73 @@
             </div>
             <hr>
 
-            <div class="event-container">
-                <!-- 상단 메뉴 -->
-                <div class="event-header">
-                    <h2>EVENT</h2>
-                    <div class="event-menu">
-                        <span>SPECIAL</span>
-                        <span class="active">영화/예매</span>
-                        <span>멤버십/CLUB</span>
-                        <span>CGV 극장별</span>
-                        <span>제휴/할인</span>
-                        <span>당첨자 발표</span>
-                        <span class="end-event">종료된 이벤트</span>
-                    </div>
+            <div class="customer-service-container">
+                <!-- 왼쪽 메뉴 -->
+                <div class="left-menu">
+                    <button class="menu-button active">고객센터 메인</button>
+                    <ul>
+                        <li>공지사항</li>
+                        <li>자주찾는 질문</li>
+                        <li>대관신청</li>
+                        <li>1:1 문의</li>
+                    </ul>
                 </div>
             
-                <!-- 이벤트 카드 섹션 -->
-                <div class="event-grid">
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/a.png" alt="이벤트1">
-                        <p>[무파사-라이온킹] 이모티콘 이벤트</p>
-                        <span>2024.12.06~2024.12.24</span>
+                <!-- 메인 컨텐츠 -->
+                <div class="main-content">
+                    <div class="quick-search">
+                        <h3>자주찾는 질문 빠른검색</h3>
+                        <input type="text" placeholder="검색어를 입력해 주세요">
+                        <div class="quick-search-buttons">
+                            <span>현금영수증</span>
+                            <span>관람권</span>
+                            <span>예매 환불</span>
+                            <span>취소</span>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/b.png" alt="이벤트2">
-                        <p>[모아나2] 스페셜 핀 배지 이벤트</p>
-                        <span>2024.12.10~2024.12.24</span>
+            
+                    <div class="quick-options">
+                        <div class="notice">
+                            <h4>공지/뉴스</h4>
+                            <ul class="news">
+                                <li>[DGV] '24년 12월 문화 주간 관련 안내 <span>2024.12.04</span></li>
+                                <li>[시스템점검] iOS 18 업데이트 관련 예매 서비스 이용 안내 <span>2024.09.13</span></li>
+                                <li>[기타] [DGV] 해피머니상품권 사용중지 안내 <span>2024.07.25</span></li>
+                                <li>[DGV] 무대인사 예매취소 정책 변경 안내 <span>2024.01.02</span></li>
+                                <li>[극장] [DGV화명] 영업 종료 안내 <span>2024.12.16</span></li>
+                            </ul>
+                        </div>
+                        <div class="option-box">
+                            <i class="fa-regular fa-file-lines"></i>
+                            <h4>내 상담 내역 확인</h4>
+                            <p>문의하신 내용을 확인하실 수 있습니다.</p>
+                            <button>문의내역 조회</button>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/c.png" alt="이벤트3">
-                        <p>[서브스턴스] 과몰입 이벤트</p>
-                        <span>2024.12.06~2024.12.24<span class="red-text">D-1</span></span>
+            
+                    <!-- 하단 버튼 -->
+                    <div class="bottom-buttons">
+                        <div class="button-box">DGV PREVIEW <br><span>시사회/무대인사</span></div>
+                        <div class="button-box">DISCOUNT INFO <br><span>할인카드 및 혜택 안내</span></div>
                     </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/d.png" alt="이벤트4">
-                        <p>[대가족] 효도 할인 쿠폰</p>
-                        <span>2024.11.28~2024.12.31</span>
-                    </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/e.png" alt="이벤트5">
-                        <p>[RM: RPWP] 3주차 현장 증정 이벤트</p>
-                        <span>2024.12.16~2024.12.24</span>
-                    </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/f.png" alt="이벤트6">
-                        <p>[엔시티 드림 미스터리 랩] 싱어롱 상영회</p>
-                        <span>2024.12.16~2024.12.21<span class="red-text" style="color: #ef8400;">D-6</span></span>
-                    </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/g.png" alt="이벤트7">
-                        <p>[극장판 주술회전 0] 순애 상영회</p>
-                        <span>2024.12.16~2024.12.19<span class="red-text" style="color: #ef8400;">D-3</span></span>
-                    </div>
-                    <div class="event-card">
-                        <img src="sorce/img/이벤트/h.png" alt="이벤트8">
-                        <p>[극장판 주술회전 0] 비주얼 보드 증정 이벤트</p>
-                        <span>2024.12.16~2024.12.24<span class="red-text">D-1</span></span>
+            
+                    <!-- 추가 서비스 -->
+                    <div class="additional-services">
+                        <div class="service-card">
+                            <h4>대관/단체 서비스</h4>
+                            <p> DGV에서 진행하는 우리만의 특별한 이벤트</p>
+                            <button>바로가기</button>
+                        </div>
+                        <div class="service-card">
+                            <h4>VIP 안내</h4>
+                            <p>영화를 사랑하는 당신에게 드리는 특별한 DGV VIP 혜택</p>
+                            <button>바로가기</button>
+                        </div>
+                        <div class="service-card">
+                            <h4>VIP 고객센터</h4>
+                            <p>VIP 고객님을 위해 알리는 혜택</p>
+                            <button>바로가기</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -612,7 +684,7 @@
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
             <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
-            <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
+            <form action="=request.getContextPath()/cusLogin.do" method="POST" id="loginform">
             if(result==null){
             <div class="IDBtn"> 
             <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
@@ -629,7 +701,7 @@
                 <button type="button" id="join" class="signupBtn">회원가입</button>
                 <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
                 }else{
-                result.getCust_name()님 반갑습니다!!<br>
+                <result.getCust_name()님 반갑습니다!!<br>
                 현재 DGV 등급 :result.getCust_grade()등급
                 <button type="button" id="logout">로그아웃</button>
                 }
@@ -647,13 +719,13 @@
         const logout = document.querySelector("#logout");
         if(logout){
            logout.addEventListener('click',function(){
-              window.location.href = "request.getContextPath()/cusLogout.do";
+              window.location.href = "=request.getContextPath()/cusLogout.do";
            });
         }
         
     }
    
-    const barParam = '<%=request.getParameter("bar")%>';
+    const barParam = 'request.getParameter("bar")';
     if (barParam === 'on') {
         updateSidebarContent();
         moveSidebar();

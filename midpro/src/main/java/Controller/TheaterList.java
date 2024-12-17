@@ -26,9 +26,8 @@ public class TheaterList extends HttpServlet {
 		request.getRequestDispatcher("/theater/TheaterMain.jsp").forward(request, response);
 	}
 
-	
+		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

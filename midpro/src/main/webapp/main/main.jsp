@@ -10,6 +10,11 @@
         <style>
             
             /* 전체 화면 사이즈 */
+            #main{
+                position: relative;
+                left: 2px;
+            }
+            
             body {
                 margin: 0;
                 width: 100%;
@@ -1487,18 +1492,26 @@
                         <i class="fa-solid fa-lock" id="loginbutton"></i>
 
                         <%if(result==null){ %>
-                        <h4 id="btnfont" class="login">로그인</h4>
+                        <h4 id="btnfont1" class="login">로그인</h4>
                         <%}else{ %>
-                        <h4 id="btnfont" class="logout">로그아웃</h4>
+                        <h4 id="btnfont2" class="logout">로그아웃</h4>
                         <%} %>
+                        <script>
+						    window.onload = function() {
+						        <% if(result != null) { %>
+						            alert("로그인 되었습니다.");
+						        <% }else{ %>
+						        <% } %>
+						    };
+						</script>
                     </div>
                     <div class="icon-text">
                         <i class="fa-regular fa-user"></i>
-                        <h4 id="btnfont" class="mypage">마이페이지</h4>
+                        <h4 id="btnfont3" class="mypage">마이페이지</h4>
                     </div>
                     <div class="icon-text">
-                        <i class="fas fa-headset"></i> 
-                        <h4 id="btnfont" class="service center">고객센터</h4>
+                        <i class="fas fa-headset"id="btn4"></i> 
+                        <h4 id="btnfont4" class="service center">고객센터</h4>
                     </div>
                 </div>
                 <div class="sidebar">
@@ -1654,7 +1667,7 @@
         
     </body>
     
-    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
 
     const login = document.querySelector('#loginbutton');
@@ -1664,6 +1677,9 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
+    $('#btn4').on('click',function(){
+  	  window.location.href = '<%=request.getContextPath()%>/noticeList.do'; 
+   }); 
     
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
@@ -1823,4 +1839,7 @@
 </html>
     
  
+<<<<<<< HEAD
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
+=======
 >>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ

@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.websocket.Session;
 
 import java.io.IOException;
 
@@ -29,7 +28,6 @@ public class CusLogin extends HttpServlet {
     	
     	String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
-    	
         ICustomerService service = CustomerServiceImpl.getInstance();
         
         CustomerVO result = service.getCustomer(cust_id, cust_pw);

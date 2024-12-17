@@ -342,6 +342,7 @@
 			padding: 10px 0px;
 		    max-width: 1200px;
 		    margin: auto;
+		    margin-bottom: 40px;
 			}
 			
 			.movieDetailBox {
@@ -384,16 +385,32 @@
 			.infoBox h1 {
 		    font-size: 24px;
 		    margin-bottom: 15px;
-		    color: white;
+		    color: rgb(239, 132, 0);
 			}
 		
 			.infoBox p {
-			    font-size: 16px;
+			    font-size: 14px;
 			    color: white;
 			    margin: 10px; /* 각 항목 간 간격을 없앰 */
     			padding: 0; /* 추가적인 여백을 제거 */
     			line-height: 1.2; /* 줄 간격 조정 */
 			}
+			
+			.reservationButton {
+		    background-color: rgb(239, 132, 0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100px;
+			}
+			
+			.reservationButton:hover {
+            font-weight: bold;
+        	}
 			
 			
 			
@@ -422,6 +439,7 @@
                 display: none;
                 margin-top: 20px;  /* 탭 내용과 버튼 간의 간격 */
                 color: white;
+                text-align: center;
                 
             }
             .tab-content.active {
@@ -540,7 +558,11 @@
                 </div>
                 <div id="poster" class="tab-content">
                     <h1>스틸 이미지</h1>
-                    <p>여기에 스틸 이미지 추가</p>
+                    <div class="image-gallery">
+			        <button class="arrow left-arrow">&#8592;</button>
+			        <img id="poster-image" src="" alt="스틸 이미지" />
+			        <button class="arrow right-arrow">&#8594;</button>
+			    </div>
                 </div>
                 <div id="review" class="tab-content">
                     <h1>리뷰</h1>
@@ -788,6 +810,19 @@
         // 출연진
         const cast = document.createElement("p");
         cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
+        
+     	// 영화 정보 영역에 예매 버튼 추가
+        const reservationButton = document.createElement("button");
+        reservationButton.innerText = "예매하기";
+        reservationButton.className = "reservationButton";
+
+        // 예매 버튼 클릭 이벤트
+        reservationButton.addEventListener("click", () => {
+            alert(`\${movie.title}의 예매 페이지로 이동합니다.`);
+            // 예매 페이지로 이동하고 싶다면 아래와 같이 URL을 추가할 수 있습니다.
+            // window.location.href = "예매페이지 URL";
+        });
+
 
      	// 정보 영역에 추가
         infoBox.appendChild(title);
@@ -795,6 +830,7 @@
         infoBox.appendChild(rating);
         infoBox.appendChild(director);
         infoBox.appendChild(cast);
+        infoBox.appendChild(reservationButton);
 
         // movieDetailBox에 포스터와 정보를 추가
         movieDetailBox.appendChild(posterBox);
@@ -818,7 +854,43 @@
                 const targetContent = document.getElementById(tab.dataset.tab);
                 targetContent.classList.add("active");
             });
-        });    
+        });
+        
+     	// 스틸 이미지 배열 (이미지 URL을 넣으세요)
+        const stills = [
+            '영화1', '영화2', '영화3', '영화4', '영화5',
+            '영화6', '영화7', '영화8', '영화9', '영화10'
+        ];
+     	
+     	// 각 영화 폴더에서 4개의 이미지를 가져오는 경로 생성
+        const stillImages = stills.flatMap(movie =>
+            Array.from({ length: 4 }, (_, index) =>
+                `sorce/img/영화스틸컷/${movie}/\${index + 1}.jpg`
+            )
+        );
+
+        // 현재 보여지는 이미지의 인덱스
+        let currentIndex = 0;
+
+        // 이미지 요소와 버튼 요소 가져오기
+        const posterImage = document.getElementById('poster-image');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+
+        // 초기 이미지 설정
+        posterImage.src = stillImages[currentIndex];
+
+        // 왼쪽 화살표 클릭 이벤트
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + stillImages.length) % stillImages.length; // 이전 이미지로 이동
+            posterImage.src = stillImages[currentIndex];
+        });
+
+        // 오른쪽 화살표 클릭 이벤트
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % stillImages.length; // 다음 이미지로 이동
+            posterImage.src = stillImages[currentIndex];
+        });
         
     });
 	
