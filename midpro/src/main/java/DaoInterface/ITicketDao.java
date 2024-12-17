@@ -1,6 +1,12 @@
 package DaoInterface;
 
+import java.util.List;
+
+import Vo.TicketVO;
+
 public interface ITicketDao {
 
-	//할 거 없음
+	public List<TicketVO>getAllTicket();
+
+  
 }
