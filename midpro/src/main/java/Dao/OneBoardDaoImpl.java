@@ -38,14 +38,27 @@ public class OneBoardDaoImpl implements IOneBoardDao{
 	}
 	
 	@Override
-	public int deleteBoard(int Board_ID) {
-		return 0;
+	public int deleteBoard(String oneonone_id) {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		int cnt =0;
+		
+		try {
+			cnt = session.delete("Board.deleteOneBoard",oneonone_id);
+			if(cnt>0) session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session !=null) session.close();
+		}
+		
+		return cnt;
 	}
 	
 	
 	@Override
 	public List<OneBoardVO> getAllBoard() {
-SqlSession session = MybatisUtil.getSqlSession();
+		SqlSession session = MybatisUtil.getSqlSession();
 		
 		List<OneBoardVO>onboardList =null;
 		
