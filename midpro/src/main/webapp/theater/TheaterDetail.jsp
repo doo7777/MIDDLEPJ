@@ -20,7 +20,7 @@
             margin: 0;
             width: 100%;
             overflow-x: hidden;
-            background: blue;
+            background: black;
         }
 
         div {
@@ -79,21 +79,41 @@
             flex-direction: column; /* 세로 방향으로 정렬 */
         }
 
-        .bus, .subway {
-            width: 80px; /* 너비 설정 */
-            height: 80px; /* 높이 설정 */
-            background-size: cover; /* 배경 이미지 크기 조정 */
-            background-position: center; /* 배경 이미지 중앙 정렬 */
-            margin-top: 20px; /* 위쪽 여백 */
-            margin-bottom: 20px; /* 아래쪽 여백 */
-            margin-left: 50px; /* 왼쪽 여백 */
-        }
+		.transport-item {
+		    display: flex; /* Flexbox 사용 */
+		    align-items: center; /* 세로 방향 가운데 정렬 */
+		    margin-top: 10px;
+		    margin-bottom: 10px;
+		}
+		
+		.bus, .subway {
+		    width: 80px; /* 너비 설정 */
+		    height: 80px; /* 높이 설정 */
+		    background-size: cover; /* 배경 이미지 크기 조정 */
+		    background-position: center; /* 배경 이미지 중앙 정렬 */
+		    margin-right: 40px; /* 아이콘과 텍스트 사이의 여백 */
+		    margin-left: 20px;
+		}
+		
+		.transport-text {
+		    color: white; /* 텍스트 색상 */
+		    font-size: 18px; /* 텍스트 크기 조정 */
+		}
+		#map{
+		    margin-left: 260px;
+		    margin-top: 50px;
+		}
+		#price{
+			margin-left: 260px;
+		}
     </style>
 </head>
 <body>
+    <div>
+        <%@ include file="/main/Top.jsp" %>
+    </div>
 
     <%
-        CustomerVO result = (CustomerVO)session.getAttribute("ok");
         TheaterVO vo = (TheaterVO)request.getAttribute("theaterVo");  
         String tnm = vo.getTheater_name();
         String timg = vo.getTheater_img();
@@ -113,8 +133,7 @@
         <div class="information">
             <div class="left-content" style="position: absolute; left: 0; width: 50%; height: 100%; padding: 20px; box-sizing: border-box;">
                 <!-- 왼쪽에 입력할 내용 -->
-                <p>대전광역시 중구 계백로 1700 백화점세이<br>
-                대전광역시 중구 문화동 1-16 세이백화점 신관</p>
+                <p>DB주소 수정되면 코드 입력(신주소)<%-- <%=tadd %> --%><br></p>
                 <p><%=ttel %><br>
                 <%=tsc %></p>
             </div>
@@ -129,46 +148,38 @@
     <br>
     <br>
 
-    <h3 class="name">대중교통</h3>
-    <div id="transportation">
-        <div class="bus" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/bus.png');"></div>
-        <div class="subway" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/subway.png');"></div>
-    </div>
-    이미지 경로 테스트
-
-    <%-- <img src="${pageContext.request.contextPath}/theater/아이콘 이미지/bus.png" alt="Bus Icon"/> --%>
-
-    교통 정보 <br>
-    버스 : <%=tbus %><br>
-    지하철 : <%=tsub %><br>   
-    <br>
+	<h3 class="name">대중교통</h3>
+	<div id="transportation">
+	    <div class="transport-item">
+	        <div class="bus" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/bus.png');"></div>
+	        <span class="transport-text">버스<br>
+	        <ul>
+			  <li> <%=tbus %> </li>
+			</ul>
+	        </span>
+	    </div>
+	    <div class="transport-item">
+	        <div class="subway" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/subway.png');"></div>
+	        <span class="transport-text">지하철<br>
+	        <ul>
+			  <li> <%=tsub %> </li>
+			</ul>	        
+	        </span>
+	    </div>
+	</div>
+	    
+    
 
     <!-- 지도 api 영역 -->
     <div id="map" style="width:500px;height:400px;"></div>
     <!-- 실제 지도를 그리는 Javascript API -->
     <br>
-    <input type="button" id="timeBtn" value="상영시간표">
-    <button onclick="openRateTable()">요금표 보기</button>
+<!--     <input type="button" id="timeBtn" value="상영시간표"> -->
+    <button id="price" onclick="openRateTable()">요금표 보기</button>
     <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<%@ include file="/main/Bottom.jsp" %>
+	
     <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=b988732ec0d52355546afa135081f218"></script>
     <script>
         var container = document.getElementById('map'); // 지도를 표시할 영역(div)

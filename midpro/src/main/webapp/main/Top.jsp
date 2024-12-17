@@ -351,6 +351,7 @@
     $('#btn4').on('click', function() {
         window.location.href = '<%=request.getContextPath()%>/noticeList.do';
     });
+    
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">

@@ -227,6 +227,7 @@
             background-color: #333333; /* 호버 시 배경색 변경 */
         }
 
+<<<<<<< HEAD
         /* 회사소개 */
         .bottom_line {
             margin-top: 100px;
@@ -247,6 +248,9 @@
             position: absolute; /* 절대 위치 설정 */
             transform: translateX(100%);
         }
+=======
+        /* FAQ, 1:1문의, 대관게시판 */
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
         .client_btn_wrap a {
             display: inline-block;
@@ -254,13 +258,11 @@
             color: #f4f4f4;
             text-decoration: none;
         }
-
         .notice_wrap {
             font-weight: bold;
             margin-top: 20px; /* 위로 공간 추가 */
             margin-bottom: 10px;
         }
-
         .client_btn_wrap {
             font-weight: bold;
             margin-bottom: 20px;
