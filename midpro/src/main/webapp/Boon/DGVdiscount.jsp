@@ -263,146 +263,141 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-        /* 스토어 */
-        ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
 
-            h1 {
-                margin: 0;
-                color: white;
-                margin-top: 20px;
-            }
-            
-            h2, h3 {
-                margin: 0;
-                color: white;
-            }
+        /* 할인정보 메인 영역 */
+        .tit-head h2 {
+            text-align: center; /* 텍스트 중앙 정렬 */
+            color: white; /* 글자색 하얀색 */
+            margin: 0; /* 기본 여백 제거 */
+            font-size: 28px; /* 글자 크기 설정 */
+            font-weight: bold; /* 굵은 글꼴 */
+            margin-top: 20px; /* 아래쪽 여백 */
+            margin-bottom: 20px; /* 하단 여백 추가 */
+        }
+        /* 메뉴 링크 스타일 */
+        .menu-links {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 20px; /* 항목 간 간격 */
+            margin-bottom: 20px; /* 아래쪽 여백 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
 
-            /* 메인 컨테이너 */
-            .store-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: black;
-            }
+        .menu-links a {
+            color: white; /* 글자색을 흰색으로 설정 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-weight: bold; /* 글자 굵기 설정 */
+        }
 
-            /* 상단 타이틀 */
-            .store-header h1 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
+        .menu-links a:hover {
+            color: red; /* 마우스 호버 시 색상 변경 (예: 빨간색) */
+        }
+        /* 서브메뉴 스타일 */
+        .submenu {
+            margin-top: 10px;
+            text-align: left; /* 서브메뉴 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            position:absolute; 
+            top: 40px;
+            right: 260px;
+            border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+        }
+        .submenu ul {
+            list-style: none; /* 목록 스타일 제거 */
+            margin: 0;
+            padding: 0;
+        }
+        .submenu ul li {
+            display: inline; /* 가로로 배치 */
+            margin: 0 10px; /* 항목 간 간격 */
+        }
+        /* 링크 스타일 */
+        .submenu ul li a {
+            text-decoration: none; /* 밑줄 제거 */
+            color: white; /* 글자색 */
+        }
+        /* 링크 호버 효과 */
+        .submenu ul li a:hover {
+            color: red; /* 호버 시 색상 변경 */
+        }
+        .custom-hr {
+            border: none; /* 기본 테두리 제거 */
+            height: 2px; /* 줄 두께 */
+            background-color: white; /* 줄 색상 */
+            width: 85%; /* 줄의 너비 */
+            margin: 10px 0; /* 상하 간격, 좌우 여백 제거 */
+            text-align: left; /* 텍스트 정렬 */
+        }
 
-            .store-menu {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-                font-size: 16px;
-                color: white;
-                gap: 50px;
-            }
+        /* 메인 배너 이미지 */
+        .banner {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 20px; /* 이미지 간격 */
+            margin: 20px auto; /* 상하 여백 및 중앙 배치 */
+            width: 80%; /* 배너 전체 너비 줄이기 */
+        }
 
-            .store-menu span {
-                cursor: pointer;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            }
+        .banner img {
+            width: 45%; /* 각 이미지의 너비 */
+            height: auto;
+            border-radius: 10px;
+        }
 
-            .store-menu li {
-                cursor: pointer;
-                padding-bottom: 5px;
-                transition: color 0.3s, border-bottom 0.3s;
-            }
+        /* 탭 메뉴 */
+        .tabs {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 30px; /* 항목 간 간격 */
+            margin: 30px auto; /* 상하 여백 및 중앙 배치 */
+            border-bottom: 1px solid #ddd;
+            width: 70%; /* 탭 메뉴 너비 */
+        }
 
-            .store-menu li.active {
-                font-weight: bold;
-                color: #ef8400;
-                border-bottom: 2px solid #ef8400;
-            }
+        .tabs a {
+            color: gray;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* 밑줄 제거 */
+        }
 
-            /* 패키지 설명 */
-            .package-title {
-                margin: 30px 0;
-                text-align: left;
-            }
+        .tabs a:hover,
+        .tabs a.hot {
+            color: red;
+        }
 
-            .package-title h2 {
-                font-size: 1.8rem;
-                font-weight: bold;
-            }
+        /* 이벤트 이미지 섹션 */
+        .content-box {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 20px; /* 이미지 간 간격 */
+            margin: 30px auto; /* 상하 여백 및 중앙 배치 */
+            width: 80%; /* 이벤트 정보 전체 너비 */
+        }
 
-            .package-title p {
-                font-size: 1.2rem;
-                color: white;
-            }
+        .content-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 45%; /* 각 이벤트 항목 너비 */
+        }
 
-            /* 패키지 아이템 목록 */
-            .package-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
-                gap: 20px;
-            }
+        .content-item img {
+            width: 100%; /* 이미지 너비 조정 */
+            height: auto;
+            border-radius: 10px;
+        }
 
-            .package-item {
-                background: d;
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                text-align: center;
-                padding: 15px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
+        .content-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
 
-            .package-item:hover {
-                transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
-            }
-
-            .package-item img {
-                width: 100%;
-                max-width: 180px; /* 이미지 크기 제한 */
-                margin-bottom: 10px;
-            }
-
-            .package-item h3 {
-                font-size: 1.2rem;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-
-            .package-item p {
-                font-size: 1rem;
-                color: #666;
-                margin-bottom: 10px;
-            }
-
-            .package-item .price {
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: #ef8400;
-            }
-
-            .package-item del {
-                font-size: 0.9rem;
-                color: #999;
-                margin-left: 5px;
-            }
-
-            /* 반응형 디자인 */
-            @media (max-width: 768px) {
-                .package-grid {
-                    grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
-                }
-            }
-
-            @media (max-width: 480px) {
-                .package-grid {
-                    grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
-                }
-            }
+        .content-item p {
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -410,50 +405,42 @@
     <div>
         <%@ include file="/main/Top.jsp" %>
     </div>
-    <!-- 스토어 -->
-    <div class="store-container">
-        <!-- 상단 타이틀 -->
-        <div class="store-header">
-            <h1>스토어</h1>
-            <div class="store-menu">
-                <span class="active">패키지</span>
-                <span>영화관람권</span>
-                <span>기프트카드</span>
-                <span>콤보</span>
-                <span>팝콘</span>
-                <span>음료</span>
-                <span>스낵</span>
-                <span>플레이존</span>
-                <span>상품권소개</span>
-                </div>
+    <!-- 광고 부분 -->
+    <div class="tit-head">
+        <h2>DGV 할인정보</h2>
+        <div class="menu-links">
+            <a href="#">할인카드</a> | 
+            <a href="#">KT 영화 무료/할인</a> | 
+            <a href="#">LGU+ 나만의콕 영화무료</a>
         </div>
+    </div>
 
-        <!-- 패키지 설명 -->
-        <div class="package-title">
-            <h2>패키지</h2>
-            <p>마음을 담아 선물하세요</p>
+    <!-- 배너 -->
+    <div class="banner">
+        <img src="https://via.placeholder.com/500x300" alt="배너 이미지1">
+        <img src="https://via.placeholder.com/500x300" alt="배너 이미지2">
+    </div>
+
+    <!-- 탭 메뉴 -->
+    <div class="tabs">
+        <a href="#" class="hot">hot</a>
+        <a href="#">통신사</a>
+        <a href="#">신용카드</a>
+        <a href="#">포인트</a>
+        <a href="#">극장별할인</a>
+    </div>
+
+    <!-- 이벤트 정보 -->
+    <div class="content-box">
+        <div class="content-item">
+            <img src="https://via.placeholder.com/250x200" alt="이벤트 이미지">
+            <h3>GS&POINT 회원이라면 할인!</h3>
+            <p>DGV에서 포인트로 영화 보자!</p>
         </div>
-
-        <!-- 패키지 아이템 목록 -->
-        <div class="package-grid">
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/우리-패키지.jpg" alt="우리패키지" />
-                <h3>우리 패키지</h3>
-                <p>일반 영화 관람권 4매+더블콤보 1개</p>
-                <span class="price">62,000원 <del>66,000원</del></span>
-            </div>
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/나랑-너-패키지.jpg" alt="나랑 너 패키지" />
-                <h3>나랑 너 패키지</h3>
-                <p>일반 영화 관람권 2매+CGV콤보 1개</p>
-                <span class="price">35,000원 <del>37,000원</del></span>
-            </div>
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/좋은-날-패키지.jpg" alt="좋은 날 패키지" />
-                <h3>좋은 날 패키지</h3>
-                <p>일반 영화 관람권 1매+스몰세트 1개</p>
-                <span class="price">18,000원 <del>20,000원</del></span>
-            </div>
+        <div class="content-item">
+            <img src="https://via.placeholder.com/250x200" alt="이벤트 이미지">
+            <h3>신세계포인트로 영화관람</h3>
+            <p>영화 예매 시 500P 단위 사용!</p>
         </div>
     </div>
     

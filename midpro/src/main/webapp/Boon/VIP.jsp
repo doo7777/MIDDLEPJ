@@ -263,146 +263,134 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-        /* 스토어 */
-        ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
 
-            h1 {
-                margin: 0;
-                color: white;
-                margin-top: 20px;
-            }
+        /* VIP 메인 영역 */
+        .tit-head h2 {
+            text-align: center; /* 텍스트 중앙 정렬 */
+            color: white; /* 글자색 하얀색 */
+            margin: 0; /* 기본 여백 제거 */
+            font-size: 28px; /* 글자 크기 설정 */
+            font-weight: bold; /* 굵은 글꼴 */
+            margin-bottom: 20px; /* 하단 여백 추가 */
+        }
+
+        /* VIP */
+        /* 전체 컨테이너 */
+        .vip-lounge-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: black;
+        }
+
+        /* 타이틀 스타일 */
+        .vip-lounge-title h2 {
+            text-align: center;
+            border-bottom: 2px solid;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-size: 28px;
+            color: white;
+            margin: 20px 0;
+        }
+
+        /* VIP 헤더 */
+        .vip-header {
+            background: black;
+            color: white;
+            text-align: center;
             
-            h2, h3 {
-                margin: 0;
-                color: white;
-            }
+        }
+        .vip-header h2 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .vip-header p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
 
-            /* 메인 컨테이너 */
-            .store-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: black;
-            }
+        /* VIP 배지와 프로그레스 스타일 */
+        .vip-info-wrapper {
+            display: flex;
+            justify-content: center; /* 수평 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            background: black;
+            padding: 20px; /* 내부 여백 유지 */
+            color: white;
+            max-width: 1000px; /* 너비를 줄여서 안쪽으로 모으기 */
+            margin: 0 auto; /* 중앙 배치 */
+            border-radius: 10px; /* 둥근 테두리 추가 (선택사항) */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 가벼운 그림자 추가 (선택사항) */
+        }
 
-            /* 상단 타이틀 */
-            .store-header h1 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
+        .vip-badge {
+            width: 120px;
+            height: 120px;
+            background: #ef8400;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vip-progress {
+            margin-left: 0px;
+            flex: 2;
+            margin-left: 30px;
+        }
+        .vip-progress p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .vip-progress em {
+            color: #ef8400;
+            font-style: normal;
+        }
+        .progress-container {
+            width: 100%; /* 컨테이너 너비 */
+            background: none; /* 문제 해결: 배경색 제거 */
+            height: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .progress-bar {
+            width: 100%; /* 초기 값 */
+            background: #ef8400; /* 진행 바 색상 */
+            height: 10px;
+            border-radius: 5px;
+        }
+        .progress-text {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #ef8400;
+        }
 
-            .store-menu {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-                font-size: 16px;
-                color: white;
-                gap: 50px;
-            }
-
-            .store-menu span {
-                cursor: pointer;
-                padding: 5px 10px;
-                border-bottom: 2px solid transparent;
-                transition: all 0.3s ease;
-            }
-
-            .store-menu li {
-                cursor: pointer;
-                padding-bottom: 5px;
-                transition: color 0.3s, border-bottom 0.3s;
-            }
-
-            .store-menu li.active {
-                font-weight: bold;
-                color: #ef8400;
-                border-bottom: 2px solid #ef8400;
-            }
-
-            /* 패키지 설명 */
-            .package-title {
-                margin: 30px 0;
-                text-align: left;
-            }
-
-            .package-title h2 {
-                font-size: 1.8rem;
-                font-weight: bold;
-            }
-
-            .package-title p {
-                font-size: 1.2rem;
-                color: white;
-            }
-
-            /* 패키지 아이템 목록 */
-            .package-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
-                gap: 20px;
-            }
-
-            .package-item {
-                background: d;
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                text-align: center;
-                padding: 15px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
-
-            .package-item:hover {
-                transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
-            }
-
-            .package-item img {
-                width: 100%;
-                max-width: 180px; /* 이미지 크기 제한 */
-                margin-bottom: 10px;
-            }
-
-            .package-item h3 {
-                font-size: 1.2rem;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-
-            .package-item p {
-                font-size: 1rem;
-                color: #666;
-                margin-bottom: 10px;
-            }
-
-            .package-item .price {
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: #ef8400;
-            }
-
-            .package-item del {
-                font-size: 0.9rem;
-                color: #999;
-                margin-left: 5px;
-            }
-
-            /* 반응형 디자인 */
-            @media (max-width: 768px) {
-                .package-grid {
-                    grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
-                }
-            }
-
-            @media (max-width: 480px) {
-                .package-grid {
-                    grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
-                }
-            }
+        /* VIP 점수 기준 섹션 */
+        .vip-points-container {
+            margin-top: 20px;
+        }
+        .vip-points-section {
+            border: 1px dashed white;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: black;
+        }
+        .vip-points-section h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ef8400;
+        }
+        .vip-points-section ul {
+            list-style: none;
+            padding-left: 0;
+            line-height: 1.8;
+            font-size: 14px;
+            color: white;
+        }
     </style>
 </head>
 
@@ -410,49 +398,49 @@
     <div>
         <%@ include file="/main/Top.jsp" %>
     </div>
-    <!-- 스토어 -->
-    <div class="store-container">
-        <!-- 상단 타이틀 -->
-        <div class="store-header">
-            <h1>스토어</h1>
-            <div class="store-menu">
-                <span class="active">패키지</span>
-                <span>영화관람권</span>
-                <span>기프트카드</span>
-                <span>콤보</span>
-                <span>팝콘</span>
-                <span>음료</span>
-                <span>스낵</span>
-                <span>플레이존</span>
-                <span>상품권소개</span>
+    <!-- VIP LOUNGE 섹션 시작 -->
+    <div class="vip-lounge-container">
+        <div class="vip-lounge-content">
+            <div class="vip-header">
+                <h2>VIP LOUNGE</h2>
+                <p>영화마니아라면 놓칠 수 없는 특별한 혜택</p>
+            </div>
+
+            <div class="vip-info-wrapper">
+                <div class="vip-badge">
+                    일반
                 </div>
+                <div class="vip-progress">
+                    <p><span>su**jh0712</span> 님은 <em>일반</em>입니다.</p>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p class="progress-text">
+                        <span>0점</span> / <span>10,000점</span>
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <!-- 패키지 설명 -->
-        <div class="package-title">
-            <h2>패키지</h2>
-            <p>마음을 담아 선물하세요</p>
-        </div>
-
-        <!-- 패키지 아이템 목록 -->
-        <div class="package-grid">
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/우리-패키지.jpg" alt="우리패키지" />
-                <h3>우리 패키지</h3>
-                <p>일반 영화 관람권 4매+더블콤보 1개</p>
-                <span class="price">62,000원 <del>66,000원</del></span>
+        <!-- VIP 점수 기준 및 제외 기준 -->
+        <div class="vip-points-container">
+            <div class="vip-points-section">
+                <h3>VIP점수 반영 기준</h3>
+                <ul>
+                    <li>· DGV에서 매표, 매점, 씨네드쉘프 F&B, 오프라인 내 써비스에서 구매하신 금액 기준 및 이벤트 보상이 합산되어 반영됩니다.</li>
+                    <li>· 구매 시, CJ ONE 포인트 적립 등 고객정보가 반영된 내역으로 집계됩니다.</li>
+                    <li>· 매표는 사전예매 5%, 당일예매 3%로, 상영일 기준 익월 누적 반영됩니다.</li>
+                    <li>· 매점과 부대시설은 3%로, 결제일 기준 익월 반영됩니다.</li>
+                    <li>· VIP점수 반영일이 2~3일 지연될 수 있습니다.</li>
+                </ul>
             </div>
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/나랑-너-패키지.jpg" alt="나랑 너 패키지" />
-                <h3>나랑 너 패키지</h3>
-                <p>일반 영화 관람권 2매+CGV콤보 1개</p>
-                <span class="price">35,000원 <del>37,000원</del></span>
-            </div>
-            <div class="package-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/좋은-날-패키지.jpg" alt="좋은 날 패키지" />
-                <h3>좋은 날 패키지</h3>
-                <p>일반 영화 관람권 1매+스몰세트 1개</p>
-                <span class="price">18,000원 <del>20,000원</del></span>
+            <div class="vip-points-section">
+                <h3>VIP점수 제외 기준</h3>
+                <ul>
+                    <li>· CJ ONE 포인트와 VIP점수는 무관합니다.</li>
+                    <li>· CJ ONE 이벤트 보상, 실물경품 등 VIP 멤버십과 무관한 적립 내역은 제외됩니다.</li>
+                    <li>· 구매 시 CJ ONE 포인트 사용을 비롯한 쿠폰 등 할인 적용된 금액은 제외됩니다.</li>
+                </ul>
             </div>
         </div>
     </div>
