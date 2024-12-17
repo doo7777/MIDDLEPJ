@@ -344,7 +344,7 @@
 
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
-            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <% if(result==null){ %>
             <div class="IDBtn">
