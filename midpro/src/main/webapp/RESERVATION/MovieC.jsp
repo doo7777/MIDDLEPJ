@@ -8,17 +8,28 @@
 <head>
     <title>영화 예약 시스템</title>
 </head>
-<%-- <%  CustomerVO customerVo = (CustomerVO)session.getAttribute("ok");%> --%>
 <body>
+<%
+  
+    CustomerVO loginSession2 = (CustomerVO) session.getAttribute("ok");
+
+    if (loginSession2 == null) {
+%>
+    <h3 style="text-align: center;">로그인 정보가 없습니다. 로그인 후 다시 시도해주세요.</h3>
+<%
+    } else {
+%>
+
     <h1>영화 예약 시스템</h1>
 
     <form action="reservation.do" method="post">
         <label for="customer_id">고객 ID:</label>
-     <%--    <%=customerVo.getCust_name() %> --%>
-        <input type="text" id="customer_id" name="customer_id" required>
+        <input type="text" id="customer_id" name="customer_id"
+              value="<%= loginSession2.getCustomer_id() %>" readonly>
         <br><br>
         <label for="movie_name">영화 선택:</label>
         <select id="movie_name" name="movie_name" required>
+        
 
         </select>
         <br><br>
@@ -63,5 +74,8 @@
     <c:if test="${not empty errorMessage}">
         <p style="color: red;">${errorMessage}</p>
     </c:if>
+    <%
+    }
+    %>
 </body>
 </html>
