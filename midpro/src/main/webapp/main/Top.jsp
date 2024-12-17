@@ -197,6 +197,7 @@
             border: none;
         }
 
+
         .sidebar button {
             background-color: white;
             color: black;
