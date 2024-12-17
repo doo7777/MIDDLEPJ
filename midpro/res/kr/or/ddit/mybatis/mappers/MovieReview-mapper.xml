@@ -6,6 +6,7 @@
 <mapper namespace="Review">
 
     <insert id="insertReview" parameterType="reviewVO">
+
         INSERT INTO REVIEW (MOVIE_ID, CUSTOMER_ID, REV_STAR, REV_CONTENT, REV_DATE)
         VALUES (#{movie_id}, #{customer_id}, #{rev_star}, #{rev_content}, SYSDATE)
     </insert>
@@ -27,5 +28,6 @@
 <!--     <select id="getAllReview" resultType="Vo.ReviewVO"> -->
 <!--         SELECT * FROM REVIEW -->
 <!--     </select> -->
+
     
 </mapper>
