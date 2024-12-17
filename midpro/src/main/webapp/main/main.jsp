@@ -309,7 +309,6 @@
         </div>
     </div>
 
-
     <div class="header" id="store"> <!-- 스토어 영역 -->
         <div class="package">
             <i class="fa-solid fa-plus"></i>
