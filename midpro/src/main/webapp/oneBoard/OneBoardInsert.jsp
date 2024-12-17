@@ -102,9 +102,10 @@
                 <label for="question_type">문의 유형</label>
                 <select id="question_type" name="question_type" required>
                     <option value="">-- 유형을 선택하세요 --</option>
-                    <option value="general">일반 문의</option>
-                    <option value="technical">기술 지원</option>
-                    <option value="billing">결제 문의</option>
+                    <option value="일반 문의">일반 문의</option>
+                    <option value="시설 문의">기술 지원</option>
+                    <option value="결제 문의">결제 문의</option>
+                    <option value="불만 접수">불만 접수</option>
                 </select>
             </div>
 
