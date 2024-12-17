@@ -58,7 +58,13 @@
     
 
     <!-- 1:1 문의 삭제 -->
-<!--     <delete id="deleteOneBoard" parameterType="String"> -->
-<!--         DELETE FROM oneboard WHERE oneonone_id = #{oneonone_id} -->
-<!--     </delete> -->
+    <delete id="deleteOneBoard" parameterType="String">
+        DELETE FROM oneboard WHERE oneonone_id = #{oneonone_id}
+    </delete>
+    
+<!--     1:1문의 전체리스트 조회 -->
+  <select id="getAllOneBoard" resultType="OneBoardVO">
+        SELECT * FROM oneboard
+    </select>
+
 </mapper>

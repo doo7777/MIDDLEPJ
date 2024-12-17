@@ -16,7 +16,7 @@ public interface IOneBoardDao {
 	 * @param Board_ID
 	 * @return
 	 */
-	public int deleteBoard(int Board_ID);
+	public int deleteBoard(String oneonone_id);
 	
 	
 	public List<OneBoardVO> getAllBoard();
