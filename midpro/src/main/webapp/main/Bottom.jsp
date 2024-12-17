@@ -14,6 +14,17 @@
     .bottom_line {
         margin-top: 100px;
     }
+    #company {
+		height: 400px; /* 회사 정보 영역의 높이 설정 */
+		color: white;
+		width: 700px; /* 고정 너비 유지 */
+		margin: 0; /* 기본 여백 제거 */
+		margin-top: 100px; /* 위쪽 여백 */
+		text-align: center;
+		overflow: hidden; /* 내용이 잘리도록 설정 */
+		position: absolute; /* 절대 위치 설정 */
+		transform: translateX(100%);
+	}
     
 </style>
 <body>
