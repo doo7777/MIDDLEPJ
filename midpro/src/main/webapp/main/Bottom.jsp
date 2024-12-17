@@ -8,9 +8,6 @@
     <title>Insert title here</title>
 </head>
 <style>
-    #bottom {
-        height: 250px; /* 하단 영역의 높이 설정 */
-    }
     .bottom_line {
         margin-top: 100px;
     }
