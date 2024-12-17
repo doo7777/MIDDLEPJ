@@ -174,7 +174,7 @@
         <div class="event-header">
             <h2>EVENT</h2>
             <div class="event-menu">
-                <span>SPECIAL</span>
+                <span id="special2">SPECIAL</span>
                 <span class="active">영화/예매</span>
             </div>
         </div>
@@ -227,84 +227,8 @@
 </body>
 
 <script>
-    const barParam = '<%=request.getParameter("bar")%>';
-    if (barParam === 'on') {
-        updateSidebarContent();
-        moveSidebar();
-    }
-
-    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.header');
-        const charts = document.querySelectorAll('.chart');
-        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
-
-        if (header) {
-            header.addEventListener('click', function(event) {
-                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
-                if (event.target.closest('.menu-button')) {
-                    charts.forEach((chart) => {
-                        chart.classList.remove('show');
-                        chart.classList.add('hide');
-                    });
-
-                    setTimeout(() => {
-                        charts.forEach((chart, index) => {
-                            setTimeout(() => {
-                                chart.classList.remove('hide');
-                                chart.classList.add('show');
-                            }, index * 100);
-                        });
-                    }, 500);
-                }
-            });
-
-            charts.forEach((chart, index) => {
-                setTimeout(() => {
-                    chart.classList.add('show');
-                }, index * 100);
-            });
-        }
-        const buttons = document.querySelectorAll('.menu-button');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
-        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
-            return randomNum; // 난수를 반환
-        }
-
-        function loadRandomVideo() {
-            const randomNum = movie_play(); // 난수 생성
-
-            // 모든 소스의 src를 초기화
-            for (let i = 0; i < sourcesElement.length; i++) {
-                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
-            }
-
-            // 선택된 소스의 src를 설정
-            videoPlayerElement.src = sourcesElement[randomNum].src;
-
-            // videoPlayer가 비디오 요소인지 확인
-            if (videoPlayerElement instanceof HTMLVideoElement) {
-                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
-                videoPlayerElement.play(); // 비디오 자동 재생
-            } else {
-                console.error('videoPlayer is not a valid video element');
-            }
-        }
-
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
-    });
+$('#special2').on('click',function(){
+	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+});
 </script>
 </html>

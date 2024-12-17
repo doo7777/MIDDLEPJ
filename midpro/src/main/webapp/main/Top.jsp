@@ -293,21 +293,21 @@
                         <li><a href="#">상영스케줄</a></li> <!-- 하위 메뉴: 상영스케줄 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">스토어</a> <!-- 스토어 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="store">스토어</a> <!-- 스토어 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">패키지</a></li> <!-- 하위 메뉴: 패키지 -->
-                        <li><a href="#">영화관람권</a></li> <!-- 하위 메뉴: 영화관람권 -->
-                        <li><a href="#">기프트카드</a></li> <!-- 하위 메뉴: 기프트카드 -->
-                        <li><a href="#">콤보</a></li> <!-- 하위 메뉴: 콤보 -->
-                        <li><a href="#">팝콘</a></li> <!-- 하위 메뉴: 팝콘 -->
-                        <li><a href="#">음료</a></li> <!-- 하위 메뉴: 음료 -->
-                        <li><a href="#">스낵</a></li> <!-- 하위 메뉴: 스낵 -->
+                        <li><a href="#" id="package">패키지</a></li> <!-- 하위 메뉴: 패키지 -->
+                        <li><a href="#" id="movieticket">영화관람권</a></li> <!-- 하위 메뉴: 영화관람권 -->
+                        <li><a href="#" id="giftcard">기프트카드</a></li> <!-- 하위 메뉴: 기프트카드 -->
+                        <li><a href="#" id="combo">콤보</a></li> <!-- 하위 메뉴: 콤보 -->
+                        <li><a href="#" id="popcorn">팝콘</a></li> <!-- 하위 메뉴: 팝콘 -->
+                        <li><a href="#" id="drink">음료</a></li> <!-- 하위 메뉴: 음료 -->
+                        <li><a href="#" id="snack">스낵</a></li> <!-- 하위 메뉴: 스낵 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">이벤트</a> <!-- 이벤트 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="event">이벤트</a> <!-- 이벤트 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">스페셜</a></li> <!-- 하위 메뉴: 스페셜 -->
-                        <li><a href="#">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
+                        <li><a href="#" id="special">스페셜</a></li> <!-- 하위 메뉴: 스페셜 -->
+                        <li><a href="#" id="movres">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
                     </ul>
                 </li>
                 <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
@@ -336,6 +336,50 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
+    $('#movres').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
+    });
+    
+    $('#event').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+    });
+    
+    $('#special').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+    });
+    
+    $('#package').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
+    });
+    
+    $('#movieticket').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/movieticket.jsp';
+    });
+    
+    $('#giftcard').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
+    });
+    
+    $('#combo').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/combo.jsp';
+    });
+    
+    $('#popcorn').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/popcorn.jsp';
+    });
+    
+    $('#drink').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/drink.jsp';
+    });
+    
+    $('#snack').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
+    });
+    
+	$('#store').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
+    });
+	
     $('.logo').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
     });
