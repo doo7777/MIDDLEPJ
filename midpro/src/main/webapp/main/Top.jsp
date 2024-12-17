@@ -9,10 +9,10 @@
 </head>
  <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
 <body>
- <div id="main"> <!-- 메인 컨테이너 -->
+ 	<div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-                <img src="sorce/img/DGV-로고.png" alt="로고" class="logo">
+               <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" class="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
@@ -121,16 +121,16 @@
     
     function updateSidebarContent() {
         sidebarContent.innerHTML = ` 
-            <img src="sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <%if(result==null){%>
             <div class="IDBtn"> 
-            <img src="sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
+            <img src="<%= request.getContextPath() %>/main/sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img"> 
             <input type="text" title="아이디" id="username" name="cust_id"  required class="IDBtn_box">
             <br><br> 
         </div> 
         <div class="PWBtn"> 
-        <img src="sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
+        <img src="<%= request.getContextPath() %>/main/sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
         <input type="password" title="패스워드" id="password" name="cust_pw"  required class="PWBtn_box">
         <br><br> 
     </div>
