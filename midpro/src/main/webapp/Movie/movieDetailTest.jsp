@@ -458,22 +458,38 @@
                 display: block;
             }
             
+            /* 이미지 갤러리 컨테이너 */
+			.image-gallery {
+			    position: relative; /* 버튼의 위치 기준을 설정 */
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    max-width: 500px; /* 갤러리 너비 제한 */
+			    margin: 20px auto; /* 가운데 정렬 */
+			}
+            
             /* 화살표 버튼 스타일 */
 			.arrow {
 			    background-color: transparent;
 			    color: white;
-			    font-size: 30px;
+			    font-size: 40px;
+			    font-weight: bold;
 			    cursor: pointer;
 			    padding: 10px;
 			    transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
 			    border: none;
+			    border-radius: 50%;
+			    position: absolute;
+			    top: 50%; /* 부모 요소의 정중앙으로 설정 */
+			    transform: translateY(-50%); /* 수직 중앙 정렬 */
+			    z-index: 10; /* 다른 요소 위에 표시되도록 */
 			}
 			
 			/* 왼쪽 화살표 */
 			.arrow.left-arrow {
 			    position: absolute;
 				top: 50%; /* 수직 중앙 */
-    			left: 10px;
+    			left: -50px;
 			    transform: translateY(-50%);
 			}
 			
@@ -481,7 +497,7 @@
 			.arrow.right-arrow {
 			    position: absolute;
 				top: 50%; /* 수직 중앙 */
-    			right: 10px;
+    			right: -50px;
 			    transform: translateY(-50%);
 			}
 

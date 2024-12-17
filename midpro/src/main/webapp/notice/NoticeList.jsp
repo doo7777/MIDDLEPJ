@@ -174,10 +174,6 @@
     <% 
         }
     %>
-<<<<<<< HEAD
-    <a href="<%=request.getContextPath() %>/index.jsp">첫 화면으로 돌아가기</a>
-    <a href="<%=request.getContextPath() %>/oneBoardInsert.do">1:1문의글로 이동</a>
-=======
     <div id="onebyone">
     	<table>
         <thead>
@@ -233,8 +229,9 @@
 <%--         <p><strong>번호:</strong> <%= selectedNotice.getNotice_id() %></p> --%>
 <%--         <p><strong>구분:</strong> <%= selectedNotice.getNotice_sort() %></p> --%>
         <p><strong>제목:</strong> <%= selectedOneBoard.getSubject() %></p>
-        <p><strong>내용:</strong> <%= selectedOneBoard.getContent() %></p>        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
-        <p><strong>작성자:</strong> <%= selectedOneBoard.getCustomer_id() %></p>
+        <p><strong>내용:</strong> <%= selectedOneBoard.getContent() %></p>       
+        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
+<%--         <p><strong>작성자:</strong> <%= selectedOneBoard.getCustomer_id() %></p> --%>
 <%--         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p> --%>
 
         <!-- 수정/삭제 버튼 -->
@@ -251,6 +248,5 @@
    	 %>
     </div>
     </div>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </body>
 </html>

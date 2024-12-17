@@ -226,26 +226,7 @@
             background-color: #333333; /* 호버 시 배경색 변경 */
         }
 
-        /* 회사소개 */
-        .bottom_line {
-            margin-top: 100px;
-        }
-
-        .parent {
-            position: relative; /* 부모 요소에 상대 위치 설정 */
-        }
-
-        #company {
-            height: 400px; /* 회사 정보 영역의 높이 설정 */
-            color: white;
-            width: 700px; /* 고정 너비 유지 */
-            margin: 0; /* 기본 여백 제거 */
-            margin-top: 100px; /* 위쪽 여백 */
-            text-align: center;
-            overflow: hidden; /* 내용이 잘리도록 설정 */
-            position: absolute; /* 절대 위치 설정 */
-            transform: translateX(100%);
-        }
+        /* FAQ, 1:1문의, 대관게시판 */
 
         .client_btn_wrap a {
             display: inline-block;
@@ -253,13 +234,11 @@
             color: #f4f4f4;
             text-decoration: none;
         }
-
         .notice_wrap {
             font-weight: bold;
             margin-top: 20px; /* 위로 공간 추가 */
             margin-bottom: 10px;
         }
-
         .client_btn_wrap {
             font-weight: bold;
             margin-bottom: 20px;
@@ -268,9 +247,7 @@
 </head>
 
 <body>
-    <div>
         <%@ include file="Top.jsp" %>
-    </div>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
             <source src="sorce/영상 소스파일1.mp4" type="video/mp4">
