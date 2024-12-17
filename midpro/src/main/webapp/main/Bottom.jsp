@@ -11,6 +11,7 @@
     #bottom {
         height: 250px; /* 하단 영역의 높이 설정 */
     }
+    
 </style>
 <body>
     <hr class="bottom_line">

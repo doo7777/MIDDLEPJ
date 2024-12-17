@@ -13,6 +13,7 @@
             left: 2px;
         }
 
+
         body {
             margin: 0;
             width: 100%;
@@ -29,7 +30,7 @@
             margin: -20px 0 0;
             border: none;
             height: 2px;
-            background-color: #ef8400;
+            background-color: white;
             position: relative;
             left: -2px;
         }
@@ -211,7 +212,7 @@
             align-items: center; /* 수직 중앙 정렬 */
             padding: 20px 30px; /* 패딩 조정 (더 크게) */
             font-size: 18px; /* 글자 크기 조정 */
-            background-color: #ef8400; /* 배경색 */
+            background-color: gray; /* 배경색 */
             color: white; /* 글자색 */
             border-radius: 5px; /* 모서리 둥글게 */
             cursor: pointer; /* 마우스 커서 변경 */
@@ -222,7 +223,7 @@
         }
 
         .reservation_btn:hover {
-            background-color: #d68a00; /* 호버 시 배경색 변경 */
+            background-color: #333333; /* 호버 시 배경색 변경 */
         }
 
         /* 회사소개 */
