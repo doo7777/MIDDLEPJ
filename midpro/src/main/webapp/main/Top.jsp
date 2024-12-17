@@ -8,11 +8,16 @@
 <title>Insert title here</title>
 </head>
  <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
+ <style>
+ #logo {
+  cursor: pointer;
+}
+ </style>
 <body>
  	<div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
-               <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" class="logo">
+               <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" class="logo" id="logo">
                 <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
                 <div class="topIcon">
                 
@@ -110,6 +115,13 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
+    $('#logo').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#current').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/theaterList.do';
+    });
     
     $('#moviechart').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
