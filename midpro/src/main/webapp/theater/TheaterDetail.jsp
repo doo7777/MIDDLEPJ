@@ -91,6 +91,7 @@
     </style>
 </head>
 <body>
+
     <%
         CustomerVO result = (CustomerVO)session.getAttribute("ok");
         TheaterVO vo = (TheaterVO)request.getAttribute("theaterVo");  
@@ -106,6 +107,7 @@
         String tspot2 = vo.getTheater_spot2();
     %>
 
+    
     <h3 class="name">DGV <%=tnm %></h3>
     <div id="detail" style="background-image: url('<%=request.getContextPath() %>/theaterImage.do?theaterName=<%=vo.getTheater_name() %>'); background-size: cover; background-position: center;">
         <div class="information">
@@ -148,6 +150,24 @@
     <input type="button" id="timeBtn" value="상영시간표">
     <button onclick="openRateTable()">요금표 보기</button>
     <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=b988732ec0d52355546afa135081f218"></script>
     <script>
