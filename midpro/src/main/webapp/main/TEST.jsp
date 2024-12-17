@@ -1,4 +1,3 @@
-
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -264,181 +263,146 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-        /* 고객센터 */
-            /* 전체 레이아웃 */
-            .customer-service-container {
-                display: flex;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-                gap: 20px;
-                font-family: Arial, sans-serif;
-                color: white;
-            }
+        /* 스토어 */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-            /* 왼쪽 메뉴 */
-            .left-menu {
-                flex: 1;
-            }
+        h1 {
+            margin: 0;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        h2, h3 {
+            margin: 0;
+            color: white;
+        }
 
-            .menu-button {
-                background-color: #ef8400;
-                color: white;
-                border: none;
-                width: 100%;
-                padding: 10px;
-                font-weight: bold;
-                font-size: 16px;
-                cursor: pointer;
-            }
+        /* 메인 컨테이너 */
+        .store-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+        }
 
-            .left-menu ul {
-                margin-top: 20px;
-                list-style: none;
-                padding: 0;
-            }
+        /* 상단 타이틀 */
+        .store-header h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-            .left-menu li {
-                padding: 10px;
-                cursor: pointer;
-                transition: background 0.3s;
-            }
+        .store-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 16px;
+            color: white;
+            gap: 50px;
+        }
 
-            .left-menu li:hover {
-                background-color: #f8f8f8;
-                color: #ef8400;
-            }
+        .store-menu span {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
 
-            .banner-image {
-                width: 100%;
-                margin-top: 20px;
-                border-radius: 5px;
-            }
+        .store-menu li {
+            cursor: pointer;
+            padding-bottom: 5px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
 
-            /* 메인 컨텐츠 */
-            .main-content {
-                flex: 3;
-            }
+        .store-menu li.active {
+            font-weight: bold;
+            color: #ef8400;
+            border-bottom: 2px solid #ef8400;
+        }
 
-            .quick-search {
-                background-color: #ef8400;
-                color: white;
-                padding: 10px;
-                border-radius: 5px;
-                text-align: center;
-            }
+        /* 패키지 설명 */
+        .package-title {
+            margin: 30px 0;
+            text-align: left;
+        }
 
-            .quick-search input {
-                width: 97%;
-                padding: 10px;
-                margin-top: 10px;
-                border: none;
-                border-radius: 5px;
-            }
+        .package-title h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-            .quick-search-buttons{
-                border-color: transparent;
-                margin-top: 10px;
-            }
+        .package-title p {
+            font-size: 1.2rem;
+            color: white;
+        }
 
-            .quick-search-buttons span {
-                background-color: white;
-                color: #ef8400;
-                padding: 5px 10px;
-                margin: 5px;
-                border-radius: 5px;
-                display: inline-block;
-                cursor: pointer;
-                font-size: 14px;
-            }
+        /* 패키지 아이템 목록 */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
+            gap: 20px;
+        }
 
-            .quick-options {
-                display: flex;
-                gap: 20px;
-                margin-top: 5px;
-            }
+        .package-item {
+            background: d;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-            .option-box {
-                flex: 1;
-                text-align: center;
-                /* border: 1px solid #ddd; */
-                padding: 15px;
-                border-radius: 5px;
-            }
+        .package-item:hover {
+            transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
+        }
 
-            .option-box i {
-                font-size: 30px;
-                margin-bottom: 10px;
-                color: white;
-                height: 0.1px;
-            }
+        .package-item img {
+            width: 100%;
+            max-width: 180px; /* 이미지 크기 제한 */
+            margin-bottom: 10px;
+        }
 
-            .option-box button {
-                margin-top: 10px;
-                padding: 5px 10px;
-                background-color: #555;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+        .package-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-            .news {
-                padding-left: 3px;
-            }
-            .news span {
-                padding-left: 30px;
-            }
+        .package-item p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-            .notice ul li {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-                font-size: 14px;
-            }
+        .package-item .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ef8400;
+        }
 
-            .bottom-buttons {
-                display: flex;
-                gap: 20px;
-                margin-top: 5px;
-                color: black;
-            }
+        .package-item del {
+            font-size: 0.9rem;
+            color: #999;
+            margin-left: 5px;
+        }
 
-            .button-box {
-                flex: 1;
-                text-align: center;
-                border: 1px solid #ddd;
-                padding: 20px;
-                font-weight: bold;
-                background-color: #f8f8f8;
-                border-radius: 5px;
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .package-grid {
+                grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
             }
+        }
 
-            .additional-services {
-                display: flex;
-                gap: 20px;
-                margin-top: 20px;
-                color: black;
+        @media (max-width: 480px) {
+            .package-grid {
+                grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
             }
-
-            .service-card {
-                flex: 1;
-                background-color: #f8f8f8;
-                border: 1px solid #ddd;
-                padding: 15px;
-                text-align: center;
-                border-radius: 5px;
-            }
-
-            .service-card button {
-                margin-top: 10px;
-                padding: 5px 10px;
-                background-color: #333;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+        }
     </style>
 </head>
 
@@ -446,79 +410,53 @@
     <div>
         <%@ include file="Top.jsp" %>
     </div>
-    <div id="main"> <!-- 메인 컨테이너 -->
-        <div class="customer-service-container">
-            <!-- 왼쪽 메뉴 -->
-            <div class="left-menu">
-                <button class="menu-button active">고객센터 메인</button>
-                <ul>
-                    <li>공지사항</li>
-                    <li>자주찾는 질문</li>
-                    <li>대관신청</li>
-                    <li>1:1 문의</li>
-                </ul>
+    <!-- 스토어 -->
+    <div class="store-container">
+        <!-- 상단 타이틀 -->
+        <div class="store-header">
+            <h1>스토어</h1>
+            <div class="store-menu">
+                <span class="active">패키지</span>
+                <span>영화관람권</span>
+                <span>기프트카드</span>
+                <span>콤보</span>
+                <span>팝콘</span>
+                <span>음료</span>
+                <span>스낵</span>
+                <span>플레이존</span>
+                <span>상품권소개</span>
+                </div>
+        </div>
+
+        <!-- 패키지 설명 -->
+        <div class="package-title">
+            <h2>패키지</h2>
+            <p>마음을 담아 선물하세요</p>
+        </div>
+
+        <!-- 패키지 아이템 목록 -->
+        <div class="package-grid">
+            <div class="package-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/우리-패키지.jpg" alt="우리패키지" />
+                <h3>우리 패키지</h3>
+                <p>일반 영화 관람권 4매+더블콤보 1개</p>
+                <span class="price">62,000원 <del>66,000원</del></span>
             </div>
-        
-            <!-- 메인 컨텐츠 -->
-            <div class="main-content">
-                <div class="quick-search">
-                    <h3>자주찾는 질문 빠른검색</h3>
-                    <input type="text" placeholder="검색어를 입력해 주세요">
-                    <div class="quick-search-buttons">
-                        <span>현금영수증</span>
-                        <span>관람권</span>
-                        <span>예매 환불</span>
-                        <span>취소</span>
-                    </div>
-                </div>
-        
-                <div class="quick-options">
-                    <div class="notice">
-                        <h4>공지/뉴스</h4>
-                        <ul class="news">
-                            <li>[DGV] '24년 12월 문화 주간 관련 안내 <span>2024.12.04</span></li>
-                            <li>[시스템점검] iOS 18 업데이트 관련 예매 서비스 이용 안내 <span>2024.09.13</span></li>
-                            <li>[기타] [DGV] 해피머니상품권 사용중지 안내 <span>2024.07.25</span></li>
-                            <li>[DGV] 무대인사 예매취소 정책 변경 안내 <span>2024.01.02</span></li>
-                            <li>[극장] [DGV화명] 영업 종료 안내 <span>2024.12.16</span></li>
-                        </ul>
-                    </div>
-                    <div class="option-box">
-                        <i class="fa-regular fa-file-lines"></i>
-                        <h4>내 상담 내역 확인</h4>
-                        <p>문의하신 내용을 확인하실 수 있습니다.</p>
-                        <button>문의내역 조회</button>
-                    </div>
-                </div>
-        
-                <!-- 하단 버튼 -->
-                <div class="bottom-buttons">
-                    <div class="button-box">DGV PREVIEW <br><span>시사회/무대인사</span></div>
-                    <div class="button-box">DISCOUNT INFO <br><span>할인카드 및 혜택 안내</span></div>
-                </div>
-        
-                <!-- 추가 서비스 -->
-                <div class="additional-services">
-                    <div class="service-card">
-                        <h4>대관/단체 서비스</h4>
-                        <p> DGV에서 진행하는 우리만의 특별한 이벤트</p>
-                        <button>바로가기</button>
-                    </div>
-                    <div class="service-card">
-                        <h4>VIP 안내</h4>
-                        <p>영화를 사랑하는 당신에게 드리는 특별한 DGV VIP 혜택</p>
-                        <button>바로가기</button>
-                    </div>
-                    <div class="service-card">
-                        <h4>VIP 고객센터</h4>
-                        <p>VIP 고객님을 위해 알리는 혜택</p>
-                        <button>바로가기</button>
-                    </div>
-                </div>
+            <div class="package-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/나랑-너-패키지.jpg" alt="나랑 너 패키지" />
+                <h3>나랑 너 패키지</h3>
+                <p>일반 영화 관람권 2매+CGV콤보 1개</p>
+                <span class="price">35,000원 <del>37,000원</del></span>
+            </div>
+            <div class="package-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/좋은-날-패키지.jpg" alt="좋은 날 패키지" />
+                <h3>좋은 날 패키지</h3>
+                <p>일반 영화 관람권 1매+스몰세트 1개</p>
+                <span class="price">18,000원 <del>20,000원</del></span>
             </div>
         </div>
     </div>
-    <!-- 회사 정보 영역 -->
+    
     <%@ include file="Bottom.jsp" %>
 </body>
 
