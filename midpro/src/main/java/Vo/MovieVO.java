@@ -8,7 +8,17 @@ public class MovieVO {
 	private String show_time;
 	private String start_date;
 	private String end_date;
+<<<<<<< HEAD
 
+=======
+	
+	public int getMovie_id() {
+		return movie_id;
+	}
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
+	}
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	public String getMovie_name() {
 		return movie_name;
 	}

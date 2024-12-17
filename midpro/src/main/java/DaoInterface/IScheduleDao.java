@@ -6,11 +6,22 @@ import Vo.ScheduleVO;
 
 public interface IScheduleDao {
 	/**
-	 * 영화 ID를 받아서 영화의 상영시간표를 알려줌
-	 * @param schedule_ID
+	 * 영화 제목을 받아서 영화의 상영시간표를 알려줌
+	 * @param Movie_name
 	 * @return
 	 */
-	public ScheduleVO getSchedule(int Moive_ID);
+	public List<ScheduleVO> getScheduleName(String Movie_name);
+	
+	
+	
+	/**
+	 * 상영관 ID를 받아서 영화의 상영시간표를 알려줌
+	 * @param Screen_ID
+	 * @return
+	 */
+	public List<ScheduleVO> getScheduleScreenId(int Screen_ID);
+	
+	
 	
 	/**
 	 * 전체 상영 영화 시간표를 보여줌

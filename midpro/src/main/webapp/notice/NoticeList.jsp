@@ -174,7 +174,10 @@
     <% 
         }
     %>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     <div id="onebyone">
     	<table>
         <thead>
@@ -230,8 +233,9 @@
 <%--         <p><strong>번호:</strong> <%= selectedNotice.getNotice_id() %></p> --%>
 <%--         <p><strong>구분:</strong> <%= selectedNotice.getNotice_sort() %></p> --%>
         <p><strong>제목:</strong> <%= selectedOneBoard.getSubject() %></p>
-        <p><strong>내용:</strong> <%= selectedOneBoard.getContent() %></p>        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
-        <p><strong>작성자:</strong> <%= selectedOneBoard.getCustomer_id() %></p>
+        <p><strong>내용:</strong> <%= selectedOneBoard.getContent() %></p>       
+        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
+<%--         <p><strong>작성자:</strong> <%= selectedOneBoard.getCustomer_id() %></p> --%>
 <%--         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p> --%>
 
         <!-- 수정/삭제 버튼 -->
@@ -248,6 +252,9 @@
    	 %>
     </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </body>
 </html>

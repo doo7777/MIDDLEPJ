@@ -26,6 +26,7 @@
             position: absolute;
             left: 250px;
             height: auto;
+            cursor:pointer;
         }
 
         .DGV {
@@ -235,6 +236,7 @@
             margin-top: 50px;
         }
     </style>
+    
 </head>
 <% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
 <body>
@@ -278,34 +280,34 @@
 
         <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
             <ul>
-                <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
+                <li><a href="#" class="highlight" id="movie2">영화</a> <!-- 기모찡 -->
                     <ul>
                         <li><a href="#" id="moviechart">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
                         <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                     </ul>
                 </li>
                 <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
-                <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="reservation">예매</a> <!-- 예매 메뉴 항목 -->
                     <ul>
                         <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
                         <li><a href="#">상영스케줄</a></li> <!-- 하위 메뉴: 상영스케줄 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">스토어</a> <!-- 스토어 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="store">스토어</a> <!-- 스토어 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">패키지</a></li> <!-- 하위 메뉴: 패키지 -->
-                        <li><a href="#">영화관람권</a></li> <!-- 하위 메뉴: 영화관람권 -->
-                        <li><a href="#">기프트카드</a></li> <!-- 하위 메뉴: 기프트카드 -->
-                        <li><a href="#">콤보</a></li> <!-- 하위 메뉴: 콤보 -->
-                        <li><a href="#">팝콘</a></li> <!-- 하위 메뉴: 팝콘 -->
-                        <li><a href="#">음료</a></li> <!-- 하위 메뉴: 음료 -->
-                        <li><a href="#">스낵</a></li> <!-- 하위 메뉴: 스낵 -->
+                        <li><a href="#" id="package">패키지</a></li> <!-- 하위 메뉴: 패키지 -->
+                        <li><a href="#" id="movieticket">영화관람권</a></li> <!-- 하위 메뉴: 영화관람권 -->
+                        <li><a href="#" id="giftcard">기프트카드</a></li> <!-- 하위 메뉴: 기프트카드 -->
+                        <li><a href="#" id="combo">콤보</a></li> <!-- 하위 메뉴: 콤보 -->
+                        <li><a href="#" id="popcorn">팝콘</a></li> <!-- 하위 메뉴: 팝콘 -->
+                        <li><a href="#" id="drink">음료</a></li> <!-- 하위 메뉴: 음료 -->
+                        <li><a href="#" id="snack">스낵</a></li> <!-- 하위 메뉴: 스낵 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">이벤트</a> <!-- 이벤트 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="event">이벤트</a> <!-- 이벤트 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">스페셜</a></li> <!-- 하위 메뉴: 스페셜 -->
-                        <li><a href="#">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
+                        <li><a href="#" id="special">스페셜</a></li> <!-- 하위 메뉴: 스페셜 -->
+                        <li><a href="#" id="movres">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
                     </ul>
                 </li>
                 <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
@@ -333,18 +335,78 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
-
-    $('#moviechart').on('click', function() {
-        window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
+    
+    $('#movres').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
+    });
+    
+    $('#event').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+    });
+    
+    $('#special').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+    });
+    
+    $('#package').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
+    });
+    
+    $('#movieticket').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/movieticket.jsp';
+    });
+    
+    $('#giftcard').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
+    });
+    
+    $('#combo').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/combo.jsp';
+    });
+    
+    $('#popcorn').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/popcorn.jsp';
+    });
+    
+    $('#drink').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/drink.jsp';
+    });
+    
+    $('#snack').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
+    });
+    
+	$('#store').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
+    });
+	
+    $('.logo').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#reservation').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Reservation/Reservation.jsp'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
+    });
+    
+    $('#current').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/theaterList.do';
+    });
+    
+    $('#moviechart').on('click',function(){
+      window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
+    });
+    
+    $('#movie2').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
     });
 
     $('#btn4').on('click', function() {
         window.location.href = '<%=request.getContextPath()%>/noticeList.do';
     });
-
+    
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
-            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="DGV" width="100" height="100">
+            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <% if(result==null){ %>
             <div class="IDBtn">

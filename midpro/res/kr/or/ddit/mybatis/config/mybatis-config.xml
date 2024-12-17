@@ -3,8 +3,12 @@
    PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
          "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <configuration>
 
+=======
+<configuration>
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 =======
 <configuration>
 >>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
@@ -42,6 +46,7 @@
       <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
       
       
+      
    </typeAliases>
    
    <!-- DB 연결 설정 -->
@@ -72,21 +77,31 @@
 <!--       <mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
       <mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
-<!--       <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
+      <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/Schedule-mapper.xml"/>
+      
       
    </mappers>
+<<<<<<< HEAD
 <<<<<<< HEAD
    
 
 
+=======
+   
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 =======
    
 >>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </configuration>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
+=======
+
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ

@@ -43,6 +43,7 @@
         }
 
         /* 무비차트, 상영예정작, 무비추천 */
+        
         .header {
             width: 100%;
             padding: 0 0 0 270px;
@@ -225,6 +226,7 @@
             background-color: #d68a00; /* 호버 시 배경색 변경 */
         }
 
+<<<<<<< HEAD
         /* 회사소개 */
         .bottom_line {
             margin-top: 100px;
@@ -245,20 +247,29 @@
             position: absolute; /* 절대 위치 설정 */
             transform: translateX(100%);
         }
+=======
+        /* FAQ, 1:1문의, 대관게시판 */
+<<<<<<< HEAD
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
+=======
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         .client_btn_wrap a {
             display: inline-block;
             margin-right: 10px;
             color: #f4f4f4;
             text-decoration: none;
         }
-
+        #QR{
+          position: relative;
+   		  left: 31px;
+    	  top: 28px;	
+        }
         .notice_wrap {
             font-weight: bold;
             margin-top: 20px; /* 위로 공간 추가 */
             margin-bottom: 10px;
         }
-
         .client_btn_wrap {
             font-weight: bold;
             margin-bottom: 20px;
@@ -344,12 +355,13 @@
                 </dd>
             </dl>
             <div class="client_btn_wrap" id="client_btn_wrap">
-                <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> <!-- 여기에 우리 링크 박아야함 -->
-                <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
-                <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  <!-- 여기에 우리 링크 박아야함 -->
+                <a href="http://www.cgv.co.kr/support/faq/default.aspx" class="btn">FAQ</a> 
+                <a href="http://www.cgv.co.kr/support/qna/default.aspx">1:1 문의</a>
+                <a href="http://www.cgv.co.kr/support/lease/default.aspx">대관/단체 문의</a>  
             </div>
         </div>
     </div>
+            	 <img alt="QR" src="/midpro/main/sorce/img/QR.jpg" id="QR">
     <!-- 회사 정보 영역 -->
     <%@ include file="Bottom.jsp" %>
 </body>

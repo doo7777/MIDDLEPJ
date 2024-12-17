@@ -20,18 +20,17 @@ public class OneBoardList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 IOneBoardService service = OneBoardServiceImpl.getInstance();
 	      
-	      String OneBoard_id = request.getParameter("ONEONONE_id");
+	      String OneBoard_id = request.getParameter("OneBoard_id");
 	      
 	      
 	      List<OneBoardVO>OneBoardList = service.getAllBoard();
 	      
 	      
 	      request.setAttribute("OneBoardList", OneBoardList);
-	      request.getRequestDispatcher("/notice/NoticeList.jsp").forward(request, response);
+	      request.getRequestDispatcher("/oneBoard/OneBoardMain.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

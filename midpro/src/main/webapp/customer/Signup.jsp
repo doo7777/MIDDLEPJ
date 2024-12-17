@@ -133,12 +133,10 @@
          <label for="cust_pw2">비밀번호 확인<span class="rq"> *<span id="pwchk2"></span></span></label>
          <input type="password" id="cust_pw2" name="cust_pw2" required placeholder="비밀번호를 입력하세요."
                 onkeyup="checkPasswordMatch()"> <!-- 비밀번호 확인 onkeyup 이벤트 -->
-             <br>
-             <br>
-            <button type=button id="sucbutton">본인 인증</button><span id="suc"></span>
-            
             <label for="cust_name">이름<span class="rq"> *</span></label>
             <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
+             <br>
+            <button type=button id="sucbutton">본인 인증</button><span id="suc"></span>
 
           <label for="cust_bir">생년월일<span class="rq"> *</span></label>
           <input type="date" class="form-control" id="bir" name="cust_bir" required>
@@ -170,6 +168,7 @@
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.6.js"></script>
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 <script>
 function goMain(e) { //회원가입 버튼을 눌렀을때 작동되는 코드들
@@ -276,7 +275,6 @@ function addr() {
             }
 
             // 주소 선택 후 팝업 창 닫기
-            window.close() 
         }
     }).open();
 }
@@ -315,68 +313,50 @@ $('#idChk').on('click',function(){
     }
    }
 });
+
 //본인인증 버튼 클릭 시 처리
 $('#sucbutton').on('click', function() {
-    if ($('#cust_id').val()=='' || $('#disp').text() == "사용불가" ){
-        alert('ID 중복검사 미인증');
+    if ($('#cust_id').val()=='' || $('#disp').text() == "사용불가"  || $('#cust_name').val()==''){
+        alert('본인 인증 최소 입력 누락');
     } else {
         requestIdentityVerification();
-//         $('#suc').text("본인인증 완료");
     }
 });
 
 async function requestIdentityVerification() {
-    // 클라이언트에서 난수 생성
-    const random = Math.floor(Math.random() * 9999);  
-    const idVal = $('#cust_id').val() + random;  // 고객 ID와 난수를 결합한 값
-
-    try {
-        // 본인인증 요청 (PortOne SDK 호출)
-        const response = await PortOne.requestIdentityVerification({
-            storeId: "store-d05ec83a-78ae-4fdc-891b-bb5b43d7fc72",  // 본인인증을 요청하는 store ID
-            identityVerificationId: idVal,  // 고유한 본인인증 ID
-            channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",  // 채널 키
-        });
-
-        // 인증 성공 여부 확인
-        if (response && response.code !== undefined) {
-            // 인증이 성공한 경우
-            console.log("본인 인증 성공: ", response.code);
-            alert("본인 인증이 성공했습니다.");
-            $('#suc').text("본인인증 완료");
-        } else {
-            // 인증 실패한 경우
-            alert("본인 인증에 실패했습니다: " + (response.message || "알 수 없는 오류"));
-            console.log("본인 인증 실패: ", response);  // 실패 원인 확인을 위한 로그
-        }
-
-        // 인증 완료 후, 서버에서 본인인증 결과 확인
-        const verificationResult = await fetch(`http://localhost/midpro/verifyIdentity.do`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                identityVerificationId: idVal,  // 본인인증 ID를 서버에 전달
-            }),
-        });
-
-        // 서버 응답 처리
-        if (!verificationResult.ok) {
-            throw new Error('서버에서 오류가 발생했습니다.');
-        }
-
-        const resultData = await verificationResult.json();
-        if (resultData.status === "VERIFIED") {
-            console.log("본인 인증이 완료되었습니다.");
-        } else {
-            console.log("본인 인증 실패", resultData);
-        }
-
-    } catch (error) {
-        // 오류 발생 시 처리
-        console.error("본인 인증 요청 중 오류가 발생했습니다.", error);
-        alert("본인 인증 요청 중 오류가 발생했습니다.");
-    }
-}
- 
+   //개발자센터-원페이먼트인프라-부가기능-본인인증 연동하기-통합인증 연동하기 코드 활용		
+		IMP.init("imp53145045");
+		IMP.certification(
+			  {
+			    // param
+			    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+			  },
+			  function (rsp) {
+			    // callback
+			    if (rsp.success) {
+			    	//인증 성공 시 로직
+			    	$.ajax({
+			            url: "<%=request.getContextPath() %>/Cuscheck.do",
+			            method: "POST",
+// 			            headers: { "Content-Type": "application/json" },
+			            data: JSON.stringify({ imp_uid: rsp.imp_uid }),
+			            success:function(data){
+ 			            	$('#bir').val(data.birth);
+							$('#cust_tel').val(data.phone);
+			            	if(data.name == $('#cust_name').val()) alert("본인 인증 완료");
+			            	else alert("미인증");
+			            },
+			            error:function(xhr){
+			            	alert(xhr.status);
+			            }
+			            ,dataType: 'json'
+			          });
+			    } else {
+			    	// 인증 실패 시 로직
+		    		alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+			    }
+			  },
+			);
+};
 </script>
 </html>

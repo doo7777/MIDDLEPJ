@@ -302,12 +302,7 @@
             .menu-button.active h2 {
                 color: white;
             }
-            #bottom {
-                height: 250px; /* 하단 영역의 높이 설정 */
-            }
-            #company {
-                height: 400px; /* 회사 정보 영역의 높이 설정 */
-            }
+            
 
             .client_btn_wrap a { 
                 display: inline-block; 
@@ -458,22 +453,38 @@
                 display: block;
             }
             
+            /* 이미지 갤러리 컨테이너 */
+			.image-gallery {
+			    position: relative; /* 버튼의 위치 기준을 설정 */
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    max-width: 500px; /* 갤러리 너비 제한 */
+			    margin: 20px auto; /* 가운데 정렬 */
+			}
+            
             /* 화살표 버튼 스타일 */
 			.arrow {
 			    background-color: transparent;
 			    color: white;
-			    font-size: 30px;
+			    font-size: 60px;
+			    font-weight: bold;
 			    cursor: pointer;
 			    padding: 10px;
 			    transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
 			    border: none;
+			    border-radius: 50%;
+			    position: absolute;
+			    top: 50%; /* 부모 요소의 정중앙으로 설정 */
+			    transform: translateY(-50%); /* 수직 중앙 정렬 */
+			    z-index: 10; /* 다른 요소 위에 표시되도록 */
 			}
 			
 			/* 왼쪽 화살표 */
 			.arrow.left-arrow {
 			    position: absolute;
 				top: 50%; /* 수직 중앙 */
-    			left: 10px;
+    			left: -50px;
 			    transform: translateY(-50%);
 			}
 			
@@ -481,7 +492,7 @@
 			.arrow.right-arrow {
 			    position: absolute;
 				top: 50%; /* 수직 중앙 */
-    			right: 10px;
+    			right: -50px;
 			    transform: translateY(-50%);
 			}
 
@@ -492,7 +503,7 @@
    <%CustomerVO result = (CustomerVO)session.getAttribute("ok"); %> 
     
     <body>
-       
+   
         <div id="main"> <!-- 메인 컨테이너 -->
             <div id="top"> <!-- 상단 영역 -->
             
@@ -605,9 +616,9 @@
                 </div>
                 <div id="poster" class="tab-content">
                     <div class="image-gallery">
-			        <button class="arrow left-arrow">&#8592;</button>
+			        <button class="arrow left-arrow"><</button>
 			        <img id="poster-image" src="" alt="스틸 이미지" />
-			        <button class="arrow right-arrow">&#8594;</button>
+			        <button class="arrow right-arrow">></button>
 			    </div>
                 </div>
                 <div id="review" class="tab-content">
@@ -622,17 +633,8 @@
              </main>
              </div>   
 
-            <!-- 회사 정보 영역 -->
-			<hr class="bottom_line">
-            <div id="company" class="sect-ad">
-            	<div class="company_text">
-                    <address>(34908)대전광역시 중구 계룡로 846, 3-4층</address> 
-                        <dt>이사장 : 김형응&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 306-82-05291&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 042-222-8202</dt>
-                    &copy; DGV. All Rights Reserved
-            	</div>
-            </div>	
-        </div>
-        
+            
+        <%@ include file="/main/Bottom.jsp" %>
     </body>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
