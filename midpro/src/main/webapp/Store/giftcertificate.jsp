@@ -45,32 +45,32 @@
             transform: translateX(100%);
         }
 
-    
+      
 
-        /* 영화관람권 설명 */
-        .movieticket-title {
+        /* 상품권 설명 */
+        .certificate-title {
             margin: 30px 0;
             text-align: left;
         }
 
-        .movieticket-title h2 {
+        .certificate-title h2 {
             font-size: 1.8rem;
             font-weight: bold;
         }
 
-        .movieticket-title p {
+        .certificate-title p {
             font-size: 1.2rem;
             color: white;
         }
 
-        /* 영화관람권 아이템 목록 */
-        .movieticket-grid {
+        /* 상품권 아이템 목록 */
+        .certificate-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼으로 나누기 */
             gap: 20px;
         }
 
-        .movieticket-item {
+        .certificate-item {
             background: d;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -80,35 +80,35 @@
             transition: transform 0.3s ease;
         }
 
-        .movieticket-item:hover {
+        .certificate-item:hover {
             transform: translateY(-5px); /* 호버 시 약간 위로 올라가는 효과 */
         }
 
-        .movieticket-item img {
+        .certificate-item img {
             width: 100%;
             max-width: 180px; /* 이미지 크기 제한 */
             margin-bottom: 10px;
         }
 
-        .movieticket-item h3 {
+        .certificate-item h3 {
             font-size: 1.2rem;
             margin-bottom: 5px;
             font-weight: bold;
         }
 
-        .movieticket-item p {
+        .certificate-item p {
             font-size: 1rem;
             color: #666;
             margin-bottom: 10px;
         }
 
-        .movieticket-item .price {
+        .certificate-item .price {
             font-size: 1.2rem;
             font-weight: bold;
             color: #ef8400;
         }
 
-        .movieticket-item del {
+        .certificate-item del {
             font-size: 0.9rem;
             color: #999;
             margin-left: 5px;
@@ -116,13 +116,13 @@
 
         /* 반응형 디자인 */
         @media (max-width: 768px) {
-            .movieticket-grid {
+            .certificate-grid {
                 grid-template-columns: repeat(2, 1fr); /* 화면이 작을 때 2개의 컬럼 */
             }
         }
 
         @media (max-width: 480px) {
-            .movieticket-grid {
+            .certificate-grid {
                 grid-template-columns: 1fr; /* 화면이 더 작을 때 1개의 컬럼 */
             }
         }
@@ -136,28 +136,21 @@
         
     </div>
 
-        <!-- 영화관람권 설명 -->
-        <div class="movieticket-title">
-            <h2>영화관람권</h2>
-            <p>마음을 담아 선물하세요</p>
+        <!-- 상품권 설명 -->
+        <div class="certificate-title">
+            <h2>상품권 소개</h2>
+            <p>마음을 담아 선물하세요.</p>
         </div>
 
-        <!-- 영화관람권 아이템 목록 -->
-        <div class="movieticket-grid">
-            <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/CGV-영화관람권.jpg" alt="CGV-영화관람권" />
-                <h3>DGV 영화관람권</h3>
-                <span class="price">13,000원</span>
+        <!-- 상품권 아이템 목록 -->
+        <div class="certificate-grid">
+            <div class="certificate-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/상품권/CJ상품권.png" alt="CJ상품권" />
+                <h3>CJ상품권</h3>
             </div>
-            <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/IMAX-영화관람권.jpg" alt="IMAX-영화관람권" />
-                <h3>IMAX 영화관람권</h3>
-                <span class="price">18,000원</span>
-            </div>
-            <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" alt="4DX-영화관람권" />
-                <h3>4DX 영화관람권</h3>
-                <span class="price">19,000원</span>
+            <div class="certificate-item">
+                <img src="<%= request.getContextPath() %>/main/sorce/img/상품권/영화관람권.png" alt="영화관람권" />
+                <h3>영화관람권</h3>
             </div>
         </div>
     
@@ -241,7 +234,6 @@
                 console.error('videoPlayer is not a valid video element');
             }
         }
-
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
     });
 </script>

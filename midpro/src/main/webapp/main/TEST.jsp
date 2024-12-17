@@ -225,12 +225,7 @@
             min-width: 250px;
         }
 
-        /* 로그인 버튼 hover 효과 */
-        .sidebar button.loginBtn:hover {
-            background-color: black;
-            color: white;
-            font-weight: bold;
-        }
+
 
         /* 회원가입 버튼 hover 효과 */
         .sidebar button.signupBtn:hover {
@@ -260,7 +255,7 @@
         
 
 
-    
+    /* 아이디, 패스워드 입력 칸 */
     .input-container {
         position: relative; /* 아이콘과 세로줄을 절대 위치로 설정하기 위해 상대 위치로 설정 */
         margin-bottom: 8px; /* 입력 요소 간의 간격을 조정 */
@@ -282,8 +277,6 @@
 	    width: 100%; /* 입력 필드의 너비를 100%로 설정 */
 	    box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
 	}
-	
-
     .input-container::after {
         content: ""; /* 가상 요소의 내용 설정 */
         position: absolute;
@@ -293,6 +286,19 @@
         width: 1px; /* 세로줄의 너비 설정 */
         background-color: #ccc; /* 세로줄의 색상 설정 */
     }
+    
+    /* 로그인 버튼 */
+    .loginButton {
+    padding: 8px 16px; /* 버튼의 내부 여백 조정 */
+    font-size: 14px; /* 글자 크기 조정 */
+    height: auto; /* 높이를 자동으로 설정 */
+    width: auto; /* 너비를 자동으로 설정 */
+    border-radius: 4px; /* 모서리 둥글게 설정 */
+    background-color: #3498db; /* 배경색 설정 */
+    color: white; /* 글자색 설정 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: background-color 0.3s; /* 배경색 변화에 애니메이션 추가 */
+}
     
 
 
@@ -435,7 +441,7 @@
 	    </div>
 
         </div>
-        <button type="submit" class="login" id="login">Login</button>
+        <button type="submit" class="loginButton" id="login">Login</button>
         
         
 
