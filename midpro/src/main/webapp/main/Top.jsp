@@ -151,7 +151,7 @@
 
         .search-container input[type="text"] {
             padding: 10px 40px 10px 15px; /* 패딩 설정 */
-            border: 2px solid #ef8400; /* 테두리 색상 */
+            border: 2px solid white; /* 테두리 색상 */
             outline: none; /* 기본 테두리 색 제거 */
             border-radius: 5px; /* 모서리 둥글게 */
             background-color: black; /* 배경색 */
@@ -239,7 +239,7 @@
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" class="logo">
+            <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고(최종).png" alt="로고" class="logo">
             <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
             <div class="topIcon">
                 <div class="icon-text">
