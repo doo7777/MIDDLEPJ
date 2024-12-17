@@ -6,7 +6,9 @@
 </head>
 <body>
     <h2>영화 리뷰 작성</h2>
-    <form action="<%= request.getContextPath() %>/movieReview.do" method="post">
+
+   <form action="<%= request.getContextPath() %>/moviewReview.do" method="post">
+
         영화 ID: <input type="text" name="movieId" required><br>
         고객 ID: <input type="text" name="customerId" required><br>
         별점: <input type="number" name="revStar" min="1" max="5" required><br>

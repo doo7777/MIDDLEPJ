@@ -17,7 +17,7 @@ public class NoticeInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	request.setCharacterEncoding("utf-8");
-	request.getRequestDispatcher("/notice/InsertNotice.jsp").forward(request, response);
+	request.getRequestDispatcher("/notice/NoticeInsert.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,10 +42,9 @@ public class NoticeInsert extends HttpServlet {
 	int result = service.insertNotice(noticeVO);
 	
 	String noticeSort = request.getParameter("notice_sort");
-	System.out.println("notice_sort: " + noticeSort);
 	
 	if(result>0) {
-		response.sendRedirect(request.getContextPath()+"/index.jsp");
+		response.sendRedirect(request.getContextPath()+"/noticeList.do");
 		
 	}else {
 		response.getWriter().println("<h1>공지글 등록실패</h1>");

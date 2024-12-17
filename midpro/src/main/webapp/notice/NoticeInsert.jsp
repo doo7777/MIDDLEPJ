@@ -64,7 +64,7 @@
 <body>
     <div class="container">
         <h1>공지사항 게시판</h1>
-        <form action="noticeInsert.do" method="post">
+        <form action="<%= request.getContextPath() %>/noticeInsert.do" method="post">
             <!-- 번호는 자동 생성될 수 있으므로 입력하지 않음 -->
             
             <label for="notice_sort">구분:</label>
@@ -82,6 +82,7 @@
             <label for="content">내용:</label>
             <textarea id="content" name="content" placeholder="내용을 입력하세요" required></textarea>
             <button type="submit">등록</button>
+            <a href="<%=request.getContextPath() %>/index.jsp">첫화면으로 이동</a>
         </form>
     </div>
 </body>

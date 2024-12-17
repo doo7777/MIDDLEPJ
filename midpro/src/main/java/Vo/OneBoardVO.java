@@ -1,6 +1,6 @@
 package Vo;
 
-public class One_On_One_BoardVO {
+public class OneBoardVO {
 	private String oneonone_id;
 	private String customer_id;
 	private String person_name;
