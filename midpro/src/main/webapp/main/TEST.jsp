@@ -258,24 +258,49 @@
         
         
         
-        
-        .input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
 
-.ID_img {
-    position: absolute;
-    left: 10px; /* 아이콘의 위치 조정 */
-    pointer-events: none; /* 아이콘 클릭 방지 */
-}
 
-.IDBtn_box {
-    padding-left: 40px; /* 아이콘과의 간격 조정 */
-    width: 100%; /* 필요에 따라 조정 */
-}
+    
+    .input-container {
+        position: relative; /* 아이콘과 세로줄을 절대 위치로 설정하기 위해 상대 위치로 설정 */
+        margin-bottom: 8px; /* 입력 요소 간의 간격을 조정 */
+    }
+    .ID_img {
+        position: absolute;
+        left: 10px; /* 아이콘의 위치 조정 */
+        top: 50%; /* 아이콘을 수직 중앙에 배치 */
+        transform: translateY(-50%); /* 아이콘을 수직 중앙으로 조정 */
+        pointer-events: none; /* 아이콘 클릭 방지 */
+        font-size: 25px; /* 아이콘 크기 설정 */
+        color: #3498db;
+        margin: 0; /* 기본 여백 제거 */
+    	padding: 0; /* 기본 패딩 제거 */
+    }
+	.PWBtn_box, .IDBtn_box {
+	    padding: 10px; /* 입력 필드의 내부 여백 */
+	    padding-left: 60px; /* 아이콘과의 간격 조정 (세로줄 공간 포함) */
+	    width: 100%; /* 입력 필드의 너비를 100%로 설정 */
+	    box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+	}
+	
+
+    .input-container::after {
+        content: ""; /* 가상 요소의 내용 설정 */
+        position: absolute;
+        left: 50px; /* 아이콘 오른쪽에 위치 */
+        top: 10%; /* 세로줄의 상단 위치 조정 */
+        height: 80%; /* 세로줄의 높이 설정 */
+        width: 1px; /* 세로줄의 너비 설정 */
+        background-color: #ccc; /* 세로줄의 색상 설정 */
+    }
+    
+
+
     </style>
+    
+    
+    
+    
     
 </head>
 <% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
@@ -399,20 +424,28 @@
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <% if(result==null){ %>
 
-            <div class="IDBtn">
             <div class="input-container">
-                <i class="fas fa-user ID_img" style="font-size: 30px;"></i>
-                <input type="text" title="아이디" id="username" name="cust_id" required class="IDBtn_box">
-            </div>
-            <br><br>
-        	</div>
+            <i class="fas fa-user ID_img"></i>
+            <input type="text" title="아이디" id="username" name="cust_id" required class="IDBtn_box">
+        </div>
         
-            <div class="PWBtn">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
-                <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
-                <br><br>
-            </div>
-            <button type="submit" class="login" id="login">Login</button>
+	        <div class="input-container">
+	        <i class="fas fa-lock ID_img"></i>
+	        <input type="password" title="패스워드" id="password" name="password" required class="PWBtn_box">
+	    </div>
+
+        </div>
+        <button type="submit" class="login" id="login">Login</button>
+        
+        
+
+        	
+        	
+        	
+        	
+
+                
+
             <h6>아직 회원이 아니세요?</h6>
             <button type="button" id="join" class="signupBtn">회원가입</button>
             <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
