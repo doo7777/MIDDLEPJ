@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>예매 | 깊이 빠져 보다,DGV</title>
 <style>
     /* 전체 화면 사이즈 */
     #main {
@@ -22,7 +22,12 @@
     div {
         border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
     }
-    
+    #하얼빈{
+         display: flex;
+        flex-direction: row; /* 가로 방향으로 정렬 */
+        justify-content: center; /* 중앙 정렬 */
+        margin-left: 450px;
+    }
     #group {
         display: flex;
         flex-direction: row; /* 가로 방향으로 정렬 */
@@ -124,7 +129,10 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
+    <img alt="하얼빈" src="/midpro/main/sorce/img/영화포스터/바텀 하얼빈.jpg" id="하얼빈"> 
+    <!-- 이미지 눌렀을떄 영화 상세정보 jsp/survlet으로 이동하는 스크립트 작성해야함 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 </html>
