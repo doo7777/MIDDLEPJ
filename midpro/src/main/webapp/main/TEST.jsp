@@ -195,7 +195,7 @@
             align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
             width: 300px;
             height: 100%;
-            background: #ffffff !important;
+            background: #ffffff;
             position: fixed;
             top: 0;
             right: -300px;
@@ -215,25 +215,6 @@
         }
 
 
-        .sidebar button {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            border-color: rgb(0, 0, 0);
-            padding: 15px;
-            min-height: 5px;
-            min-width: 250px;
-        }
-
-
-
-        /* 회원가입 버튼 hover 효과 */
-        .sidebar button.signupBtn:hover {
-            background-color: black;
-            color: white;
-            font-weight: bold;
-        }
-
         /* 사이드 바 안에 있는 닫기 버튼 */
         .fa-xmark {
             color: black;
@@ -246,12 +227,6 @@
         .sidebar h3 {
             margin-top: 50px;
         }
-        
-        
-        
-        
-        
-        
         
 
 
@@ -287,21 +262,24 @@
         background-color: #ccc; /* 세로줄의 색상 설정 */
     }
     
-    /* 로그인 버튼 */
-    .loginButton {
-    padding: 8px 16px; /* 버튼의 내부 여백 조정 */
-    font-size: 14px; /* 글자 크기 조정 */
-    height: auto; /* 높이를 자동으로 설정 */
-    width: auto; /* 너비를 자동으로 설정 */
-    border-radius: 4px; /* 모서리 둥글게 설정 */
-    background-color: #3498db; /* 배경색 설정 */
-    color: white; /* 글자색 설정 */
-    cursor: pointer; /* 마우스 커서 변경 */
-    transition: background-color 0.3s; /* 배경색 변화에 애니메이션 추가 */
-}
-    
-
-
+	/* 로그인, 회원가입 버튼 */
+	.loginbtn, .signupBtn {
+	    padding: 15px; /* 버튼의 내부 여백 조정 */
+	    min-height: 5px;
+        min-width: 250px;
+	    font-size: 14px; /* 글자 크기 조정 */
+	    height: 40px; /* 높이 설정 */
+	    width: auto; /* 너비를 자동으로 설정 */
+	    border-radius: 5px; /* 모서리 둥글게 설정 */
+	    cursor: pointer; /* 마우스 커서 변경 */
+	    text-align: center; /* 텍스트 가운데 정렬 */
+	    display: flex; /* 플렉스 박스 사용 */
+	    align-items: center; /* 수직 가운데 정렬 */
+	    justify-content: center; /* 수평 가운데 정렬 */
+	    background-color: black;   
+	    color: white;
+	    margin-bottom: 5px;
+	}
     </style>
     
     
@@ -424,6 +402,7 @@
         window.location.href = '<%=request.getContextPath()%>/noticeList.do';
     });
     
+    
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
@@ -437,24 +416,14 @@
         
 	        <div class="input-container">
 	        <i class="fas fa-lock ID_img"></i>
-	        <input type="password" title="패스워드" id="password" name="password" required class="PWBtn_box">
+	        <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
 	    </div>
 
         </div>
-        <button type="submit" class="loginButton" id="login">Login</button>
-        
-        
+        <button type="submit" class="loginbtn" id="login">Login</button>
+        <button type="button" id="join" class="signupBtn">회원가입</button>        
 
-        	
-        	
-        	
-        	
 
-                
-
-            <h6>아직 회원이 아니세요?</h6>
-            <button type="button" id="join" class="signupBtn">회원가입</button>
-            <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
             <% } else { %>
             <%=result.getCust_name()%>님 반갑습니다!!<br>
             현재 DGV 등급 :<%=result.getCust_grade()%>등급
