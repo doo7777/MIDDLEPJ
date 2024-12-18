@@ -13,6 +13,7 @@ public class ScreenDaoImpl implements IScreenDao{
 	
 	private static ScreenDaoImpl dao;
 	private ScreenDaoImpl() {}
+	
 	public static ScreenDaoImpl getInstance() {
 		if(dao==null) dao = new ScreenDaoImpl();
 		
