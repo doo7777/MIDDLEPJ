@@ -148,6 +148,7 @@
                     btn.style.color = ""; 
                 });
 
+                
                 // 클릭한 버튼 배경색 입히기
                 event.target.style.backgroundColor = "black";
                 event.target.style.color = "white";
