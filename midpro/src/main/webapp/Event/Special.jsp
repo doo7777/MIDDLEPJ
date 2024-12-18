@@ -200,12 +200,12 @@
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/6.png" alt="이벤트6" />
                 <p>IMAX 마스터피스 기획전</p>
-                <span>2024.12.05~2024.12.17 <span class="red-text" style="color: #ef8400;">D-1</span></span>
+                <span>2024.12.05~2024.12.17 <span class="red-text" style="color: red;">D-1</span></span>
             </div>
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/7.png" alt="이벤트7" />
                 <p>[무파사: 라이온 킹] IMAX 포스터</p>
-                <span>2024.12.05~2024.12.17 <span class="red-text" style="color: #ef8400;">D-1</span></span>
+                <span>2024.12.05~2024.12.17 <span class="red-text" style="color: red;">D-1</span></span>
             </div>
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/8.png" alt="이벤트8" />
