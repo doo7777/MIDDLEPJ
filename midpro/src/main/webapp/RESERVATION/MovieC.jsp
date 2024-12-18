@@ -84,14 +84,14 @@
         <br><br>
         
           <!-- 상영관 선택 -->
-        <label for="theater_id">영화관 선택:</label>
+        <label for="theater_id">상영관 선택:</label>
         <select id="theater_id" name="theater_id" required>
         <%
         	for(TheaterVO theater : theaterList ) {
         %>
 			
-			<option value="<%=theater.getTheater_id() %>">
-				<%=theater.getTheater_name() %>
+			<option value="<%=theater.getTheater_name() %>">
+				<%=theater.getTheater_id() %>
 			</option>
 		<%
         	}
