@@ -2,22 +2,20 @@ package Vo;
 
 public class ReviewVO {
 	private int review_num;
-	private int movie_id;
+    private String movie_name;
 	private String customer_id;
 	private int rev_star;
 	private String rev_content;
 	private String rev_date;
 	public int getReview_num() {
 		return review_num;
+		
 	}
-	public void setReview_num(int review_num) {
-		this.review_num = review_num;
+	public String getMovie_name() {
+		return movie_name;
 	}
-	public int getMovie_id() {
-		return movie_id;
-	}
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovie_name(String movie_name) {
+		this.movie_name = movie_name;
 	}
 	public String getCustomer_id() {
 		return customer_id;
@@ -43,11 +41,15 @@ public class ReviewVO {
 	public void setRev_date(String rev_date) {
 		this.rev_date = rev_date;
 	}
+	public void setReview_num(int review_num) {
+		this.review_num = review_num;
+		
+		
+		
+	}
 	@Override
 	public String toString() {
-		return "Review [review_num=" + review_num + ", movie_id=" + movie_id + ", customer_id=" + customer_id
+		return "ReviewVO [review_num=" + review_num + ", movie_name=" + movie_name + ", customer_id=" + customer_id
 				+ ", rev_star=" + rev_star + ", rev_content=" + rev_content + ", rev_date=" + rev_date + "]";
 	}
-	
-	
-}
+	}

@@ -6,13 +6,13 @@
 <mapper namespace="Movie">
 
 	<!-- 특정 영화 정보 조회 -->
-	<select id="getMovieDetail" resultType="movieVO" parameterType="string">
-		SELECT * FROM MOVIE WHERE MOVIE_ID = #{movie_id}
-	</select>
+<!-- 	<select id="getMovieDetail" resultType="movieVO" parameterType="string"> -->
+<!-- 		SELECT * FROM MOVIE WHERE MOVIE_ID = #{movie_id} -->
+<!-- 	</select> -->
 
 	<!-- 모든 영화 정보 조회 -->
 	<select id="getAllMovies" resultType="movieVO">
-		SELECT * FROM MOVIE
+		 select * from movie
 	</select>
 
 </mapper>
