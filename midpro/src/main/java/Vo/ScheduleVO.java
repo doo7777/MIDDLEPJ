@@ -2,7 +2,7 @@ package Vo;
 
 
 public class ScheduleVO {
-	private int schedule_id;
+	private String schedule_id;
 
 	private int screen_id;
 	private int theater_id;
@@ -19,10 +19,10 @@ public class ScheduleVO {
 	
 	
 	
-	public int getSchedule_id() {
+	public String getSchedule_id() {
 		return schedule_id;
 	}
-	public void setSchedule_id(int schedule_id) {
+	public void setSchedule_id(String schedule_id) {
 		this.schedule_id = schedule_id;
 	}
 	public int getScreen_id() {
