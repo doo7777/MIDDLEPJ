@@ -381,9 +381,7 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
     
-    $('.icon-text').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
-    });
+
     
     $('#comingOut').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
@@ -454,7 +452,7 @@
     });
 
     $('#btn4').on('click', function() {
-        window.location.href = '<%=request.getContextPath()%>/noticeList.do';
+        window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
     
     function updateSidebarContent() {
