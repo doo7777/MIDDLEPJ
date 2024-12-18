@@ -1,9 +1,11 @@
 package Vo;
 
+import java.util.Date;
+
 public class PaymentVO {
 	private int payment_id;
 	private String customer_id;
-	private String payment_date;
+	private Date payment_date;
 	private int amount;
 	private String payment_method;
 	private int payment_price;
@@ -19,10 +21,10 @@ public class PaymentVO {
 	public void setCustomer_id(String customer_id) {
 		this.customer_id = customer_id;
 	}
-	public String getPayment_date() {
+	public Date getPayment_date() {
 		return payment_date;
 	}
-	public void setPayment_date(String payment_date) {
+	public void setPayment_date(Date payment_date) {
 		this.payment_date = payment_date;
 	}
 	public int getAmount() {
