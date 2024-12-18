@@ -8,9 +8,9 @@
     <title>예매 | 깊이 빠져 보다,DGV</title>
 </head>
 <style>
-	body {
-		background-color: black;
-	}
+   body {
+      background-color: black;
+   }
 
     table {
         border-collapse: collapse;
@@ -22,7 +22,7 @@
         
     }
     #대가족{
-   	 display: flex;
+       display: flex;
         flex-direction: row; /* 가로 방향으로 정렬 */
         justify-content: center; /* 중앙 정렬 */
         margin-left: 450px;
@@ -116,8 +116,8 @@
                     <button id="discountBtn">관람 할인 안내</button>
                 </td>
                 <td id="theater">
-                	상영관 정보칸
-                	<button id="changeTimeBtn">상영시간 변경</button>
+                   상영관 정보칸
+                   <button id="changeTimeBtn">상영시간 변경</button>
                 </td>
               </tr>
               <tr id="bottomOfTable">
@@ -148,6 +148,7 @@
                     btn.style.color = ""; 
                 });
 
+                
                 // 클릭한 버튼 배경색 입히기
                 event.target.style.backgroundColor = "black";
                 event.target.style.color = "white";
@@ -155,6 +156,6 @@
         }
     });
     
- 	
+    
 </script>
 </html>
