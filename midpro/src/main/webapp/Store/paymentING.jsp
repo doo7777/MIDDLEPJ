@@ -39,12 +39,13 @@
 
       
 
-        /* 장바구니 */
+        /* 결제하기 */
         /* 상단 단계 표시 */
         .step-header {
             display: flex;
             justify-content: center;
             margin: 30px 0;
+            margin-bottom: 20px;
         }
 
         .step-header span {
@@ -116,13 +117,8 @@
             font-size: 12px;
         }
 
-        .update-btn {
-            margin-top: 5px;
-            padding: 5px 10px;
-            background-color: #555;
-            color: #fff;
-            border: none;
-            cursor: pointer;
+        .quantity {
+            color: white;
         }
 
         .total-price {
@@ -130,22 +126,11 @@
             color: white;
         }
 
-        .delete-btn {
-            background-color: transparent;
-            font-size: 18px;
-            color: #888;
-        }
-
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-        }
-
         /* 결제 정보 */
         .payment-info {
             border-top: 2px solid #333;
             padding-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 80px;
             color: white;
         }
 
@@ -160,33 +145,97 @@
             font-weight: bold;
         }
 
-        .payment-item.total {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
         .payment-item.total .total-amount {
             color: #e6007e;
         }
 
-        /* 하단 버튼 */
-        .action-buttons {
+        /* 섹션 공통 */
+        section {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* 주문자 정보 */
+        .form-row {
             display: flex;
-            justify-content: center;
+            align-items: center;
             gap: 20px;
-            margin-bottom: 40px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
-        .action-buttons button {
-            padding: 15px 30px;
-            border: none;
+        /* 이름 입력 필드 스타일 */
+        .name-input {
+            width: 35px; /* 이름 입력 필드의 가로 길이 */
+            padding: 8px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* 휴대전화 입력 필드 스타일 */
+        .phone-input {
+            width: 100px; /* 휴대전화 입력 필드의 가로 길이 */
+            padding: 8px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .form-row input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            background-color: #f8f8f8;
+            color: #777;
+            border-radius: 5px;
+        }
+
+        .notice-text {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        /* 결제 수단 */
+        .payment-options {
+            margin-top: 20px;
+        }
+        
+        .payment-options label {
             font-size: 16px;
-            cursor: pointer;
-            color: #fff;
+            font-weight: bold;
+            color: white;
         }
 
-        .purchase-btn-bottom {
-            background-color: #e6007e;
+        /* 버튼 영역 */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        .back-btn {
+            background-color: #333;
+            color: #ddd;
+        }
+
+        .pay-btn {
+            background-color: #333;
         }
 
     </style>
@@ -199,10 +248,10 @@
         
     </div>
 
-        <!-- 상단 단계 표시 -->
+    <!-- 상단 단계 표시 -->
     <div class="step-header">
-        <span class="active">STEP 01<br>장바구니</span>
-        <span>STEP 02<br>결제하기</span>
+        <span>STEP 01<br>장바구니</span>
+        <span class="active">STEP 02<br>결제하기</span>
         <span>STEP 03<br>결제완료</span>
     </div>
 
@@ -211,18 +260,16 @@
         <!-- 장바구니 리스트 -->
         <table class="cart-table">
             <thead>
+                <h3>구매상품 정보</h3><br>
                 <tr>
-                    <th><input type="checkbox" checked></th>
                     <th>상품정보</th>
                     <th>판매가</th>
                     <th>수량</th>
                     <th>합계</th>
-                    <th>삭제</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox" checked></td>
                     <td class="product-info">
                         <img src="<%= request.getContextPath() %>/main/sorce/img/패키지(완료)/나랑-너-패키지.jpg" alt="나랑 너 패키지" />
                         <div class="product-details">
@@ -235,22 +282,9 @@
                         <p class="original-price">37,000원</p>
                     </td>
                     <td>
-                        <select name="quantity" id="quantity">
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="update-btn">변경</button>
+                        <p class="quantity">1개</p>
                     </td>
                     <td class="total-price">35,000원</td>
-                    <td><button class="delete-btn">X</button></td>
                 </tr>
             </tbody>
         </table>
@@ -271,17 +305,44 @@
             </div>
         </div>
 
-        <!-- 하단 버튼 -->
-        <div class="action-buttons">
-            <button class="purchase-btn-bottom" id="buybutton">구매하기</button>
+         <!-- 주문자 정보 확인 -->
+        <section class="order-info">
+            <h3>주문자 정보 확인</h3>
+            <div class="form-row">
+                <label for="name" class="name-input">이름</label>
+                <input type="text" id="name" value="성*현" readonly>
+                <label for="phone" class="phone-input">휴대전화번호</label>
+                <input type="text" id="phone" value="010-6225-*****" readonly>
+            </div>
+            <p class="notice-text">
+                * 구매하신 DGV 기프트콘은 주문자 정보에 입력된 휴대전화 번호로 MMS로 발송됩니다.<br>
+                입력된 휴대전화 번호가 맞는지 꼭 확인하세요.
+            </p>
+        </section>
+
+        <!-- 결제 수단 -->
+        <section class="payment-method">
+            <h3>결제 수단</h3>
+            <div class="payment-options">
+                <label><input type="radio" name="payment" checked> QR 코드</label>
+            </div>
+        </section>
+
+        <!-- 버튼 영역 -->
+        <div class="button-container">
+            <button class="back-btn" id="beforebutton">&lt; 이전화면</button>
+            <button class="pay-btn" id="paybutton">결제하기</button>
         </div>
     </div>
     
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 <script>
-$('#buybutton').on('click',function(){
-	window.location.href = '<%=request.getContextPath()%>/Store/paymentING.jsp';
+$('#beforebutton').on('click',function(){
+	window.location.href = '<%=request.getContextPath()%>/Store/shoppingcart.jsp';
+});
+$('#paybutton').on('click',function(){
+	window.location.href = '<%=request.getContextPath()%>/Store/paymentEND.jsp';
 });
 </script>
 </html>
