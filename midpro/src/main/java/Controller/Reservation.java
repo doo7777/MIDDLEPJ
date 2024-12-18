@@ -10,6 +10,7 @@ import ServiceInterface.IReservationService;
 import Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -49,6 +50,7 @@ public class Reservation extends HttpServlet {
 	    reservationVO.setMovie_name(movie_name);
 	    reservationVO.setTheater_id(theater_id);
 	    reservationVO.setSchedule_id(schedule_id);
+	    reservationVO.setScreen_id(screen_id);
 
 	    
 
@@ -59,6 +61,7 @@ public class Reservation extends HttpServlet {
 	       List<MovieVO> movieList = service.getAllMovie();
 	       List<TheaterVO> theaterList = service.getAllTheater();
 	       List<ScheduleVO>scheduleList = service.getAllSchedule();
+	       List<ScreenVO>screenList = service.get
 	        request.setAttribute("schedeulList", scheduleList);
 	        request.setAttribute("movieList", movieList);
 	        request.setAttribute("theaterList", theaterList);
