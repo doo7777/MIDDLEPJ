@@ -403,18 +403,18 @@
         }
 
 
-     console.log("체킁:",stillImages);
+        console.log("체킁:",stillImages);
       
 
 
-/*
-        const stillImages = stills.flatMap(mv =>
-        Array.from({ length: 4 }, (_, index) => {
-            <%-- return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
-            return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
-	    });
-	    
-*/
+        /*
+                const stillImages = stills.flatMap(mv =>
+                Array.from({ length: 4 }, (_, index) => {
+                    <%-- return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
+                    return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
+                });
+                
+        */
         // 현재 보여지는 이미지의 인덱스
         let currentIndex = 0;
 

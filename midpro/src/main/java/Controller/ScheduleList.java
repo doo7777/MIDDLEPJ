@@ -20,7 +20,9 @@ public class ScheduleList extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		IScheduleService service = ScheduleServiceImpl.getInstance();
+		
 		List<ScheduleVO>scdList = service.getAllSchedule();
 		
 		request.setAttribute("scd", scdList);

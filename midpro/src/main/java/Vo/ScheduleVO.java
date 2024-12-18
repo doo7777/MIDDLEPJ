@@ -12,6 +12,9 @@ public class ScheduleVO {
 	private String end_time;
 	private String schedule_date;
 	
+	private String theater_name;
+	private String screen_name;
+	
 	
 	
 	public int getSchedule_id() {
@@ -61,18 +64,32 @@ public class ScheduleVO {
 		this.schedule_date = schedule_date;
 	}
 	
-	
+	public String getTheater_name() {
+		return theater_name;
+	}
+	public void setTheater_name(String theater_name) {
+		this.theater_name = theater_name;
+	}
+	public String getScreen_name() {
+		return screen_name;
+	}
+	public void setScreen_name(String screen_name) {
+		this.screen_name = screen_name; 
+	}
 	@Override
 	public String toString() {
-
 		return "ScheduleVO [schedule_id=" + schedule_id + ", screen_id=" + screen_id + ", theater_id=" + theater_id
 				+ ", movie_name=" + movie_name + ", start_time=" + start_time + ", end_time=" + end_time
-				+ ", schedule_date=" + schedule_date + "]";
-
+				+ ", schedule_date=" + schedule_date + ", theater_name=" + theater_name + ", screen_name=" + screen_name
+				+ "]";
 	}
 	
-
 	
+	
+	
+	
+	
+
 	
 	
 	

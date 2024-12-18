@@ -13,6 +13,7 @@
             left: 2px;
         }
 
+
         body {
             margin: 0;
             width: 100%;
@@ -85,6 +86,8 @@
             top: 10%;
             left: 1450px;
             white-space: nowrap;
+            cursor: pointer; 
+            
         }
 
         /* 무비 순위 목록 */
@@ -367,6 +370,10 @@
 </body>
 
 <script>
+	$('.movie-list').on('click',function(){
+		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
+	});
+
     const barParam = '<%=request.getParameter("bar")%>';
     if (barParam === 'on') {
         updateSidebarContent();
