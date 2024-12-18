@@ -6,10 +6,10 @@ public class ReservationVO {
 	private int reservation_id;
 	private String customer_id;
 	private int seat_id;
-	private int schedule_id;
+	private String schedule_id;
 	private String movie_name;
-	private int screen_id;
-	private int theater_id;
+	private String screen_id;
+	private String theater_id;
 	private int reservation_num;
 	private String reservation_status;
 	private Date reservation_date;
@@ -32,10 +32,10 @@ public class ReservationVO {
 	public void setSeat_id(int seat_id) {
 		this.seat_id = seat_id;
 	}
-	public int getSchedule_id() {
+	public String getSchedule_id() {
 		return schedule_id;
 	}
-	public void setSchedule_id(int schedule_id) {
+	public void setSchedule_id(String schedule_id) {
 		this.schedule_id = schedule_id;
 	}
 	public String getMovie_name() {
@@ -44,16 +44,16 @@ public class ReservationVO {
 	public void setMovie_name(String movie_name) {
 		this.movie_name = movie_name;
 	}
-	public int getScreen_id() {
+	public String getScreen_id() {
 		return screen_id;
 	}
-	public void setScreen_id(int screen_id) {
+	public void setScreen_id(String screen_id) {
 		this.screen_id = screen_id;
 	}
-	public int getTheater_id() {
+	public String getTheater_id() {
 		return theater_id;
 	}
-	public void setTheater_id(int theater_id) {
+	public void setTheater_id(String theater_id) {
 		this.theater_id = theater_id;
 	}
 	public int getReservation_num() {

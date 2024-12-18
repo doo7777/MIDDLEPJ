@@ -33,6 +33,7 @@ public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
 		
 		try {
 			cnt = session.insert("Reservation.insertReservation", reservationVO);
+			
 			if(cnt>0)session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

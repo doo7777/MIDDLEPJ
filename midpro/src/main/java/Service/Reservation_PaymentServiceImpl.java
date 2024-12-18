@@ -29,7 +29,7 @@ public class Reservation_PaymentServiceImpl implements IReservation_PaymentServi
 	@Override
 	public int insertReservation(ReservationVO reservation_PaymentVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertReservation(reservation_PaymentVO);
 	}
 
 
