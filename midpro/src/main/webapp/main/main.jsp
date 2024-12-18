@@ -42,11 +42,7 @@
             background-color: black; /* 원래 블랙 */
         }
 
-<<<<<<< HEAD
         /* 무비차트, 상영예정작, 무비추천 */        
-=======
-        /* 무비차트, 상영예정작, 무비추천 */
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         .header {
             width: 100%;
             padding: 0 0 0 270px;
