@@ -920,6 +920,17 @@
         //    )
         //);
      	
+        const stillImages = {}
+
+        for(let i=0; i<stills.length; i++){
+            stillImages[stills[i]]=[];
+            for(let j=1; j<=4; j++){
+                stillImages[stills[i]].push(`<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/\${stills[i]}/\${j}.jpg` )
+            }
+        }
+
+
+        console.log("체킁:",stillImages);
      	
         const stillImages = stills.flatMap(mv =>
         Array.from({ length: 4 }, (_, index) => {
