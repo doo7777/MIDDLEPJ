@@ -4,6 +4,7 @@ import java.util.List;
 
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
 import Vo.TheaterVO;
 
 public interface IReservationDao {
@@ -19,6 +20,12 @@ public interface IReservationDao {
    
    
    public List<TheaterVO> getAllTheater();
+   
+   
+   
+   
+   public List<ScheduleVO> getAllSchedule();
+   
    
 
 }

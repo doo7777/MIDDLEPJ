@@ -25,7 +25,6 @@
 %>
     
 <%
-
        //영화 목록을 가져오기 위한 DAO객체 생성하셈
      MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
      
@@ -37,7 +36,7 @@
      
      ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
      
-     List<ScheduleVO> scheduelList = scheduleDao.getAllSchedule(); //일정 전체 조회
+     List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
     
      
      
@@ -70,7 +69,7 @@
         <br><br>
 
         <label for="theater_id">극장 선택:</label>
-        <select id="theater_id" name="theater_id" required>
+        <select id="theater_id" name="theater_id"   required>
               <%
         if (theaterList != null) {
             for (TheaterVO theater : theaterList) {
@@ -92,41 +91,42 @@
      
         <label for="hall">관 선택:</label>
         <select id="hall" name="hall" required>
-            <option value="1관">1관</option>
-            <option value="2관">2관</option>
-            <option value="3관">3관</option>
-            <option value="4관">4관</option>
-            <option value="5관">5관</option>
+
             <!-- 추가 관 목록 -->
         </select>
         <br><br>
 
-        <label for="schedule_date">날짜 선택:</label>
-        <select id ="scheduel" name ="schedule" required>
-                      <%
-        if (scheduelList != null) {
-            for (ScheduleVO schedule : scheduelList) {
-    %>
-                <option value="<%= schedule.getSchedule_id() %>">
-                    <%= schedule.getSchedule_date() %>
-                </option>
+        
+      <label for="schedule_id">일정 선택:</label>
+<select id="schedule_id" name="schedule_id" required>
     <%
-            }
-        } else {
+    if (schedulelList != null) {
+        for (ScheduleVO schedule : schedulelList) {
     %>
-            <option value="">등록된 극장이 없습니다</option>
+        <option value="<%= schedule.getSchedule_id()%>">
+           <%= schedule.getSchedule_date() %>
+
+            
+        </option>
     <%
         }
+    } else {
     %>
-        
-        </select>
-        <br><br>
+        <option value="">등록된 일정이 없습니다</option>
+    <%
+    }
+    %>
+    
 
+</select>
+
+        <br><br>
+  
         <label for="schedule_start">시간 선택:</label>
         <select id="time" name="time" required>
                     <%
-        if (scheduelList != null) {
-            for (ScheduleVO schedule : scheduelList) {
+        if (schedulelList != null) {
+            for (ScheduleVO schedule : schedulelList) {
     %>
                 <option value="<%= schedule.getSchedule_id() %>">
                     <%= schedule.getStart_time() %>
@@ -140,7 +140,7 @@
         }
     %>
         
-        </select>
+        </select> 
         <br><br>
 
         <input type="submit" value="예매하기">

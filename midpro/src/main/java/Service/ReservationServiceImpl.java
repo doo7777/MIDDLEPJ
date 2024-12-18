@@ -38,19 +38,21 @@ public class ReservationServiceImpl implements IReservationService{
 	@Override
 	public List<MovieVO> getAllMovie() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllMovie();
 	}
 
 
 	@Override
 	public List<TheaterVO> getAllTheater() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllTheater();
 	}
 		
+	
+	
     @Override
     public List<ScheduleVO>getAllSchedule(){
-		return null;
+		return dao.getAllSchedule();
 	}
 
 

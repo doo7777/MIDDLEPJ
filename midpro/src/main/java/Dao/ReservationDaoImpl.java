@@ -9,6 +9,8 @@ import DaoInterface.IReservationDao;
 import Util.MybatisUtil;
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 
 public class ReservationDaoImpl implements IReservationDao{
@@ -76,6 +78,27 @@ public class ReservationDaoImpl implements IReservationDao{
 	}
 
 	
+	
+	
+	public List<ScheduleVO> getAllSchedule(){
+		SqlSession session = MybatisUtil.getSqlSession();
+		List<ScheduleVO> scheduleList =null;
+		
+		try {
+			scheduleList = session.selectList("Schedule.getAllSchedule");
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			if(session !=null)session.close();
+			
+		
+		}
+		return scheduleList;
+	}
+	
+	
+
 	
 	
 	
