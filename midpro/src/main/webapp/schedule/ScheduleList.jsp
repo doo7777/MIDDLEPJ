@@ -1,3 +1,5 @@
+<%@page import="Vo.TheaterVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -23,19 +25,22 @@
 </style>
 </head>
 <body>
-	<h2>상영리스트</h2>
+	<h2>상영스케줄</h2>
 	<table>
 	<thead>
 	<tr>
 		<th>영화제목</th>
-		<th>지점ID</th>
-		<th>상영관ID</th>
+	<!-- <th>지점ID</th>
+		<th>상영관ID</th> -->
+		<th>지점명</th>
+		<th>상영관명</th>
 		<th>시작시간</th>
 		<th>날짜</th>
 	</tr>
 	</thead>
-	<tbody>
 	
+	<tbody>
+	 
 	<%
 		List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
 		if (scd != null){
@@ -43,8 +48,10 @@
 	%>
 	<tr>
 		<td><%= scdList.getMovie_name() %></td>			
-		<td><%= scdList.getTheater_id() %></td>			
-		<td><%= scdList.getScreen_id() %></td>			
+		<%-- <td><%= scdList.getTheater_id() %></td>			
+		<td><%= scdList.getScreen_id() %></td> --%>			
+		<td><%= scdList.getTheater_name() %></td>			
+		<td><%= scdList.getScreen_name() %></td>			
 		<td><%= scdList.getStart_time() %></td>			
 		<td><%= scdList.getSchedule_date() %></td>
 	</tr>				
@@ -56,4 +63,5 @@
 	</tbody>	
 	</table>
 </body>
+
 </html>

@@ -237,7 +237,7 @@
 
         tabs.forEach(tab => {
             tab.addEventListener("click", () => {
-                alert("눌렀닝?")
+                //alert("눌렀닝?")
                 // 모든 탭 내용 숨기기
                 contents.forEach(content => content.classList.remove("active"));
                 // 클릭한 탭 내용 표시
@@ -247,7 +247,7 @@
                 console.log("#"+tab.dataset.tab+"-image");
                 console.log("체로롱",tab);
                 */
-                document.querySelector("#"+tab.dataset.tab+"-image").src = stillImages["영화1"][0]
+                //document.querySelector("#"+tab.dataset.tab+"-image").src = stillImages["영화1"][0]
             });
         });
 
@@ -392,29 +392,15 @@
      	
           //  /main/sorce/img/영화스틸컷/영화2/\${index + 1}.jpg
 
-
-        const stillImages = {}
-
-        for(let i=0; i<stills.length; i++){
-            stillImages[stills[i]]=[];
-            for(let j=1; j<=4; j++){
-                stillImages[stills[i]].push(`<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/\${stills[i]}/\${j}.jpg` )
-            }
-        }
-
-
-     console.log("체킁:",stillImages);
-      
-
-
-/*
-        const stillImages = stills.flatMap(mv =>
-        Array.from({ length: 4 }, (_, index) => {
-            <%-- return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
-            return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
-	    });
-	    
-*/
+        
+                const stillImages = stills.flatMap(mv =>
+			        Array.from({ length: 4 }, (_, index) => {
+			<%--             return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
+			            return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
+				        })
+				    );
+                
+        
         // 현재 보여지는 이미지의 인덱스
         let currentIndex = 0;
 

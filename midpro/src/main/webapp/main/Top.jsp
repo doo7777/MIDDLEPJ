@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Insert title here</title>
     <style>
+
         /* 최상단 */
         #top {
             height: 140px;
@@ -87,6 +88,7 @@
             padding: 0 0 0 220px;
             background-color: black;
         }
+
 
         .dropmenu li a {
             color: #fff;
@@ -179,7 +181,7 @@
             align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
             width: 300px;
             height: 100%;
-            background: #ffffff !important;
+            background: #ffffff;
             position: fixed;
             top: 0;
             right: -300px;
@@ -199,30 +201,6 @@
         }
 
 
-        .sidebar button {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            border-color: rgb(0, 0, 0);
-            padding: 15px;
-            min-height: 5px;
-            min-width: 250px;
-        }
-
-        /* 로그인 버튼 hover 효과 */
-        .sidebar button.loginBtn:hover {
-            background-color: black;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* 회원가입 버튼 hover 효과 */
-        .sidebar button.signupBtn:hover {
-            background-color: black;
-            color: white;
-            font-weight: bold;
-        }
-
         /* 사이드 바 안에 있는 닫기 버튼 */
         .fa-xmark {
             color: black;
@@ -235,6 +213,59 @@
         .sidebar h3 {
             margin-top: 50px;
         }
+        
+
+
+    /* 아이디, 패스워드 입력 칸 */
+    .input-container {
+        position: relative; /* 아이콘과 세로줄을 절대 위치로 설정하기 위해 상대 위치로 설정 */
+        margin-bottom: 8px; /* 입력 요소 간의 간격을 조정 */
+    }
+    .ID_img {
+        position: absolute;
+        left: 10px; /* 아이콘의 위치 조정 */
+        top: 50%; /* 아이콘을 수직 중앙에 배치 */
+        transform: translateY(-50%); /* 아이콘을 수직 중앙으로 조정 */
+        pointer-events: none; /* 아이콘 클릭 방지 */
+        font-size: 25px; /* 아이콘 크기 설정 */
+        color: #3498db;
+        margin: 0; /* 기본 여백 제거 */
+    	padding: 0; /* 기본 패딩 제거 */
+    }
+	.PWBtn_box, .IDBtn_box {
+	    padding: 10px; /* 입력 필드의 내부 여백 */
+	    padding-left: 60px; /* 아이콘과의 간격 조정 (세로줄 공간 포함) */
+	    width: 100%; /* 입력 필드의 너비를 100%로 설정 */
+	    box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+	}
+    .input-container::after {
+        content: ""; /* 가상 요소의 내용 설정 */
+        position: absolute;
+        left: 50px; /* 아이콘 오른쪽에 위치 */
+        top: 10%; /* 세로줄의 상단 위치 조정 */
+        height: 80%; /* 세로줄의 높이 설정 */
+        width: 1px; /* 세로줄의 너비 설정 */
+        background-color: #ccc; /* 세로줄의 색상 설정 */
+    }
+    
+	/* 로그인, 회원가입 버튼 */
+	.loginbtn, .signupBtn {
+	    padding: 15px; /* 버튼의 내부 여백 조정 */
+	    min-height: 5px;
+        min-width: 250px;
+	    font-size: 14px; /* 글자 크기 조정 */
+	    height: 40px; /* 높이 설정 */
+	    width: auto; /* 너비를 자동으로 설정 */
+	    border-radius: 5px; /* 모서리 둥글게 설정 */
+	    cursor: pointer; /* 마우스 커서 변경 */
+	    text-align: center; /* 텍스트 가운데 정렬 */
+	    display: flex; /* 플렉스 박스 사용 */
+	    align-items: center; /* 수직 가운데 정렬 */
+	    justify-content: center; /* 수평 가운데 정렬 */
+	    background-color: black;   
+	    color: white;
+	    margin-bottom: 5px;
+	}
     </style>
     
 </head>
@@ -244,6 +275,7 @@
         <div id="top"> <!-- 상단 영역 -->
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고(최종).png" alt="로고" class="logo">
             <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
+
             <div class="topIcon">
                 <div class="icon-text">
                     <i class="fa-solid fa-lock" id="loginbutton"></i>
@@ -253,13 +285,26 @@
                     <h4 id="btnfont2" class="logout">로그아웃</h4>
                     <% } %>
                     <script>
-                        window.onload = function() {
-                            <% if(result != null) { %>
-                            alert("로그인 되었습니다.");
-                            <% } else { %>
-                            <% } %>
-                        };
+                    window.onload = function() {
+                        // 로그인 상태 확인
+                        const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+                        // result가 null이 아니면 로그인 상태
+                        <% if(result != null) { %>
+                            if (!isLoggedIn) {
+                                alert("로그인 되었습니다.");
+                                localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
+                            }
+                        <% } else { %>
+                            // 로그인하지 않은 상태일 때
+                            if (isLoggedIn) {
+                                alert("로그아웃 상태입니다.");
+                                localStorage.removeItem('isLoggedIn'); // 로그아웃 상태로 변경
+                            }
+                        <% } %>
+                    };
                     </script>
+
                 </div>
                 <div class="icon-text">
                     <i class="fa-regular fa-user"></i>
@@ -283,7 +328,7 @@
                 <li><a href="#" class="highlight" id="movie2">영화</a> <!-- 기모찡 -->
                     <ul>
                         <li><a href="#" id="moviechart">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
-                        <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
+                        <li><a href="#" id="comingOut">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                     </ul>
                 </li>
                 <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
@@ -335,6 +380,14 @@
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
+    
+    $('.icon-text').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
+    });
+    
+    $('#comingOut').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
+    });
     
     $('#movres').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
@@ -409,20 +462,22 @@
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
             <form action="<%=request.getContextPath()%>/cusLogin.do" method="POST" id="loginform">
             <% if(result==null){ %>
-            <div class="IDBtn">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/로그인/ID사진.png" alt="ID" id="DGV" width="30" height="30" class="ID_img">
-                <input type="text" title="아이디" id="username" name="cust_id" required class="IDBtn_box">
-                <br><br>
-            </div>
-            <div class="PWBtn">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/로그인/PW사진.png" alt="PW" id="DGV" width="32" height="32" class="PW_img">
-                <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
-                <br><br>
-            </div>
-            <button type="submit" class="login" id="login">Login</button>
-            <h6>아직 회원이 아니세요?</h6>
-            <button type="button" id="join" class="signupBtn">회원가입</button>
-            <h6><a href="#">비밀번호를 잊어버렸다면?</a></h6>
+
+            <div class="input-container">
+            <i class="fas fa-user ID_img"></i>
+            <input type="text" title="아이디" id="username" name="cust_id" required class="IDBtn_box">
+        </div>
+        
+	        <div class="input-container">
+	        <i class="fas fa-lock ID_img"></i>
+	        <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
+	    </div>
+
+        </div>
+        <button type="submit" class="loginbtn" id="login">Login</button>
+        <button type="button" id="join" class="signupBtn">회원가입</button>        
+
+
             <% } else { %>
             <%=result.getCust_name()%>님 반갑습니다!!<br>
             현재 DGV 등급 :<%=result.getCust_grade()%>등급
@@ -471,5 +526,9 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar();
     });
+    
+
+  
+
 </script>
 </html>
