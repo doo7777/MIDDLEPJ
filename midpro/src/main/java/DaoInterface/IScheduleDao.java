@@ -12,7 +12,7 @@ public interface IScheduleDao {
 	 */
 	public List<ScheduleVO> getScheduleName(String Movie_name);
 	
-	
+	 
 	
 	/**
 	 * 상영관 ID를 받아서 영화의 상영시간표를 알려줌
