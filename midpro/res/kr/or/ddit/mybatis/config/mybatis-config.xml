@@ -2,17 +2,7 @@
 <!DOCTYPE configuration 
    PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
          "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 <configuration>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
    <!-- DB 연결 정보가 저장된 propertis파일 정보 설정 -->
    <properties resource="kr/or/ddit/mybatis/config/dbinfo.properties"/>
@@ -46,6 +36,7 @@
       <typeAlias type="Vo.ReviewVO" alias="reviewVO"/>
       <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
       <typeAlias type="Vo.ReservationVO" alias ="reservationVO"/>
+      <typeAlias type="Vo.ScreenVO" alias ="ScreenVO"/>
       
       
       
@@ -87,10 +78,4 @@
       
       
    </mappers>
-<<<<<<< HEAD
-=======
-
-   
-
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 </configuration>
