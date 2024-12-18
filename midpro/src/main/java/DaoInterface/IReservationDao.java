@@ -6,7 +6,7 @@ import Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.TheaterVO;
 
-public interface IReservation_PaymentDao {
+public interface IReservationDao {
 	/**
 	 * 
 	 * @param reservation_PaymentVO

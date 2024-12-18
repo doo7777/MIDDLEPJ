@@ -3,10 +3,13 @@ package Controller;
 import java.io.IOException;
 import java.util.List;
 
-import Service.Reservation_PaymentServiceImpl;
-import ServiceInterface.IReservation_PaymentService;
+import Service.PaymentServiceImpl;
+import Service.ReservationServiceImpl;
+
+import ServiceInterface.IReservationService;
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
 import Vo.TheaterVO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -35,18 +38,22 @@ public class Reservation extends HttpServlet {
 		String customer_id = request.getParameter("customer_id");
 		String movie_name = request.getParameter("movie_name");
 		int theater_id = Integer.parseInt(request.getParameter("theater_id"));
+	    int schedule_id = Integer.parseInt(request.getParameter("schedule_id"));
 	    
 	    //ReservationVO에 값 설정
 	    ReservationVO reservationVO = new ReservationVO();
 	    reservationVO.setCustomer_id(customer_id);
 	    reservationVO.setMovie_name(movie_name);
 	    reservationVO.setTheater_id(theater_id);
+	    reservationVO.setSchedule_id(schedule_id);
 	    
 	    //서비스 호출
-	    IReservation_PaymentService service = Reservation_PaymentServiceImpl.getInstance();
+	    IReservationService service = ReservationServiceImpl.getInstance();
 	    int result = service.insertReservation(reservationVO);
 	       List<MovieVO> movieList = service.getAllMovie();
-	        List<TheaterVO> theaterList = service.getAllTheater();
+	       List<TheaterVO> theaterList = service.getAllTheater();
+	       List<ScheduleVO>scheduleList = service.getAllSchedule();
+	       request.setAttribute("schedeulList", scheduleList);
 	        request.setAttribute("movieList", movieList);
 	        request.setAttribute("theaterList", theaterList);
 	    

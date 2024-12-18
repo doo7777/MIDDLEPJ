@@ -5,21 +5,21 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import DaoInterface.IReservation_PaymentDao;
+import DaoInterface.IReservationDao;
 import Util.MybatisUtil;
 import Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.TheaterVO;
 
-public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
+public class ReservationDaoImpl implements IReservationDao{
 
-	private static Reservation_PaymentDaoImpl dao;
+	private static ReservationDaoImpl dao;
 	
-	private Reservation_PaymentDaoImpl() {}
+	private ReservationDaoImpl() {}
 	
-	public static Reservation_PaymentDaoImpl getInstance() {
+	public static ReservationDaoImpl getInstance() {
 		if (dao==null) {
-			dao=new Reservation_PaymentDaoImpl();
+			dao=new ReservationDaoImpl();
 		}
 		return dao;
 	}
