@@ -18,6 +18,7 @@ public class ScheduleVO {
 	private String theater_do;
 	
 	
+
 	
 	public String getSchedule_id() {
 		return schedule_id;

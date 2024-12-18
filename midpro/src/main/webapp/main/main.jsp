@@ -267,6 +267,7 @@
 </head>
 
 <body>
+		
         <%@ include file="Top.jsp" %>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
@@ -286,6 +287,7 @@
     </div>
 
     <div class="header" id="movie_chart">
+    
         <div class="chart">
             <div class="chart reservation_btn">예매</div>
         </div>
