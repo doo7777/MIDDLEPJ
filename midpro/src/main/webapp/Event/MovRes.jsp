@@ -201,12 +201,12 @@
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/f.png" alt="이벤트6" />
                 <p>[엔시티 드림 미스터리 랩] 싱어롱 상영회</p>
-                <span>2024.12.16~2024.12.21<span class="red-text" style="color: #ef8400;">D-6</span></span>
+                <span>2024.12.16~2024.12.21<span class="red-text" style="color: red;">D-6</span></span>
             </div>
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/g.png" alt="이벤트7" />
                 <p>[극장판 주술회전 0] 순애 상영회</p>
-                <span>2024.12.16~2024.12.19<span class="red-text" style="color: #ef8400;">D-3</span></span>
+                <span>2024.12.16~2024.12.19<span class="red-text" style="color: red;">D-3</span></span>
             </div>
             <div class="event-card">
                 <img src="<%= request.getContextPath() %>/main/sorce/img/이벤트/h.png" alt="이벤트8" />
