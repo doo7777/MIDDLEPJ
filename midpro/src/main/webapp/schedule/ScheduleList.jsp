@@ -1,3 +1,7 @@
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="java.util.Collections"%>
 <%@page import="Vo.TheaterVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Vo.ScheduleVO"%>
@@ -24,16 +28,16 @@
 	}
 </style>
 </head>
+
 <body>
 	<h2>상영스케줄</h2>
 	<table>
 	<thead>
 	<tr>
 		<th>영화제목</th>
-	<!-- <th>지점ID</th>
-		<th>상영관ID</th> -->
-		<th>지점명</th>
-		<th>상영관명</th>
+		<th>지역</th>
+		<th>지점</th>
+		<th>상영관</th>
 		<th>날짜</th>
 		<th>시작시간</th>
 	</tr>
@@ -48,8 +52,7 @@
 	%>
 	<tr>
 		<td><%= scdList.getMovie_name() %></td>			
-		<%-- <td><%= scdList.getTheater_id() %></td>			
-		<td><%= scdList.getScreen_id() %></td> --%>			
+		<td><%= scdList.getTheater_do() %></td>			
 		<td><%= scdList.getTheater_name() %></td>			
 		<td><%= scdList.getScreen_name() %></td>			
 		<td><%= scdList.getSchedule_date() %></td>
@@ -62,6 +65,8 @@
 	
 	</tbody>	
 	</table>
-</body>
+</body> 
+
+
 
 </html>

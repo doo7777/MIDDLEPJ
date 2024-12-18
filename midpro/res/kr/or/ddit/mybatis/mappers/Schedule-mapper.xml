@@ -12,8 +12,7 @@
 		FROM schedule s
 		JOIN theater t ON s.theater_id = t.theater_id
 		JOIN screen sc ON s.screen_id = sc.screen_id
-		order by theater_name, screen_id
-		 
+		order by t.theater_id, s.movie_name
 	</select>
 	
 	

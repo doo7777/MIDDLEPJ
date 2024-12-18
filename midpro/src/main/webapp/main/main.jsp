@@ -325,15 +325,18 @@
             <i class="fa-solid fa-plus"></i>
             <h3>패키지</h3>
             <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" width=150px height=150px>
+            <img src="sorce/img/패키지(완료)/우리-패키지.jpg" width=150px height=150px>
         </div>
         <div class="ticket">
             <i class="fa-solid fa-plus"></i>
             <h3>영화관람권</h3>
             <img src="sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" width=150px height=150px>
+            <img src="sorce/img/영화관람권(완료)/CGV-영화관람권.jpg" width=150px height=150px>
         </div>
         <div class="giftcard">
             <i class="fa-solid fa-plus"></i>
             <h3>기프트카드</h3>
+            
         </div>
     </div>
     <br><br>
@@ -452,7 +455,11 @@
         }
 
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+        
+        
     });
+    
+
 </script>
 </html>
 

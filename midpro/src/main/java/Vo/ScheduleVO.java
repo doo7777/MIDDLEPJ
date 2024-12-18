@@ -25,12 +25,9 @@ public class ScheduleVO {
 	public void setSchedule_id(int schedule_id) {
 		this.schedule_id = schedule_id;
 	}
-
 	public int getScreen_id() {
 		return screen_id;
-
 	}
-
 	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
@@ -43,7 +40,6 @@ public class ScheduleVO {
 	public String getMovie_name() {
 		return movie_name;
 	}
-
 	public void setMovie_name(String movie_name) {
 		this.movie_name = movie_name;
 	}
