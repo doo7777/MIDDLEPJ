@@ -90,7 +90,7 @@
         	for(TheaterVO theater : theaterList ) {
         %>
 			
-			<option value="<%=theater.getTheater_id() %>">
+			<option value="<%=theater.getTheater_name() %>">
 				<%=theater.getTheater_id() %>
 			</option>
 		<%
