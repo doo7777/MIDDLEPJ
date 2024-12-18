@@ -3,6 +3,7 @@ package Service;
 import java.util.List;
 
 import Dao.NoticeDaoImpl;
+import Dao.ScreenDaoImpl;
 import DaoInterface.INoticeDao;
 import DaoInterface.IScreenDao;
 import ServiceInterface.IScreenService;
@@ -14,11 +15,11 @@ public class ScreenServiceImpl implements IScreenService{
 	private IScreenDao dao;
 	
 	private ScreenServiceImpl() {
-		dao = ScreenServiceImpl.getInstance();
+		dao = ScreenDaoImpl.getInstance();
 	}
 	
-	public static NoticeServiceImpl getInstance() {
-		if(service==null) service = new NoticeServiceImpl();
+	public static ScreenServiceImpl getInstance() {
+		if(service==null) service = new ScreenServiceImpl();
 		
 		return service;
 	}

@@ -616,9 +616,9 @@
                 </div>
                 <div id="poster" class="tab-content">
                     <div class="image-gallery">
-			        <button class="arrow left-arrow"><</button>
+			        <button class="arrow left-arrow"></button>
 			        <img id="poster-image" src="" alt="스틸 이미지" />
-			        <button class="arrow right-arrow">></button>
+			        <button class="arrow right-arrow"></button>
 			    </div>
                 </div>
                 <div id="review" class="tab-content">
