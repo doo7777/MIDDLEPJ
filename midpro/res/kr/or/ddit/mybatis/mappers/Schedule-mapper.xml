@@ -6,13 +6,15 @@
 <mapper namespace="Schedule">
 
 	<!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
-	<select id="getAllSchedule" resultType="scheduleVO">
-		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date, 
-       			t.theater_name, sc.screen_name, t.theater_do
+	<select id="getAllDetail" resultType="scheduleVO">
+		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date,
+		       t.theater_name, sc.screen_name, t.theater_do,
+		       m.start_date AS start_date  -- TO_DATE 제거
 		FROM schedule s
 		JOIN theater t ON s.theater_id = t.theater_id
 		JOIN screen sc ON s.screen_id = sc.screen_id
-		order by t.theater_id, s.movie_name
+		JOIN movie m ON m.movie_name = s.movie_name
+		ORDER BY t.theater_id, s.movie_name
 	</select>
 	
 	
@@ -28,6 +30,8 @@
 		select * from schedule
 		where screen_id = #{screen_id}
 	</select>
+	
+	<!-- 상영시작일 -->
 	
 	
 	

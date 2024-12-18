@@ -23,7 +23,7 @@ public class ScheduleList extends HttpServlet {
 		
 		IScheduleService service = ScheduleServiceImpl.getInstance();
 		
-		List<ScheduleVO>scdList = service.getAllSchedule();
+		List<ScheduleVO>scdList = service.getAllDetail();
 		
 		request.setAttribute("scd", scdList);
 		

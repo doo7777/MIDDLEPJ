@@ -22,13 +22,13 @@ public class ScheduleDaoImpl implements IScheduleDao{
 // 스케줄 전체 조회 ---------------------------------------------------	
 
 	@Override
-	public List<ScheduleVO> getAllSchedule() {
+	public List<ScheduleVO> getAllDetail() {
 		SqlSession session = MybatisUtil.getSqlSession();
 		
 		List<ScheduleVO> scdList = null;
 		
 		try {
-			scdList = session.selectList("Schedule.getAllSchedule");
+			scdList = session.selectList("Schedule.getAllDetail");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
