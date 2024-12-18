@@ -385,7 +385,7 @@
     });
     
     $('#reservation').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/reservation.do'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
+    	window.location.href = '<%=request.getContextPath()%>/Reservation/Reservation.jsp'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
     });
     
     $('#current').on('click',function(){

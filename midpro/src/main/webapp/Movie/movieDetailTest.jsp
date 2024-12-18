@@ -183,112 +183,9 @@
         
     </head>
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <%@ include file="/main/Top.jsp" %>
-=======
-   
-        <div id="main"> <!-- 메인 컨테이너 -->
-            <div id="top"> <!-- 상단 영역 -->
-=======
-        <%@ include file="/main/Top.jsp" %>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             
-<<<<<<< HEAD
-                <img src="../main/sorce/img/DGV-로고.png" alt="로고" class="logo">
-                <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
-                <div class="topIcon">
-                
-                    <div class="icon-text">
-                        <i class="fa-solid fa-lock" id="loginbutton"></i>
-
-                        <%if(result==null){ %>
-                        <h4 id="btnfont" class="login">로그인</h4>
-                        <%}else{ %>
-                        <h4 id="btnfont" class="logout">로그아웃</h4>
-                        <%} %>
-                        <script>
-						    window.onload = function() {
-						        <% if(result != null) { %>
-						            alert("로그인 되었습니다.");
-						        <% }else{ %>
-						        <% } %>
-						    };
-						</script>
-                    </div>
-                    <div class="icon-text">
-                        <i class="fa-regular fa-user"></i>
-                        <h4 id="btnfont" class="mypage">마이페이지</h4>
-                    </div>
-                    <div class="icon-text">
-                        <i class="fas fa-headset"></i> 
-                        <h4 id="btnfont" class="service center">고객센터</h4>
-                    </div>
-                </div>
-                <div class="sidebar">
-                    <p>
-                    <i class="fa-solid fa-xmark"></i>
-                    <div class="sidebar-content"></div>
-                    </p>
-                </div>    
-            </div>
-    
-            <div id="top_menu" class="dropmenu"> <!-- 드롭다운 메뉴 -->
-                <ul>
-                    <li><a href="#" class="highlight">영화</a> <!-- 기모찡 -->
-                        <ul>
-                            <li><a href="#">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
-                            <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
-                        </ul>
-                    </li>
-                    <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
-                    <li><a href="#" class="highlight">예매</a> <!-- 예매 메뉴 항목 -->
-                        <ul>
-                            <li><a href="#">빠른예매</a></li> <!-- 하위 메뉴: 빠른예매 -->
-                            <li><a href="#">상영스케줄</a></li> <!-- 하위 메뉴: 상영스케줄 -->
-                        </ul>
-                    </li>
-                    <li><a href="#" class="highlight">스토어</a> <!-- 스토어 메뉴 항목 -->
-                        <ul>
-                            <li><a href="#">패키지</a></li> <!-- 하위 메뉴: 패키지 -->
-                            <li><a href="#">영화관람권</a></li> <!-- 하위 메뉴: 영화관람권 -->
-                            <li><a href="#">기프트카드</a></li> <!-- 하위 메뉴: 기프트카드 -->
-                            <li><a href="#">콤보</a></li> <!-- 하위 메뉴: 콤보 -->
-                            <li><a href="#">팝콘</a></li> <!-- 하위 메뉴: 팝콘 -->
-                            <li><a href="#">음료</a></li> <!-- 하위 메뉴: 음료 -->
-                            <li><a href="#">스낵</a></li> <!-- 하위 메뉴: 스낵 -->
-                        </ul>
-                    </li>
-                    <li><a href="#" class="highlight">이벤트</a> <!-- 이벤트 메뉴 항목 -->
-                        <ul>
-                            <li><a href="#">스페셜</a></li> <!-- 하위 메뉴: 스페셜 -->
-                            <li><a href="#">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
-                        </ul>
-                    </li>
-                    <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
-                        <ul>
-                            <li><a href="#">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
-                            <li><a href="#">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="search-container">
-                <input type="text" id="search" placeholder="검색어 입력">
-                <button type="button" id="searchButton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <hr>
-
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
             <!-- 영화 메인 영역 -->
              <div id="movie-detail">
 							
@@ -334,11 +231,6 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-<<<<<<< HEAD
-
-   
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
         // 영화 js
         const tabs = document.querySelectorAll("nav button");
         const contents = document.querySelectorAll(".tab-content");
