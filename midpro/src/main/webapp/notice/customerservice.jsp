@@ -26,17 +26,25 @@
         }
 
         /* 회사소개 */
+        .bottom_line {
+            margin-top: 100px;
+        }
+
+        .parent {
+            position: relative; /* 부모 요소에 상대 위치 설정 */
+        }
+
         #company {
-			height: 150px; /* 회사 정보 영역의 높이 설정 */
-			color: white;
-	
-			margin: 0; /* 기본 여백 제거 */
-			margin-top: 50px; /* 위쪽 여백 */
-			text-align: center;
-			overflow: hidden; /* 내용이 잘리도록 설정 */
-			position: absolute; /* 절대 위치 설정 */
-			transform: translateX(100%);
-		}
+            height: 400px; /* 회사 정보 영역의 높이 설정 */
+            color: white;
+            width: 700px; /* 고정 너비 유지 */
+            margin: 0; /* 기본 여백 제거 */
+            margin-top: 100px; /* 위쪽 여백 */
+            text-align: center;
+            overflow: hidden; /* 내용이 잘리도록 설정 */
+            position: absolute; /* 절대 위치 설정 */
+            transform: translateX(100%);
+        }
 
         /* 고객센터 */
         /* 전체 레이아웃 */
@@ -56,8 +64,8 @@
         }
 
         .menu-button {
-            background-color: #ef8400;
-            color: white;
+            background-color: white;
+            color: black;
             border: none;
             width: 100%;
             padding: 10px;
@@ -79,8 +87,8 @@
         }
 
         .left-menu li:hover {
-            background-color: #f8f8f8;
-            color: #ef8400;
+            background-color: white;
+            color: black;
         }
 
         .banner-image {
@@ -95,8 +103,8 @@
         }
 
         .quick-search {
-            background-color: #ef8400;
-            color: white;
+            background-color: white;
+            color: black;
             padding: 10px;
             border-radius: 5px;
             text-align: center;
@@ -106,8 +114,10 @@
             width: 97%;
             padding: 10px;
             margin-top: 10px;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid black; /* 검정색 테두리 추가 */
+            border-radius: 5px; /* 기존 둥근 테두리 유지 */
+            outline: none; /* 포커스 시 기본 테두리 제거 */
+            box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 설정 */
         }
 
         .quick-search-buttons{
@@ -116,8 +126,8 @@
         }
 
         .quick-search-buttons span {
-            background-color: white;
-            color: #ef8400;
+            background-color: black;
+            color: white;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 5px;
@@ -295,86 +305,4 @@
     <!-- 회사 정보 영역 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body>
-
-<script>
-    const barParam = '<%=request.getParameter("bar")%>';
-    if (barParam === 'on') {
-        updateSidebarContent();
-        moveSidebar();
-    }
-
-    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.header');
-        const charts = document.querySelectorAll('.chart');
-        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
-
-        if (header) {
-            header.addEventListener('click', function(event) {
-                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
-                if (event.target.closest('.menu-button')) {
-                    charts.forEach((chart) => {
-                        chart.classList.remove('show');
-                        chart.classList.add('hide');
-                    });
-
-                    setTimeout(() => {
-                        charts.forEach((chart, index) => {
-                            setTimeout(() => {
-                                chart.classList.remove('hide');
-                                chart.classList.add('show');
-                            }, index * 100);
-                        });
-                    }, 500);
-                }
-            });
-
-            charts.forEach((chart, index) => {
-                setTimeout(() => {
-                    chart.classList.add('show');
-                }, index * 100);
-            });
-        }
-        const buttons = document.querySelectorAll('.menu-button');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
-        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
-
-        function movie_play() {
-            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
-            return randomNum; // 난수를 반환
-        }
-
-        function loadRandomVideo() {
-            const randomNum = movie_play(); // 난수 생성
-
-            // 모든 소스의 src를 초기화
-            for (let i = 0; i < sourcesElement.length; i++) {
-                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
-            }
-
-            // 선택된 소스의 src를 설정
-            videoPlayerElement.src = sourcesElement[randomNum].src;
-
-            // videoPlayer가 비디오 요소인지 확인
-            if (videoPlayerElement instanceof HTMLVideoElement) {
-                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
-                videoPlayerElement.play(); // 비디오 자동 재생
-            } else {
-                console.error('videoPlayer is not a valid video element');
-            }
-        }
-
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
-    });
-</script>
 </html>
