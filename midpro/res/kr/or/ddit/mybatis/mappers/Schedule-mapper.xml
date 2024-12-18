@@ -8,7 +8,7 @@
 	<!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
 	<select id="getAllSchedule" resultType="scheduleVO">
 		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date, 
-       			t.theater_name, sc.screen_name
+       			t.theater_name, sc.screen_name, t.theater_do
 		FROM schedule s
 		JOIN theater t ON s.theater_id = t.theater_id
 		JOIN screen sc ON s.screen_id = sc.screen_id

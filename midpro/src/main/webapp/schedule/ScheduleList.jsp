@@ -34,8 +34,8 @@
 		<th>상영관ID</th> -->
 		<th>지점명</th>
 		<th>상영관명</th>
-		<th>시작시간</th>
 		<th>날짜</th>
+		<th>시작시간</th>
 	</tr>
 	</thead>
 	
@@ -52,8 +52,8 @@
 		<td><%= scdList.getScreen_id() %></td> --%>			
 		<td><%= scdList.getTheater_name() %></td>			
 		<td><%= scdList.getScreen_name() %></td>			
-		<td><%= scdList.getStart_time() %></td>			
 		<td><%= scdList.getSchedule_date() %></td>
+		<td><%= scdList.getStart_time() %></td>			
 	</tr>				
 	<%			
 			}
