@@ -13,7 +13,6 @@
             left: 2px;
         }
 
-
         body {
             margin: 0;
             width: 100%;
@@ -30,7 +29,7 @@
             margin: -20px 0 0;
             border: none;
             height: 2px;
-            background-color: #ef8400;
+            background-color: white;
             position: relative;
             left: -2px;
         }
@@ -43,7 +42,11 @@
             background-color: black; /* 원래 블랙 */
         }
 
+<<<<<<< HEAD
         /* 무비차트, 상영예정작, 무비추천 */        
+=======
+        /* 무비차트, 상영예정작, 무비추천 */
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         .header {
             width: 100%;
             padding: 0 0 0 270px;
@@ -106,6 +109,10 @@
             flex: 0 0 200px;
         }
 
+
+
+
+
         /* 무비순위목록 애니메이션 */
         .chart.show {
             opacity: 1;
@@ -118,11 +125,11 @@
         }
 
         /* 패키지, 영화관람권, 기프트카드 */
-        #store {
-            height: 320px;
-            display: flex;
-            gap: 20px;
-        }
+/*         #store {  */
+/*             height: 320px;  */
+/*             display: flex;  */
+/*              gap: 20px;  */
+/*          }  */
 
         .package,
         .ticket,
@@ -150,6 +157,17 @@
             height: 32px;
             background-repeat: repeat-x;
         }
+
+
+
+
+
+
+
+
+
+
+
 
         .package::after,
         .ticket::after,
@@ -214,7 +232,7 @@
             align-items: center; /* 수직 중앙 정렬 */
             padding: 20px 30px; /* 패딩 조정 (더 크게) */
             font-size: 18px; /* 글자 크기 조정 */
-            background-color: #ef8400; /* 배경색 */
+            background-color: gray; /* 배경색 */
             color: white; /* 글자색 */
             border-radius: 5px; /* 모서리 둥글게 */
             cursor: pointer; /* 마우스 커서 변경 */
@@ -225,37 +243,10 @@
         }
 
         .reservation_btn:hover {
-            background-color: #d68a00; /* 호버 시 배경색 변경 */
+            background-color: #333333; /* 호버 시 배경색 변경 */
         }
 
-<<<<<<< HEAD
-        /* 회사소개 */
-        .bottom_line {
-            margin-top: 100px;
-        }
-
-        .parent {
-            position: relative; /* 부모 요소에 상대 위치 설정 */
-        }
-
-        #company {
-            height: 400px; /* 회사 정보 영역의 높이 설정 */
-            color: white;
-            width: 700px; /* 고정 너비 유지 */
-            margin: 0; /* 기본 여백 제거 */
-            margin-top: 100px; /* 위쪽 여백 */
-            text-align: center;
-            overflow: hidden; /* 내용이 잘리도록 설정 */
-            position: absolute; /* 절대 위치 설정 */
-            transform: translateX(100%);
-        }
-=======
         /* FAQ, 1:1문의, 대관게시판 */
-<<<<<<< HEAD
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
-
-=======
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         .client_btn_wrap a {
             display: inline-block;
             margin-right: 10px;
@@ -457,7 +448,6 @@
         
         
     });
-    
 
 </script>
 </html>
