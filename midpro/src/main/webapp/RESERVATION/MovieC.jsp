@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<%@page import="Dao.SeatDaoImpl"%>
-<%@page import="Vo.SeatVO"%>
-=======
-<<<<<<< HEAD
 <%@page import="Vo.ScreenVO"%>
 <%@page import="Dao.ScreenDaoImpl"%>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="Dao.ScheduleDaoImpl"%>
 <%@page import="Vo.TheaterVO"%>
@@ -26,32 +20,15 @@
 </head>
 <body>
 <%
-<<<<<<< HEAD
-=======
   
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     CustomerVO loginSession2 = (CustomerVO) session.getAttribute("ok");
 
-<<<<<<< HEAD
-=======
    
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 %>
     
 <%
        //영화 목록을 가져오기 위한 DAO객체 생성하셈
      MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
-<<<<<<< HEAD
-     List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
-     
-     TheaterDaoImpl theaterDao = TheaterDaoImpl.getInstance();
-     List<TheaterVO> theaterList = theaterDao.getAllTheater(); // 영화관 전체 목록조회
-     
-     ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
-     List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
-     
-     
-=======
      
      List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
      
@@ -72,7 +49,6 @@
      
        
        
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 %>
 
     <h1>영화 예약 시스템</h1>
@@ -88,10 +64,7 @@
         <%
             for(MovieVO movie : movieList){
             
-<<<<<<< HEAD
-=======
             
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         %>
          <option value="<%= movie.getMovie_name() %>"><%= movie.getMovie_name() %></option>
         <%
@@ -118,14 +91,8 @@
     <%
         }
     %>
-<<<<<<< HEAD
-=======
         
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         </select>
-<<<<<<< HEAD
-
-=======
         <br><br>
      
         <label for="screen_id">관 선택:</label>
@@ -146,34 +113,10 @@
         }
     %>
         
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         
-<<<<<<< HEAD
-      <label for="schedule_id">스케줄 선택:</label>
-<select id="schedule_id" name="schedule_id" required>
-    <%
-    if (schedulelList != null) {
-        for (ScheduleVO schedule : schedulelList) {
-    %>
-        <option value="<%= schedule.getSchedule_id()%>">
-           <%= schedule.getSchedule_date() %>
-
-            
-        </option>
-    <%
-        }
-    } else {
-    %>
-        <option value="">등록된 일정이 없습니다</option>
-    <%
-    }
-    %>
-</select>
-=======
 
      
         </select>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         <br><br>
   
         <label for="schedule_start">시간 선택:</label>
@@ -248,8 +191,4 @@
 
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ

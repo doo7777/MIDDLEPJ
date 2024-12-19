@@ -5,17 +5,6 @@ import java.util.List;
 import Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.ScheduleVO;
-<<<<<<< HEAD
-import Vo.TheaterVO;
-
-public interface IReservationService {
-	public int insertReservation(ReservationVO reservationVO) ;
-	
-	  public List<MovieVO> getAllMovie(); 
-	  public List<TheaterVO> getAllTheater(); 
-	  }
-
-=======
 import Vo.ScreenVO;
 import Vo.TheaterVO;
 
@@ -58,4 +47,3 @@ public interface IReservationService {
 
 	List<ScreenVO> getAllScreen();
 }
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ

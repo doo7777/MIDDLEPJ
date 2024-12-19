@@ -2,17 +2,8 @@ package Vo;
 
 
 public class ScheduleVO {
-<<<<<<< HEAD
-	private String schedule_id;
-=======
-<<<<<<< HEAD
-	private int schedule_id;
-=======
 
 	private int schedule_id;
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
-
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	private int screen_id;
 	private int theater_id;
 	private String movie_name;
@@ -22,14 +13,10 @@ public class ScheduleVO {
 	private String theater_name;
 	private String screen_name;
 	private String theater_do;
-	
 	private String start_date;
 	
 
 	
-<<<<<<< HEAD
-	public String getSchedule_id() {
-=======
 	
 	
 	public String getStart_date() {
@@ -39,10 +26,9 @@ public class ScheduleVO {
 		this.start_date = start_date;
 	}
 	public int getSchedule_id() {
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 		return schedule_id;
 	}
-	public void setSchedule_id(String schedule_id) {
+	public void setSchedule_id(int schedule_id) {
 		this.schedule_id = schedule_id;
 	}
 	public int getScreen_id() {

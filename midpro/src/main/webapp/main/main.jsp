@@ -361,6 +361,7 @@
 </body>
 
 <script>
+
 	$('.movie-list').on('click',function(){
 		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
 	});

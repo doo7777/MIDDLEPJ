@@ -76,6 +76,7 @@
       <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Schedule-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Reservation-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/Screen-mapper.xml"/>
       
       
    </mappers>
