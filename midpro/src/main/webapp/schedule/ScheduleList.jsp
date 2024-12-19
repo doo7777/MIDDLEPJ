@@ -151,7 +151,6 @@
     </style>
 </head>
 
-<body>
     <%@ include file="/main/Top.jsp" %>
     
     <div id="group">
@@ -172,7 +171,6 @@
                 <%
                             }
                         }
-<<<<<<< HEAD
                     }   
                 %>
             </div>
@@ -226,18 +224,50 @@
             <div class="item date-item">
                 <%
                     LocalDate today = LocalDate.now();
+                   DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
+                   DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM");
                     String selectedStartDate = ""; // 선택된 영화의 시작일
+                    String currentYear = "";
+                    String currentMonth = "";
+
                     for (int i = 0; i <= 15; i++) {
                         LocalDate dateToDisplay = today.plusDays(i);
+                        String year = dateToDisplay.format(yearFormatter);
+                        String month = dateToDisplay.format(monthFormatter);
                         String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
                         String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
+                        
+                        // 년도와 월이 변경될 때만 출력
+                        if (!currentYear.equals(year) || !currentMonth.equals(month)) {
+                            // 년도와 월을 함께 포함하는 div 생성
+                            out.println("<div class='year-month'>");
+                            out.println("<span class='year'>" + year + "</span><br>");
+                            out.println("<span class='month'>" + month + "</span>");
+                            out.println("</div>");
+                            currentYear = year;
+                            currentMonth = month;
+                        }
 
                         // 버튼 요소로 변경
-                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
+                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " +"&nbsp;&nbsp;&nbsp;&nbsp;" + day + "</button>");
                     }
                 %>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="column">
             <div class="header">시간</div>
@@ -252,87 +282,6 @@
                 <%
                         }
                     }   
-=======
-                    }	
-                %>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="header">극장</div>
-            <div class="item2">
-                <div class="left">
-                    <%
-                        List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
-                        if (scd != null) {
-                            Set<String> theaterDoSet = new HashSet<>();
-                            for (ScheduleVO scdList : scd) {
-                                String theaterDo = scdList.getTheater_do();
-                                if (theaterDoSet.add(theaterDo)) {
-                    %>
-                                    <div class="movie-title" onclick="filterTheaterNames('<%= theaterDo %>'); selectTheaterDo(this)">
-                                        <%= theaterDo %>
-                                    </div>
-                    <%
-                                }
-                            }
-                        }
-                    %>
-                </div>
-                
-                <div class="right">
-                    <%
-                        List<ScheduleVO> scd2 = (List<ScheduleVO>) request.getAttribute("scd");
-                        if (scd2 != null) {
-                            Set<String> theaterNameSet = new HashSet<>();
-                            for (ScheduleVO scdList : scd2) {
-                                String theaterName = scdList.getTheater_name();
-                                if (theaterNameSet.add(theaterName)) {
-                    %>
-                                    <div class="movie-title theater-name" data-theater-do="<%= scdList.getTheater_do() %>" onclick="selectTheater(this)">
-                                        <%= theaterName %>
-                                    </div>
-                    <%
-                                }
-                            }
-                        }
-                    %>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="header date-header">날짜</div>
-            <div class="item date-item">
-                <%
-                    LocalDate today = LocalDate.now();
-                    String selectedStartDate = ""; // 선택된 영화의 시작일
-                    for (int i = 0; i <= 15; i++) {
-                        LocalDate dateToDisplay = today.plusDays(i);
-                        String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
-                        String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
-
-                        // 버튼 요소로 변경
-                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
-                    }
-                %>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="header">시간</div>
-            <div class="item">
-                <!-- DB에서 가져온 시간 데이터가 여기에 들어갑니다. -->
-                <%
-                    List<ScheduleVO> scd4 = (List<ScheduleVO>) request.getAttribute("scd");
-                    if (scd4 != null) {
-                        for (ScheduleVO scdList : scd4) {
-                %>
-                            <%= scdList.getStart_time() %><br>
-                <%
-                        }
-                    }	
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
                 %>              
             </div>
         </div>
@@ -447,3 +396,4 @@ function selectDate(button) {
     console.log("선택된 날짜: " + selectedDate);
 }
 </script>
+</html>
