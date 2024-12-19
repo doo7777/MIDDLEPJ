@@ -31,6 +31,7 @@ import jakarta.servlet.http.HttpSession;
 	    	response.setContentType("text/html charset=utf-8");
 	    	
 	    	String code = request.getParameter("code");
+	    	System.out.println("code=" + code);
 	        
 	        if (code != null) {
 	            try {
