@@ -1,12 +1,15 @@
 package DaoInterface;
 
+import java.awt.desktop.ScreenSleepEvent;
 import java.util.List;
 
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 
-public interface IReservation_PaymentDao {
+public interface IReservationDao {
 	/**
 	 * 
 	 * @param reservation_PaymentVO
@@ -14,11 +17,19 @@ public interface IReservation_PaymentDao {
    int insertReservation(ReservationVO reservation_PaymentVO);
 	    
 
+   //영화 전체 보기
    public List<MovieVO> getAllMovie();
    
    
-   
+  //영화관 전체보기 
    public List<TheaterVO> getAllTheater();
+   
+   //영화 일정 전체보기
+   public List<ScheduleVO> getAllSchedule();
+   
+   //상영관 전체보기
+   public List<ScreenVO> getAllScreen();
+   
    
 
 }

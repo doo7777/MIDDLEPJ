@@ -5,21 +5,23 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import DaoInterface.IReservation_PaymentDao;
+import DaoInterface.IReservationDao;
 import Util.MybatisUtil;
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 
-public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
+public class ReservationDaoImpl implements IReservationDao{
 
-	private static Reservation_PaymentDaoImpl dao;
+	private static ReservationDaoImpl dao;
 	
-	private Reservation_PaymentDaoImpl() {}
+	private ReservationDaoImpl() {}
 	
-	public static Reservation_PaymentDaoImpl getInstance() {
+	public static ReservationDaoImpl getInstance() {
 		if (dao==null) {
-			dao=new Reservation_PaymentDaoImpl();
+			dao=new ReservationDaoImpl();
 		}
 		return dao;
 	}
@@ -33,7 +35,6 @@ public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
 		
 		try {
 			cnt = session.insert("Reservation.insertReservation", reservationVO);
-			
 			if(cnt>0)session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,6 +78,40 @@ public class Reservation_PaymentDaoImpl implements IReservation_PaymentDao{
 	}
 
 	
+	
+	
+	public List<ScheduleVO> getAllSchedule(){
+		SqlSession session = MybatisUtil.getSqlSession();
+		List<ScheduleVO> scheduleList =null;
+		
+		try {
+			scheduleList = session.selectList("Schedule.getAllSchedule");
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			if(session !=null)session.close();
+			
+		
+		}
+		return scheduleList;
+	}
+	
+	
+   public List<ScreenVO> getAllScreen(){
+	   SqlSession session = MybatisUtil.getSqlSession();
+	   List<ScreenVO> screenList=null;
+	   
+	   try {
+		screenList = session.selectList("Screen.getAllScreen");
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}finally {
+		if(session !=null)session.close();
+	}
+	   
+	   return screenList;
+   }
 	
 	
 	

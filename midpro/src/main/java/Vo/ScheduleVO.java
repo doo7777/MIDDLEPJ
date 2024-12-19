@@ -2,20 +2,21 @@ package Vo;
 
 
 public class ScheduleVO {
+<<<<<<< HEAD
+	private int schedule_id;
+=======
 
 	private int schedule_id;
 
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	private int screen_id;
 	private int theater_id;
-
 	private String movie_name;
 	private String start_time;
 	private String end_time;
 	private String schedule_date;
-	
 	private String theater_name;
 	private String screen_name;
-	
 	private String theater_do;
 	
 	private String start_date;
