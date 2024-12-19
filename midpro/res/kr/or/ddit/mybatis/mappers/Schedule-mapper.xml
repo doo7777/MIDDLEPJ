@@ -10,6 +10,7 @@
 
 
 
+<<<<<<< HEAD
    <!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
    <select id="getAlldetail" resultType="scheduleVO">
       SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date, 
@@ -37,6 +38,57 @@
    
    
    
+=======
+<<<<<<< HEAD
+	<!-- 영화관명과 상영관명까지 가져오는 전체 일정표를 보여줌 -->
+	 <select id="getAllDetail" resultType="scheduleVO">
+      SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date, 
+                t.theater_name, sc.screen_name, t.theater_do, m.start_date
+      FROM schedule s
+      JOIN theater t ON s.theater_id = t.theater_id
+      JOIN screen sc ON s.screen_id = sc.screen_id
+      JOIN movie m ON m.movie_name = s.movie_name
+      order by t.theater_id, s.movie_name
+   </select>
+=======
+	<!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
+<<<<<<< HEAD
+	<select id="getAlldetail" resultType="scheduleVO">
+		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date, 
+       			t.theater_name, sc.screen_name, t.theater_do
+=======
+	<select id="getAllDetail" resultType="scheduleVO">
+		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date,
+		       t.theater_name, sc.screen_name, t.theater_do,
+		       m.start_date AS start_date  -- TO_DATE 제거
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
+		FROM schedule s
+		JOIN theater t ON s.theater_id = t.theater_id
+		JOIN screen sc ON s.screen_id = sc.screen_id
+		JOIN movie m ON m.movie_name = s.movie_name
+		ORDER BY t.theater_id, s.movie_name
+	</select>
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
+	
+		
+	<!-- 영화제목을 받아서 해당 일정표를 보여줌 -->
+	<select id="getScheduleName" parameterType="string" resultType="scheduleVO">
+		select * from schedule
+		where movie_name like '%'||#{movie_name} ||'%'			
+	</select>
+	
+	
+	<!-- 상영관ID를 받아서 해당 일정표를 보여줌 -->
+	<select id="getScheduleScreenId" parameterType="int" resultType="scheduleVO">
+		select * from schedule
+		where screen_id = #{screen_id}
+	</select>
+
+	
+	
+	
+	
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
 </mapper>
 

@@ -9,7 +9,11 @@ public class ReservationVO {
 	private int seat_id;
 	private int schedule_id;
 	private String movie_name;
+<<<<<<< HEAD
 	private String screen_id;
+=======
+	private int screen_id;
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	private int theater_id;
 	private int reservation_num;
 	private String reservation_status;
@@ -45,10 +49,12 @@ public class ReservationVO {
 	public void setMovie_name(String movie_name) {
 		this.movie_name = movie_name;
 	}
-	public String getScreen_id() {
+	
+	
+	public int getScreen_id() {
 		return screen_id;
 	}
-	public void setScreen_id(String screen_id) {
+	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
 	public int getTheater_id() {

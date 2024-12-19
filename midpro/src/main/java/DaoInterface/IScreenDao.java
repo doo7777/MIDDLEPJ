@@ -8,7 +8,7 @@ import Vo.ScreenVO;
 public interface IScreenDao {
 	
 	/**
-	 * 게시물 제목으로 공지글 검색
+	 * 상영관 모두 보기
 	 * @param title
 	 * @return
 	 */
