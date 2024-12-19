@@ -1,3 +1,6 @@
+<%@page import="Vo.CustomerVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +32,7 @@
             filter: brightness(60%);
         }
 
+        /* 호버 오버레이 */
         .hover-overlay {
             position: absolute;
             top: 0;
@@ -44,19 +48,14 @@
             transition: opacity 0.3s ease;
         }
 
+        /* 호버 시 활성화 (오버레이는 고정) */
         .package-image.hoverable:hover .hover-overlay {
             opacity: 1;
         }
 
-        /* 아이콘 컨테이너 */
-        /* .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } */
-
         /* 아이콘 동그라미 */
         .icon-circle {
+        position: relative; /* 부모 요소를 기준으로 텍스트 위치 설정 가능 */ /*  */
             width: 70px;
             height: 70px;
             background-color: rgba(0, 0, 0, 0.6); /* 회색 배경 */
@@ -65,18 +64,20 @@
             justify-content: center;
             align-items: center;
             transition: background-color 0.2s ease, transform 0.2s ease;
+            transform: translateX(-7.5px); /* 동그라미 왼쪽으로 이동 */
+        }
+
+        /* 호버 시 동그라미 강조 효과 */
+        .icon-circle:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1) translateX(-7.5px); /* 강조와 함께 왼쪽 이동 */
         }
 
         /* 아이콘 이미지 */
         .icon-circle img {
             width: 60px;
             height: 60px;
-        }
-
-        /* 호버 시 동그라미 강조 효과 */
-        .icon-circle:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
+            margin-top: 10px; /* 글자 위아래 */
         }
 
         /* 아이콘 텍스트 (기본 숨김) */
@@ -87,7 +88,7 @@
             color: #fff;
             text-align: center;
             pointer-events: none;
-            margin-top: 20px; /* 글자 위아래 */
+            margin-top: 10px; /* 글자 위아래 */
         }
 
         /* 호버 시 아이콘 이미지 숨김 + 텍스트 표시 */
@@ -102,26 +103,26 @@
 </head>
 <body>
     <div class="package-item">
-	    <div class="package-image hoverable">
-	        <!-- 부모 JSP에서 전달된 이미지 경로 사용 -->
-	        <img src="<%= request.getAttribute("imageSrc") %>" alt="상품 이미지" />
-	        <div class="hover-overlay">
-	            <!-- 장바구니 아이콘 -->
-	            <span class="icon">
-	                <div class="icon-circle hover-text">
-	                    <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/cart.png" alt="장바구니" />
-	                    <p class="hover-label">장바<br>구니</p>
-	                </div>
-	            </span>
-	            <!-- 구매하기 아이콘 -->
-	            <span class="icon">
-	                <div class="icon-circle hover-text">
-	                    <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/buy.png" alt="구매하기" />
-	                    <p class="hover-label">구매<br>하기</p>
-	                </div>
-	            </span>
-	        </div>
-	    </div>
-	</div>
+        <div class="package-image hoverable">
+            <!-- 부모 JSP에서 전달받은 이미지 경로 --> <!-- 상품 이미지 -->
+            <img src="<%= request.getAttribute("imageSrc") %>" alt="상품 이미지" /> 
+            <div class="hover-overlay">
+                <!-- 장바구니 아이콘 -->
+                <span class="icon">
+                    <div class="icon-circle hover-text">
+                        <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/cart.png" alt="장바구니" />
+                        <p class="hover-label">장바<br>구니</p>
+                    </div>
+                </span>
+                <!-- 구매하기 아이콘 -->
+                <span class="icon">
+                    <div class="icon-circle hover-text">
+                        <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/buy.png" alt="구매하기" />
+                        <p class="hover-label">구매<br>하기</p>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
