@@ -137,19 +137,22 @@
         <!-- 기프트카드 아이템 목록 -->
         <div class="giftcard-grid">
             <div class="giftcard-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/기프트카드/CGV바캉스.png" alt="CGV바캉스" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/기프트카드/CGV바캉스.png");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>DGV바캉스</h3>
                 <p>충전형 선불 카드</p>
                 <span class="price">금액충전형</span>
             </div>
             <div class="giftcard-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/기프트카드/감사해바라기.png" alt="감사해바라기" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/기프트카드/감사해바라기.png");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>감사해바라기</h3>
                 <p>충전형 선불 카드</p>
                 <span class="price">금액충전형</span>
             </div>
             <div class="giftcard-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/기프트카드/PACONNIE A형.png" alt="PACONNIE A형" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/기프트카드/PACONNIE A형.png");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>PACONNIE A형</h3>
                 <p>충전형 선불 카드</p>
                 <span class="price">금액충전형</span>

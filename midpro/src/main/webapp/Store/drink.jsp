@@ -145,27 +145,32 @@
                 <span class="price">5,500</span>
             </div>
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/에이드.jpg" alt="에이드" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/에이드.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>에이드</h3>
                 <span class="price">5,500</span>
             </div>
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/디카페인 콜드브루.jpg" alt="디카페인 콜드브루" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/디카페인 콜드브루.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>디카페인 콜드브루</h3>
                 <span class="price">5,000</span>
             </div>
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/아이스아메리카노.jpg" alt="아이스아메리카노" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/아이스아메리카노.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>아이스아메리카노</h3>
                 <span class="price">4,500</span>
             </div>
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/아메리카노.jpg" alt="아메리카노" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/아메리카노.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>아메리카노</h3>
                 <span class="price">4,000</span>
             </div>
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/탄산음료L.jpg" alt="탄산음료L" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/탄산음료L.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>탄산음료(L)</h3>
                 <span class="price">3,500</span>
             </div>
