@@ -2,7 +2,13 @@ package Vo;
 
 
 public class ScheduleVO {
+<<<<<<< HEAD
 	private int schedule_id;
+=======
+
+	private int schedule_id;
+
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 	private int screen_id;
 	private int theater_id;
 	private String movie_name;
@@ -13,9 +19,18 @@ public class ScheduleVO {
 	private String screen_name;
 	private String theater_do;
 	
+	private String start_date;
 	
 
 	
+	
+	
+	public String getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(String start_date) {
+		this.start_date = start_date;
+	}
 	public int getSchedule_id() {
 		return schedule_id;
 	}
@@ -77,19 +92,17 @@ public class ScheduleVO {
 	public void setTheater_do(String theater_do) {
 		this.theater_do = theater_do;
 	}
-	
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return "ScheduleVO [schedule_id=" + schedule_id + ", screen_id=" + screen_id + ", theater_id=" + theater_id
 				+ ", movie_name=" + movie_name + ", start_time=" + start_time + ", end_time=" + end_time
 				+ ", schedule_date=" + schedule_date + ", theater_name=" + theater_name + ", screen_name=" + screen_name
-				+ ", theater_do=" + theater_do + "]";
+				+ ", theater_do=" + theater_do + ", start_date=" + start_date + "]";
 	}
+	
+	
 
-	
-	
+   
+   
 }
+

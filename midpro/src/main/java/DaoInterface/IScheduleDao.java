@@ -27,7 +27,7 @@ public interface IScheduleDao {
 	 * 전체 상영 영화 시간표를 보여줌
 	 * @return
 	 */
-	public List<ScheduleVO> getAllSchedule();
+	public List<ScheduleVO> getAllDetail();
 	
 	
 	/**
