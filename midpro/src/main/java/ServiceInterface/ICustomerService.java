@@ -21,10 +21,11 @@ public interface ICustomerService {
 	public int getCoustomerCount(String cus_ID);
 	
 	/**
-	 * 회원 탈퇴
-	 * @param cus_ID
+	 * 회원 number중복검사
+	 * @param cus_number
 	 * @return
 	 */
+	public int getCoustomerCountnumber(String cus_number);
 	
 	/**
 	 * 전체 회원 보기
@@ -39,5 +40,10 @@ public interface ICustomerService {
 	 */
 	public CustomerVO getCustomer(String cus_ID, String cus_pw);
 	
-
+	/**
+	 * 회원 이메일로 회원 정보 받기
+	 * @param cus_email
+	 * @return
+	 */
+	public CustomerVO getCustomer(String cus_email);
 }

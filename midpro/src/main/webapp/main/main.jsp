@@ -255,6 +255,7 @@
 </head>
 
 <body>
+
         <%@ include file="Top.jsp" %>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
@@ -344,6 +345,7 @@
 </body>
 
 <script>
+
 	$('.movie-list').on('click',function(){
 		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
 	});
