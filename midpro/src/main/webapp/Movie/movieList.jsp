@@ -48,7 +48,7 @@
                     for (MovieVO movie : movieList) {
             %>
             <tr>
-                <td><a href="<%= request.getContextPath() %>/movieDetail.do?movie_id=<%= movie.getMovie_id() %>"><%= movie.getMovie_id() %></a></td>
+                <td><a href="<%= request.getContextPath() %>/movieDetail.do?movie_id=<%= movie.getMovie_name() %>"><%= movie.getMovie_name() %></a></td>
                 <td><%= movie.getMovie_name() %></td>
                 <td><%= movie.getPlot() %></td>
                 <td><%= movie.getProduct_year() %></td>

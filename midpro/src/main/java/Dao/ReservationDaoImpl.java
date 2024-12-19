@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+
 import DaoInterface.IReservationDao;
 import Util.MybatisUtil;
 import Vo.MovieVO;
@@ -112,6 +113,7 @@ public class ReservationDaoImpl implements IReservationDao{
 	   
 	   return screenList;
    }
+
 	
 	
 	

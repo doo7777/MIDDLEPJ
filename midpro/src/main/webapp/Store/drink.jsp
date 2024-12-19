@@ -137,7 +137,10 @@
         <!-- 음료 아이템 목록 -->
         <div class="drink-grid">
             <div class="drink-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/음료(완료)/핑크레몬에이드.jpg" alt="핑크레몬에이드" />
+                <!-- 부모 JSP 코드 -->
+    			<!-- Storehover.jsp로 전달할 이미지 경로를 request 객체에 저장 -->
+				<%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/음료(완료)/핑크레몬에이드.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>핑크레몬에이드</h3>
                 <span class="price">5,500</span>
             </div>

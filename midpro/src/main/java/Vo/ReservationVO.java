@@ -1,3 +1,4 @@
+
 package Vo;
 
 import java.util.Date;
@@ -8,7 +9,9 @@ public class ReservationVO {
 	private int seat_id;
 	private int schedule_id;
 	private String movie_name;
+
 	private int screen_id;
+
 	private int theater_id;
 	private int reservation_num;
 	private String reservation_status;

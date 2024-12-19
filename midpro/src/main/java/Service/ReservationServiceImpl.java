@@ -1,12 +1,7 @@
 package Service;
-
-
-
 import java.util.List;
-
 import Dao.ReservationDaoImpl;
 import DaoInterface.IReservationDao;
-
 import ServiceInterface.IReservationService;
 import  Vo.MovieVO;
 import Vo.ReservationVO;
@@ -15,7 +10,7 @@ import Vo.ScreenVO;
 import Vo.TheaterVO;
 public class ReservationServiceImpl implements IReservationService{
 		private static ReservationServiceImpl service;
-		private IReservationDao dao;
+		private ReservationDaoImpl dao;
 		
 		private ReservationServiceImpl() {
 			dao = ReservationDaoImpl.getInstance();
@@ -60,6 +55,7 @@ public class ReservationServiceImpl implements IReservationService{
     public List<ScreenVO>getAllScreen(){
     	return dao.getAllScreen();
     }
+
 
 
 	
