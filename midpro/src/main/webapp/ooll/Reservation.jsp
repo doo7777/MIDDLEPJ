@@ -168,6 +168,7 @@
         </div>
     </div>
     
+    
 	<div class="bottom">
 	<ul>영화선택</ul>
 	    <div class="vertical-line"></div>

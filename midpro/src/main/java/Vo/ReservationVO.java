@@ -1,3 +1,4 @@
+
 package Vo;
 
 import java.util.Date;
@@ -44,6 +45,8 @@ public class ReservationVO {
 	public void setMovie_name(String movie_name) {
 		this.movie_name = movie_name;
 	}
+	
+	
 	public int getScreen_id() {
 		return screen_id;
 	}

@@ -6,9 +6,10 @@
     <mapper namespace="Reservation">
     
     <insert id ="insertReservation" parameterType="reservationVO">
-            INSERT INTO reservations (customer_id, seat_id, schedule_id, movie_name, screen_id, theater_id, reservation_num, reservation_status, reservation_date)
-        VALUES (#{customer_id}, #{seat_id}, #{schedule_id}, #{movie_name}, #{screen_id}, #{theater_id}, #{reservation_num}, #{reservation_status}, SYSDATE}
-    
+        insert into RESERVATION(RESERVATION_ID,CUSTOMER_ID,SCHEDULE_ID,MOVIE_NAME,SCREEN_ID,THEATER_ID)
+        values(
+        NOTICE_SEQ.NEXTVAL, #{customer_id}, #{schedule_id}, #{movie_name}, #{screen_id}, #{theater_id}
+        )
     </insert>
     
     

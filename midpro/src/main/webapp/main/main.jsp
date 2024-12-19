@@ -13,7 +13,6 @@
             left: 2px;
         }
 
-
         body {
             margin: 0;
             width: 100%;
@@ -30,7 +29,7 @@
             margin: -20px 0 0;
             border: none;
             height: 2px;
-            background-color: #ef8400;
+            background-color: white;
             position: relative;
             left: -2px;
         }
@@ -43,8 +42,7 @@
             background-color: black; /* 원래 블랙 */
         }
 
-        /* 무비차트, 상영예정작, 무비추천 */
-        
+        /* 무비차트, 상영예정작, 무비추천 */        
         .header {
             width: 100%;
             padding: 0 0 0 270px;
@@ -107,6 +105,10 @@
             flex: 0 0 200px;
         }
 
+
+
+
+
         /* 무비순위목록 애니메이션 */
         .chart.show {
             opacity: 1;
@@ -119,11 +121,11 @@
         }
 
         /* 패키지, 영화관람권, 기프트카드 */
-        #store {
-            height: 320px;
-            display: flex;
-            gap: 20px;
-        }
+/*         #store {  */
+/*             height: 320px;  */
+/*             display: flex;  */
+/*              gap: 20px;  */
+/*          }  */
 
         .package,
         .ticket,
@@ -151,6 +153,17 @@
             height: 32px;
             background-repeat: repeat-x;
         }
+
+
+
+
+
+
+
+
+
+
+
 
         .package::after,
         .ticket::after,
@@ -215,7 +228,7 @@
             align-items: center; /* 수직 중앙 정렬 */
             padding: 20px 30px; /* 패딩 조정 (더 크게) */
             font-size: 18px; /* 글자 크기 조정 */
-            background-color: #ef8400; /* 배경색 */
+            background-color: gray; /* 배경색 */
             color: white; /* 글자색 */
             border-radius: 5px; /* 모서리 둥글게 */
             cursor: pointer; /* 마우스 커서 변경 */
@@ -226,11 +239,10 @@
         }
 
         .reservation_btn:hover {
-            background-color: #d68a00; /* 호버 시 배경색 변경 */
+            background-color: #333333; /* 호버 시 배경색 변경 */
         }
 
         /* FAQ, 1:1문의, 대관게시판 */
-
         .client_btn_wrap a {
             display: inline-block;
             margin-right: 10px;
@@ -255,7 +267,7 @@
 </head>
 
 <body>
-
+		
         <%@ include file="Top.jsp" %>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
@@ -275,6 +287,7 @@
     </div>
 
     <div class="header" id="movie_chart">
+    
         <div class="chart">
             <div class="chart reservation_btn">예매</div>
         </div>
@@ -300,15 +313,18 @@
             <i class="fa-solid fa-plus"></i>
             <h3>패키지</h3>
             <img src="sorce/img/패키지(완료)/나랑-너-패키지.jpg" width=150px height=150px>
+            <img src="sorce/img/패키지(완료)/우리-패키지.jpg" width=150px height=150px>
         </div>
         <div class="ticket">
             <i class="fa-solid fa-plus"></i>
             <h3>영화관람권</h3>
             <img src="sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" width=150px height=150px>
+            <img src="sorce/img/영화관람권(완료)/CGV-영화관람권.jpg" width=150px height=150px>
         </div>
         <div class="giftcard">
             <i class="fa-solid fa-plus"></i>
             <h3>기프트카드</h3>
+            
         </div>
     </div>
     <br><br>
@@ -428,7 +444,10 @@
         }
 
         loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+        
+        
     });
+
 </script>
 </html>
 

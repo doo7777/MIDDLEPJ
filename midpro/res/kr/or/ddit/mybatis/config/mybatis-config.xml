@@ -36,6 +36,8 @@
       <typeAlias type="Vo.ReviewVO" alias="reviewVO"/>
       <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
       <typeAlias type="Vo.ReservationVO" alias ="reservationVO"/>
+      <typeAlias type="Vo.ScreenVO" alias ="ScreenVO"/>
+      <typeAlias type="Vo.SeatVO" alias ="SeatVO"/>
       
       
       

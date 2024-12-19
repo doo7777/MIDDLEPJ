@@ -26,68 +26,68 @@
             }
 
 
-	       
-			#movie-detail {
-			position: relative;
-			padding: 10px 0px;
-		    max-width: 1200px;
-		    margin: auto;
-		    margin-bottom: 40px;
-			}
-			
-			.movieDetailBox {
-		    display: flex;               /* 부모 요소에 flexbox를 적용 */
-		    gap: 10px; /* 간격 추가 */
-    		padding: 10px;
-    		/*background-color: white;*/
-    		border-radius: 10px;
-    		width: 100%; /* 너비를 부모의 100%로 설정 */
-    		max-width: 900px; /* 영화 정보 박스 최대 너비 제한 */
-			}
-			
-			/* 포스터 박스 */
-			.posterBox {
-			    flex: 1; /* 가변 크기 */
-			    display: flex;
-			    justify-content: center;
-			    align-items: center;
-			    border-style: none;
-			}
-			
-			.moviePoster {
-		    max-width: 200px;
-		    height: auto;
-		    margin-right: 5px;          /* 포스터와 영화 정보 사이의 간격 */
-			}			
-			
-			/* 정보 박스 */
-			.infoBox {
-			    flex: 2; /* 포스터보다 더 큰 영역 */
-			    display: flex;
-			    flex-direction: column;
-			    justify-content: flex-start;
-			    gap: 0; /* 추가 간격 제거 */
-    			margin: 5px;
-    			border-style: none;
-			}
-			
-			
-			.infoBox h1 {
-		    font-size: 24px;
-		    margin-bottom: 15px;
-		    color: rgb(239, 132, 0);
-			}
-		
-			.infoBox p {
-			    font-size: 14px;
-			    color: white;
-			    margin: 10px; /* 각 항목 간 간격을 없앰 */
-    			padding: 0; /* 추가적인 여백을 제거 */
-    			line-height: 1.2; /* 줄 간격 조정 */
-			}
-			
-			.reservationButton {
-		    background-color: rgb(239, 132, 0);
+          
+         #movie-detail {
+         position: relative;
+         padding: 10px 0px;
+          max-width: 1200px;
+          margin: auto;
+          margin-bottom: 40px;
+         }
+         
+         .movieDetailBox {
+          display: flex;               /* 부모 요소에 flexbox를 적용 */
+          gap: 10px; /* 간격 추가 */
+          padding: 10px;
+          /*background-color: white;*/
+          border-radius: 10px;
+          width: 100%; /* 너비를 부모의 100%로 설정 */
+          max-width: 900px; /* 영화 정보 박스 최대 너비 제한 */
+         }
+         
+         /* 포스터 박스 */
+         .posterBox {
+             flex: 1; /* 가변 크기 */
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             border-style: none;
+         }
+         
+         .moviePoster {
+          max-width: 200px;
+          height: auto;
+          margin-right: 5px;          /* 포스터와 영화 정보 사이의 간격 */
+         }         
+         
+         /* 정보 박스 */
+         .infoBox {
+             flex: 2; /* 포스터보다 더 큰 영역 */
+             display: flex;
+             flex-direction: column;
+             justify-content: flex-start;
+             gap: 0; /* 추가 간격 제거 */
+             margin: 5px;
+             border-style: none;
+         }
+         
+         
+         .infoBox h1 {
+          font-size: 24px;
+          margin-bottom: 15px;
+          color: rgb(239, 132, 0);
+         }
+      
+         .infoBox p {
+             font-size: 14px;
+             color: white;
+             margin: 10px; /* 각 항목 간 간격을 없앰 */
+             padding: 0; /* 추가적인 여백을 제거 */
+             line-height: 1.2; /* 줄 간격 조정 */
+         }
+         
+         .reservationButton {
+          background-color: rgb(239, 132, 0);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -96,14 +96,14 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
             width: 100px;
-			}
-			
-			.reservationButton:hover {
+         }
+         
+         .reservationButton:hover {
             font-weight: bold;
-        	}
-			
-			
-			
+           }
+         
+         
+         
             nav {
                 display: flex;
                 justify-content: space-around;
@@ -137,47 +137,47 @@
             }
             
             /* 이미지 갤러리 컨테이너 */
-			.image-gallery {
-			    position: relative; /* 버튼의 위치 기준을 설정 */
-			    display: flex;
-			    justify-content: center;
-			    align-items: center;
-			    max-width: 500px; /* 갤러리 너비 제한 */
-			    margin: 20px auto; /* 가운데 정렬 */
-			}
+         .image-gallery {
+             position: relative; /* 버튼의 위치 기준을 설정 */
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             max-width: 500px; /* 갤러리 너비 제한 */
+             margin: 20px auto; /* 가운데 정렬 */
+         }
             
             /* 화살표 버튼 스타일 */
-			.arrow {
-			    background-color: transparent;
-			    color: white;
-			    font-size: 60px;
-			    font-weight: bold;
-			    cursor: pointer;
-			    padding: 10px;
-			    transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
-			    border: none;
-			    border-radius: 50%;
-			    position: absolute;
-			    top: 50%; /* 부모 요소의 정중앙으로 설정 */
-			    transform: translateY(-50%); /* 수직 중앙 정렬 */
-			    z-index: 10; /* 다른 요소 위에 표시되도록 */
-			}
-			
-			/* 왼쪽 화살표 */
-			.arrow.left-arrow {
-			    position: absolute;
-				top: 50%; /* 수직 중앙 */
-    			left: -50px;
-			    transform: translateY(-50%);
-			}
-			
-			/* 오른쪽 화살표 */
-			.arrow.right-arrow {
-			    position: absolute;
-				top: 50%; /* 수직 중앙 */
-    			right: -50px;
-			    transform: translateY(-50%);
-			}
+         .arrow {
+             background-color: transparent;
+             color: white;
+             font-size: 60px;
+             font-weight: bold;
+             cursor: pointer;
+             padding: 10px;
+             transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
+             border: none;
+             border-radius: 50%;
+             position: absolute;
+             top: 50%; /* 부모 요소의 정중앙으로 설정 */
+             transform: translateY(-50%); /* 수직 중앙 정렬 */
+             z-index: 10; /* 다른 요소 위에 표시되도록 */
+         }
+         
+         /* 왼쪽 화살표 */
+         .arrow.left-arrow {
+             position: absolute;
+            top: 50%; /* 수직 중앙 */
+             left: -50px;
+             transform: translateY(-50%);
+         }
+         
+         /* 오른쪽 화살표 */
+         .arrow.right-arrow {
+             position: absolute;
+            top: 50%; /* 수직 중앙 */
+             right: -50px;
+             transform: translateY(-50%);
+         }
 
         </style>
         
@@ -188,18 +188,18 @@
             
             <!-- 영화 메인 영역 -->
              <div id="movie-detail">
-							
-        	</div>
+
+           </div>
             
             <main>
-            	<nav>
+               <nav>
                 <button data-tab ="summary">줄거리</button>
                 <button data-tab ="trailer">트레일러</button>
                 <button data-tab ="poster">스틸</button>
                 <button data-tab ="rating">리뷰</button>
                 <button data-tab ="schedule">상영시간표</button>
-            	</nav>
-            	<!-- 탭 내용들 -->
+               </nav>
+               <!-- 탭 내용들 -->
                 <div id="summary" class="tab-content">
                     <h1>줄거리</h1>
                     <p id="movie-summary"></p>
@@ -209,10 +209,10 @@
                 </div>
                 <div id="poster" class="tab-content">
                     <div class="image-gallery">
-			        <button class="arrow left-arrow"><</button>
-			        <img id="poster-image" src="" alt="스틸 이미지" />
-			        <button class="arrow right-arrow">></button>
-			    </div>
+                 <button class="arrow left-arrow"><</button>
+                 <img id="poster-image" src="" alt="스틸 이미지" />
+                 <button class="arrow right-arrow">></button>
+             </div>
                 </div>
                 <div id="review" class="tab-content">
                     <h1>리뷰</h1>
@@ -237,7 +237,7 @@
 
         tabs.forEach(tab => {
             tab.addEventListener("click", () => {
-                alert("눌렀닝?")
+                //alert("눌렀닝?")
                 // 모든 탭 내용 숨기기
                 contents.forEach(content => content.classList.remove("active"));
                 // 클릭한 탭 내용 표시
@@ -247,7 +247,7 @@
                 console.log("#"+tab.dataset.tab+"-image");
                 console.log("체로롱",tab);
                 */
-                document.querySelector("#"+tab.dataset.tab+"-image").src = stillImages["영화1"][0]
+                //document.querySelector("#"+tab.dataset.tab+"-image").src = stillImages["영화1"][0]
             });
         });
 
@@ -270,7 +270,7 @@
         {id:16, title: "청설", image: "../main/sorce/img/영화포스터/영화16.jpg", releaseDate: "2024.11.06", rating: "96%", director: "조선호", cast: ["홍경", "노윤서", "김민주", "정용주"] }
         ];
 
-     	// URL에서 영화 인덱스 가져오기
+        // URL에서 영화 인덱스 가져오기
         const urlParams = new URLSearchParams(window.location.search);
         const movieIndex = parseInt(urlParams.get('index'));
 
@@ -291,7 +291,7 @@
         movieDetailBox.className = "movieDetailBox";
 
         
-     	// 포스터 영역
+        // 포스터 영역
         const posterBox = document.createElement("div");
         posterBox.className = "posterBox";
 
@@ -302,7 +302,7 @@
         poster.className = "moviePoster";
         posterBox.appendChild(poster);
         
-     	// 정보 영역
+        // 정보 영역
         const infoBox = document.createElement("div");
         infoBox.className = "infoBox";
 
@@ -326,7 +326,7 @@
         const cast = document.createElement("p");
         cast.innerText = `출연진: \${movie.cast ? movie.cast.join(", ") : "정보 없음"}`; // 배열을 join으로 처리
         
-     	// 영화 정보 영역에 예매 버튼 추가
+        // 영화 정보 영역에 예매 버튼 추가
         const reservationButton = document.createElement("button");
         reservationButton.innerText = "예매하기";
         reservationButton.className = "reservationButton";
@@ -339,7 +339,7 @@
         });
 
 
-     	// 정보 영역에 추가
+        // 정보 영역에 추가
         infoBox.appendChild(title);
         infoBox.appendChild(releaseDate);
         infoBox.appendChild(rating);
@@ -352,7 +352,7 @@
         movieDetailBox.appendChild(infoBox);
         movieDetail.appendChild(movieDetailBox);
 
-     	// 영화 정보 영역은 항상 보이도록 하되, 탭 전환만 적용
+        // 영화 정보 영역은 항상 보이도록 하되, 탭 전환만 적용
         const tabButtons = document.querySelectorAll("nav button");
         const tabContents = document.querySelectorAll(".tab-content");
 
@@ -371,50 +371,36 @@
             });
         });
         
-     	// 스틸 이미지 배열 (이미지 URL을 넣으세요)
+        // 스틸 이미지 배열 (이미지 URL을 넣으세요)
         const stills = [
             '영화1', '영화2', '영화3', '영화4', '영화5',
             '영화6', '영화7', '영화8', '영화9', '영화10',
             '영화11', '영화12', '영화13', '영화14', '영화15', '영화16'
         ];
-     	
-     	// JSP에서 contextPath를 JavaScript로 전달 (서버 측에서 경로 설정)
+        
+        // JSP에서 contextPath를 JavaScript로 전달 (서버 측에서 경로 설정)
         const contextPath = "${pageContext.request.contextPath}";
-     	
-     	// 각 영화 폴더에서 4개의 이미지를 가져오는 경로 생성
+        
+        // 각 영화 폴더에서 4개의 이미지를 가져오는 경로 생성
         //const stillImages = stills.flatMap(movie =>
         //    Array.from({ length: 4 }, (_, index) =>
         //        `../main/sorce/img/영화스틸컷/영화${index + 1}/\${index + 1}.jpg`
                 
         //    )
         //);
-     	
-     	
+        
+        
           //  /main/sorce/img/영화스틸컷/영화2/\${index + 1}.jpg
 
-
-        const stillImages = {}
-
-        for(let i=0; i<stills.length; i++){
-            stillImages[stills[i]]=[];
-            for(let j=1; j<=4; j++){
-                stillImages[stills[i]].push(`<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/\${stills[i]}/\${j}.jpg` )
-            }
-        }
-
-
-        console.log("체킁:",stillImages);
-      
-
-
-        /*
+        
                 const stillImages = stills.flatMap(mv =>
-                Array.from({ length: 4 }, (_, index) => {
-                    <%-- return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
-                    return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
-                });
+                 Array.from({ length: 4 }, (_, index) => {
+         <%--             return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`; --%>
+                     return `<%=request.getContextPath() %>/main/sorce/img/영화스틸컷/영화\${movie.id}/\${index + 1}.jpg`;
+                    })
+                );
                 
-        */
+        
         // 현재 보여지는 이미지의 인덱스
         let currentIndex = 0;
 

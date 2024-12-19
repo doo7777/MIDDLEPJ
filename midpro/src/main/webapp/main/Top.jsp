@@ -8,22 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Insert title here</title>
     <style>
-            #main {
-            position: relative;
-            left: 2px;
-        }
 
-
-        body {
-            margin: 0;
-            width: 100%;
-            overflow-x: hidden;
-            background: black;
-        }
-
-        div {
-            border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
-        }
         /* 최상단 */
         #top {
             height: 140px;
@@ -344,7 +329,7 @@
                 <li><a href="#" class="highlight" id="movie2">영화</a> <!-- 기모찡 -->
                     <ul>
                         <li><a href="#" id="moviechart">무비차트</a></li> <!-- 하위 메뉴: 무비차트 -->
-                        <li><a href="#">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
+                        <li><a href="#" id="comingOut">상영예정작</a></li> <!-- 하위 메뉴: 상영예정작 -->
                     </ul>
                 </li>
                 <li><a href="#" class="highlight" id="current">극장</a></li> <!-- 극장 메뉴 항목 -->
@@ -401,6 +386,12 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
 
+    
+
+    
+    $('#comingOut').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
+    });
     
     $('#movres').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
@@ -467,7 +458,7 @@
     });
 
     $('#btn4').on('click', function() {
-        window.location.href = '<%=request.getContextPath()%>/noticeList.do';
+        window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
     
  // 사이드바 내용 업데이트
@@ -548,5 +539,9 @@
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar();
     });
+    
+
+  
+
 </script>
 </html>
