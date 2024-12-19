@@ -1,5 +1,6 @@
 package Service;
 import java.util.List;
+
 import Dao.ReservationDaoImpl;
 import DaoInterface.IReservationDao;
 import ServiceInterface.IReservationService;
@@ -55,7 +56,6 @@ public class ReservationServiceImpl implements IReservationService{
     public List<ScreenVO>getAllScreen(){
     	return dao.getAllScreen();
     }
-
 
 
 	

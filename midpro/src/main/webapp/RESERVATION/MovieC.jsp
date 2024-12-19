@@ -1,7 +1,5 @@
 <%@page import="Vo.ScreenVO"%>
 <%@page import="Dao.ScreenDaoImpl"%>
-<%@page import="Dao.SeatDaoImpl"%>
-<%@page import="Vo.SeatVO"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="Dao.ScheduleDaoImpl"%>
 <%@page import="Vo.TheaterVO"%>
@@ -22,26 +20,35 @@
 </head>
 <body>
 <%
+  
     CustomerVO loginSession2 = (CustomerVO) session.getAttribute("ok");
 
+   
 %>
     
 <%
        //영화 목록을 가져오기 위한 DAO객체 생성하셈
      MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
+     
      List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
      
      TheaterDaoImpl theaterDao = TheaterDaoImpl.getInstance();
+     
      List<TheaterVO> theaterList = theaterDao.getAllTheater(); // 영화관 전체 목록조회
      
      ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
+     
      List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
      
      ScreenDaoImpl screenDao = ScreenDaoImpl.getInstance();
-     List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
+     
+     List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 목록 조회
+    
      
      
      
+       
+       
 %>
 
     <h1>영화 예약 시스템</h1>
@@ -56,6 +63,7 @@
         <select id="movie_name" name="movie_name" required>
         <%
             for(MovieVO movie : movieList){
+            
             
         %>
          <option value="<%= movie.getMovie_name() %>"><%= movie.getMovie_name() %></option>
@@ -83,17 +91,64 @@
     <%
         }
     %>
+        
         </select>
+        <br><br>
+     
+        <label for="screen_id">관 선택:</label>
+        <select id="screen_id" name="screen_id" required>
+             <%
+        if (screenList != null) {
+            for (ScreenVO screen : screenList) {
+    %>
+                <option value="<%= screen.getScreen_id() %>">
+                    <%= screen.getScreen_name() %>
+                </option>
+    <%
+            }
+        } else {
+    %>
+            <option value="">등록된 상영관 없습니다</option>
+    <%
+        }
+    %>
+        
+        
+
+     
+        </select>
+        <br><br>
+  
+        <label for="schedule_start">시간 선택:</label>
+        <select id="time" name="time" required>
+                    <%
+        if (schedulelList != null) {
+            for (ScheduleVO schedule : schedulelList) {
+    %>
+                <option value="<%= schedule.getSchedule_id() %>">
+                    <%= schedule.getStart_time() %>
+                </option>
+    <%
+            }
+        } else {
+    %>
+            <option value="">등록된 극장이 없습니다</option>
+    <%
+        }
+    %>
+        </select> 
 
         
-  <label for="schedule_id">스케줄 및 시간 선택:</label>
+      <label for="schedule_id">일정 선택:</label>
 <select id="schedule_id" name="schedule_id" required>
     <%
     if (schedulelList != null) {
         for (ScheduleVO schedule : schedulelList) {
     %>
-        <option value="<%= schedule.getSchedule_id() %>">
-           <%= schedule.getSchedule_date() %> - <%= schedule.getStart_time() %>
+        <option value="<%= schedule.getSchedule_id()%>">
+           <%= schedule.getSchedule_date() %>
+
+            
         </option>
     <%
         }
@@ -103,28 +158,32 @@
     <%
     }
     %>
+    
+
 </select>
-<br><br>
 
-<label for ="screen_id">상영관</label>
-<select id = "screen_id" name="screen_id" required>
-
- <%
-    if (screenList != null) {
-        for (ScreenVO screen : screenList) {
+        <br><br>
+  
+        <label for="schedule_start">시간 선택:</label>
+        <select id="time" name="time" required>
+                    <%
+        if (schedulelList != null) {
+            for (ScheduleVO schedule : schedulelList) {
     %>
-        <option value="<%= screen.getScreen_id() %>">
-           <%= screen.getScreen_name() %> 
-        </option>
+                <option value="<%= schedule.getSchedule_id() %>">
+                    <%= schedule.getStart_time() %>
+                </option>
+    <%
+            }
+        } else {
+    %>
+            <option value="">등록된 극장이 없습니다</option>
     <%
         }
-    } else {
     %>
-        <option value="">등록된 상영관이 없습니다</option>
-    <%
-    }
-    %>
-</select>
+        
+        </select> 
+        <br><br>
 
         <input type="submit" value="예매하기">
     </form>

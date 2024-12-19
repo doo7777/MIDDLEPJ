@@ -17,7 +17,14 @@ public interface ICustomerDao {
 	 * @param cus_ID
 	 * @return
 	 */
-	public int getCoustomerCount(String cus_ID);
+	public int getCoustomerCountid(String cus_ID);
+
+	/**
+	 * 회원 번호 중복검사
+	 * @param cus_number
+	 * @return
+	 */
+	public int getCoustomerCountnumber(String cus_number);
 	
 	
 	/**
@@ -32,5 +39,12 @@ public interface ICustomerDao {
 	 * @return
 	 */
 	public CustomerVO getCustomer(String cus_ID, String cus_pw);
+	
+	/**
+	 * 회원 이메일로 회원 정보 받기 
+	 * @param cus_email
+	 * @return
+	 */
+	public CustomerVO getCustomer(String cus_email);
 	
 }
