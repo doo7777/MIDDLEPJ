@@ -75,7 +75,7 @@
                 <span class="<%= (request.getRequestURI().contains("popcorn.jsp")) ? "active" : "" %>" id="5">팝콘</span>
                 <span class="<%= (request.getRequestURI().contains("drink.jsp")) ? "active" : "" %>" id="6">음료</span>
                 <span class="<%= (request.getRequestURI().contains("snack.jsp")) ? "active" : "" %>" id="7">스낵</span>
-                <span class="<%= (request.getRequestURI().contains("giftcertificate.jsp")) ? "active" : "" %>" id="8">상품권소개</span>
+                <span class="<%= (request.getRequestURI().contains("shoppingcart.jsp")) ? "active" : "" %>" id="8">장바구니</span>
             </div>
         </div>
   </div>
@@ -104,7 +104,7 @@ $('#7').on('click',function(){
 	window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
 });
 $('#8').on('click',function(){
-	window.location.href = '<%=request.getContextPath()%>/Store/giftcertificate.jsp';
+	window.location.href = '<%=request.getContextPath()%>/Store/shoppingcart.jsp';
 });
 
 

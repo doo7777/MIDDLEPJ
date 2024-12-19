@@ -17,13 +17,14 @@ import Vo.ScheduleVO;
 public class ScheduleList extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
-      IScheduleService service = ScheduleServiceImpl.getInstance();
-      
-      List<ScheduleVO>scdList = service.getAllDetail();
-      
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		IScheduleService service = ScheduleServiceImpl.getInstance();
+		
+		List<ScheduleVO>scdList = service.getAllDetail();
+		
         // 선택된 영화의 시작일을 JSP에 전달
         String selectedMovieName = request.getParameter("selectedMovie");
         if (selectedMovieName != null) {
@@ -34,10 +35,10 @@ public class ScheduleList extends HttpServlet {
                 }
             }
         }
-      request.setAttribute("scd", scdList);
-      
-      request.getRequestDispatcher("/schedule/ScheduleList.jsp").forward(request, response);
-   }
+		request.setAttribute("scd", scdList);
+		
+		request.getRequestDispatcher("/schedule/ScheduleList.jsp").forward(request, response);
+	}
 
    
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
