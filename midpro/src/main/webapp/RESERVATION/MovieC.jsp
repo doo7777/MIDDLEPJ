@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<%@page import="Vo.ScreenVO"%>
+<%@page import="Dao.ScreenDaoImpl"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="Dao.ScheduleDaoImpl"%>
 <%@page import="Vo.TheaterVO"%>
@@ -37,6 +40,10 @@
      ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
      
      List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
+     
+     ScreenDaoImpl screenDao = ScreenDaoImpl.getInstance();
+     
+     List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 목록 조회
     
      
      
@@ -89,10 +96,27 @@
         </select>
         <br><br>
      
-        <label for="hall">관 선택:</label>
-        <select id="hall" name="hall" required>
+        <label for="screen_id">관 선택:</label>
+        <select id="screen_id" name="screen_id" required>
+             <%
+        if (screenList != null) {
+            for (ScreenVO screen : screenList) {
+    %>
+                <option value="<%= screen.getScreen_id() %>">
+                    <%= screen.getScreen_name() %>
+                </option>
+    <%
+            }
+        } else {
+    %>
+            <option value="">등록된 상영관 없습니다</option>
+    <%
+        }
+    %>
+        
+        
 
-            <!-- 추가 관 목록 -->
+     
         </select>
         <br><br>
 

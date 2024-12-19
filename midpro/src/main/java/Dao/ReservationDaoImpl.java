@@ -98,7 +98,20 @@ public class ReservationDaoImpl implements IReservationDao{
 	}
 	
 	
-
+   public List<ScreenVO> getAllScreen(){
+	   SqlSession session = MybatisUtil.getSqlSession();
+	   List<ScreenVO> screenList=null;
+	   
+	   try {
+		screenList = session.selectList("Screen.getAllScreen");
+	} catch (Exception e) {
+	   e.printStackTrace();
+	}finally {
+		if(session !=null)session.close();
+	}
+	   
+	   return screenList;
+   }
 	
 	
 	

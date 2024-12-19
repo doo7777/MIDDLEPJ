@@ -5,6 +5,7 @@ import java.util.List;
 import Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 
 public interface IReservationService {
@@ -36,4 +37,13 @@ public interface IReservationService {
      * @return 스케줄 목록
      */
     List<ScheduleVO> getAllSchedule();
+
+    /**
+     * 상영관의 전체 목록을 가져옵니다.
+     * 
+     * @return
+     */
+
+
+	List<ScreenVO> getAllScreen();
 }

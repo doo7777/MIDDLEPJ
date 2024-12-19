@@ -11,6 +11,7 @@ import ServiceInterface.IReservationService;
 import  Vo.MovieVO;
 import Vo.ReservationVO;
 import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 public class ReservationServiceImpl implements IReservationService{
 		private static ReservationServiceImpl service;
@@ -55,6 +56,10 @@ public class ReservationServiceImpl implements IReservationService{
 		return dao.getAllSchedule();
 	}
 
+    @Override
+    public List<ScreenVO>getAllScreen(){
+    	return dao.getAllScreen();
+    }
 
 
 	

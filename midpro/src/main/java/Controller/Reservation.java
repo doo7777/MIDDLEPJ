@@ -61,10 +61,11 @@ public class Reservation extends HttpServlet {
 	       List<MovieVO> movieList = service.getAllMovie();
 	       List<TheaterVO> theaterList = service.getAllTheater();
 	       List<ScheduleVO>scheduleList = service.getAllSchedule();
-	       List<ScreenVO>screenList = service.get
+	       List<ScreenVO>screenList = service.getAllScreen();
 	        request.setAttribute("schedeulList", scheduleList);
 	        request.setAttribute("movieList", movieList);
 	        request.setAttribute("theaterList", theaterList);
+	        request.setAttribute("screenList", screenList);
 
 	    
 	     if (result > 0) {
