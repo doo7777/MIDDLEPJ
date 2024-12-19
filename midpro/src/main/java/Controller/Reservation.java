@@ -57,19 +57,22 @@ public class Reservation extends HttpServlet {
 	    //서비스 호출
 	    IReservationService service = ReservationServiceImpl.getInstance();
 	    int result = service.insertReservation(reservationVO);
-
+	    System.out.println(result);
 	       List<MovieVO> movieList = service.getAllMovie();
 	       List<TheaterVO> theaterList = service.getAllTheater();
 	       List<ScheduleVO>scheduleList = service.getAllSchedule();
 	       List<ScreenVO>screenList = service.getAllScreen();
-	        request.setAttribute("schedeulList", scheduleList);
+	       
+	        request.setAttribute("scheduleList", scheduleList);
 	        request.setAttribute("movieList", movieList);
 	        request.setAttribute("theaterList", theaterList);
 	        request.setAttribute("screenList", screenList);
-
+	        request.setAttribute("reservationVO", reservationVO);
+	        System.out.println(reservationVO);
+	        
 	    
 	     if (result > 0) {
-	    	 response.sendRedirect(request.getContextPath()+"/RESERVATION/MovieC.jsp");
+	    	 request.getRequestDispatcher("/RPAYMENT/RPayment.jsp").forward(request, response);
 	        } else {
 	            request.setAttribute("errorMessage", "예약 실패. 다시 시도해 주세요.");
 	        }

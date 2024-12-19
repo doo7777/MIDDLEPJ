@@ -36,4 +36,9 @@ public class ScheduleServiceImpl implements IScheduleService{
 		return dao.getAllDetail();
 	}
 	
+	
+	@Override
+	public List<ScheduleVO> getAllSchedule(){
+		return dao.getAllSchedule();
+	}
 }

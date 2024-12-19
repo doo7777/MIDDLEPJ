@@ -18,6 +18,27 @@ public class ScheduleDaoImpl implements IScheduleDao{
 		return dao;
 	}
 	 
+//일정 전체 조회
+	@Override
+	public List<ScheduleVO> getAllSchedule() {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<ScheduleVO> scdList = null;
+		
+		try {
+			scdList = session.selectList("Schedule.getAllSchedule");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session!=null) session.close();
+		}		
+		
+		return scdList;
+	}
+	
+	
+	
+	
 	
 // 영화관-상영관 스케줄 전체 조회 ---------------------------------------------------	
 

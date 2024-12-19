@@ -28,4 +28,8 @@ public interface IScheduleService {
 	 */
 	public List<ScheduleVO> getAllDetail();
 
+
+
+	List<ScheduleVO> getAllSchedule();
+
 }
