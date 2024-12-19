@@ -225,14 +225,32 @@
             <div class="item date-item">
                 <%
                     LocalDate today = LocalDate.now();
+	                DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
+	                DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM");
                     String selectedStartDate = ""; // 선택된 영화의 시작일
+                    String currentYear = "";
+                    String currentMonth = "";
+
                     for (int i = 0; i <= 15; i++) {
                         LocalDate dateToDisplay = today.plusDays(i);
+                        String year = dateToDisplay.format(yearFormatter);
+                        String month = dateToDisplay.format(monthFormatter);
                         String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
                         String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
+                        
+                        // 년도와 월이 변경될 때만 출력
+                        if (!currentYear.equals(year) || !currentMonth.equals(month)) {
+                            // 년도와 월을 함께 포함하는 div 생성
+                            out.println("<div class='year-month'>");
+                            out.println("<span class='year'>" + year + "</span><br>");
+                            out.println("<span class='month'>" + month + "</span>");
+                            out.println("</div>");
+                            currentYear = year;
+                            currentMonth = month;
+                        }
 
                         // 버튼 요소로 변경
-                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
+                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " +"&nbsp;&nbsp;&nbsp;&nbsp;" + day + "</button>");
                     }
                 %>
             </div>
