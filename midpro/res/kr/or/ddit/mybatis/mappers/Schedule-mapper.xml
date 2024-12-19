@@ -17,7 +17,7 @@
 		ORDER BY t.theater_id, s.movie_name
 	</select>
 	
-	
+		
 	<!-- 영화제목을 받아서 해당 일정표를 보여줌 -->
 	<select id="getScheduleName" parameterType="string" resultType="scheduleVO">
 		select * from schedule
@@ -31,7 +31,6 @@
 		where screen_id = #{screen_id}
 	</select>
 	
-	<!-- 상영시작일 -->
 	
 	
 	

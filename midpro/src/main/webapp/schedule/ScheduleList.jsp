@@ -6,10 +6,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="java.util.List"%>
-<%@ page import="java.time.LocalDate" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.time.DayOfWeek" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="java.time.LocalDate" %>
+<%@page import="java.time.format.DateTimeFormatter" %>
+<%@page import="java.time.DayOfWeek" %>
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -143,10 +143,11 @@
         .day {
             margin-bottom: 10px;
         }
-.button.disabled {
-    opacity: 0.5; /* 흐리게 표시 */
-    cursor: not-allowed; /* 커서 변경 */
-}
+        .disabled {
+            color: gray; /* 비활성화된 날짜 색상 */
+            pointer-events: none; /* 클릭 이벤트 비활성화 */
+            text-decoration: line-through; /* 취소선 추가 */
+        }
     </style>
 </head>
 
@@ -160,36 +161,32 @@
                 <%
                     List<ScheduleVO> scd1 = (List<ScheduleVO>) request.getAttribute("scd");
                     if (scd1 != null) {
-                        // 중복을 제거하기 위한 Set 생성
                         Set<String> movieNames = new HashSet<>();
                         for (ScheduleVO scdList : scd1) {
                             String movieName = scdList.getMovie_name();
-                            // Set에 영화 이름이 없으면 추가하고 출력
                             if (movieNames.add(movieName)) {
                 %>
-                                <div class="movie-title" onclick="highlightMovie(this)"><%= movieName %></div>
+                                <div class="movie-title" onclick="highlightMovie(this, '<%= scdList.getStart_date() %>')">
+                                    <%= movieName %>
+                                </div>
                 <%
                             }
                         }
                     }	
                 %>
-                <!-- 더 많은 데이터가 있을 경우 스크롤이 생깁니다. -->
             </div>
         </div>
-        
+
         <div class="column">
             <div class="header">극장</div>
             <div class="item2">
                 <div class="left">
-                    <!-- 왼쪽 열의 내용 -->
                     <%
                         List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
                         if (scd != null) {
-                            // 중복을 제거하기 위한 Set 생성
                             Set<String> theaterDoSet = new HashSet<>();
                             for (ScheduleVO scdList : scd) {
                                 String theaterDo = scdList.getTheater_do();
-                                // Set에 theaterDo가 없으면 추가하고 출력
                                 if (theaterDoSet.add(theaterDo)) {
                     %>
                                     <div class="movie-title" onclick="filterTheaterNames('<%= theaterDo %>'); selectTheaterDo(this)">
@@ -203,15 +200,12 @@
                 </div>
                 
                 <div class="right">
-                    <!-- 오른쪽 열의 내용 -->
                     <%
                         List<ScheduleVO> scd2 = (List<ScheduleVO>) request.getAttribute("scd");
                         if (scd2 != null) {
-                            // 중복을 제거하기 위한 Set 생성
-                            Set<String> theaterNameSet = new HashSet<>(); // 중복 제거를 위한 Set
+                            Set<String> theaterNameSet = new HashSet<>();
                             for (ScheduleVO scdList : scd2) {
                                 String theaterName = scdList.getTheater_name();
-                                // Set에 theaterName이 없으면 추가하고 출력
                                 if (theaterNameSet.add(theaterName)) {
                     %>
                                     <div class="movie-title theater-name" data-theater-do="<%= scdList.getTheater_do() %>" onclick="selectTheater(this)">
@@ -226,66 +220,23 @@
             </div>
         </div>
 
-<div class="column">
-    <div class="header date-header">날짜</div>
-    <div class="item date-item">
-        <%
-        try {
-            LocalDate today = LocalDate.now();
-            DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
-            DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM");
-            DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("dd");
-            DateTimeFormatter dayOfWeekShortFormatter = DateTimeFormatter.ofPattern("E");
+        <div class="column">
+            <div class="header date-header">날짜</div>
+            <div class="item date-item">
+                <%
+                    LocalDate today = LocalDate.now();
+                    String selectedStartDate = ""; // 선택된 영화의 시작일
+                    for (int i = 0; i <= 15; i++) {
+                        LocalDate dateToDisplay = today.plusDays(i);
+                        String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
+                        String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
 
-            // 상영 시작일 가져오기
-            List<ScheduleVO> scd3 = (List<ScheduleVO>) request.getAttribute("scd");
-            if (scd3 != null && !scd3.isEmpty()) {
-                // 사용자 정의 형식으로 파서 생성
-                DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
-
-                // 각 영화의 상영 시작일을 저장할 리스트
-                List<LocalDate> screeningStartDates = new ArrayList<>();
-                for (ScheduleVO schedule : scd3) {
-                    LocalDate screeningStartDate = LocalDate.parse(schedule.getStart_date(), customFormatter);
-                    screeningStartDates.add(screeningStartDate);
-                }
-
-                // 날짜 버튼 생성
-                String currentYear = "";
-                String currentMonth = "";
-                for (int i = 0; i <= 15; i++) {
-                    LocalDate dateToDisplay = today.plusDays(i);
-                    String year = dateToDisplay.format(yearFormatter);
-                    String month = dateToDisplay.format(monthFormatter);
-                    String day = dateToDisplay.format(dayFormatter);
-                    String dayOfWeek = dateToDisplay.format(dayOfWeekShortFormatter);
-
-                    if (!currentYear.equals(year) || !currentMonth.equals(month)) {
-                        out.println("<div class='year-month'>");
-                        out.println("<span class='year'>" + year + "</span><br>");
-                        out.println("<span class='month'>" + month + "</span>");
-                        out.println("</div>");
-                        currentYear = year;
-                        currentMonth = month;
+                        // 버튼 요소로 변경
+                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
                     }
-
-                    // 각 영화의 상영 시작일 중 가장 이른 날짜를 찾기
-                    LocalDate earliestScreeningDate = screeningStartDates.stream().min(LocalDate::compareTo).orElse(today);
-
-                    // 상영일자 이전 날짜는 비활성화
-                    boolean isBeforeScreeningDate = dateToDisplay.isBefore(earliestScreeningDate);
-                    String dayClass = isBeforeScreeningDate ? "button disabled" : "button";
-                    out.println("<button class='" + dayClass + "' " + (isBeforeScreeningDate ? "disabled" : "") + ">" + dayOfWeek + " " + "&nbsp;&nbsp;&nbsp;&nbsp;" + day + "</button>");
-                }
-            } else {
-                out.println("<div class='error'>상영 일정이 없습니다.</div>");
-            }
-        } catch (Exception e) {
-            out.println("<div class='error'>날짜를 불러오는 데 오류가 발생했습니다.</div>");
-        }
-        %>
-    </div>
-</div>
+                %>
+            </div>
+        </div>
 
         <div class="column">
             <div class="header">시간</div>
@@ -311,11 +262,6 @@
     <!-- 이미지 눌렀을떄 영화 상세정보 jsp/survlet으로 이동하는 스크립트 작성해야함 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body> 
-
-
-
-
-
 <script>
 let selectedTheater = null; // 현재 선택된 극장 이름을 저장하는 변수
 let selectedTheaterDo = null; // 현재 선택된 극장 구역을 저장하는 변수
@@ -386,5 +332,36 @@ function selectTheaterDo(theaterDoElement) {
     
     // 선택된 극장 구역에 highlight 클래스를 추가합니다.
     theaterDoElement.classList.add('highlight-theater-do');
+}
+
+let selectedStartDate = ""; // 선택된 영화의 시작일
+
+function highlightMovie(element, startDate) {
+    const movies = document.querySelectorAll('.movie-title');
+    movies.forEach(movie => movie.classList.remove('highlight'));
+    element.classList.add('highlight');
+
+    // 시작일 설정
+    selectedStartDate = startDate;
+    enableDates();
+}
+
+function enableDates() {
+    const buttons = document.querySelectorAll('.date-button');
+    const startDate = new Date(selectedStartDate);
+    buttons.forEach(button => {
+        const buttonDate = new Date(button.getAttribute('data-date'));
+        if (buttonDate < startDate) {
+            button.disabled = true; // 이전 날짜 비활성화
+        } else {
+            button.disabled = false; // 선택 가능
+        }
+    });
+}
+
+function selectDate(button) {
+    // 선택된 날짜 처리
+    const selectedDate = button.getAttribute('data-date');
+    console.log("선택된 날짜: " + selectedDate);
 }
 </script>

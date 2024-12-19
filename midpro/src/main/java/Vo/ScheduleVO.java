@@ -19,6 +19,7 @@ public class ScheduleVO {
 	
 	private String start_date;
 	
+
 	
 	
 	

@@ -42,7 +42,7 @@
             background-color: black; /* 원래 블랙 */
         }
 
-        /* 무비차트, 상영예정작, 무비추천 */
+        /* 무비차트, 상영예정작, 무비추천 */        
         .header {
             width: 100%;
             padding: 0 0 0 270px;
@@ -267,6 +267,7 @@
 </head>
 
 <body>
+		
         <%@ include file="Top.jsp" %>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
@@ -286,6 +287,7 @@
     </div>
 
     <div class="header" id="movie_chart">
+    
         <div class="chart">
             <div class="chart reservation_btn">예매</div>
         </div>

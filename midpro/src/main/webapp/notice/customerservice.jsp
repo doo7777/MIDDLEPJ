@@ -27,15 +27,14 @@
 
         /* 회사소개 */
         #company {
-			height: 150px; /* 회사 정보 영역의 높이 설정 */
-			color: white;
-	
-			margin: 0; /* 기본 여백 제거 */
-			margin-top: 50px; /* 위쪽 여백 */
-			text-align: center;
-			overflow: hidden; /* 내용이 잘리도록 설정 */
-			position: absolute; /* 절대 위치 설정 */
-			transform: translateX(100%);
+            height: 150px; /* 회사 정보 영역의 높이 설정 */
+            color: white;
+            margin: 0; /* 기본 여백 제거 */
+            margin-top: 50px; /* 위쪽 여백 */
+            text-align: center;
+            overflow: hidden; /* 내용이 잘리도록 설정 */
+            position: absolute; /* 절대 위치 설정 */
+            transform: translateX(100%);
 		}
 
         /* 고객센터 */
@@ -56,8 +55,8 @@
         }
 
         .menu-button {
-            background-color: #ef8400;
-            color: white;
+            background-color: white;
+            color: black;
             border: none;
             width: 100%;
             padding: 10px;
@@ -79,8 +78,8 @@
         }
 
         .left-menu li:hover {
-            background-color: #f8f8f8;
-            color: #ef8400;
+            background-color: white;
+            color: black;
         }
 
         .banner-image {
@@ -95,8 +94,8 @@
         }
 
         .quick-search {
-            background-color: #ef8400;
-            color: white;
+            background-color: white;
+            color: black;
             padding: 10px;
             border-radius: 5px;
             text-align: center;
@@ -106,8 +105,10 @@
             width: 97%;
             padding: 10px;
             margin-top: 10px;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid black; /* 검정색 테두리 추가 */
+            border-radius: 5px; /* 기존 둥근 테두리 유지 */
+            outline: none; /* 포커스 시 기본 테두리 제거 */
+            box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 설정 */
         }
 
         .quick-search-buttons{
@@ -116,8 +117,8 @@
         }
 
         .quick-search-buttons span {
-            background-color: white;
-            color: #ef8400;
+            background-color: black;
+            color: white;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 5px;
@@ -295,5 +296,4 @@
     <!-- 회사 정보 영역 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body>
-
 </html>
