@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <title>DGV</title>
     <style>
-		.package-image.hoverable:hover img {
+		.store-image.hoverable:hover img {
 		    transform: scale(1.05);
 		    filter: brightness(60%);
+			border-color: transparent;
 		} 
 		
 		.hover-overlay {
@@ -28,13 +29,13 @@
 		    margin-bottom: 20px;
 		}
 		
-		.package-image.hoverable:hover .hover-overlay {
+		.store-image.hoverable:hover .hover-overlay {
 		    opacity: 1;
 		}
 
         /* 아이콘 동그라미 */
         .icon-circle {
-        	position: relative; /* 부모 요소를 기준으로 텍스트 위치 설정 가능 */ /*  */
+        	position: relative; /* 부모 요소를 기준으로 텍스트 위치 설정 가능 */ 
             width: 70px;
             height: 70px;
             background-color: rgba(0, 0, 0, 0.6); /* 회색 배경 */
@@ -81,30 +82,43 @@
     </style>
 </head>
 <body>
-    <div class="package-item">
-        <div class="package-image hoverable">
-		    <!-- 부모 JSP에서 전달된 이미지 경로 -->
-		    <img src="<%= request.getAttribute("imageSrc") %>" alt="상품 이미지" />
-		    <div class="hover-overlay">
-		        <!-- 장바구니 아이콘 -->
-		        <span class="icon">
-		            <div class="icon-circle hover-text">
-		                <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/cart.png" alt="장바구니" id="cartbutton" />
-		                <p class="hover-label">장바<br>구니</p>
-		            </div>
-		        </span>
-		        <!-- 구매하기 아이콘 -->
-		        <span class="icon">
-		            <div class="icon-circle hover-text">
-		                <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/buy.png" alt="구매하기" id="buybutton" />
-		                <p class="hover-label">구매<br>하기</p>
-		            </div>
-		        </span>
-		    </div>
-		</div>
+    <div class="store-item">
+        <div class="store-image hoverable">
+            <!-- 부모 JSP에서 전달된 이미지 경로 -->
+            <img src="<%= request.getAttribute("imageSrc") %>" alt="상품 이미지" />
+            <div class="hover-overlay">
+                <!-- 장바구니 아이콘 -->
+                <span class="icon">
+                    <div class="icon-circle hover-text">
+                        <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/cart.png" alt="장바구니" class="cartbutton" data-action="cart" />
+                        <p class="hover-label">장바<br>구니</p>
+                    </div>
+                </span>
+                <!-- 구매하기 아이콘 -->
+                <span class="icon">
+                    <div class="icon-circle hover-text">
+                        <img src="<%= request.getContextPath() %>/main/sorce/img/스토어/buy.png" alt="구매하기" class="buybutton" data-action="buy" />
+                        <p class="hover-label">구매<br>하기</p>
+                    </div>
+                </span>
+            </div>
+        </div>
     </div>
 </body>
 <script>
+    // 공통 이벤트 핸들링
+    $('.cartbutton, .buybutton').on('click', function () {
+        // 버튼의 data-action 속성 값에 따라 동작
+        const action = $(this).data('action');
+
+        if (action === 'cart') {
+            window.location.href = '<%=request.getContextPath()%>/Store/shoppingcart.jsp';
+        } else if (action === 'buy') {
+            window.location.href = '<%=request.getContextPath()%>/Store/paymentING.jsp';
+        }
+    });
+</script>
+<%-- <script>
 $('#cartbutton').on('click',function(){
 	window.location.href = '<%=request.getContextPath()%>/Store/shoppingcart.jsp';
 });
@@ -112,4 +126,5 @@ $('#buybutton').on('click',function(){
 	window.location.href = '<%=request.getContextPath()%>/Store/paymentING.jsp';
 });
 </script>
-</html>
+ --%>
+ </html>
