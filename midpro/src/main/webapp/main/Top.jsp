@@ -483,10 +483,11 @@
         
      
         <!-- 카카오 로그인 버튼 -->
-        <button type="button" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do'">
-          카카오 로그인
-        </button>
-  
+        <!-- 카카오 로그인 버튼 -->
+        <button type="button" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
+        <img src="/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 20px; height: 20px; vertical-align: middle;">
+        카카오 로그인
+          </button>   
     	<button type="button" id="join" class="signupBtn">회원가입</button>        
 
 

@@ -34,7 +34,7 @@
 		SELECT * FROM seat WHERE theater_id IN (
     SELECT theater_id 
     FROM reservation 
-    WHERE theater_id = #{} 
+    WHERE theater_id = #{theatet_id} 
 )
 		
 	</select>
