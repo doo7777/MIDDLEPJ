@@ -1,3 +1,5 @@
+<%@page import="Dao.SeatDaoImpl"%>
+<%@page import="Vo.SeatVO"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="Dao.ScheduleDaoImpl"%>
 <%@page import="Vo.TheaterVO"%>
@@ -18,32 +20,22 @@
 </head>
 <body>
 <%
-  
     CustomerVO loginSession2 = (CustomerVO) session.getAttribute("ok");
 
-   
 %>
     
 <%
-
        //영화 목록을 가져오기 위한 DAO객체 생성하셈
      MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
-     
      List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
      
      TheaterDaoImpl theaterDao = TheaterDaoImpl.getInstance();
-     
      List<TheaterVO> theaterList = theaterDao.getAllTheater(); // 영화관 전체 목록조회
      
      ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
-     
      List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
-    
      
      
-     
-       
-       
 %>
 
     <h1>영화 예약 시스템</h1>
@@ -54,12 +46,11 @@
         <input type="text" id="customer_id" name="customer_id" 
                value="<%= loginSession2.getCustomer_id() %>" readonly>
         <br><br>
-        
-        
         <label for="movie_name">영화 선택:</label>
         <select id="movie_name" name="movie_name" required>
         <%
             for(MovieVO movie : movieList){
+            
         %>
          <option value="<%= movie.getMovie_name() %>"><%= movie.getMovie_name() %></option>
         <%
@@ -86,30 +77,19 @@
     <%
         }
     %>
-        
         </select>
-        <br><br>
-     
-        <label for="hall">관 선택:</label>
-        <select id="hall" name="hall" required>
-            <option value="1관">1관</option>
-            <option value="2관">2관</option>
-            <option value="3관">3관</option>
-            <option value="4관">4관</option>
-            <option value="5관">5관</option>
-            <!-- 추가 관 목록 -->
-        </select>
-        <br><br>
 
         
-      <label for="Schedule">스케줄 선택:</label>
-<select id="Schedule" name="Schedule" required>
+      <label for="schedule_id">스케줄 선택:</label>
+<select id="schedule_id" name="schedule_id" required>
     <%
     if (schedulelList != null) {
-        for (ScheduleVO Schedule : schedulelList) {
+        for (ScheduleVO schedule : schedulelList) {
     %>
-        <option value="<%= Schedule.getSchedule_id() %>">
-            <%= Schedule.getSchedule_date() %> - <%= Schedule.getStart_time() %>
+        <option value="<%= schedule.getSchedule_id()%>">
+           <%= schedule.getSchedule_date() %>
+
+            
         </option>
     <%
         }
@@ -120,14 +100,13 @@
     }
     %>
 </select>
-        
         <br><br>
-
-   <%--      <label for="schedule_start">시간 선택:</label>
+  
+        <label for="schedule_start">시간 선택:</label>
         <select id="time" name="time" required>
                     <%
-        if (scheduelList != null) {
-            for (ScheduleVO schedule : scheduelList) {
+        if (schedulelList != null) {
+            for (ScheduleVO schedule : schedulelList) {
     %>
                 <option value="<%= schedule.getSchedule_id() %>">
                     <%= schedule.getStart_time() %>
@@ -140,12 +119,11 @@
     <%
         }
     %>
-        
-        </select> --%>
-        <br><br>
+        </select> 
 
-        <input type="submit" value="앙">
+        <input type="submit" value="예매하기">
     </form>
+    
 
 
 </body>
