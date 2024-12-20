@@ -251,8 +251,8 @@
         }
         #QR{
           position: relative;
-   		  left: 31px;
-    	  top: 28px;	
+           left: 31px;
+         top: 28px;   
         }
         .notice_wrap {
             font-weight: bold;
@@ -267,7 +267,7 @@
 </head>
 
 <body>
-		
+      
         <%@ include file="Top.jsp" %>
     <div id="movie_play"><!-- 영화 재생 영역 -->
         <video autoplay muted loop>
@@ -355,15 +355,15 @@
             </div>
         </div>
     </div>
-            	 <img alt="QR" src="/midpro/main/sorce/img/QR.jpg" id="QR">
+                <img alt="QR" src="/midpro/main/sorce/img/QR.jpg" id="QR">
     <!-- 회사 정보 영역 -->
     <%@ include file="Bottom.jsp" %>
 </body>
 
 <script>
-	$('.movie-list').on('click',function(){
-		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
-	});
+   $('.movie-list').on('click',function(){
+      window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
+   });
 
     const barParam = '<%=request.getParameter("bar")%>';
     if (barParam === 'on') {

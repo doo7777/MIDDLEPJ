@@ -35,4 +35,7 @@ public interface IScheduleDao {
 	 * 
 	 */
 	
+	public List<ScheduleVO>getAllSchedule();
+	
+	
 }

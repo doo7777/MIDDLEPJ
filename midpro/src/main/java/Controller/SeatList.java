@@ -19,19 +19,19 @@ public class SeatList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-    int seat_id = Integer.parseInt(request.getParameter("seat_id"));
-  
-    //ReservationVO에 값 설정
-    ReservationVO reservationVO = new ReservationVO();
-    reservationVO.setSeat_id(seat_id);	
-       
-    //좌석 선택
-        ISeatService seatService = SeatServiceImpl.getInstance();
-        List<SeatVO>seatList = seatService.getAllSeat();
-        
-        request.setAttribute("seatList", seatList);
-        request.getRequestDispatcher("/RESERVATION/seatC.jsp").forward(request, response);
-        
+//    int seat_id = Integer.parseInt(request.getParameter("seat_id"));
+//  
+//    //ReservationVO에 값 설정
+//    ReservationVO reservationVO = new ReservationVO();
+//    reservationVO.setSeat_id(seat_id);	
+//       
+//    //좌석 선택
+//        ISeatService seatService = SeatServiceImpl.getInstance();
+//        List<SeatVO>seatList = seatService.getAllSeat();
+//        
+//        request.setAttribute("seatList", seatList);
+//        request.getRequestDispatcher("/RESERVATION/seatC.jsp").forward(request, response);
+//        
         
 		
 	

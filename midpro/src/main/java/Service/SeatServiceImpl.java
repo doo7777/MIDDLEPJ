@@ -5,6 +5,7 @@ import java.util.List;
 import Dao.SeatDaoImpl;
 import DaoInterface.ISeatDao;
 import ServiceInterface.ISeatService;
+import Vo.ReservationVO;
 import Vo.SeatVO;
 
 public class SeatServiceImpl implements ISeatService{
@@ -41,9 +42,9 @@ public class SeatServiceImpl implements ISeatService{
 	}
 
 	@Override
-	public List<SeatVO> getReservSeat(SeatVO seatVO) {
+	public List<SeatVO> getReservSeat(ReservationVO reservationVO) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getReservSeat(reservationVO);
 	}
 
 }

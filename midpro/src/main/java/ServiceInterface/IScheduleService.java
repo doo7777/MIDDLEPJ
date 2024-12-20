@@ -27,5 +27,7 @@ public interface IScheduleService {
 	 * @return
 	 */
 	public List<ScheduleVO> getAllDetail();
+	
+	public List<ScheduleVO>getAllSchedule();
 
 }
