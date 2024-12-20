@@ -17,8 +17,10 @@
 %>
 
 <form action="reservation.do" method="post">
+
 	<input type="text" name="reservation_id" value="<%=reservation_id%>" />
 	
+
     <label for="seatList">좌석 선택:</label>
 <%--     <%=seatList %>~~~~ --%>
     <select id="seatList" name="seatList" required>
@@ -27,7 +29,9 @@
         if (seatList != null && !seatList.isEmpty()) {
             for (SeatVO seat : seatList) {
         %>
+
         			   <option value="<%= seat.getScreen_id() %>">
+
                     <%= seat.getSeat_no() %>열 - <%= seat.getSeat_line_no() %>석
                 </option>
         <%

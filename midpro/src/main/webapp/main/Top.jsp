@@ -469,7 +469,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
     });
     
     $('#moviec').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/RESERVATION/Moviec.jsp';
+    	window.location.href = '<%=request.getContextPath()%>/RESERVATION/MovieC.jsp';
     });
     
     $('#reservation').on('click',function(){
@@ -510,6 +510,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
         
      
         <!-- 카카오 로그인 버튼 -->
+
         <button type="button" id="kakao" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
         <img src="<%= request.getContextPath() %>/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 242px; height: 35px;">
         
@@ -517,6 +518,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
 
 
   
+
     	<button type="button" id="join" class="signupBtn">회원가입</button>        
 
 
