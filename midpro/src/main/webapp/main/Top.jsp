@@ -362,8 +362,8 @@
                 </li>
                 <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
-                        <li><a href="#">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
+                        <li><a href="#" id="discount">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
+                        <li><a href="#" id="vip">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
                     </ul>
                 </li>
             </ul>
@@ -392,6 +392,14 @@
 
     
 
+    
+    $('#discount').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
+    });
+    
+    $('#vip').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/VIP.jsp';
+    });
     
     $('#comingOut').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
