@@ -13,29 +13,34 @@
 <%
     // SeatList 서블릿에서 전달된 좌석 목록
     List<SeatVO> seatList = (List<SeatVO>) request.getAttribute("seatList");
+    int reservation_id = Integer.parseInt(request.getAttribute("reservation_id").toString());
 %>
 
 <form action="reservation.do" method="post">
+   <input type="text" name="reservation_id" value="<%=reservation_id%>" />
+   
     <label for="seatList">좌석 선택:</label>
+<%--     <%=seatList %>~~~~ --%>
     <select id="seatList" name="seatList" required>
+    
         <%
         if (seatList != null && !seatList.isEmpty()) {
             for (SeatVO seat : seatList) {
         %>
-                <option value="<%= seat.getSeat_id() %>">
-                    <%= seat.getSeat_no() %> - <%= seat.getSeat_line_no() %>
+                    <option value="<%= seat.getScreen_id() %>">
+                    <%= seat.getSeat_no() %>열 - <%= seat.getSeat_line_no() %>석
                 </option>
         <%
             }
         } else {
         %>
-            <option value="">등록된 좌석이 없습니다</option>
+            <option value="">등록된 좌석이 없습니다!!</option>
         <%
         }
         %>
     </select>
     <br><br>
-    <input type="submit" value="좌석 선택 완료">
+    <input type="submit" value="결제 하기">
 </form>
 
 </body>

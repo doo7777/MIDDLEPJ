@@ -6,9 +6,9 @@
 <mapper namespace="RPayment">
 
 <insert id = "insertRPayment" parameterType="rpaymentVO">
-insert into RPAYMENT(PAYMENT_ID, RESERVATION_ID,PAYMENT_DAY, PAYMENT_METHOD,PAYMENT_PRICE,PAYMENT_STATUS,SCREEN_ID)
+insert into RPAYMENT(PAYMENT_ID,CUSTOMER_ID, RESERVATION_ID,PAYMENT_DAY, PAYMENT_METHOD,PAYMENT_PRICE,PAYMENT_STATUS,SCREEN_ID)
 values(
-RPAYMENT_SEQ.NEXTVAL, #{payment_id},#{reservation_id},SYSDATE,#{payment_method},#{payment_price},#{payment_status},#{screen_id}
+RPAYMENT_SEQ.NEXTVAL, #{payment_id},#{reservation_id},SYSDATE,#{payment_method},#{payment_price},#{payment_status},#{screen_id},#{customer_id}
 )
 </insert>
 
