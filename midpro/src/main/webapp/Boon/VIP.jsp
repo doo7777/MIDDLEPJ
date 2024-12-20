@@ -184,12 +184,12 @@
                     일반
                 </div>
                 <div class="vip-progress">
-                    <p><span>su**jh0712</span> 님은 <em>일반</em>입니다.</p>
+                    <p><span><%=result.getCust_name() %></span> 님은 <em><%=result.getCust_grade() %></em>입니다.</p>
                     <div class="progress-container">
                         <div class="progress-bar"></div>
                     </div>
                     <p class="progress-text">
-                        <span>0점</span> / <span>10,000점</span>
+                        <span>0점</span> / <span>1,000점</span>
                     </p>
                 </div>
             </div>

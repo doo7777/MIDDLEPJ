@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -24,6 +26,12 @@ public class MovieList extends HttpServlet {
 		
 		List<MovieVO> movieList = service.getAllMovie();
 		
+		 HttpSession session = request.getSession();
+		 
+//		 if(movieList!=null) {
+//	        	session.setAttribute("ok", movieList);
+//	        }
+		 
 		request.setAttribute("movieList", movieList);
 		request.getRequestDispatcher("/Movie/movieList.jsp").forward(request, response);
 		
