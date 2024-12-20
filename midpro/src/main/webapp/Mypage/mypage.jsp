@@ -121,8 +121,8 @@
             font-size: 16px;
         }
 
-        /* 빠른 설정 섹션 */
-        .quick-settings {
+        /* 빠른 설정 섹션 */	/* 삭제? */
+        /* .quick-settings {
             display: flex;
             justify-content: space-between;
         }
@@ -146,7 +146,7 @@
             background-color: #444;
             font-weight: bold;
             color: #fff;
-        }
+        } */
 
         .border-container {
             display: flex;
@@ -158,6 +158,7 @@
             color: white;
             height: 300px;
         }
+        
         /* 사이드바 스타일 */
         .leftbar {
             width: 250px; /* 고정 너비 */
@@ -271,14 +272,14 @@
 		</div>
 
 
-        <!-- 빠른 설정 섹션 -->
-        <div class="quick-settings">
+        <!-- 빠른 설정 섹션 -->	<!-- 삭제? -->
+        <!-- <div class="quick-settings">
             <div class="setting-box">DGV대전 <span>1</span></div>
             <div class="setting-box"><span>2</span></div>
             <div class="setting-box"><span>3</span></div>
             <div class="setting-box"><span>4</span></div>
             <div class="setting-box active">자주가는 DGV 설정하기</div>
-        </div>
+        </div> -->
 
 
         <!-- 같은 테두리 안에 사이드바와 콘텐츠 영역 -->
@@ -291,10 +292,7 @@
                     <li>DGV기프트카드</li>
                     <li>DD 포인트</li>
                     <li>회원정보</li>
-                    <ul class="submenu">
-                        <li>개인정보 설정</li>
-                        <li>간편로그인 설정</li>
-                    </ul>
+                    <li>개인정보 설정</li>
                     <li>나의 문의내역</li>
                 </ul>
             </div>

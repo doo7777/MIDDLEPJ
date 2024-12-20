@@ -271,6 +271,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <button id="noticebutton">dd</button>
             </div>
         </div>
     </div>
@@ -280,5 +281,11 @@
     $('#menubutton').on('click',function(){
         window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
+    
+    $('#noticebutton').on('click',function(){
+        window.location.href = '<%=request.getContextPath()%>/noticeList.do';
+        
+    });
+</script>
 </script>
 </html>
