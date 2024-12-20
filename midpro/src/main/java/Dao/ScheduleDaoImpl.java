@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DaoInterface.IScheduleDao;
 import Util.MybatisUtil;
+import Vo.NoticeVO;
 import Vo.ScheduleVO;
 
 public class ScheduleDaoImpl implements IScheduleDao{
@@ -18,27 +19,6 @@ public class ScheduleDaoImpl implements IScheduleDao{
 		return dao;
 	}
 	 
-//일정 전체 조회
-	@Override
-	public List<ScheduleVO> getAllSchedule() {
-		SqlSession session = MybatisUtil.getSqlSession();
-		
-		List<ScheduleVO> scdList = null;
-		
-		try {
-			scdList = session.selectList("Schedule.getAllSchedule");
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if(session!=null) session.close();
-		}		
-		
-		return scdList;
-	}
-	
-	
-	
-	
 	
 // 영화관-상영관 스케줄 전체 조회 ---------------------------------------------------	
 
@@ -93,6 +73,24 @@ public class ScheduleDaoImpl implements IScheduleDao{
 		
 		return scdListSId;
 	}
+	
+	@Override
+	public List<ScheduleVO> getAllSchedule() {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<ScheduleVO>scheduleList =null;
+		
+		try {
+			scheduleList = session.selectList("Schedule.getAllSchedule");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session!=null) session.close();
+		}
+		
+		return scheduleList;
+	}
+	
 	
     // 영화 이름, 날짜, 극장 이름, 지역으로 상영 스케줄 조회
     @Override

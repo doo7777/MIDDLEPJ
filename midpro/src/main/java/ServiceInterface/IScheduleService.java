@@ -37,9 +37,8 @@ public interface IScheduleService {
      */
     public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO);
 
+    public List<ScheduleVO> getAllSchedule();
 
 
-
-	List<ScheduleVO> getAllSchedule();
 
 }

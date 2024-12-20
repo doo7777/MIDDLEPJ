@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DaoInterface.ISeatDao;
 import Util.MybatisUtil;
+import Vo.ReservationVO;
 import Vo.SeatVO;
 
 public class SeatDaoImpl implements ISeatDao{
@@ -49,9 +50,20 @@ public class SeatDaoImpl implements ISeatDao{
 	}
 	
 	@Override
-	public List<SeatVO> getReservSeat(SeatVO seatVO) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SeatVO> getReservSeat(ReservationVO reservationVO) {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<SeatVO>ReservSeatList = null;
+		
+		try {
+			ReservSeatList = session.selectList("Movie.getReservSeat",reservationVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) session.close();
+		}
+		
+		return ReservSeatList;
 	}
 
 }

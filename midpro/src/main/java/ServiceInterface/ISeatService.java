@@ -2,6 +2,7 @@ package ServiceInterface;
 
 import java.util.List;
 
+import Vo.ReservationVO;
 import Vo.SeatVO;
 
 public interface ISeatService {
@@ -32,7 +33,7 @@ public interface ISeatService {
 	 * @param seatVO
 	 * @return
 	 */
-	public List<SeatVO>getReservSeat(SeatVO seatVO);
+	public List<SeatVO>getReservSeat(ReservationVO reservationVO);
 	
 
 }
