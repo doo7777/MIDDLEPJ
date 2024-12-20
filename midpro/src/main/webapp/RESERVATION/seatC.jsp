@@ -1,3 +1,7 @@
+<%@page import="Dao.ReservationDaoImpl"%>
+<%@page import="Service.ReservationServiceImpl"%>
+<%@page import="ServiceInterface.IReservationService"%>
+<%@page import="Vo.ReservationVO"%>
 <%@page import="Vo.SeatVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -14,6 +18,10 @@
     // SeatList 서블릿에서 전달된 좌석 목록
     List<SeatVO> seatList = (List<SeatVO>) request.getAttribute("seatList");
     int reservation_id = Integer.parseInt(request.getAttribute("reservation_id").toString());
+    
+    ReservationVO reservationVO = new ReservationVO();
+    reservationVO.setReservation_id(reservation_id);
+
 %>
 
 <form action="reservation.do" method="post">
