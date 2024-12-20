@@ -24,9 +24,13 @@
     
     
     <update id="updateReserve" parameterType="reservationVO">
-	update reservation set
-	    seat_id = #{seat_id}, reservation_price= #{reservation_price}
-	    where reservation_id= #{reservation_id}    
+	UPDATE RESERVATION
+		SET seat_id = #{seat_id},
+    reservation_price = (
+        SELECT seat_price
+        FROM SEAT
+        WHERE seat_id = #{seat_id}
+    ) 
     </update>
     
     
