@@ -62,7 +62,7 @@ public class Reservation extends HttpServlet {
           
           IScheduleService scheduleService = ScheduleServiceImpl.getInstance();
           
-          List<ScheduleVO>scheduleList = scheduleService.getAllSchedule();
+          List<ScheduleVO>scheduleList = scheduleService.getAllDetail();
            request.setAttribute("schedeulList", scheduleList);
            request.setAttribute("movieList", movieList);
            request.setAttribute("theaterList", theaterList);

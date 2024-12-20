@@ -92,6 +92,22 @@ public class ScheduleDaoImpl implements IScheduleDao{
 	}
 	
 	
+    // 영화 이름, 날짜, 극장 이름, 지역으로 상영 스케줄 조회
+    @Override
+    public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO) {
+        SqlSession session = MybatisUtil.getSqlSession();
+        List<ScheduleVO> scdListByMovie = null;
+
+        try {
+            scdListByMovie = session.selectList("Schedule.getScheduleByMovie", scheduleVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(session != null) session.close();
+        }
+
+        return scdListByMovie;
+    }
 	
 
 
