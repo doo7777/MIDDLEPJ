@@ -234,7 +234,6 @@
         }
     </style>
 </head>
-
 <body>
     <div>
         <%@ include file="/main/Top.jsp" %>
@@ -245,8 +244,8 @@
         <div class="profile-section">
             <div class="profile-icon"></div>
             <div class="profile-info">
-                <h1>성주현님</h1>
-                <p>고객님은 <span class="highlight">일반</span> 입니다.</p>
+                <h1><%=result.getCust_name() %></h1>
+                <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
                 <button class="history-btn">MY 지난등급이력 보기</button>
             </div>
         </div>
@@ -256,7 +255,7 @@
             <div class="point-box">
                 <h2>CJ ONE POINT</h2>
                 <p>CJ ONE 사용가능 포인트 <span class="highlight">347점</span></p>
-                <p class="vip-score">VIP 누적 점수 <span>0/10,000점</span></p>
+                <p class="vip-score">VIP 누적 점수 <span>0/1,000점</span></p>
             </div>
             <div class="coupon-box">
                 <h2>MY COUPON</h2>

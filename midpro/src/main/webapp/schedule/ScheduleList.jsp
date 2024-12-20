@@ -172,7 +172,7 @@
                 <%
                             }
                         }
-                    }	
+                    }   
                 %>
             </div>
         </div>
@@ -250,7 +250,7 @@
                             <%= scdList.getStart_time() %><br>
                 <%
                         }
-                    }	
+                    }   
                 %>              
             </div>
         </div>

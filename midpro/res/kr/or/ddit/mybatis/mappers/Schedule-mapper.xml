@@ -7,42 +7,55 @@
 
 <!-- 전체 일정표를 보여줌 -->
 <mapper namespace="Schedule">
+
     <select id = "getAllSchedule" resultType="scheduleVO">
     select * from schedule
     </select>
 
 
+   <!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
 
-	<!-- 영화관명과 상영관명을 가져오는 전체 일정표를 보여줌 -->
-	<select id="getAllDetail" resultType="scheduleVO">
-		SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date,
-		       t.theater_name, sc.screen_name, t.theater_do,
-		       m.start_date AS start_date  -- TO_DATE 제거
-		FROM schedule s
-		JOIN theater t ON s.theater_id = t.theater_id
-		JOIN screen sc ON s.screen_id = sc.screen_id
-		JOIN movie m ON m.movie_name = s.movie_name
-		ORDER BY t.theater_id, s.movie_name
-	</select>
-	
-		
-	<!-- 영화제목을 받아서 해당 일정표를 보여줌 -->
-	<select id="getScheduleName" parameterType="string" resultType="scheduleVO">
-		select * from schedule
-		where movie_name like '%'||#{movie_name} ||'%'			
-	</select>
-	
-	
-	<!-- 상영관ID를 받아서 해당 일정표를 보여줌 -->
-	<select id="getScheduleScreenId" parameterType="int" resultType="scheduleVO">
-		select * from schedule
-		where screen_id = #{screen_id}
-	</select>
+   <select id="getAllDetail" resultType="scheduleVO">
+      SELECT s.movie_name, s.theater_id, s.screen_id, s.start_time, s.schedule_date,
+             t.theater_name, sc.screen_name, t.theater_do,
+             m.start_date AS start_date  -- TO_DATE 제거
 
-	
-	
-	
-	
+      FROM schedule s
+      JOIN theater t ON s.theater_id = t.theater_id
+      JOIN screen sc ON s.screen_id = sc.screen_id
+      JOIN movie m ON m.movie_name = s.movie_name
+      ORDER BY t.theater_id, s.movie_name
+   </select>
+
+   
+      
+   <!-- 영화제목을 받아서 해당 일정표를 보여줌 -->
+   <select id="getScheduleName" parameterType="string" resultType="scheduleVO">
+      select * from schedule
+      where movie_name like '%'||#{movie_name} ||'%'         
+   </select>
+   
+   
+   <!-- 상영관ID를 받아서 해당 일정표를 보여줌 -->
+   <select id="getScheduleScreenId" parameterType="int" resultType="scheduleVO">
+      select * from schedule
+      where screen_id = #{screen_id}
+   </select>
+
+
+
+   <!-- 상영시작시간을 보여줌 -->
+   <select id="getScheduleByMovie" parameterType="scheduleVO" resultType="scheduleVO">
+      SELECT s.*, sn.screen_name, t.theater_name      <!-- 추가한 부분 -->
+       FROM schedule s
+       JOIN theater t ON s.theater_id = t.theater_id
+       JOIN screen sn ON s.screen_id = sn.screen_id   <!-- 추가한 부분 -->
+       WHERE s.movie_name = #{movie_name}
+         AND s.schedule_date = #{schedule_date}
+         AND t.theater_name = #{theater_name}
+         AND t.theater_do = #{theater_do}
+   </select>
+   
+   
 
 </mapper>
-

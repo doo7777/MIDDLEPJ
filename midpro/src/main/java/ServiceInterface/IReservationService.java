@@ -43,7 +43,11 @@ public interface IReservationService {
      * 
      * @return
      */
-
-
 	List<ScreenVO> getAllScreen();
+	
+	   /**
+	    * 예매과정= 좌석,금액선택전 insert후 데이터 추가 삽입
+	    * @return
+	    */
+	public int updateReserve(ReservationVO reservationVO);
 }
