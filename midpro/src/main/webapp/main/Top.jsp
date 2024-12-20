@@ -387,7 +387,11 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
                 </li>
                 <li><a href="#" class="highlight" id="discount">혜택</a> <!-- 혜택 메뉴 항목 -->
                     <ul>
+<<<<<<< HEAD
+                        <li><a href="#" id="discount">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
+=======
                         <li><a href="#" id="discount1">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
                         <li><a href="#" id="vip">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
                     </ul>
                 </li>
@@ -419,10 +423,23 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
     	window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
     });
     
+<<<<<<< HEAD
+
+    
+    $('#discount').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
+    });
+    
+    $('#vip').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/VIP.jsp';
+    });
+    
+=======
     $('#vip').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Boon/VIP.jsp';
     });
 	
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
     $('#comingOut').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
     });
@@ -510,6 +527,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
         
      
         <!-- 카카오 로그인 버튼 -->
+
         <button type="button" id="kakao" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
         <img src="<%= request.getContextPath() %>/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 242px; height: 35px;">
         
@@ -517,6 +535,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
 
 
   
+
     	<button type="button" id="join" class="signupBtn">회원가입</button>        
 
 

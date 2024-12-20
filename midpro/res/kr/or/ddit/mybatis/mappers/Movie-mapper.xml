@@ -31,11 +31,20 @@
 	
 	<select id="getReservSeat" parameterType="reservationVO" resultType="SeatVO">
 		
-		 SELECT * FROM seat WHERE screen_id IN (
-		    SELECT screen_id 
+
+	SELECT * FROM seat WHERE theater_id IN (
+    SELECT theater_id 
+    FROM reservation 
+
+    WHERE theater_id = #{theater_id} 
+
+)
+  <!--  SELECT * FROM seat WHERE screen_id IN (
+   SELECT screen_id 
 		    FROM reservation 
 		    WHERE screen_id = #{screen_id} 
-				)
+				) -->
+
 		
 	</select>
 
