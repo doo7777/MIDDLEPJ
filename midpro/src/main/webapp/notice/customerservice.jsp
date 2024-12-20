@@ -298,8 +298,7 @@
 </body>
 <script>
     $('#noticebutton').on('click',function(){
-        window.location.href = '<%=request.getContextPath()%>/noticeList.do';
-        
+        window.location.href = '<%=request.getContextPath()%>/notice/noticenews.jsp';
     });
 </script>
 </html>
