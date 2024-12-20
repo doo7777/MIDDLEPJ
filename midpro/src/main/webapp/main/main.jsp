@@ -332,8 +332,8 @@
         <div id="notice_wrap" class="notice_wrap">
             <dt><strong>공지사항</strong></dt>
             <dd>
-                <a href="notice/NoticeInsert.jsp" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
-                <a href="/notice/NoticeList.jsp" id="notice_more" class="btn">더보기</a>
+                <a href="/support/news/detail-view.aspx?idx=8062" class="btn">[행사/이벤트][DGV] '24년 12월 문화 주간 관련 안내...</a>
+                <a href="http://www.cgv.co.kr/support/news/default.aspx" id="notice_more" class="btn">더보기</a>
             </dd>
         </div>
 
@@ -361,16 +361,10 @@
 </body>
 
 <script>
-<<<<<<< HEAD
+
    $('.movie-list').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
    });
-=======
-
-	$('.movie-list').on('click',function(){
-		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
-	});
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
     const barParam = '<%=request.getParameter("bar")%>';
     if (barParam === 'on') {
