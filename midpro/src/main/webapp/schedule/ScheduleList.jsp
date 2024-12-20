@@ -63,27 +63,27 @@
             justify-content: center; /* 수평 가운데 정렬 */
             align-items: center; /* 수직 가운데 정렬 (선택 사항) */
             height: 30px; /* 항목 높이 */
-            background-color: gray;
+            background-color: #ef8400;
         }
         .item {
             height: 500px; /* 고정 높이 설정 (길게 조정) */
             overflow-y: auto; /* 세로 스크롤 가능 */
             flex-direction: column; /* 세로 방향으로 정렬 */
-            background-color: gray;
+            background-color: white;
+            color: black;
         }
         /* 날짜 열에 대한 스타일 */
         .date-header, .date-item {
             width: 100px; /* 날짜의 너비를 줄임 */
         }
-        /* 연령 이미지 표시를 위한 스타일 */
-        .age-rating {
-            width: 30px; /* 정사각형 크기 */
-            height: 30px; /* 정사각형 크기 */
-            background-color: white; /* 배경색 (나중에 이미지로 대체 가능) */
-            display: inline-block; /* 인라인 블록으로 설정 */
-            margin-right: 5px; /* 제목과의 간격 */
-            vertical-align: middle; /* 수직 정렬 */
-        }
+		/* 날짜 영역 스타일 추가 */
+		.item.date-item {
+		    height: 504px; /* 다른 요소와 동일한 높이 유지 */
+		    overflow-y: auto; /* 세로 스크롤 가능 */
+		    padding-bottom: 40px; /* 스크롤 시 추가 공백 */
+		    box-sizing: border-box; /* 패딩 포함하여 전체 높이 계산 */
+		    margin-bottom: 0; /* 아래쪽 여백 제거 */
+		}
         /* 영화 제목을 감싸는 div의 테두리 제거 */
         .movie-title {
             border: none; /* 테두리 제거 */
@@ -93,17 +93,16 @@
             margin: 10px 0;
         }
         /* 클릭 시 검정색으로 칠해지는 스타일 */
-        .highlight {
+        .highlight2 {
             background-color: black; /* 배경색을 검정색으로 변경 */
             color: white; /* 글자색을 흰색으로 변경 */
-            width: 100%;
-            height: 50px;
+            width: 100%; 
+            height: 50px; 
             text-align: center; /* 가운데 정렬 */
             display: flex; /* 플렉스 박스 사용 */
-            align-items: center; /* 수직 중앙 정렬 */
             justify-content: center; /* 수평 중앙 정렬 */
         }
-        .highlight-theater-do {
+        .highlight2-theater-do {
             background-color: black; /* 선택된 극장 구역 강조 색상 */
             color: white; /* 텍스트 색상 */
         }
@@ -113,40 +112,74 @@
             height: 500px; /* 고정 높이 설정 (길게 조정) */
             overflow-y: auto; /* 세로 스크롤 가능 */
             flex-direction: row; /* 수평 방향으로 정렬 */
-            background-color: gray;
+            background-color: white;
         }
         .left, .right {
             padding: 10px; /* 여백 추가 */
         }
         .left {
-            background-color: blue; /* 왼쪽 열 배경색 */
+            background-color: white; /* 왼쪽 열 배경색 */
             height: 100%;
             width: 30%;
+            color: black;
+            border: none;
         }
         .right {
-            background-color: blue; /* 오른쪽 열 배경색 */
+            background-color: white; /* 오른쪽 열 배경색 */
             height: 100%;
             width: 70%;
+            color: black;
+            border: none;
         }
         .year-month {
             text-align: center;
             width: 70px;
             height: 70px;
             margin-bottom: 10px;
+            border: none;
+            margin-top: 10px;
         }
         .year {
             font-size: 10pt; /* 년도 글자 크기 */
+            color: #ef8400;
         }
         .month {
             font-size: 20pt; /* 월 글자 크기 */
+            color: red;
         }
         .day {
             margin-bottom: 10px;
         }
-        .disabled {
-            color: gray; /* 비활성화된 날짜 색상 */
-            pointer-events: none; /* 클릭 이벤트 비활성화 */
-            text-decoration: line-through; /* 취소선 추가 */
+        .date-button {
+            background: none; /* 배경 제거 */
+            border: none; /* 테두리 제거 */
+            color: black; /* 글자색 설정 */
+            text-align: left; /* 왼쪽 정렬 */
+            cursor: pointer; /* 커서를 포인터로 변경 */
+            padding: 0; /* 패딩 제거 */
+            margin: 0; /* 마진 제거 */
+            font: inherit; /* 기본 폰트 설정 상속 */
+            outline: none; /* 포커스 시 테두리 제거 */
+        }
+        .highlight-date {
+            background-color: black; /* 배경색을 검정색으로 변경 */
+            color: white; /* 글자색을 흰색으로 변경 */
+        }
+        #scheduleContainer{
+        	display: flex;
+        	flex-direction: row;
+        	align-items: flex-start;        
+        }
+        #timeinfo{
+        	margin-right: 20px;
+        	margin-top: 20px;
+        	margin-left: 10px;
+        	border: none;
+        }
+        #screeninfo{
+        	margin-top: 20px;
+        	margin-left: 10px;
+        	border: none;
         }
     </style>
 </head>
@@ -166,13 +199,13 @@
                             String movieName = scdList.getMovie_name();
                             if (movieNames.add(movieName)) {
                 %>
-                                <div class="movie-title" onclick="highlightMovie(this, '<%= scdList.getStart_date() %>')">
+                                <div class="movie-title" onclick="highlight2Movie(this, '<%= scdList.getStart_date() %>')">
                                     <%= movieName %>
                                 </div>
                 <%
                             }
                         }
-                    }	
+                    }   
                 %>
             </div>
         </div>
@@ -225,36 +258,70 @@
             <div class="item date-item">
                 <%
                     LocalDate today = LocalDate.now();
+                    DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
+                    DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM");
                     String selectedStartDate = ""; // 선택된 영화의 시작일
+                    String currentYear = "";
+                    String currentMonth = "";
+
                     for (int i = 0; i <= 15; i++) {
                         LocalDate dateToDisplay = today.plusDays(i);
+                        String year = dateToDisplay.format(yearFormatter);
+                        String month = dateToDisplay.format(monthFormatter);
                         String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
                         String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
+                        
+                        // 년도와 월이 변경될 때만 출력
+                        if (!currentYear.equals(year) || !currentMonth.equals(month)) {
+                            // 년도와 월을 함께 포함하는 div 생성
+                            out.println("<div class='year-month'>");
+                            out.println("<span class='year'>" + year + "</span><br>");
+                            out.println("<span class='month'>" + month + "</span>");
+                            out.println("</div>");
+                            currentYear = year;
+                            currentMonth = month;
+                        }
 
                         // 버튼 요소로 변경
-                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
+                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " +"&nbsp;&nbsp;&nbsp;&nbsp;" + day + "</button>");
                     }
                 %>
             </div>
         </div>
 
-        <div class="column">
-            <div class="header">시간</div>
-            <div class="item">
-                <!-- DB에서 가져온 시간 데이터가 여기에 들어갑니다. -->
-                <%
-                    List<ScheduleVO> scd4 = (List<ScheduleVO>) request.getAttribute("scd");
-                    if (scd4 != null) {
-                        for (ScheduleVO scdList : scd4) {
-                %>
-                            <%= scdList.getStart_time() %><br>
-                <%
-                        }
-                    }	
-                %>              
-            </div>
-        </div>
+<div class="column">
+    <div class="header">시간</div>
+    <div class="item" id="scheduleContainer">
+    
+       <div id="timeinfo">
+       
+        <!-- DB에서 가져온 시간 데이터가 여기에 들어갑니다. -->
+        <%
+            List<ScheduleVO> scd4 = (List<ScheduleVO>) request.getAttribute("scdList2"); // 수정: scdList2 사용
+            if (scd4 != null && !scd4.isEmpty()) {
+                for (ScheduleVO scdList : scd4) {
+        %>
+                    <div>
+                        <strong>시간:</strong> <%= scdList.getStart_time() %><br>
+                        <hr> <!-- 구분선 추가 -->
+                    </div>
+        <%
+                }
+            } else {
+        %>
+            <p>상영 시간이 없습니다.</p> <!-- 데이터가 없을 경우 메시지 표시 -->
+        <%
+            }
+        %>              
+       </div>
+       
+       
+       <div id="screeninfo">
+       </div>
     </div>
+</div>
+    </div>
+
 
     <br>
     <br>
@@ -262,26 +329,33 @@
     <!-- 이미지 눌렀을떄 영화 상세정보 jsp/survlet으로 이동하는 스크립트 작성해야함 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body> 
+
 <script>
 let selectedTheater = null; // 현재 선택된 극장 이름을 저장하는 변수
 let selectedTheaterDo = null; // 현재 선택된 극장 구역을 저장하는 변수
+let selectedStartDate = ""; // 선택된 영화의 시작일
+let selectedMovie = ""; // 선택된 영화
 
-function highlightMovie(element) {
+function highlight2Movie(element, startDate) {
     // 모든 영화 제목에서 highlight 클래스를 제거
     const titles = document.querySelectorAll('.movie-title');
     titles.forEach(title => {
-        title.classList.remove('highlight');
+        title.classList.remove('highlight2');
     });
+    
     // 클릭한 영화 제목에 highlight 클래스를 추가
-    element.classList.add('highlight');
+    element.classList.add('highlight2');
+
+    // 시작일 및 선택된 영화 이름 저장
+    selectedStartDate = startDate;
+    selectedMovie = element.innerText; // 선택된 영화 이름 저장
+    enableDates();
 }
 
 function filterTheaterNames(selectedTheaterDo) {
-    // 모든 극장 이름을 가져옵니다.
     const theaterNames = document.querySelectorAll('.theater-name');
     
     theaterNames.forEach(theater => {
-        // 극장 이름의 data-theater-do 속성과 선택된 극장 구역을 비교합니다.
         if (theater.getAttribute('data-theater-do') === selectedTheaterDo) {
             theater.style.opacity = '1'; // 일치하는 극장 이름은 보이게
             theater.style.pointerEvents = 'auto'; // 클릭 가능
@@ -293,57 +367,34 @@ function filterTheaterNames(selectedTheaterDo) {
 
     // 선택된 극장 구역을 업데이트
     if (selectedTheaterDo !== null) {
-        // 이전에 선택된 극장 구역이 있다면 강조 해제
-        const previousTheaterDo = document.querySelector('.highlight-theater-do');
+        const previousTheaterDo = document.querySelector('.highlight2-theater-do');
         if (previousTheaterDo) {
-            previousTheaterDo.classList.remove('highlight-theater-do');
+            previousTheaterDo.classList.remove('highlight2-theater-do');
         }
         
-        // 현재 선택된 극장 구역에 강조 추가
         const currentTheaterDo = document.querySelector(`.movie-title[onclick*="${selectedTheaterDo}"]`);
         if (currentTheaterDo) {
-            currentTheaterDo.classList.add('highlight-theater-do');
+            currentTheaterDo.classList.add('highlight2-theater-do');
         }
     }
 }
 
 function selectTheater(theaterElement) {
-    // 이미 선택된 극장이 있다면 선택 해제
     if (selectedTheater) {
-        selectedTheater.classList.remove('highlight');
+        selectedTheater.classList.remove('highlight2');
     }
     
-    // 현재 선택된 극장 이름을 업데이트
     selectedTheater = theaterElement;
-    
-    // 선택된 극장 이름에 highlight 클래스를 추가합니다.
-    theaterElement.classList.add('highlight');
+    theaterElement.classList.add('highlight2');
 }
 
-// 극장 구역 클릭 시 호출되는 함수
 function selectTheaterDo(theaterDoElement) {
-    // 이미 선택된 극장 구역이 있다면 선택 해제
     if (selectedTheaterDo) {
-        selectedTheaterDo.classList.remove('highlight-theater-do');
+        selectedTheaterDo.classList.remove('highlight2-theater-do');
     }
     
-    // 현재 선택된 극장 구역을 업데이트
     selectedTheaterDo = theaterDoElement;
-    
-    // 선택된 극장 구역에 highlight 클래스를 추가합니다.
-    theaterDoElement.classList.add('highlight-theater-do');
-}
-
-let selectedStartDate = ""; // 선택된 영화의 시작일
-
-function highlightMovie(element, startDate) {
-    const movies = document.querySelectorAll('.movie-title');
-    movies.forEach(movie => movie.classList.remove('highlight'));
-    element.classList.add('highlight');
-
-    // 시작일 설정
-    selectedStartDate = startDate;
-    enableDates();
+    theaterDoElement.classList.add('highlight2-theater-do');
 }
 
 function enableDates() {
@@ -360,8 +411,51 @@ function enableDates() {
 }
 
 function selectDate(button) {
-    // 선택된 날짜 처리
     const selectedDate = button.getAttribute('data-date');
+    console.log("선택된 영화: " + selectedMovie);
+    console.log("선택된 극장: " + (selectedTheater ? selectedTheater.innerText : "없음"));
+    console.log("선택된 극장 구역: " + (selectedTheaterDo ? selectedTheaterDo.innerText : "없음"));
     console.log("선택된 날짜: " + selectedDate);
+    
+    // 모든 날짜 버튼에서 highlight 클래스를 제거
+    const buttons = document.querySelectorAll('.date-button');
+    buttons.forEach(btn => {
+        btn.classList.remove('highlight-date');
+    });
+    
+    // 클릭한 버튼에 highlight 클래스를 추가
+    button.classList.add('highlight-date');
+    
+    console.log("선택된 영화: " + selectedMovie);
+    console.log("선택된 극장: " + (selectedTheater ? selectedTheater.innerText : "없음"));
+    console.log("선택된 극장 구역: " + (selectedTheaterDo ? selectedTheaterDo.innerText : "없음"));
+    console.log("선택된 날짜: " + selectedDate);
+    
+    // 상영 시간 가져오기
+    fetchSchedule(selectedMovie, selectedTheater.innerText, selectedTheaterDo.innerText, selectedDate);
+}
+
+function fetchSchedule(movie, theater, theaterDo, date) {
+	const params = "selectedMovie=" + movie
+	+ "&selectedTheater=" + theater
+	+ "&selectedTheaterDo=" + theaterDo
+	+ "&selectedDate=" + date;
+	const req = new XMLHttpRequest();
+	req.open('post','<%=request.getContextPath()%>/scheduleList.do');
+	req.onreadystatechange = function(){
+	    if(req.readyState == 4 && req.status == 200){
+	        const schedules = JSON.parse(req.responseText);
+	        
+	        const screen_name = schedules.map(schedule => schedule.screen_name).join('<br><br>'); // screen_name만 추출
+	        const startTimes = schedules.map(schedule => schedule.start_time).join('<br><br>'); // start_time만 추출
+	        
+	        
+	        document.getElementById('timeinfo').innerHTML = startTimes; // div 요소에 start_time 출력
+	        document.getElementById('screeninfo').innerHTML = screen_name; // div 요소에 screen_name 출력
+	    }
+	}
+	req.setRequestHeader('content-type','application/x-www-form-urlencoded;char-set=utf-8;')
+	req.send(params);
 }
 </script>
+</html>
