@@ -20,7 +20,7 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 display: flex;
                 justify-content: center; /* 수평 중앙 정렬 */
-    			align-items: center; /* 수직 중앙 정렬 */
+             align-items: center; /* 수직 중앙 정렬 */
             }
 
             
@@ -106,10 +106,10 @@
                 background: #af6204;
             }
             #sucbutton.disabled {
-			    background-color: #555;  /* 어두운 회색 */
-			    cursor: not-allowed;
-			    pointer-events: none; /* 버튼 클릭을 막음 */
-			}
+             background-color: #555;  /* 어두운 회색 */
+             cursor: not-allowed;
+             pointer-events: none; /* 버튼 클릭을 막음 */
+         }
             
             #id{
             display :inline-block;
@@ -188,7 +188,7 @@ String birthday = request.getParameter("birthday");
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 <script>
-		  	// 카카오 인증일때 받아서 본인인증칸 누르지 못하는 함수
+           // 카카오 인증일때 받아서 본인인증칸 누르지 못하는 함수
             var authCompleted = "<%= request.getParameter("authCompleted") != null ? request.getParameter("authCompleted") : "false" %>";
 
             if (authCompleted === "true") {
@@ -309,8 +309,8 @@ function addr() {
 //id중복검사
 $('#idChk').on('click',function(){
     if( $('#cust_id').val() == ''){
-    	 $('#disp').text("사용 불가").css('color', 'red');
-    	alert('ID는 필수 입력 요소입니다');
+        $('#disp').text("사용 불가").css('color', 'red');
+       alert('ID는 필수 입력 요소입니다');
     }else{
     //id영역의 입력 값 얻기
     const idVal = $('#cust_id').val();
@@ -351,39 +351,39 @@ $('#sucbutton').on('click', function() {
 });
 
 async function requestIdentityVerification() {
-   //개발자센터-원페이먼트인프라-부가기능-본인인증 연동하기-통합인증 연동하기 코드 활용		
-		IMP.init("imp53145045");
-		IMP.certification(
-			  {
-			    // param
-			    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
-			  },
-			  function (rsp) {
-			    // callback
-			    if (rsp.success) {
-			    	//인증 성공 시 로직
-			    	$.ajax({
-			            url: "<%=request.getContextPath() %>/Cuscheck.do",
-			            method: "POST",
-// 			            headers: { "Content-Type": "application/json" },
-			            data: JSON.stringify({ imp_uid: rsp.imp_uid }),
-			            success:function(data){
- 			            	$('#bir').val(data.birth);
-							$('#cust_tel').val(data.phone);
-			            	if(data.name == $('#cust_name').val()) alert("본인 인증 완료");
-			            	else alert("미인증");
-			            },
-			            error:function(xhr){
-			            	alert(xhr.status);
-			            }
-			            ,dataType: 'json'
-			          });
-			    } else {
-			    	// 인증 실패 시 로직
-		    		alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
-			    }
-			  },
-			);
+   //개발자센터-원페이먼트인프라-부가기능-본인인증 연동하기-통합인증 연동하기 코드 활용      
+      IMP.init("imp53145045");
+      IMP.certification(
+           {
+             // param
+             channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+           },
+           function (rsp) {
+             // callback
+             if (rsp.success) {
+                //인증 성공 시 로직
+                $.ajax({
+                     url: "<%=request.getContextPath() %>/Cuscheck.do",
+                     method: "POST",
+//                      headers: { "Content-Type": "application/json" },
+                     data: JSON.stringify({ imp_uid: rsp.imp_uid }),
+                     success:function(data){
+                         $('#bir').val(data.birth);
+                     $('#cust_tel').val(data.phone);
+                        if(data.name == $('#cust_name').val()) alert("본인 인증 완료");
+                        else alert("미인증");
+                     },
+                     error:function(xhr){
+                        alert(xhr.status);
+                     }
+                     ,dataType: 'json'
+                   });
+             } else {
+                // 인증 실패 시 로직
+                alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+             }
+           },
+         );
 };
 </script>
 </html>
