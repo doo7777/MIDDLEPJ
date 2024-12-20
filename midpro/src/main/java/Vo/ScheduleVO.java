@@ -2,19 +2,17 @@ package Vo;
 
 
 public class ScheduleVO {
+
 	private int schedule_id;
 
 	private int screen_id;
 	private int theater_id;
-
 	private String movie_name;
 	private String start_time;
 	private String end_time;
 	private String schedule_date;
-	
 	private String theater_name;
 	private String screen_name;
-	
 	private String theater_do;
 	
 	private String start_date;
@@ -99,11 +97,8 @@ public class ScheduleVO {
 	}
 	
 	
-	
-	
-	
 
-
-	
-	
+   
+   
 }
+

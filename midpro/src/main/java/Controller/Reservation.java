@@ -3,10 +3,14 @@ package Controller;
 import java.io.IOException;
 import java.util.List;
 
-import Service.Reservation_PaymentServiceImpl;
-import ServiceInterface.IReservation_PaymentService;
+
+import Service.ReservationServiceImpl;
+
+import ServiceInterface.IReservationService;
 import Vo.MovieVO;
 import Vo.ReservationVO;
+import Vo.ScheduleVO;
+import Vo.ScreenVO;
 import Vo.TheaterVO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,26 +38,35 @@ public class Reservation extends HttpServlet {
 		//데이터 가져오기
 		String customer_id = request.getParameter("customer_id");
 		String movie_name = request.getParameter("movie_name");
-//		int theater_id = Integer.parseInt(request.getParameter("theater_id"));
-		String theater_name = request.getParameter("theater_name");
+	    int theater_id =Integer.parseInt(request.getParameter("theater_id"));
+	    int schedule_id = Integer.parseInt(request.getParameter("schedule_id"));
+	    int screen_id = Integer.parseInt(request.getParameter("screen_id"));
+	    
+
 	    
 	    //ReservationVO에 값 설정
 	    ReservationVO reservationVO = new ReservationVO();
 	    reservationVO.setCustomer_id(customer_id);
 	    reservationVO.setMovie_name(movie_name);
+	    reservationVO.setTheater_id(theater_id);
+	    reservationVO.setSchedule_id(schedule_id);
+	    reservationVO.setScreen_id(screen_id);
+
 	    
-	    //Theater 설정
-	    TheaterVO thearVO = new TheaterVO();
-	    thearVO.setTheater_name(theater_name);
-	    
+
 	    //서비스 호출
-	    IReservation_PaymentService service = Reservation_PaymentServiceImpl.getInstance();
+	    IReservationService service = ReservationServiceImpl.getInstance();
 	    int result = service.insertReservation(reservationVO);
-	    
-//	       List<MovieVO> movieList = service.getAllMovie();
-//	        List<TheaterVO> theaterList = service.getAllTheater();
-//	        request.setAttribute("movieList", movieList);
-//	        request.setAttribute("theaterList", theaterList);
+
+	       List<MovieVO> movieList = service.getAllMovie();
+	       List<TheaterVO> theaterList = service.getAllTheater();
+	       List<ScheduleVO>scheduleList = service.getAllSchedule();
+	       List<ScreenVO>screenList = service.getAllScreen();
+	        request.setAttribute("schedeulList", scheduleList);
+	        request.setAttribute("movieList", movieList);
+	        request.setAttribute("theaterList", theaterList);
+	        request.setAttribute("screenList", screenList);
+
 	    
 	     if (result > 0) {
 	    	 response.sendRedirect(request.getContextPath()+"/RESERVATION/MovieC.jsp");
@@ -65,5 +78,8 @@ public class Reservation extends HttpServlet {
 	
 		
 	}
+
+
+
 
 }

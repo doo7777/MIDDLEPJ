@@ -1,3 +1,5 @@
+<%@page import="Vo.ScheduleVO"%>
+<%@page import="java.util.List"%>
 <%@page import="Vo.TheaterVO"%>
 <%@page import="Vo.CustomerVO"%>
 
@@ -176,8 +178,7 @@
     <br>
 <!--     <input type="button" id="timeBtn" value="상영시간표"> -->
     <button id="price" onclick="openRateTable()">요금표 보기</button>
-    <br>
-
+    
 	<%@ include file="/main/Bottom.jsp" %>
 	
     <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=b988732ec0d52355546afa135081f218"></script>
@@ -246,5 +247,6 @@
             newWindow.document.close(); // 문서 작성 완료
         }
     </script>
+
 </body>
 </html>
