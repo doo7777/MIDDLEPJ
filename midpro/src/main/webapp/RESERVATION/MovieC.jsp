@@ -154,7 +154,7 @@
         for (ScreenVO screen : screenList) {
     %>
         <option value="<%= screen.getScreen_id() %>">
-           <%= screen.getScreen_name() %> - 
+           <%= screen.getScreen_type() %> - <%= screen.getScreen_id() %> 관
         </option>
     <%
         }
