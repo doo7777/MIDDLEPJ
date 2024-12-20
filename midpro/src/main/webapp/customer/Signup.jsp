@@ -143,11 +143,13 @@ String birthday = request.getParameter("birthday");
          </div>
          <label for="cust_pw1">비밀번호<span class="rq"> *<span id="pwchk1"></span></span></label>
          <input type="password" id="cust_pw1" name="cust_pw1" required placeholder="비밀번호를 입력하세요." 
-                pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+\|]).{8,}">
+       pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\+\|]).{8,}">
+
          
          <label for="cust_pw2">비밀번호 확인<span class="rq"> *<span id="pwchk2"></span></span></label>
          <input type="password" id="cust_pw2" name="cust_pw2" required placeholder="비밀번호를 입력하세요."
                 onkeyup="checkPasswordMatch()"> <!-- 비밀번호 확인 onkeyup 이벤트 -->
+                
             <label for="cust_name">이름<span class="rq"> *</span></label>
             <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$" value="<%= name != null ? name : "" %>">
              <br>
@@ -188,7 +190,6 @@ String birthday = request.getParameter("birthday");
 <script>
 		  	// 카카오 인증일때 받아서 본인인증칸 누르지 못하는 함수
             var authCompleted = "<%= request.getParameter("authCompleted") != null ? request.getParameter("authCompleted") : "false" %>";
-		  	console.log(authCompleted);
 
             if (authCompleted === "true") {
                 // 본인 인증 버튼을 어두운 색으로 변경하고 클릭할 수 없게 만듬
@@ -260,12 +261,12 @@ $(document).ready(function() {
     }
 });
 
-function checkPasswordMatch() { //비밀번호가 비밀번호 확인과 맞는지 실시간 체크 함수
+function checkPasswordMatch() {
     const pw1 = $('#cust_pw1').val();
     const pw2 = $('#cust_pw2').val();
-    
-    // 비밀번호 형식이 올바르지 않으면 경고 메시지를 출력
-    if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+\|]).{8,}/.test(pw1)) {
+
+    // 비밀번호 형식 체크
+    if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\+\|]).{8,}/.test(pw1)) {
         $('#pwchk1').text("비밀번호 형식이 올바르지 않습니다. (대문자, 소문자, 숫자, 특수문자 포함 8자 이상)").css('color', 'red');
     } else {
         $('#pwchk1').text(""); // 형식이 올바르면 메시지 삭제
