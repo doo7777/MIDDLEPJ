@@ -65,8 +65,9 @@
             display: none;
             position: absolute;
             font-size: 16px;
-            color: #fff;
+            color: white;
             text-align: center;
+            font-weight: bold; /* 글자체 볼드체 */
             pointer-events: none;
             margin-top: 10px; /* 글자 위아래 */
         }

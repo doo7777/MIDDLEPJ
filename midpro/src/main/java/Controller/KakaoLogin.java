@@ -25,21 +25,24 @@ import jakarta.servlet.http.HttpSession;
        private static final String CLIENT_ID = "66af43424a17bc735630e486e280ccae"; // 카카오 앱의 REST API 키
        private static final String REDIRECT_URI = "http://localhost/midpro/kakaoLogin.do"; // 리디렉션 URI
 
-       protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-          request.setCharacterEncoding("utf-8");
-          response.setCharacterEncoding("utf-8");
-          response.setContentType("text/html charset=utf-8");
-          
-          String code = request.getParameter("code");
-           
-           if (code != null) {
-               try {
-                   // 1. code로 access_token을 얻기 위한 API 호출
-                   String tokenUrl = "https://kauth.kakao.com/oauth/token";
-                   String params = "grant_type=authorization_code"
-                               + "&client_id=" + CLIENT_ID
-                               + "&redirect_uri=" + REDIRECT_URI
-                               + "&code=" + code;
+
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    	request.setCharacterEncoding("utf-8");
+	    	response.setCharacterEncoding("utf-8");
+	    	response.setContentType("text/html charset=utf-8");
+	    	
+	    	String code = request.getParameter("code");
+	    	System.out.println("code=" + code);
+	        
+	        if (code != null) {
+	            try {
+	                // 1. code로 access_token을 얻기 위한 API 호출
+	                String tokenUrl = "https://kauth.kakao.com/oauth/token";
+	                String params = "grant_type=authorization_code"
+	                            + "&client_id=" + CLIENT_ID
+	                            + "&redirect_uri=" + REDIRECT_URI
+	                            + "&code=" + code;
+
 
                    URL url = new URL(tokenUrl);
                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();

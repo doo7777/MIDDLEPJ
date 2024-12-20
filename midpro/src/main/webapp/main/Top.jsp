@@ -266,6 +266,9 @@
 	    color: white;
 	    margin-bottom: 5px;
 	}
+	#kakao{
+	border:none;
+	}
     </style>
     
 </head>
@@ -289,11 +292,12 @@
                     window.onload = function() {
                         // 로그인 상태 확인
                         const isLoggedIn = localStorage.getItem('isLoggedIn');
-
+						console.log("isLoggedIn", isLoggedIn);
+						
                         // result가 null이 아니면 로그인 상태
                         <% if(result != null) { %>
                             if (!isLoggedIn) {
-                                alert("로그인 되었습니다.");
+                                alert("로그인 되었습니다.!!!!");
                                 localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
                             }
                         <% } else { %>
@@ -483,11 +487,15 @@
         
      
         <!-- 카카오 로그인 버튼 -->
-        <!-- 카카오 로그인 버튼 -->
-        <button type="button" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
-        <img src="/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 20px; height: 20px; vertical-align: middle;">
-        카카오 로그인
-          </button>   
+
+        <button type="button" id="kakao" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
+        <img src="<%= request.getContextPath() %>/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 242px; height: 35px;">
+        
+  	  	</button>	
+
+
+  
+
     	<button type="button" id="join" class="signupBtn">회원가입</button>        
 
 
