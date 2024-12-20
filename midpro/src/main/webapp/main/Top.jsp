@@ -268,6 +268,7 @@
 	}
 	#kakao{
 	border:none;
+	cursor:pointer;
 	}
     </style>
     
