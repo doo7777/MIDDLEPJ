@@ -120,12 +120,12 @@
             transform: translateY(20px);
         }
 
-        /* 패키지, 영화관람권, 기프트카드 */
-/*         #store {  */
-/*             height: 320px;  */
-/*             display: flex;  */
-/*              gap: 20px;  */
-/*          }  */
+        /* 패키지, 영화관람권, 기프트카드 *//* top의 store과 이름이 겹쳐 stores로 변경 */
+         #stores {  
+             height: 320px;
+             display: flex;  
+             gap: 20px;  
+         }  
 
         .package,
         .ticket,
@@ -153,17 +153,6 @@
             height: 32px;
             background-repeat: repeat-x;
         }
-
-
-
-
-
-
-
-
-
-
-
 
         .package::after,
         .ticket::after,
@@ -308,7 +297,7 @@
         </div>
     </div>
 
-    <div class="header" id="store"> <!-- 스토어 영역 -->
+    <div class="header" id="stores"> <!-- 스토어 영역 -->
         <div class="package">
             <i class="fa-solid fa-plus"></i>
             <h3>패키지</h3>
