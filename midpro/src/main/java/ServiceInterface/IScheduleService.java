@@ -38,4 +38,8 @@ public interface IScheduleService {
     public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO);
 
 
+
+
+	List<ScheduleVO> getAllSchedule();
+
 }

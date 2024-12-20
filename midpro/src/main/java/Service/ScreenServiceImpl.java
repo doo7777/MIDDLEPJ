@@ -29,7 +29,7 @@ public class ScreenServiceImpl implements IScreenService{
 	@Override
 	public List<ScreenVO> getAllScreen() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllScreen();
 	}
 
 }

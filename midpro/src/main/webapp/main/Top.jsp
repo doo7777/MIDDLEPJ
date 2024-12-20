@@ -266,10 +266,15 @@
 	    color: white;
 	    margin-bottom: 5px;
 	}
+	#kakao{
+	border:none;
+	cursor:pointer;
+	}
     </style>
     
 </head>
 <% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
+
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
@@ -288,11 +293,12 @@
                     window.onload = function() {
                         // 로그인 상태 확인
                         const isLoggedIn = localStorage.getItem('isLoggedIn');
-
+						console.log("isLoggedIn", isLoggedIn);
+						
                         // result가 null이 아니면 로그인 상태
                         <% if(result != null) { %>
                             if (!isLoggedIn) {
-                                alert("로그인 되었습니다.");
+                                alert("로그인 되었습니다.!!!!");
                                 localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
                             }
                         <% } else { %>
@@ -373,13 +379,18 @@
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+  integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
 <script>
+	Kakao.init('9b568627f6669732e63f4f5ea7d92e80'); //발급받은 키 중 javascript키를 사용
+	console.log(Kakao.isInitialized()); // sdk초기화여부판단 = true
+
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
-    // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
+
     
 
     
@@ -455,6 +466,7 @@
         window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
     
+ // 사이드바 내용 업데이트
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
@@ -473,7 +485,17 @@
 
         </div>
         <button type="submit" class="loginbtn" id="login">Login</button>
-        <button type="button" id="join" class="signupBtn">회원가입</button>        
+        
+     
+        <!-- 카카오 로그인 버튼 -->
+        <button type="button" id="kakao" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
+        <img src="<%= request.getContextPath() %>/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 242px; height: 35px;">
+        
+  	  	</button>	
+
+
+  
+    	<button type="button" id="join" class="signupBtn">회원가입</button>        
 
 
             <% } else { %>
@@ -483,7 +505,7 @@
             <% } %>
             </form>`;
     };
-
+    // 사이드바 토글 함수
     function moveSidebar() {
         sidebar.classList.toggle('open');
         <% if(result==null){ %>
@@ -502,6 +524,7 @@
         }
         <% } %>
     }
+    // 로그인 버튼 클릭 시 사이드바 업데이트
     login.addEventListener('click', function() {
         updateSidebarContent();
         moveSidebar();

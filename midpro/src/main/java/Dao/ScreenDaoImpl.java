@@ -27,7 +27,7 @@ public class ScreenDaoImpl implements IScreenDao{
 		List<ScreenVO>ScreenList =null;
 		
 		try {
-			ScreenList = session.selectList("Board.getAllNotice");
+			ScreenList = session.selectList("Screen.getAllScreen");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

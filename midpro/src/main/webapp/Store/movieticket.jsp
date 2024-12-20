@@ -137,17 +137,20 @@
         <!-- 영화관람권 아이템 목록 -->
         <div class="movieticket-grid">
             <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/CGV-영화관람권.jpg" alt="CGV-영화관람권" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/영화관람권(완료)/CGV-영화관람권.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>DGV 영화관람권</h3>
                 <span class="price">13,000원</span>
             </div>
             <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/IMAX-영화관람권.jpg" alt="IMAX-영화관람권" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/영화관람권(완료)/IMAX-영화관람권.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>IMAX 영화관람권</h3>
                 <span class="price">18,000원</span>
             </div>
             <div class="movieticket-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/영화관람권(완료)/4DX-영화관람권.jpg" alt="4DX-영화관람권" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/영화관람권(완료)/4DX-영화관람권.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>4DX 영화관람권</h3>
                 <span class="price">19,000원</span>
             </div>

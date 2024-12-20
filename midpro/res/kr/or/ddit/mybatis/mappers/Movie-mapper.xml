@@ -20,6 +20,29 @@
 	<select id="getAllScreen" resultType="ScreenVO">
 		  select * from screen
 	</select>
+	
+	
+<!-- 	SEAT 좌석 전체 조회 	 -->
+	<select id="getAllSeat" resultType="SeatVO">
+	
+	select * from seat
+	
+	</select>
+	
+	<select id="getReservSeat" resultType="SeatVO">
+		
+		SELECT * FROM seat WHERE theater_id IN (
+    SELECT theater_id 
+    FROM reservation 
+    WHERE theater_id = #{theater_id} 
+)
+		
+	</select>
+
+
+
+
+
 
 
 </mapper>

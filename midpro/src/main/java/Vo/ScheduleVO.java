@@ -4,7 +4,6 @@ package Vo;
 public class ScheduleVO {
 
 	private int schedule_id;
-
 	private int screen_id;
 	private int theater_id;
 	private String movie_name;
@@ -14,7 +13,6 @@ public class ScheduleVO {
 	private String theater_name;
 	private String screen_name;
 	private String theater_do;
-	
 	private String start_date;
 	
 

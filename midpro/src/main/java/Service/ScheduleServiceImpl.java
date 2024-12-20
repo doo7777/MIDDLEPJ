@@ -38,7 +38,13 @@ public class ScheduleServiceImpl implements IScheduleService{
 	
 	
 	@Override
-    public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO){
-		return dao.getScheduleByMovie(scheduleVO);
+	public List<ScheduleVO> getAllSchedule(){
+		return dao.getAllSchedule();
+	}
+
+	@Override
+	public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
