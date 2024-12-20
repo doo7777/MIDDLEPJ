@@ -87,7 +87,9 @@ public class Reservation extends HttpServlet {
                 request.getRequestDispatcher("/RESERVATION/seatC.jsp").forward(request, response);
                } else {
                    request.setAttribute("errorMessage", "예약 실패. 다시 시도해 주세요.");
-               }
+               } 
+            	   
+               
        }
 
       
