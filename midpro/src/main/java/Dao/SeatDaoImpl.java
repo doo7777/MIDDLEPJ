@@ -49,22 +49,21 @@ public class SeatDaoImpl implements ISeatDao{
 		return 0;
 	}
 	
-	   @Override
-	   public List<SeatVO> getReservSeat(ReservationVO reservationVO) {
-	      SqlSession session = MybatisUtil.getSqlSession();
-	      
-	      List<SeatVO>ReservSeatList = null;
-	      
-	      try {
-	         ReservSeatList = session.selectList("Movie.getReservSeat",reservationVO);
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      } finally {
-	         if(session != null) session.close();
-	      }
-	      
-	      return ReservSeatList;
-	   }
-
+	@Override
+	public List<SeatVO> getReservSeat(ReservationVO reservationVO) {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<SeatVO>ReservSeatList = null;
+		
+		try {
+			ReservSeatList = session.selectList("Movie.getReservSeat",reservationVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) session.close();
+		}
+		
+		return ReservSeatList;
+	}
 
 }

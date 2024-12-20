@@ -17,16 +17,14 @@ public class ReservationVO {
 	private int reservation_price;
 	
 	
-	
-	
+	public int getReservation_id() {
+		return reservation_id;
+	}
 	public int getReservation_price() {
 		return reservation_price;
 	}
 	public void setReservation_price(int reservation_price) {
 		this.reservation_price = reservation_price;
-	}
-	public int getReservation_id() {
-		return reservation_id;
 	}
 	public void setReservation_id(int reservation_id) {
 		this.reservation_id = reservation_id;
@@ -96,7 +94,6 @@ public class ReservationVO {
 				+ reservation_price + "]";
 	}
 
-	
 	
 	
 	

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="Vo.ScreenVO"%>
 <%@page import="Dao.ScreenDaoImpl"%>
 <%@page import="Dao.SeatDaoImpl"%>
@@ -172,4 +173,5 @@
 
 
 </body>
+
 </html>

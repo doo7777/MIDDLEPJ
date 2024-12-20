@@ -1,6 +1,5 @@
 package Service;
 import java.util.List;
-
 import Dao.ReservationDaoImpl;
 import DaoInterface.IReservationDao;
 import ServiceInterface.IReservationService;
@@ -9,6 +8,7 @@ import Vo.ReservationVO;
 import Vo.ScheduleVO;
 import Vo.ScreenVO;
 import Vo.TheaterVO;
+
 public class ReservationServiceImpl implements IReservationService{
 		private static ReservationServiceImpl service;
 		private ReservationDaoImpl dao;
@@ -56,6 +56,13 @@ public class ReservationServiceImpl implements IReservationService{
     public List<ScreenVO>getAllScreen(){
     	return dao.getAllScreen();
     }
+
+
+	@Override
+	public int updateReserve(ReservationVO reservationVO) {
+		// TODO Auto-generated method stub
+		return dao.updateReserve(reservationVO);
+	}
 
 
 	

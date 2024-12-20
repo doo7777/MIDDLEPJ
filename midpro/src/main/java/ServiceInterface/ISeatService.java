@@ -36,8 +36,5 @@ public interface ISeatService {
 	public List<SeatVO>getReservSeat(ReservationVO reservationVO);
 
 	
-	
-
-	
 
 }

@@ -1,3 +1,12 @@
+<%@page import="Vo.ScreenVO"%>
+<%@page import="Vo.ScheduleVO"%>
+<%@page import="Vo.TheaterVO"%>
+<%@page import="Dao.ScreenDaoImpl"%>
+<%@page import="Dao.ScheduleDaoImpl"%>
+<%@page import="Dao.TheaterDaoImpl"%>
+<%@page import="Dao.MovieDaoImpl"%>
+<%@page import="Vo.MovieVO"%>
+<%@page import="java.util.List"%>
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -273,11 +282,26 @@
     </style>
     
 </head>
-<% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
+<% CustomerVO result = (CustomerVO)session.getAttribute("ok"); 
+
+MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
+List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
+
+TheaterDaoImpl theaterDao = TheaterDaoImpl.getInstance();
+List<TheaterVO> theaterList = theaterDao.getAllTheater(); // 영화관 전체 목록조회
+
+ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
+List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
+
+ScreenDaoImpl screenDao = ScreenDaoImpl.getInstance();
+List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
+
+%>
 
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
+        	<img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="moviec">
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고(최종).png" alt="로고" class="logo">
             <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
 
@@ -314,7 +338,7 @@
                 </div>
                 <div class="icon-text">
                     <i class="fa-regular fa-user"></i>
-                    <h4 id="btnfont3" class="mypage">마이페이지</h4>
+                    <h4 id="btnfont3" class="mypage" id="mypage">마이페이지</h4>
                 </div>
                 <div class="icon-text">
                     <i class="fas fa-headset" id="btn4"></i>
@@ -361,10 +385,10 @@
                         <li><a href="#" id="movres">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="discount">혜택</a> <!-- 혜택 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
-                        <li><a href="#">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
+                        <li><a href="#" id="discount1">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
+                        <li><a href="#" id="vip">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
                     </ul>
                 </li>
             </ul>
@@ -391,9 +415,14 @@
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
 
+    $('#discount,#discount1').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
+    });
     
-
-    
+    $('#vip').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/Boon/VIP.jsp';
+    });
+	
     $('#comingOut').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
     });
@@ -402,15 +431,12 @@
     	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
     });
     
-    $('#event').on('click',function(){
+    $('#event,#special').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
     });
     
-    $('#special').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
-    });
     
-    $('#package').on('click',function(){
+    $('#package,#store').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
     });
     
@@ -438,12 +464,12 @@
     	window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
     });
     
-	$('#store').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
-    });
-	
     $('.logo').on('click',function(){
     	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#moviec').on('click',function(){
+    	window.location.href = '<%=request.getContextPath()%>/RESERVATION/Moviec.jsp';
     });
     
     $('#reservation').on('click',function(){
@@ -454,14 +480,10 @@
     	window.location.href = '<%=request.getContextPath()%>/theaterList.do';
     });
     
-    $('#moviechart').on('click',function(){
+    $('#moviechart,#movie2').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
     });
     
-    $('#movie2').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
-    });
-
     $('#btn4').on('click', function() {
         window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
@@ -546,8 +568,12 @@
 
     // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() {
+    	 <% if(result==null){ %>
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar();
+        <% } else { %>
+        	window.location.href = '<%=request.getContextPath()%>/Mypage/mypage.jsp';
+        	 <% } %>
     });
     
 

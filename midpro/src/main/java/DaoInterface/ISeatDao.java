@@ -29,14 +29,10 @@ public interface ISeatDao {
 	
 	/**
 	 * 선택된 상영관에 대한 좌석 조회
-	 * @param seatVO
+	 * @param reservationVO
 	 * @return
 	 */
-
-
-	
-	
-	public List<SeatVO> getReservSeat(ReservationVO reservationVO);
+	public List<SeatVO>getReservSeat(ReservationVO reservationVO);
 	
 	
 	

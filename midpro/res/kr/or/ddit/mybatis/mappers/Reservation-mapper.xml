@@ -6,18 +6,30 @@
 <mapper namespace="Reservation">
 <insert id ="insertReservation" parameterType="reservationVO">
     
-       <selectKey resultType="int" order="BEFORE" keyProperty="reservation_id">
-          SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
-       </selectKey>
-       
+    
+    	<selectKey resultType="int" order="BEFORE" keyProperty="reservation_id">
+    		SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+    	</selectKey>
+    	
        INSERT INTO RESERVATION (
     RESERVATION_ID, CUSTOMER_ID, SCHEDULE_ID, MOVIE_NAME, SCREEN_ID,
     THEATER_ID, RESERVATION_NUM,RESERVATION_DATE,SEAT_ID,RESERVATION_PRICE
-   ) 
-   VALUES (
+	) 
+	VALUES (
     #{reservation_id}, #{customer_id}, #{schedule_id}, #{movie_name}, #{screen_id}, #{theater_id}, 
     TO_CHAR(SYSDATE, 'YYYYMMDD') || LPAD(reservation_daily_seq.NEXTVAL, 4, '0'), 
     SYSDATE, NULL, #{reservation_price}
-   )
+	)
     </insert>
+    
+    
+    <update id="updateReserve" parameterType="reservationVO">
+	update reservation set
+	    seat_id = #{seat_id}, reservation_price= #{reservation_price}
+	    where reservation_id= #{reservation_id}    
+    </update>
+    
+    
     </mapper>
+
+
