@@ -181,7 +181,7 @@
 
             <div class="vip-info-wrapper">
                 <div class="vip-badge">
-                    일반
+                    <em><%=result.getCust_grade() %></em>
                 </div>
                 <div class="vip-progress">
                     <p><span><%=result.getCust_name() %></span> 님은 <em><%=result.getCust_grade() %></em>입니다.</p>

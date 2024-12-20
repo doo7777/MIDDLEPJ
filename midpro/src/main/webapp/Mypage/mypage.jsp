@@ -45,21 +45,34 @@
         /* 프로필 섹션 */
         .profile-section {
             display: flex;
-            align-items: center;
+            justify-content: space-between; /* 좌우 정렬 */
+            align-items: center; /* 세로 가운데 정렬 */
             margin-bottom: 20px;
-            border: transparent;
             border-bottom: 1px solid white;
             padding-bottom: 20px;
         }
 
+        /* 프로필 아이콘과 정보 컨테이너 */
+        .profile-info-container {
+            display: flex; /* 가로로 배치 */
+            align-items: center;
+        }
+
+        /* 프로필 아이콘 */
         .profile-icon {
             width: 100px;
             height: 100px;
             background-color: white;
+            font-size: 20px;
+            font-weight: bold;
             border-radius: 50%;
-            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px; /* 아이콘과 텍스트 간격 */
         }
 
+        /* 프로필 정보 */
         .profile-info h1 {
             margin: 0;
             font-size: 24px;
@@ -75,19 +88,23 @@
             color: #e6007e; /* 강조 색상 */
         }
 
-        /* 쿠폰 & 포인트 섹션 */
-        .coupon-point-section {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
-
-        .coupon-box, .point-box {
-            width: 47%;
+        /* 포인트 박스 */
+        .point-box {
+        	border: 1px dashed white;
+            background: black;
+            width: 450px;
             text-align: center;
-            background-color: white;
             padding: 15px;
             border-radius: 5px;
+            color: white;
+        }
+
+        .point-box h2 {
+            margin-top: -10px;
+        }
+
+        .vip-score {
+            margin-bottom: -8px;
         }
 
         .small-btn {
@@ -235,27 +252,24 @@
     <div class="main-container">
         <!-- 프로필 섹션 -->
         <div class="profile-section">
-            <div class="profile-icon"></div>
-            <div class="profile-info">
-                <h1><%=result.getCust_name() %></h1>
-                <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
-            </div>
-        </div>
+		    <!-- 왼쪽: 프로필 아이콘과 정보 -->
+		    <div class="profile-info-container">
+		        <div class="profile-icon">
+		            <em><%=result.getCust_grade() %></em>
+		        </div>
+		        <div class="profile-info">
+		            <h1><%=result.getCust_name() %></h1>
+		            <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
+		        </div>
+		    </div>
+		    <!-- 오른쪽: 포인트 박스 -->
+		    <div class="point-box">
+		        <h2>DD POINT</h2>
+		        <p>사용가능 포인트 <span class="highlight">347점</span></p>
+		        <p class="vip-score">VIP 누적 점수 <span>0/1,000점</span></p>
+		    </div>
+		</div>
 
-        <!-- 쿠폰 & 포인트 섹션 -->
-        <div class="coupon-point-section">
-            <div class="point-box">
-                <h2>DD POINT</h2>
-                <p>DD 사용가능 포인트 <span class="highlight">347점</span></p>
-                <p class="vip-score">VIP 누적 점수 <span>0/1,000점</span></p>
-            </div>
-            <div class="coupon-box">
-                <h2>MY COUPON</h2>
-                <p>DGV VIP에 도전하세요! <button class="small-btn">DGV VIP 혜택보기</button></p>
-                <p>DGV 할인쿠폰 <span class="count">0개</span></p>
-                <p>영화관람권 <span class="count">0개</span></p>
-            </div>
-        </div>
 
         <!-- 빠른 설정 섹션 -->
         <div class="quick-settings">
