@@ -469,7 +469,7 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
     });
     
     $('#moviec').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/RESERVATION/Moviec.jsp';
+    	window.location.href = '<%=request.getContextPath()%>/RESERVATION/MovieC.jsp';
     });
     
     $('#reservation').on('click',function(){
