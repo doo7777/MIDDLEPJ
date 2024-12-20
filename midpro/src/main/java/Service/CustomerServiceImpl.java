@@ -23,29 +23,35 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 	
 	
-
 	@Override
 	public int insertCustomer(CustomerVO cusVO) {
-		// TODO Auto-generated method stub
 		return dao.insertCustomer(cusVO);
 	}
 
 	@Override
 	public int getCoustomerCount(String cus_ID) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.getCoustomerCountid(cus_ID);
 	}
 
 
 	@Override
 	public List<CustomerVO> getAllCustomer() {
-		// TODO Auto-generated method stub
 		return dao.getAllCustomer();
 	}
 
 	@Override
 	public CustomerVO getCustomer(String cus_ID, String cus_pw) {
 		return dao.getCustomer(cus_ID, cus_pw);
+	}
+
+	@Override
+	public int getCoustomerCountnumber(String cus_number) {
+		return dao.getCoustomerCountnumber(cus_number);
+	}
+
+	@Override
+	public CustomerVO getCustomer(String cus_email) {
+		return dao.getCustomer(cus_email);
 	}
 
 }

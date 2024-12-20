@@ -14,7 +14,8 @@ public class ReservationVO {
 	private int reservation_num;
 	private String reservation_status;
 	private Date reservation_date;
-	int reservation_price;
+	private int reservation_price;
+	
 	
 	public int getReservation_id() {
 		return reservation_id;

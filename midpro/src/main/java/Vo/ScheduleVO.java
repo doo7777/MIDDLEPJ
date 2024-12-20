@@ -13,7 +13,6 @@ public class ScheduleVO {
    private String theater_name;
    private String screen_name;
    private String theater_do;
-   
    private String start_date;
    
 

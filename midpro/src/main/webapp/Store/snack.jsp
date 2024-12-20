@@ -137,17 +137,20 @@
         <!-- 스낵 아이템 목록 -->
         <div class="snack-grid">
             <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈나쵸.jpg" alt="칠리치즈나쵸" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/스낵(완료)/칠리치즈나쵸.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>칠리치즈나쵸</h3>
                 <span class="price">5,500원</span>
             </div>
             <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/칠리치즈핫도그.jpg" alt="칠리치즈핫도그" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/스낵(완료)/칠리치즈핫도그.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>칠리치즈핫도그</h3>
                 <span class="price">5,500원</span>
             </div>
             <div class="snack-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/스낵(완료)/플레인핫도그.jpg" alt="플레인핫도그" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/스낵(완료)/플레인핫도그.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>플레인핫도그</h3>
                 <span class="price">5,000원</span>
             </div>

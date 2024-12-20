@@ -1,5 +1,3 @@
-<%@page import="java.time.LocalTime"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Comparator"%>
@@ -152,6 +150,7 @@
         }
     </style>
 </head>
+
 <body>
     <%@ include file="/main/Top.jsp" %>
     
@@ -160,10 +159,10 @@
             <div class="header">영화</div>
             <div class="item">
                 <%
-                    List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
-                    if (scd != null) {
+                    List<ScheduleVO> scd1 = (List<ScheduleVO>) request.getAttribute("scd");
+                    if (scd1 != null) {
                         Set<String> movieNames = new HashSet<>();
-                        for (ScheduleVO scdList : scd) {
+                        for (ScheduleVO scdList : scd1) {
                             String movieName = scdList.getMovie_name();
                             if (movieNames.add(movieName)) {
                 %>
@@ -183,6 +182,7 @@
             <div class="item2">
                 <div class="left">
                     <%
+                        List<ScheduleVO> scd = (List<ScheduleVO>) request.getAttribute("scd");
                         if (scd != null) {
                             Set<String> theaterDoSet = new HashSet<>();
                             for (ScheduleVO scdList : scd) {
@@ -201,9 +201,10 @@
                 
                 <div class="right">
                     <%
-                        if (scd != null) {
+                        List<ScheduleVO> scd2 = (List<ScheduleVO>) request.getAttribute("scd");
+                        if (scd2 != null) {
                             Set<String> theaterNameSet = new HashSet<>();
-                            for (ScheduleVO scdList : scd) {
+                            for (ScheduleVO scdList : scd2) {
                                 String theaterName = scdList.getTheater_name();
                                 if (theaterNameSet.add(theaterName)) {
                     %>
@@ -224,13 +225,14 @@
             <div class="item date-item">
                 <%
                     LocalDate today = LocalDate.now();
+                    String selectedStartDate = ""; // 선택된 영화의 시작일
                     for (int i = 0; i <= 15; i++) {
                         LocalDate dateToDisplay = today.plusDays(i);
-                        String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
                         String day = dateToDisplay.format(DateTimeFormatter.ofPattern("dd"));
-                        
+                        String dayOfWeek = dateToDisplay.format(DateTimeFormatter.ofPattern("E"));
+
                         // 버튼 요소로 변경
-                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + "&nbsp;&nbsp;&nbsp;&nbsp;" + day + "</button>");
+                        out.println("<button class='date-button' data-date='" + dateToDisplay + "' onclick='selectDate(this)'>" + dayOfWeek + " " + day + "</button>");
                     }
                 %>
             </div>
@@ -238,8 +240,18 @@
 
         <div class="column">
             <div class="header">시간</div>
-            <div class="item" id="time-list">
-                <!-- 선택된 영화, 극장, 날짜에 따라 시간 데이터가 여기에 들어갑니다. -->
+            <div class="item">
+                <!-- DB에서 가져온 시간 데이터가 여기에 들어갑니다. -->
+                <%
+                    List<ScheduleVO> scd4 = (List<ScheduleVO>) request.getAttribute("scd");
+                    if (scd4 != null) {
+                        for (ScheduleVO scdList : scd4) {
+                %>
+                            <%= scdList.getStart_time() %><br>
+                <%
+                        }
+                    }   
+                %>              
             </div>
         </div>
     </div>
@@ -247,45 +259,21 @@
     <br>
     <br>
     <img alt="하얼빈" src="/midpro/main/sorce/img/영화포스터/바텀 하얼빈.jpg" id="하얼빈"> 
+    <!-- 이미지 눌렀을떄 영화 상세정보 jsp/survlet으로 이동하는 스크립트 작성해야함 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body> 
-
 <script>
 let selectedTheater = null; // 현재 선택된 극장 이름을 저장하는 변수
 let selectedTheaterDo = null; // 현재 선택된 극장 구역을 저장하는 변수
 
-let selectedStartDate = ""; // 선택된 영화의 시작일
-let scheduleData = [];
-
-<%
-    // JSP에서 ScheduleVO 리스트를 JSON으로 변환하여 JavaScript에 전달
-    if (scd != null) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm"); // 시간 형식 정의
-        for (ScheduleVO schedule : scd) {
-            String startTimeStr = schedule.getStart_time(); // VARCHAR2로 저장된 시간 정보
-            LocalTime startTime = LocalTime.parse(startTimeStr, DateTimeFormatter.ofPattern("HH:mm")); // 문자열을 LocalTime으로 변환
-            
-            out.println("scheduleData.push({");
-            out.println("movie_name: '" + schedule.getMovie_name() + "',");
-            out.println("theater_do: '" + schedule.getTheater_do() + "',");
-            out.println("theater_name: '" + schedule.getTheater_name() + "',");
-            out.println("start_date: '" + schedule.getStart_date() + "',");
-            out.println("start_time: '" + startTime.toString() + "'"); // LocalTime을 문자열로 변환
-            out.println("});");
-        }
-    }
-%>
-
-
-function highlightMovie(element, startDate) {
-    const movies = document.querySelectorAll('.movie-title');
-    movies.forEach(movie => movie.classList.remove('highlight'));
+function highlightMovie(element) {
+    // 모든 영화 제목에서 highlight 클래스를 제거
+    const titles = document.querySelectorAll('.movie-title');
+    titles.forEach(title => {
+        title.classList.remove('highlight');
+    });
+    // 클릭한 영화 제목에 highlight 클래스를 추가
     element.classList.add('highlight');
-
-    // 시작일 설정
-    selectedStartDate = startDate;
-    enableDates();
-    updateTimeList();
 }
 
 function filterTheaterNames(selectedTheaterDo) {
@@ -317,8 +305,6 @@ function filterTheaterNames(selectedTheaterDo) {
             currentTheaterDo.classList.add('highlight-theater-do');
         }
     }
-    
-    updateTimeList(); // 극장 필터링 후 시간 목록 업데이트
 }
 
 function selectTheater(theaterElement) {
@@ -332,8 +318,6 @@ function selectTheater(theaterElement) {
     
     // 선택된 극장 이름에 highlight 클래스를 추가합니다.
     theaterElement.classList.add('highlight');
-    
-    updateTimeList(); // 극장 선택 후 시간 목록 업데이트
 }
 
 // 극장 구역 클릭 시 호출되는 함수
@@ -350,7 +334,17 @@ function selectTheaterDo(theaterDoElement) {
     theaterDoElement.classList.add('highlight-theater-do');
 }
 
+let selectedStartDate = ""; // 선택된 영화의 시작일
 
+function highlightMovie(element, startDate) {
+    const movies = document.querySelectorAll('.movie-title');
+    movies.forEach(movie => movie.classList.remove('highlight'));
+    element.classList.add('highlight');
+
+    // 시작일 설정
+    selectedStartDate = startDate;
+    enableDates();
+}
 
 function enableDates() {
     const buttons = document.querySelectorAll('.date-button');
@@ -369,26 +363,5 @@ function selectDate(button) {
     // 선택된 날짜 처리
     const selectedDate = button.getAttribute('data-date');
     console.log("선택된 날짜: " + selectedDate);
-    
-    updateTimeList(); // 날짜 선택 후 시간 목록 업데이트
-}
-
-function updateTimeList() {
-    const timeList = document.getElementById('time-list');
-    timeList.innerHTML = ''; // 기존 시간 목록 초기화
-
-    // 선택된 영화, 극장, 날짜에 따라 시간 데이터를 가져옴
-    const filteredTimes = scheduleData.filter(item => {
-        return item.movie_name === selectedMovieName && 
-               item.theater_do === selectedTheaterDo && 
-               item.start_date === selectedStartDate;
-    });
-
-    filteredTimes.forEach(item => {
-        const timeDiv = document.createElement('div');
-        timeDiv.textContent = item.start_time; // 시간 추가
-        timeList.appendChild(timeDiv);
-    });
 }
 </script>
-</html>

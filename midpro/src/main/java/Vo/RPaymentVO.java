@@ -7,7 +7,7 @@ public class RPaymentVO {
 	private int payment_id;
 	private int reservation_id;
 	private Date payment_day;
-	private String payment_methodn;
+	private String payment_method;
 	private int payment_price;
 	private String payment_status;
 	public int getPayment_id() {
@@ -29,10 +29,10 @@ public class RPaymentVO {
 		this.payment_day = payment_day;
 	}
 	public String getPayment_methodn() {
-		return payment_methodn;
+		return payment_method;
 	}
 	public void setPayment_methodn(String payment_methodn) {
-		this.payment_methodn = payment_methodn;
+		this.payment_method = payment_methodn;
 	}
 	public int getPayment_price() {
 		return payment_price;
@@ -49,7 +49,7 @@ public class RPaymentVO {
 	@Override
 	public String toString() {
 		return "RPaymentVO [payment_id=" + payment_id + ", reservation_id=" + reservation_id + ", payment_day="
-				+ payment_day + ", payment_methodn=" + payment_methodn + ", payment_price=" + payment_price
+				+ payment_day + ", payment_methodn=" + payment_method + ", payment_price=" + payment_price
 				+ ", payment_status=" + payment_status + "]";
 	}
 	

@@ -45,7 +45,7 @@ public class ReservationDaoImpl implements IReservationDao{
 		return cnt;
 	}
 	
-	
+	//무비 정보 조회
 	public List<MovieVO> getAllMovie(){
 	   SqlSession session = MybatisUtil.getSqlSession();
 	   List<MovieVO> movieList = null;

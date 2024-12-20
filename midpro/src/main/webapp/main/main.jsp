@@ -361,9 +361,16 @@
 </body>
 
 <script>
+<<<<<<< HEAD
    $('.movie-list').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
    });
+=======
+
+	$('.movie-list').on('click',function(){
+		window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
+	});
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
 
     const barParam = '<%=request.getParameter("bar")%>';
     if (barParam === 'on') {

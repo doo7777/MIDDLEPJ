@@ -64,8 +64,13 @@
         %>
         </select>
         <br><br>
+<<<<<<< HEAD
 			<!--///////////// 지점(지역)선택 /////////////////-->
 			<label for="theater_id">지역 :</label>
+=======
+         <!--///////////// 지점(지역)선택 /////////////////-->
+         <label for="theater_id">지역 :</label>
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         <select id="theater_id" name="theater_id"   required>
               <%
         if (theaterList != null) {
@@ -83,8 +88,13 @@
         }
     %>
         </select>
+<<<<<<< HEAD
         <br><br>	
+=======
+        <br><br>   
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
         
+<<<<<<< HEAD
 			<!--///////////// 상영관선택 /////////////////-->
         <label for="theater_id">지점 선택:</label>
         <select id="theater_id" name="theater_id"   required>
@@ -126,6 +136,49 @@
 </select>
 <br><br>
 	<!--///////////// 상영관(시간) /////////////////-->
+=======
+         <!--///////////// 상영관선택 /////////////////-->
+        <label for="theater_id">지점 선택:</label>
+        <select id="theater_id" name="theater_id"   required>
+              <%
+        if (theaterList != null) {
+            for (TheaterVO theater : theaterList) {
+    %>
+                <option value="<%= theater.getTheater_id() %>">
+                    <%= theater.getTheater_name() %>
+                </option>
+    <%
+            }
+        } else {
+    %>
+            <option value="">등록된 극장이 없습니다</option>
+    <%
+        }
+    %>
+        </select>
+      <br><br>
+           <!--///////////// 날짜선택 /////////////////-->
+  <label for="schedule_id">날짜 선택:</label>
+<select id="schedule_id" name="schedule_id" required>
+    <%
+    if (schedulelList != null) {
+        for (ScheduleVO schedule : schedulelList) {
+    %>
+        <option value="<%= schedule.getSchedule_id() %>">
+           <%= schedule.getSchedule_date() %>
+        </option>
+    <%
+        }
+    } else {
+    %>
+        <option value="">등록된 일정이 없습니다</option>
+    <%
+    }
+    %>
+</select>
+<br><br>
+   <!--///////////// 상영관(시간) /////////////////-->
+>>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ
   <label for="schedule_id">상영시간:</label>
 <select id="schedule_id" name="schedule_id" required>
     <%

@@ -28,14 +28,14 @@ public interface IScheduleDao {
 	 * @return
 	 */
 	public List<ScheduleVO> getAllDetail();
+
+
+
 	
 	
-	/**
-	 * 
-	 * 
-	 */
+	 List<ScheduleVO> getAllSchedule();
 	
-	public List<ScheduleVO>getAllSchedule();
+	
 	
 	
 }
