@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC 
-    "-//mybatis.org/DTD Mapper 3.0//EN" 
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<insert id ="insertReservation" parameterType="reservationVO">
     
-    <mapper namespace="Reservation">
-    
-    <insert id ="insertReservation" parameterType="reservationVO">
-        insert into RESERVATION(RESERVATION_ID,CUSTOMER_ID,SCHEDULE_ID,MOVIE_NAME,SCREEN_ID,THEATER_ID)
-        values(
-        NOTICE_SEQ.NEXTVAL, #{customer_id}, #{schedule_id}, #{movie_name}, #{screen_id}, #{theater_id}
-        )
+       <selectKey resultType="int" order="BEFORE" keyProperty="reservation_id">
+          SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+       </selectKey>
+       
+       INSERT INTO RESERVATION (
+    RESERVATION_ID, CUSTOMER_ID, SCHEDULE_ID, MOVIE_NAME, SCREEN_ID,
+    THEATER_ID, RESERVATION_NUM,RESERVATION_DATE,SEAT_ID,RESERVATION_PRICE
+   ) 
+   VALUES (
+    #{reservation_id}, #{customer_id}, #{schedule_id}, #{movie_name}, #{screen_id}, #{theater_id}, 
+    TO_CHAR(SYSDATE, 'YYYYMMDD') || LPAD(reservation_daily_seq.NEXTVAL, 4, '0'), 
+    SYSDATE, NULL, #{reservation_price}
+   )
     </insert>
-    
-    
-    
-    </mapper>
-
-

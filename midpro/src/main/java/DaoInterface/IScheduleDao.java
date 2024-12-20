@@ -35,10 +35,11 @@ public interface IScheduleDao {
 	
 	  List<ScheduleVO> getAllSchedule();
 	
-	
-	/**
-	 * 
-	 * 
-	 */
-	
+
+    /**
+     * 영화 이름, 날짜, 극장 이름, 지역을 받아서 상영 시간표를 가져옴
+     * @param scheduleVO
+     * @return
+     */
+    public List<ScheduleVO> getScheduleByMovie(ScheduleVO scheduleVO);
 }
