@@ -188,7 +188,7 @@
         <div class="customer-service-container">
             <!-- 왼쪽 메뉴 -->
             <div class="left-menu">
-                <button class="menu-button active">고객센터 메인</button>
+                <button class="menu-button active" id="menubutton">고객센터 메인</button>
                 <ul>
                     <li>공지사항</li>
                     <li>자주찾는 질문</li>
@@ -276,4 +276,9 @@
     </div>
     <%@ include file="/main/Bottom.jsp" %>
 </body>
+<script>
+    $('#menubutton').on('click',function(){
+        window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
+    });
+</script>
 </html>

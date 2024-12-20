@@ -75,15 +75,6 @@
             color: #e6007e; /* 강조 색상 */
         }
 
-        .history-btn {
-            margin-top: 10px;
-            padding: 5px 10px;
-            border: 1px solid #fff;
-            background-color: transparent;
-            color: #fff;
-            cursor: pointer;
-        }
-
         /* 쿠폰 & 포인트 섹션 */
         .coupon-point-section {
             display: flex;
@@ -148,6 +139,7 @@
             gap: 20px;
             font-family: Arial, sans-serif;
             color: white;
+            height: 300px;
         }
         /* 사이드바 스타일 */
         .leftbar {
@@ -156,6 +148,7 @@
             padding: 20px;
             color: #fff;
             border-right: 2px solid #444; /* 사이드바 오른쪽 경계선 */
+            height: 242px;
         }
 
         .leftbar-header {
@@ -182,7 +175,7 @@
         /* 콘텐츠 영역 스타일 */
         .content-area {
             flex: 1; /* 남은 공간 차지 */
-            padding: 20px;
+            padding: 0px;
             
         }
 
@@ -246,15 +239,14 @@
             <div class="profile-info">
                 <h1><%=result.getCust_name() %></h1>
                 <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
-                <button class="history-btn">MY 지난등급이력 보기</button>
             </div>
         </div>
 
         <!-- 쿠폰 & 포인트 섹션 -->
         <div class="coupon-point-section">
             <div class="point-box">
-                <h2>CJ ONE POINT</h2>
-                <p>CJ ONE 사용가능 포인트 <span class="highlight">347점</span></p>
+                <h2>DD POINT</h2>
+                <p>DD 사용가능 포인트 <span class="highlight">347점</span></p>
                 <p class="vip-score">VIP 누적 점수 <span>0/1,000점</span></p>
             </div>
             <div class="coupon-box">
@@ -282,28 +274,12 @@
                 <div class="leftbar-header">MY DGV HOME</div>
                 <ul class="leftbar-menu">
                     <li>나의 예매내역</li>
-                    <li>관람권/할인쿠폰 관리</li>
-                    <ul class="submenu">
-                        <li>DGV 영화관람권</li>
-                        <li>DGV할인쿠폰</li>
-                        <li>4DX RED CARD</li>
-                        <li>DGV매니아카드</li>
-                        <li>DGV기프트카드</li>
-                        <li>CJ ONE 쿠폰</li>
-                        <li>간편결제/카드사 할인쿠폰</li>
-                    </ul>
-                    <li>CJ ONE 포인트</li>
-                    <ul class="submenu">
-                        <li>포인트 적립/사용안내</li>
-                        <li>DGV 이용 내역</li>
-                    </ul>
-                    <li>기프트샵</li>
+                    <li>DGV기프트카드</li>
+                    <li>DD 포인트</li>
                     <li>회원정보</li>
                     <ul class="submenu">
                         <li>개인정보 설정</li>
-                        <li>선택정보 설정</li>
                         <li>간편로그인 설정</li>
-                        <li>회원탈퇴</li>
                     </ul>
                     <li>나의 문의내역</li>
                 </ul>
