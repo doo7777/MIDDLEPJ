@@ -9,18 +9,18 @@
     <meta charset="UTF-8">
     <title>공지사항</title>
     <style>
-	    body {
+       body {
             background-color: black; /* 배경 검정색 */
             color: white; /* 글자 흰색 */
             font-family: Arial, sans-serif;
         }
 
-		h1 {
-	        text-align: center;
-	        color: white; /* 글자 색깔 */
-	    }
-	    
-	    .bulk-delete-btn {
+      	h1 {
+           text-align: center;
+           color: white; /* 글자 색깔 검정색 */
+       	}
+       
+       .bulk-delete-btn {
             display: block;
             width: 150px;
             margin: 20px auto;
@@ -31,7 +31,7 @@
             cursor: pointer;
             text-align: center;
         }
-	    
+       
         /* 테이블 컨테이너 */
         .table-container {
             margin: 30px auto; /* 중앙 정렬 */
@@ -87,7 +87,7 @@
         }
         
         /* 버튼 스타일 */
-		.delete-btn, .update-btn, .bulk-delete-btn {
+      	.delete-btn, .update-btn, .bulk-delete-btn {
             color: white;
             border: none;
             padding: 5px 10px;
@@ -110,20 +110,20 @@
         }
         
         /* 링크 기본 스타일 */
-		a {
-		    text-decoration: none; /* 밑줄 제거 */
-		    color: white; /* 글자색 흰색 */
-		}
-		
-		/* 링크 호버 시 스타일 */
-		a:hover {
-		    text-decoration: none; /* 호버 시에도 밑줄 제거 */
-		    color: #d32f2f; /* 호버 시 색상 변경 (선택 사항) */
-		}
+	   a {
+	       text-decoration: none; /* 밑줄 제거 */
+	       color: white; /* 글자색 흰색 */
+	   }
+	   
+	   /* 링크 호버 시 스타일 */
+	   a:hover {
+	       text-decoration: none; /* 호버 시에도 밑줄 제거 */
+	       color: #d32f2f; /* 호버 시 색상 변경 (선택 사항) */
+	   }
     </style>
 </head>
 <body>
-	<% CustomerVO result = (CustomerVO) session.getAttribute("ok"); %>
+   <% CustomerVO result = (CustomerVO) session.getAttribute("ok"); %>
     <h1>공지사항</h1>
     
     <!-- 검색 폼 -->
@@ -131,83 +131,94 @@
         <input type="text" name="title" placeholder="제목 검색" style="padding: 5px; width: 200px;">
         <button type="submit" class="update-btn">검색</button>
     </form>
-	
-	<% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+   
+   <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
     <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
     <% } %>
     <!-- 공지사항 테이블 -->
     <div class="table-container">
-	    <form action="deleteNotice.do" method="post" class="">
-	        <table>
-	            <thead>
-	            <tr>
-	                <th><input type="checkbox" id="selectAll"></th>
-	                <th>번호</th>
-	                <th>구분</th>
-	                <th>제목 ID</th>
-	                <th>등록일</th>
-	                <th>조회수</th>
-	              	<% if (result != null && "관리자".equals(result.getCust_grade())) { %>
-	                <th>삭제</th>
-	                <% } %>
-	            </tr>
-	            </thead>
-	            <tbody>
-	            <%
-	                // 페이징 처리용 변수
-	                List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
-	                int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-	                int rowsPerPage = 10; // 페이지 당 10개 표시
-	                int totalRows = noticeList != null ? noticeList.size() : 0;
-	                int totalPages = (int) Math.ceil(totalRows / (double) rowsPerPage);
-	
-	                int start = (currentPage - 1) * rowsPerPage;
-	                int end = Math.min(start + rowsPerPage, totalRows);
-	                String selectedNoticeId = request.getParameter("notice_id");
-	                NoticeVO selectedNotice = null;
-	                
-	                
-	                if (selectedNoticeId != null && noticeList != null) {
-	                    for (NoticeVO notice : noticeList) {
-	                        if (selectedNoticeId.equals(String.valueOf(notice.getNotice_id()))) {
-	                            selectedNotice = notice;
-	                            break;
-	                        }
-	                    }
-	                }
-	                if (noticeList != null) {
-	                    for (int i = start; i < end; i++) {
-	                        NoticeVO notice = noticeList.get(i);
-	                
-	            %>
-	            <tr>
-	                <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
-	                <td><%=notice.getNotice_id() %></td>
-	                <td><%=notice.getNotice_sort() %></td>
-	                <td><a href=""><%=notice.getTitle() %></td>
-	                <td><%=notice.getPost_date() %></td>
-	                <td><%=notice.getNotice_view() %></td>
-	                    <% if (result != null && "관리자".equals(result.getCust_grade())) { %> 
-	                <td>
-	                    <!-- 게시글 삭제 버튼 -->
-	                    <form action="deleteNotice.do" method="post" style="margin: 0;">
-	                        <!-- notice_id를 hidden 필드로 전송 -->
-	                        <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
-	                        <button type="submit" class="delete-btn">삭제</button>
-	                    </form>
-	                </td>
-	                    <% } %>
-	            </tr>
-	            <% 
-	                    }
-	                }
-	            %>
-	            </tbody>
-	        </table>
-	    </form>
-	</div>
-	
-	<% if (selectedNotice != null) { %>
+       <form action="deleteNotice.do" method="post" class="">
+           <table>
+               <thead>
+               <tr>
+                   <th><input type="checkbox" id="selectAll"></th>
+                   <th>번호</th>
+                   <th>구분</th>
+                   <th>제목 ID</th>
+                   <th>등록일</th>
+                   <th>조회수</th>
+                   <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+                   <th>수정</th>
+                   <% } %>
+                    <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+                   <th>삭제</th>
+                   <% } %>
+               </tr>
+               </thead>
+               <tbody>
+               <%
+                   // 페이징 처리용 변수
+                   List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
+                   int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+                   int rowsPerPage = 10; // 페이지 당 10개 표시
+                   int totalRows = noticeList != null ? noticeList.size() : 0;
+                   int totalPages = (int) Math.ceil(totalRows / (double) rowsPerPage);
+   
+                   int start = (currentPage - 1) * rowsPerPage;
+                   int end = Math.min(start + rowsPerPage, totalRows);
+                   String selectedNoticeId = request.getParameter("notice_id");
+                   NoticeVO selectedNotice = null;
+                   
+                   
+                   if (selectedNoticeId != null && noticeList != null) {
+                       for (NoticeVO notice : noticeList) {
+                           if (selectedNoticeId.equals(String.valueOf(notice.getNotice_id()))) {
+                               selectedNotice = notice;
+                               break;
+                           }
+                       }
+                   }
+                   if (noticeList != null) {
+                       for (int i = start; i < end; i++) {
+                           NoticeVO notice = noticeList.get(i);
+                   
+               %>
+               <tr>
+                   <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
+                   <td><%=notice.getNotice_id() %></td>
+                   <td><%=notice.getNotice_sort() %></td>
+                   <td><a href=""><%=notice.getTitle() %></td>
+                   <td><%=notice.getPost_date() %></td>
+                   <td><%=notice.getNotice_view() %></td>
+                       <% if (result != null && "관리자".equals(result.getCust_grade())) { %> 
+                   <td>
+                         <!-- 게시글 수정 버튼 -->
+                         <form action="updateNotice.do" method="post" style="margin: 0;">
+                            <!-- notice_id를 hidden 필드로 전송 -->
+                           <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
+                            <button type="button" class="update-btn">수정</button>
+                         </form>   
+                   </td>    
+                   <td>
+                       <!-- 게시글 삭제 버튼 -->
+                       <form action="deleteNotice.do" method="post" style="margin: 0;">
+                           <!-- notice_id를 hidden 필드로 전송 -->
+                           <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
+                           <button type="submit" class="delete-btn">삭제</button>
+                       </form>
+                   </td>
+                       <% } %>
+               </tr>
+               <% 
+                       }
+                   }
+               %>
+               </tbody>
+           </table>
+       </form>
+   </div>
+   
+   <% if (selectedNotice != null) { %>
     <!-- 상세보기 영역 -->
     <div class="detail-section">
         <h2>게시글 상세보기</h2>
@@ -223,7 +234,7 @@
             <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
             <button type="submit" class="delete-btn">삭제</button>
         </form>
-        <button type="button" onclick="showUpdateForm()" class="update-btn">수정</button>
+        <button type="button" class="update-btn">수정</button>
         <% } %>
         <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
     </div>
@@ -256,8 +267,8 @@
             <a href="<%= request.getContextPath() %>/noticeInsert.do" class="update-btn">공지사항 등록</a>
         </div>
     <% } %>
-	
-	<!-- 페이지네이션 -->
+   
+   <!-- 페이지네이션 -->
     <div class="pagination">
         <% for (int i = 1; i <= totalPages; i++) { %>
             <a href="<%= request.getContextPath() %>/noticeList.do?page=<%= i %>"
@@ -265,13 +276,13 @@
         <% } %>
     </div>
     <script>
-	    function showUpdateForm() {
-	        document.getElementById("updateForm").style.display = "block";
-	    }
-	
-	    function hideUpdateForm() {
-	        document.getElementById("updateForm").style.display = "none";
-	    }
+       function showUpdateForm() {
+           document.getElementById("updateForm").style.display = "block";
+       }
+   
+       function hideUpdateForm() {
+           document.getElementById("updateForm").style.display = "none";
+       }
         // "전체 선택" 체크박스 기능 추가
         document.getElementById("selectAll").addEventListener("click", function() {
             const checkboxes = document.querySelectorAll('input[name="notice_ids"]');
