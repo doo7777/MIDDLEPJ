@@ -20,6 +20,11 @@ import Vo.OneBoardVO;
 @WebServlet("/oneBoardInsert.do")
 public class OneBoardInsert extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/notice/oneBoard/OneBoardInsert.jsp").forward(request, response);
+    }
+    
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
@@ -51,7 +56,8 @@ public class OneBoardInsert extends HttpServlet {
 
         // 결과 처리
         if (result > 0) {
-            response.sendRedirect(request.getContextPath() + "/oneBoard/OneBoardInsert.jsp");
+            response.sendRedirect(request.getContextPath() + "/oneBoardList.do");
+//            request.getRequestDispatcher("/notice/oneBoard/OneBoardMain.jsp").forward(request, response);
         } else {
             response.getWriter().println("<h1>1:1 문의 등록 실패<h1>");
         }

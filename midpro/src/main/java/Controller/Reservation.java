@@ -78,13 +78,11 @@ public class Reservation extends HttpServlet {
               ISeatService seatService = SeatServiceImpl.getInstance();
               List<SeatVO> seatList = seatService.getReservSeat(reservationVO);
               
-              
-              
                int screen_ids =Integer.parseInt(request.getParameter("screen_id"));
                reservationVO.setScreen_id(screen_id);
                
                
-               int updateReserve = reservService.updateReserve(reservationVO);
+//               int updateReserve = reservService.updateReserve(reservationVO);
                
                System.out.println("seatVO데이터확인:" + seatVO);
                System.out.println("seatlist데이터확인:" + seatList);

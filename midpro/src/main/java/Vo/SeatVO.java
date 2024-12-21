@@ -8,7 +8,18 @@ public class SeatVO {
 	private int seat_no;
 	private int seat_line_no;
 	private int seat_status;
+	private int seat_price;
 	
+	
+	
+	public int getSeat_price() {
+		return seat_price;
+	}
+
+	public void setSeat_price(int seat_price) {
+		this.seat_price = seat_price;
+	}
+
 	public int getSeat_id() {
 		return seat_id;
 	}
@@ -69,8 +80,9 @@ public class SeatVO {
 	public String toString() {
 		return "SeatVO [seat_id=" + seat_id + ", screen_id=" + screen_id + ", theater_id=" + theater_id
 				+ ", seat_group=" + seat_group + ", seat_no=" + seat_no + ", seat_line_no=" + seat_line_no
-				+ ", seat_status=" + seat_status + "]";
+				+ ", seat_status=" + seat_status + ", seat_price=" + seat_price + "]";
 	}
+
 
 
 
