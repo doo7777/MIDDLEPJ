@@ -47,6 +47,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            text-decoration: none; /* 밑줄 제거 */
         }
 
         th, td {
@@ -86,24 +87,12 @@
         }
         
         /* 버튼 스타일 */
-		.home-button {
-		    display: block;
-            width: 160px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: white;
-            color: black;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none; /* 밑줄 제거 */
-		}
-		
 		.delete-btn, .update-btn, .bulk-delete-btn {
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
+            text-decoration: none; /* 밑줄 제거 */
         }
         .delete-btn {
             background-color: #ff4d4d;
@@ -119,6 +108,18 @@
             margin: 20px auto;
             text-align: center;
         }
+        
+        /* 링크 기본 스타일 */
+		a {
+		    text-decoration: none; /* 밑줄 제거 */
+		    color: white; /* 글자색 흰색 */
+		}
+		
+		/* 링크 호버 시 스타일 */
+		a:hover {
+		    text-decoration: none; /* 호버 시에도 밑줄 제거 */
+		    color: #d32f2f; /* 호버 시 색상 변경 (선택 사항) */
+		}
     </style>
 </head>
 <body>
@@ -130,11 +131,13 @@
         <input type="text" name="title" placeholder="제목 검색" style="padding: 5px; width: 200px;">
         <button type="submit" class="update-btn">검색</button>
     </form>
-
+	
+	<%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
     <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
+    <%-- <% } %> --%>
     <!-- 공지사항 테이블 -->
     <div class="table-container">
-	    <form action="deleteNotice.do" method="post">
+	    <form action="deleteNotice.do" method="post" class="">
 	        <table>
 	            <thead>
 	            <tr>
@@ -144,7 +147,9 @@
 	                <th>제목 ID</th>
 	                <th>등록일</th>
 	                <th>조회수</th>
+	                <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
 	                <th>삭제</th>
+	                <%-- <% } %> --%>
 	            </tr>
 	            </thead>
 	            <tbody>
@@ -179,9 +184,10 @@
 	                <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
 	                <td><%=notice.getNotice_id() %></td>
 	                <td><%=notice.getNotice_sort() %></td>
-	                <td>s<a href=""><%=notice.getTitle() %></td>
+	                <td><a href=""><%=notice.getTitle() %></td>
 	                <td><%=notice.getPost_date() %></td>
 	                <td><%=notice.getNotice_view() %></td>
+	                    <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
 	                <td>
 	                    <!-- 게시글 삭제 버튼 -->
 	                    <form action="deleteNotice.do" method="post" style="margin: 0;">
@@ -190,6 +196,7 @@
 	                        <button type="submit" class="delete-btn">삭제</button>
 	                    </form>
 	                </td>
+	                    <%-- <% } %> --%>
 	            </tr>
 	            <% 
 	                    }
@@ -211,13 +218,13 @@
         <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p>
 
-        <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+        <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
         <form action="deleteNotice.do" method="post" style="display: inline-block;">
             <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
             <button type="submit" class="delete-btn">삭제</button>
         </form>
         <button type="button" onclick="showUpdateForm()" class="update-btn">수정</button>
-        <% } %>
+        <%-- <% } %> --%>
         <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
     </div>
 
@@ -244,11 +251,11 @@
     <% } %>
 
     <!-- 공지사항 등록 버튼 (아래 배치) -->
-    <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
+    <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
         <div style="text-align: center; margin-top: 20px;">
             <a href="<%= request.getContextPath() %>/noticeInsert.do" class="update-btn">공지사항 등록</a>
         </div>
-    <% } %>
+    <%-- <% } %> --%>
 	
 	<!-- 페이지네이션 -->
     <div class="pagination">
@@ -271,9 +278,5 @@
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
         });
     </script>
-
-    <div class="button-container">
-	    <a href="<%=request.getContextPath() %>/index.jsp" class="home-button">첫 화면으로 돌아가기</a>
-	</div>
 </body>
 </html>
