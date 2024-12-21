@@ -48,7 +48,7 @@
 %>
 
 <form action="reservation.do" method="post">
-    <input type="hidden" name="reservation_id" value="<%= reservation_id %>" />
+    <input type="" name="reservation_id" value="<%= reservation_id %>" />
 
     <label for="seatList">좌석 선택:</label>
     <select id="seatList" name="seat_id" onchange="updatePrice()" multiple required>
