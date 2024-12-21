@@ -132,7 +132,7 @@
 		.info-table th {
 		    text-align: left;
 		    font-weight: bold;
-		    color: white;
+		    color: #fff;
 		    width: 150px;
 		    padding: 10px 0;
 		}
