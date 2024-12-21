@@ -4,15 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>공지사항</title>
-=======
-    <title>공지사항 관리</title>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     <style>
 	    body {
             background-color: black; /* 배경 검정색 */
@@ -21,9 +16,21 @@
         }
 
 		h1 {
-	        text-align: left;
+	        text-align: center;
 	        color: white; /* 글자 색깔 검정색 */
 	    }
+	    
+	    .bulk-delete-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
 	    
         /* 테이블 컨테이너 */
         .table-container {
@@ -51,48 +58,6 @@
 
         th {
             background-color: #333; /* 테이블 헤더 색상 */
-        }
-<<<<<<< HEAD
-
-        .delete-btn, .update-btn {
-            background-color: #ff4d4d; /* 삭제 버튼 색상 */
-=======
-        .delete-btn, .update-btn, .bulk-delete-btn {
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-<<<<<<< HEAD
-        
-=======
-        .delete-btn {
-            background-color: #ff4d4d;
-        }
-        .update-btn {
-            background-color: #007bff;
-        }
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-        .bulk-delete-btn {
-            background-color: #28a745;
-            display: block;
-            width: 150px;
-            margin: 20px auto;
-            text-align: center;
-        }
-<<<<<<< HEAD
-        
-        .update-btn {
-            background-color: #007bff;
-        }
-        
-        .detail-section {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
         }
 
         /* 페이지네이션 스타일 */
@@ -122,53 +87,41 @@
         
         /* 버튼 스타일 */
 		.home-button {
-		    display: inline-block;
-		    padding: 10px 20px;
-		    background-color: #007bff; /* 파란색 배경 */
-		    color: white; /* 글자색 흰색 */
-		    text-decoration: none; /* 밑줄 제거 */
-		    border-radius: 5px; /* 모서리 둥글게 */
-		    font-size: 14px; /* 글자 크기 */
-		    font-weight: bold; /* 글자 굵기 */
-		    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-		    transition: all 0.3s ease; /* 부드러운 전환 효과 */
-		}
-		
-		
-		/* 버튼 컨테이너 스타일 */
-		.button-container {
-		    display: flex; /* Flexbox 사용 */
-		    justify-content: flex-end; /* 오른쪽 정렬 */
-		    padding: 10px 20px; /* 내부 여백 추가 */
-		}
-=======
-        .detail-section {
-            width: 80%;
+		    display: block;
+            width: 160px;
             margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none; /* 밑줄 제거 */
+		}
+		
+		.delete-btn, .update-btn, .bulk-delete-btn {
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
         }
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
+        .delete-btn {
+            background-color: #ff4d4d;
+        }
+        .update-btn {
+            background-color: #007bff;
+        }
+        .bulk-delete-btn {
+            background-color: white;
+            color: black;
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+        }
     </style>
-    <script>
-        function showUpdateForm() {
-            document.getElementById("updateForm").style.display = "block";
-        }
-
-        function hideUpdateForm() {
-            document.getElementById("updateForm").style.display = "none";
-        }
-
-        // "전체 선택" 체크박스 기능
-        function toggleSelectAll(checkbox) {
-            const checkboxes = document.querySelectorAll('input[name="notice_ids"]');
-            checkboxes.forEach(cb => cb.checked = checkbox.checked);
-        }
-    </script>
 </head>
 <body>
-<<<<<<< HEAD
 	<% CustomerVO result = (CustomerVO) session.getAttribute("ok"); %>
     <h1>공지사항</h1>
     
@@ -176,75 +129,8 @@
     <form action="searchNotice.do" method="get" style="text-align: center; margin-bottom: 20px;">
         <input type="text" name="title" placeholder="제목 검색" style="padding: 5px; width: 200px;">
         <button type="submit" class="update-btn">검색</button>
-=======
-    <% CustomerVO result = (CustomerVO) session.getAttribute("ok"); %>
-    <h1 style="text-align: center;">공지사항 관리</h1>
-
-    <!-- 검색 폼 -->
-    <form action="searchNotice.do" method="get" style="text-align: center; margin-bottom: 20px;">
-        <input type="text" name="title" placeholder="제목 검색" style="padding: 5px; width: 200px;">
-        <button type="submit" class="update-btn">검색</button>
     </form>
 
-    <!-- 공지사항 리스트 -->
-    <form action="deleteNotice.do" method="post">
-        <button type="submit" name="action" value="bulk-delete" class="bulk-delete-btn">일괄 삭제</button>
-        <table>
-            <thead>
-            <tr>
-                <th><input type="checkbox" onclick="toggleSelectAll(this)"></th>
-                <th>번호</th>
-                <th>유형</th>
-                <th>제목</th>
-                <th>등록일</th>
-                <th>조회수</th>
-                <th>삭제</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% 
-                List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
-                String selectedNoticeId = request.getParameter("notice_id");
-                NoticeVO selectedNotice = null;
-
-                if (selectedNoticeId != null && noticeList != null) {
-                    for (NoticeVO notice : noticeList) {
-                        if (selectedNoticeId.equals(String.valueOf(notice.getNotice_id()))) {
-                            selectedNotice = notice;
-                            break;
-                        }
-                    }
-                }
-
-                if (noticeList != null) {
-                    for (NoticeVO notice : noticeList) {
-            %>
-            <tr>
-                <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
-                <td><%=notice.getNotice_id() %></td>
-                <td><%=notice.getNotice_sort() %></td>
-                <td>
-                    <a href="?notice_id=<%=notice.getNotice_id() %>"><%=notice.getTitle() %></a>
-                </td>
-                <td><%=notice.getPost_date() %></td>
-                <td><%=notice.getNotice_view() %></td>
-                <td>
-                    <form action="deleteNotice.do" method="post" style="display: inline;">
-                        <input type="hidden" name="notice_id" value="<%= notice.getNotice_id() %>">
-                        <button type="submit" class="delete-btn">삭제</button>
-                    </form>
-                </td>
-            </tr>
-            <% 
-                    }
-                }
-            %>
-            </tbody>
-        </table>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-    </form>
-
-<<<<<<< HEAD
     <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
     <!-- 공지사항 테이블 -->
     <div class="table-container">
@@ -272,16 +158,28 @@
 	
 	                int start = (currentPage - 1) * rowsPerPage;
 	                int end = Math.min(start + rowsPerPage, totalRows);
-	
+	                String selectedNoticeId = request.getParameter("notice_id");
+	                NoticeVO selectedNotice = null;
+	                
+	                
+	                if (selectedNoticeId != null && noticeList != null) {
+	                    for (NoticeVO notice : noticeList) {
+	                        if (selectedNoticeId.equals(String.valueOf(notice.getNotice_id()))) {
+	                            selectedNotice = notice;
+	                            break;
+	                        }
+	                    }
+	                }
 	                if (noticeList != null) {
 	                    for (int i = start; i < end; i++) {
 	                        NoticeVO notice = noticeList.get(i);
+	                
 	            %>
 	            <tr>
 	                <td><input type="checkbox" name="notice_ids" value="<%=notice.getNotice_id() %>"></td>
 	                <td><%=notice.getNotice_id() %></td>
 	                <td><%=notice.getNotice_sort() %></td>
-	                <td><%=notice.getTitle() %></td>
+	                <td>s<a href=""><%=notice.getTitle() %></td>
 	                <td><%=notice.getPost_date() %></td>
 	                <td><%=notice.getNotice_view() %></td>
 	                <td>
@@ -302,18 +200,7 @@
 	    </form>
 	</div>
 	
-	<%-- <% if (selectedNotice != null) { %>
-    <!-- 상세보기 영역 -->
-    <div class="detail-section">
-        <h2>게시글 상세보기</h2>
-        <p><strong>번호:</strong> <%= selectedNotice.getNotice_id() %></p>
-        <p><strong>구분:</strong> <%= selectedNotice.getNotice_sort() %></p>
-        <p><strong>제목:</strong> <%= selectedNotice.getTitle() %></p>
-        <p><strong>내용:</strong> <%= selectedNotice.getContent() %></p>
-        <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
-        <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p>
-=======
-    <% if (selectedNotice != null) { %>
+	<% if (selectedNotice != null) { %>
     <!-- 상세보기 영역 -->
     <div class="detail-section">
         <h2>게시글 상세보기</h2>
@@ -362,47 +249,6 @@
             <a href="<%= request.getContextPath() %>/noticeInsert.do" class="update-btn">공지사항 등록</a>
         </div>
     <% } %>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
-
-        <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
-        <form action="deleteNotice.do" method="post" style="display: inline-block;">
-            <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
-            <button type="submit" class="delete-btn">삭제</button>
-        </form>
-        <button type="button" onclick="showUpdateForm()" class="update-btn">수정</button>
-        <% } %>
-        <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
-    </div>
-
-    <!-- 수정 폼 -->
-    <div class="detail-section" id="updateForm" style="display: none;">
-        <h2>게시글 수정</h2>
-        <form action="updateNotice.do" method="post">
-            <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
-            <label>제목:</label>
-            <input type="text" name="title" value="<%= selectedNotice.getTitle() %>" style="width: 100%;"><br><br>
-            <label>내용:</label>
-            <textarea name="content" rows="5" style="width: 100%;"><%= selectedNotice.getContent() %></textarea><br><br>
-            <label>유형:</label>
-            <select name="notice_sort" required>
-                <option value="시스템점검" <%= "시스템점검".equals(selectedNotice.getNotice_sort()) ? "selected" : "" %>>시스템점검</option>
-                <option value="극장" <%= "극장".equals(selectedNotice.getNotice_sort()) ? "selected" : "" %>>극장</option>
-                <option value="행사/이벤트" <%= "행사/이벤트".equals(selectedNotice.getNotice_sort()) ? "selected" : "" %>>행사/이벤트</option>
-                <option value="기타" <%= "기타".equals(selectedNotice.getNotice_sort()) ? "selected" : "" %>>기타</option>
-            </select><br><br>
-            <button type="submit" class="update-btn">저장</button>
-            <button type="button" onclick="hideUpdateForm()" class="delete-btn">취소</button>
-        </form>
-    </div>
-    <% } %> --%>
-
-    <!-- 공지사항 등록 버튼 (아래 배치) -->
-    <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="<%= request.getContextPath() %>/noticeInsert.do" class="update-btn">공지사항 등록</a>
-        </div>
-    <% } %>
-	
 	
 	<!-- 페이지네이션 -->
     <div class="pagination">
@@ -411,6 +257,20 @@
                class="<%= i == currentPage ? "active" : "" %>"><%= i %></a>
         <% } %>
     </div>
+    <script>
+	    function showUpdateForm() {
+	        document.getElementById("updateForm").style.display = "block";
+	    }
+	
+	    function hideUpdateForm() {
+	        document.getElementById("updateForm").style.display = "none";
+	    }
+        // "전체 선택" 체크박스 기능 추가
+        document.getElementById("selectAll").addEventListener("click", function() {
+            const checkboxes = document.querySelectorAll('input[name="notice_ids"]');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+    </script>
 
     <div class="button-container">
 	    <a href="<%=request.getContextPath() %>/index.jsp" class="home-button">첫 화면으로 돌아가기</a>

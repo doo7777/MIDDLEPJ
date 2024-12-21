@@ -10,31 +10,6 @@
 <!--       SELECT * FROM MOVIE WHERE MOVIE_ID = #{movie_id} -->
 <!--    </select> -->
 
-<<<<<<< HEAD
-	<!-- 모든 영화 정보 조회 -->
-	<select id="getAllMovies" resultType="movieVO">
-		 select * from movie
-	</select>
-	
-	
-<!-- 	Screen 리스트 조회 -->
-	<select id="getAllScreen" resultType="ScreenVO">
-		  select * from screen
-	</select>
-	
-	
-<!-- 	SEAT 좌석 전체 조회 	 -->
-	<select id="getAllSeat" resultType="SeatVO">
-	
-	select * from seat
-	
-	</select>
-	
-	<select id="getReservSeat" parameterType="reservationVO" resultType="SeatVO">
-		
-
-	SELECT * FROM seat WHERE theater_id IN (
-=======
    <!-- 모든 영화 정보 조회 -->
    <select id="getAllMovies" resultType="movieVO">
        select * from movie
@@ -64,7 +39,6 @@
       
 
    SELECT * FROM seat WHERE theater_id IN (
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
     SELECT theater_id 
     FROM reservation 
 
@@ -73,21 +47,12 @@
 )
   <!--  SELECT * FROM seat WHERE screen_id IN (
    SELECT screen_id 
-<<<<<<< HEAD
-		    FROM reservation 
-		    WHERE screen_id = #{screen_id} 
-				) -->
-
-		
-	</select>
-=======
           FROM reservation 
           WHERE screen_id = #{screen_id} 
             ) -->
 
       
    </select>
->>>>>>> branch 'main' of https://github.com/doo7777/MIDDLEPJ.git
 
 
 
