@@ -62,7 +62,7 @@
 </head>
 <body>
 <%
-	HttpSession sessoin = request.getSession();
+   HttpSession sessoin = request.getSession();
     CustomerVO loginSession = (CustomerVO) session.getAttribute("ok");
 
     if (loginSession == null) {
