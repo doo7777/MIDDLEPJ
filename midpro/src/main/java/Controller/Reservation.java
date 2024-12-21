@@ -78,12 +78,12 @@ public class Reservation extends HttpServlet {
               ISeatService seatService = SeatServiceImpl.getInstance();
               List<SeatVO> seatList = seatService.getReservSeat(reservationVO);
               
-              
-              
+
                int screen_ids =Integer.parseInt(request.getParameter("screen_id"));
                reservationVO.setScreen_id(screen_id);
                
                
+//               int updateReserve = reservService.updateReserve(reservationVO);
                
                System.out.println("seatVO데이터확인:" + seatVO);
                System.out.println("seatlist데이터확인:" + seatList);
@@ -92,7 +92,7 @@ public class Reservation extends HttpServlet {
                
                
                request.setAttribute("seatList", seatList);
-                request.getRequestDispatcher("/Reservation/seatC.jsp").forward(request, response);
+                request.getRequestDispatcher("/RESERVATION/seatC.jsp").forward(request, response);
                } else {
                    request.setAttribute("errorMessage", "예약 실패. 다시 시도해 주세요.");
                }

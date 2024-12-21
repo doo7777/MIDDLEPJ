@@ -1,3 +1,12 @@
+<%@page import="Vo.ScreenVO"%>
+<%@page import="Vo.ScheduleVO"%>
+<%@page import="Vo.TheaterVO"%>
+<%@page import="Dao.ScreenDaoImpl"%>
+<%@page import="Dao.ScheduleDaoImpl"%>
+<%@page import="Dao.TheaterDaoImpl"%>
+<%@page import="Dao.MovieDaoImpl"%>
+<%@page import="Vo.MovieVO"%>
+<%@page import="java.util.List"%>
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -230,14 +239,14 @@
         font-size: 25px; /* 아이콘 크기 설정 */
         color: #3498db;
         margin: 0; /* 기본 여백 제거 */
-    	padding: 0; /* 기본 패딩 제거 */
+       padding: 0; /* 기본 패딩 제거 */
     }
-	.PWBtn_box, .IDBtn_box {
-	    padding: 10px; /* 입력 필드의 내부 여백 */
-	    padding-left: 60px; /* 아이콘과의 간격 조정 (세로줄 공간 포함) */
-	    width: 100%; /* 입력 필드의 너비를 100%로 설정 */
-	    box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
-	}
+   .PWBtn_box, .IDBtn_box {
+       padding: 10px; /* 입력 필드의 내부 여백 */
+       padding-left: 60px; /* 아이콘과의 간격 조정 (세로줄 공간 포함) */
+       width: 100%; /* 입력 필드의 너비를 100%로 설정 */
+       box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+   }
     .input-container::after {
         content: ""; /* 가상 요소의 내용 설정 */
         position: absolute;
@@ -248,31 +257,52 @@
         background-color: #ccc; /* 세로줄의 색상 설정 */
     }
     
-	/* 로그인, 회원가입 버튼 */
-	.loginbtn, .signupBtn {
-	    padding: 15px; /* 버튼의 내부 여백 조정 */
-	    min-height: 5px;
+   /* 로그인, 회원가입 버튼 */
+   .loginbtn, .signupBtn {
+       padding: 15px; /* 버튼의 내부 여백 조정 */
+       min-height: 5px;
         min-width: 250px;
-	    font-size: 14px; /* 글자 크기 조정 */
-	    height: 40px; /* 높이 설정 */
-	    width: auto; /* 너비를 자동으로 설정 */
-	    border-radius: 5px; /* 모서리 둥글게 설정 */
-	    cursor: pointer; /* 마우스 커서 변경 */
-	    text-align: center; /* 텍스트 가운데 정렬 */
-	    display: flex; /* 플렉스 박스 사용 */
-	    align-items: center; /* 수직 가운데 정렬 */
-	    justify-content: center; /* 수평 가운데 정렬 */
-	    background-color: black;   
-	    color: white;
-	    margin-bottom: 5px;
-	}
+       font-size: 14px; /* 글자 크기 조정 */
+       height: 40px; /* 높이 설정 */
+       width: auto; /* 너비를 자동으로 설정 */
+       border-radius: 5px; /* 모서리 둥글게 설정 */
+       cursor: pointer; /* 마우스 커서 변경 */
+       text-align: center; /* 텍스트 가운데 정렬 */
+       display: flex; /* 플렉스 박스 사용 */
+       align-items: center; /* 수직 가운데 정렬 */
+       justify-content: center; /* 수평 가운데 정렬 */
+       background-color: black;   
+       color: white;
+       margin-bottom: 5px;
+   }
+   #kakao{
+   border:none;
+   cursor:pointer;
+   }
     </style>
     
 </head>
-<% CustomerVO result = (CustomerVO)session.getAttribute("ok"); %>
+<% CustomerVO result = (CustomerVO)session.getAttribute("ok"); 
+
+MovieDaoImpl movieDao = MovieDaoImpl.getInstance(); //싱글톤 패턴사용
+List<MovieVO> movieList = movieDao.getAllMovie(); // 영화 전체 목록조회
+
+TheaterDaoImpl theaterDao = TheaterDaoImpl.getInstance();
+List<TheaterVO> theaterList = theaterDao.getAllTheater(); // 영화관 전체 목록조회
+
+ScheduleDaoImpl scheduleDao = ScheduleDaoImpl.getInstance();
+List<ScheduleVO> schedulelList = scheduleDao.getAllSchedule(); //일정 전체 조회
+
+ScreenDaoImpl screenDao = ScreenDaoImpl.getInstance();
+List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
+
+%>
+
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
+        
+        	<img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="moviec">
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고(최종).png" alt="로고" class="logo">
             <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
 
@@ -288,11 +318,12 @@
                     window.onload = function() {
                         // 로그인 상태 확인
                         const isLoggedIn = localStorage.getItem('isLoggedIn');
-
+                  console.log("isLoggedIn", isLoggedIn);
+                  
                         // result가 null이 아니면 로그인 상태
                         <% if(result != null) { %>
                             if (!isLoggedIn) {
-                                alert("로그인 되었습니다.");
+                                alert("로그인 되었습니다.!!!!");
                                 localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
                             }
                         <% } else { %>
@@ -308,7 +339,7 @@
                 </div>
                 <div class="icon-text">
                     <i class="fa-regular fa-user"></i>
-                    <h4 id="btnfont3" class="mypage">마이페이지</h4>
+                    <h4 id="btnfont3" class="mypage" id="mypage">마이페이지</h4>
                 </div>
                 <div class="icon-text">
                     <i class="fas fa-headset" id="btn4"></i>
@@ -355,106 +386,118 @@
                         <li><a href="#" id="movres">영화/예매</a></li> <!-- 하위 메뉴: 영화/예매 -->
                     </ul>
                 </li>
-                <li><a href="#" class="highlight">혜택</a> <!-- 혜택 메뉴 항목 -->
+                <li><a href="#" class="highlight" id="discount">혜택</a> <!-- 혜택 메뉴 항목 -->
                     <ul>
-                        <li><a href="#">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
-                        <li><a href="#">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
+                        <li><a href="#" id="discount">DGV 할인정보</a></li> <!-- 하위 메뉴: DGV 할인정보 -->
+                        <li><a href="#" id="vip">VIP 라운지</a></li> <!-- 하위 메뉴: VIP 라운지 -->
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="search-container">
-            <input type="text" id="search" placeholder="검색어 입력">
-            <button type="button" id="searchButton">
+        <form action="<%=request.getContextPath()%>/searchMovie.do" method="get">
+            <input type="text" id="search" name="query" placeholder="검색어 입력">
+            <button type="submit" id="searchButton">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            </form>
         </div>
         <hr>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+     integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka" crossorigin="anonymous"></script>
 <script>
+   Kakao.init('9b568627f6669732e63f4f5ea7d92e80'); //발급받은 키 중 javascript키를 사용
+   console.log(Kakao.isInitialized()); // sdk초기화여부판단 = true
+
     const login = document.querySelector('#loginbutton');
     const myPage = document.querySelector('.fa-user');
-    // const menu = document.querySelector('.fa-bars');
     const sidebar = document.querySelector('.sidebar');
     const closeButton = document.querySelector('.fa-xmark');
     const sidebarContent = document.querySelector('.sidebar-content');
+
+    $('#discount,#discount1').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
+    });
     
 
     
+    $('#discount').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/Boon/DGVdiscount.jsp';
+    });
+    
+    $('#vip').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/Boon/VIP.jsp';
+    });
+    
     $('#comingOut').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Movie/comingOut.jsp';
     });
     
     $('#movres').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Event/MovRes.jsp';
     });
     
-    $('#event').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
+    $('#event,#special').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
     });
     
-    $('#special').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Event/Special.jsp';
-    });
     
-    $('#package').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
+    $('#package,#store').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
     });
     
     $('#movieticket').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/movieticket.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/movieticket.jsp';
     });
     
     $('#giftcard').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
     });
     
     $('#combo').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/combo.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/combo.jsp';
     });
     
     $('#popcorn').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/popcorn.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/popcorn.jsp';
     });
     
     $('#drink').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/drink.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/drink.jsp';
     });
     
     $('#snack').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
+       window.location.href = '<%=request.getContextPath()%>/Store/snack.jsp';
     });
     
-	$('#store').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Store/package.jsp';
-    });
-	
     $('.logo').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+       window.location.href = '<%=request.getContextPath()%>/main/main.jsp';
+    });
+    
+    $('#moviec').on('click',function(){
+       window.location.href = '<%=request.getContextPath()%>/RESERVATION/MovieC.jsp';
     });
     
     $('#reservation').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Reservation/Reservation.jsp'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
+       window.location.href = '<%=request.getContextPath()%>/scheduleList.do'; //서블릿으로 먼저 연동한뒤에 서블릿에서 jsp로 연결 해줘야함
     });
     
     $('#current').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/theaterList.do';
+       window.location.href = '<%=request.getContextPath()%>/theaterList.do';
     });
     
-    $('#moviechart').on('click',function(){
+    $('#moviechart,#movie2').on('click',function(){
       window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp'; 
     });
     
-    $('#movie2').on('click',function(){
-    	window.location.href = '<%=request.getContextPath()%>/Movie/movieChart1.jsp';
-    });
-
     $('#btn4').on('click', function() {
         window.location.href = '<%=request.getContextPath()%>/notice/customerservice.jsp';
     });
     
+ // 사이드바 내용 업데이트
     function updateSidebarContent() {
         sidebarContent.innerHTML = `
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고3.png" alt="로고" id="DGV" width="100" height="100">
@@ -466,14 +509,26 @@
             <input type="text" title="아이디" id="username" name="cust_id" required class="IDBtn_box">
         </div>
         
-	        <div class="input-container">
-	        <i class="fas fa-lock ID_img"></i>
-	        <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
-	    </div>
+           <div class="input-container">
+           <i class="fas fa-lock ID_img"></i>
+           <input type="password" title="패스워드" id="password" name="cust_pw" required class="PWBtn_box">
+       </div>
 
         </div>
         <button type="submit" class="loginbtn" id="login">Login</button>
-        <button type="button" id="join" class="signupBtn">회원가입</button>        
+        
+     
+        <!-- 카카오 로그인 버튼 -->
+
+        <button type="button" id="kakao" onclick="location.href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=66af43424a17bc735630e486e280ccae&redirect_uri=http://localhost/midpro/kakaoLogin.do&prompt=login'">
+        <img src="<%= request.getContextPath() %>/main/sorce/img/카카오.png" alt="카카오 로그인" style="width: 242px; height: 35px;">
+        
+          </button>   
+
+
+  
+
+       <button type="button" id="join" class="signupBtn">회원가입</button>        
 
 
             <% } else { %>
@@ -483,7 +538,7 @@
             <% } %>
             </form>`;
     };
-
+    // 사이드바 토글 함수
     function moveSidebar() {
         sidebar.classList.toggle('open');
         <% if(result==null){ %>
@@ -502,6 +557,7 @@
         }
         <% } %>
     }
+    // 로그인 버튼 클릭 시 사이드바 업데이트
     login.addEventListener('click', function() {
         updateSidebarContent();
         moveSidebar();
@@ -521,8 +577,12 @@
 
     // 마이페이지 클릭 시 메시지 표시
     myPage.addEventListener('click', function() {
+        <% if(result==null){ %>
         sidebarContent.innerHTML = `<h3>로그인 후 이용해주세요</h3>`;
         moveSidebar();
+        <% } else { %>
+           window.location.href = '<%=request.getContextPath()%>/Mypage/mypage.jsp';
+            <% } %>
     });
     
 

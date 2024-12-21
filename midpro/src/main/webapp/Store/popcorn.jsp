@@ -137,32 +137,38 @@
         <!-- 팝콘 아이템 목록 -->
         <div class="popcorn-grid">
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/더블치즈팝콘L.jpg" alt="더블치즈팝콘L" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/더블치즈팝콘L.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>더블치즈팝콘(L)</h3>
                 <span class="price">7,000</span>
             </div>
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/바질어니언팝콘L.jpg" alt="바질어니언팝콘L" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/바질어니언팝콘L.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>바질어니언팝콘(L)</h3>
                 <span class="price">7,000</span>
             </div>
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/달콤팝콘L.jpg" alt="달콤팝콘L" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/달콤팝콘L.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>달콤팝콘(L)</h3>
                 <span class="price">7,000</span>
             </div>
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/고소팝콘L.jpg" alt="고소팝콘L" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/고소팝콘L.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>고소팝콘(L)</h3>
                 <span class="price">7,000</span>
             </div>
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/더블치즈팝콘M.jpg" alt="더블치즈팝콘M" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/더블치즈팝콘M.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>더블치즈팝콘(M)</h3>
                 <span class="price">7,000</span>
             </div>
             <div class="popcorn-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/팝콘(완료)/바질어니언팝콘M.jpg" alt="바질어니언팝콘M" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/팝콘(완료)/바질어니언팝콘M.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>바질어니언팝콘(M)</h3>
                 <span class="price">7,000</span>
             </div>

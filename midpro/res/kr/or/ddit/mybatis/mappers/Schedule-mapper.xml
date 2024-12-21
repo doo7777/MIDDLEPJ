@@ -44,7 +44,6 @@
    </select>
 
 
-
    <!-- 상영시작시간을 보여줌 -->
    <select id="getScheduleByMovie" parameterType="scheduleVO" resultType="scheduleVO">
       SELECT s.*, sn.screen_name, sn.screen_type, t.theater_name      <!-- 추가한 부분 -->

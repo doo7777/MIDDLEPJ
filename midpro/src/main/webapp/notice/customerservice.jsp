@@ -227,7 +227,7 @@
             <div class="left-menu">
                 <button class="menu-button active">고객센터 메인</button>
                 <ul>
-                    <li>공지사항</li>
+                    <li id="noticebutton">공지사항</li>
                     <li>자주찾는 질문</li>
                     <li>대관신청</li>
                     <li>1:1 문의</li>
@@ -296,4 +296,9 @@
     <!-- 회사 정보 영역 -->
     <%@ include file="/main/Bottom.jsp" %>
 </body>
+<script>
+    $('#noticebutton').on('click',function(){
+        window.location.href = '<%=request.getContextPath()%>/notice/noticenews.jsp';
+    });
+</script>
 </html>

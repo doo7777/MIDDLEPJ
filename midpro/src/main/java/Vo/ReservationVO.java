@@ -1,3 +1,4 @@
+
 package Vo;
 
 import java.util.Date;
@@ -13,9 +14,17 @@ public class ReservationVO {
 	private int reservation_num;
 	private String reservation_status;
 	private Date reservation_date;
+	private int reservation_price;
+	
 	
 	public int getReservation_id() {
 		return reservation_id;
+	}
+	public int getReservation_price() {
+		return reservation_price;
+	}
+	public void setReservation_price(int reservation_price) {
+		this.reservation_price = reservation_price;
 	}
 	public void setReservation_id(int reservation_id) {
 		this.reservation_id = reservation_id;
@@ -76,14 +85,15 @@ public class ReservationVO {
 	public void setReservation_date(Date reservation_date) {
 		this.reservation_date = reservation_date;
 	}
-
 	@Override
 	public String toString() {
-		return "Reservation_PaymentVO [reservation_id=" + reservation_id + ", customer_id=" + customer_id + ", seat_id="
+		return "ReservationVO [reservation_id=" + reservation_id + ", customer_id=" + customer_id + ", seat_id="
 				+ seat_id + ", schedule_id=" + schedule_id + ", movie_name=" + movie_name + ", screen_id=" + screen_id
 				+ ", theater_id=" + theater_id + ", reservation_num=" + reservation_num + ", reservation_status="
-				+ reservation_status + ", reservation_date=" + reservation_date + ", ticket_id=" + "]";
+				+ reservation_status + ", reservation_date=" + reservation_date + ", reservation_price="
+				+ reservation_price + "]";
 	}
+
 	
 	
 	

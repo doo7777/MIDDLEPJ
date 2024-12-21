@@ -135,19 +135,22 @@
         <!-- 콤보 아이템 목록 -->
         <div class="combo-grid">
             <div class="combo-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/콤보(완료)/라지콤보.jpg" alt="라지콤보" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/콤보(완료)/라지콤보.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>라지콤보</h3>
                 <p>팝콘(L)2+탄산음료(L)2</p>
                 <span class="price">16,000</span>
             </div>
             <div class="combo-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/콤보(완료)/더블콤보.jpg" alt="더블콤보" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/콤보(완료)/더블콤보.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>더블콤보</h3>
                 <p>팝콘(M)2+탄산(M)2</p>
                 <span class="price">14,000</span>
             </div>
             <div class="combo-item">
-                <img src="<%= request.getContextPath() %>/main/sorce/img/콤보(완료)/CGV콤보.jpg" alt="CGV콤보" />
+                <%request.setAttribute("imageSrc", request.getContextPath() + "/main/sorce/img/콤보(완료)/CGV콤보.jpg");%>
+				<%@ include file="/Store/StoreHover.jsp" %>
                 <h3>DGV콤보</h3>
                 <p>팝콘(L)1+탄산음료(M)2</p>
                 <span class="price">11,000</span>

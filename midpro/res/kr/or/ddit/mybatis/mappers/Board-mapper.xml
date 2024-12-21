@@ -67,4 +67,9 @@
         SELECT * FROM oneboard
     </select>
 
+    <!-- 공지사항 수정 -->
+    <update id="rlplyOneboard" parameterType="OneBoardVO">
+        update oneboard set response_board_content = '답변완료'
+    where oneonone_id= #{oneonone_id}
+    </update>
 </mapper>

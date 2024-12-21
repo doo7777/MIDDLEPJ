@@ -310,6 +310,7 @@
     <div class="item" id="scheduleContainer">
         <div id="screeninfo">
         <!-- 시간과 상영관 정보는 하단 스크립트 부분에서 구현... -->
+
         </div>
     </div>
 </div>

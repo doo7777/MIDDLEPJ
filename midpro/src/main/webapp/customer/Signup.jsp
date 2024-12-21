@@ -20,7 +20,7 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 display: flex;
                 justify-content: center; /* 수평 중앙 정렬 */
-    			align-items: center; /* 수직 중앙 정렬 */
+             align-items: center; /* 수직 중앙 정렬 */
             }
 
             
@@ -101,9 +101,15 @@
             #idChk:hover,
             #addrBtn:hover,
             #sign:hover,
+            
             #sucbutton:hover{
                 background: #af6204;
             }
+            #sucbutton.disabled {
+             background-color: #555;  /* 어두운 회색 */
+             cursor: not-allowed;
+             pointer-events: none; /* 버튼 클릭을 막음 */
+         }
             
             #id{
             display :inline-block;
@@ -117,6 +123,15 @@
         </style>
     </head>
 <body>
+<%
+//POST로 전달된 이메일과 이름을 가져옵니다.
+String email = request.getParameter("email");
+String name = request.getParameter("name");
+String phoneNumber = request.getParameter("phoneNumber");
+String birthyear = request.getParameter("birthyear");
+String birthday = request.getParameter("birthday");
+// String authCompleted = request.getParameter("authCompleted");
+%>
     <div id="container">
         <form onsubmit="goMain(event)">
         <label for="cust_id">아이디<span class="rq"> * <span id="disp"></span></span></label>
@@ -128,33 +143,35 @@
          </div>
          <label for="cust_pw1">비밀번호<span class="rq"> *<span id="pwchk1"></span></span></label>
          <input type="password" id="cust_pw1" name="cust_pw1" required placeholder="비밀번호를 입력하세요." 
-                pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+\|]).{8,}">
+       pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\+\|]).{8,}">
+
          
          <label for="cust_pw2">비밀번호 확인<span class="rq"> *<span id="pwchk2"></span></span></label>
          <input type="password" id="cust_pw2" name="cust_pw2" required placeholder="비밀번호를 입력하세요."
                 onkeyup="checkPasswordMatch()"> <!-- 비밀번호 확인 onkeyup 이벤트 -->
+                
             <label for="cust_name">이름<span class="rq"> *</span></label>
-            <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$">
+            <input type="text" id="cust_name" name="cust_name" required placeholder="이름을 입력하세요."   pattern="^[가-힣]+$" value="<%= name != null ? name : "" %>">
              <br>
             <button type=button id="sucbutton">본인 인증</button><span id="suc"></span>
 
           <label for="cust_bir">생년월일<span class="rq"> *</span></label>
-          <input type="date" class="form-control" id="bir" name="cust_bir" required>
+          <input type="text" class="form-control" id="bir" name="cust_bir" required value="<%= birthyear != null ? birthyear : "" %><%= birthday != null ? birthday : "" %>">
           
             <label for="cust_tel">전화번호<span class="rq"> *</span></label>  
-            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"><br>
+            <input type="tel" id="cust_tel" name="cust_tel" required placeholder="010-0000-0000" pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}" value="<%= phoneNumber != null ? phoneNumber : "" %>"><br>
 
             <label for="cust_email">이메일<span class="rq"> *</span></label>
-            <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}">
+            <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}" value="<%= email != null ? email : "" %>">
 
            
-            <label for="cust_post">주소<span class="rq"> *</span></label>
+            <label for="cust_post">주소</label>
                 <div class="tel-container">
                 <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호" readonly>
                 <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요." readonly>
                 <button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
                 </div>
-                <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
+                <label for="cust_detailAdd">상세주소</label>
                 <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
 
             <br>
@@ -171,6 +188,15 @@
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 <script>
+           // 카카오 인증일때 받아서 본인인증칸 누르지 못하는 함수
+            var authCompleted = "<%= request.getParameter("authCompleted") != null ? request.getParameter("authCompleted") : "false" %>";
+
+            if (authCompleted === "true") {
+                // 본인 인증 버튼을 어두운 색으로 변경하고 클릭할 수 없게 만듬
+                $('#sucbutton').addClass('disabled');
+                $('#suc').text("카카오 인증 완료!").css('color', 'green');
+            }
+            
 function goMain(e) { //회원가입 버튼을 눌렀을때 작동되는 코드들
     e.preventDefault();
     
@@ -178,8 +204,9 @@ function goMain(e) { //회원가입 버튼을 눌렀을때 작동되는 코드�
     const pw1 = $('#cust_pw1').val();
     const pw2 = $('#cust_pw2').val();
    const name = $('#cust_name').val();
-
-    if (id === '' || pw1 === '' || pw2 === '' || name === '') {
+  const mail = $('#cust_email').val();
+  
+    if (id === '' || pw1 === '' || pw2 === '' || name === '' || mail ==='') {
         alert('모든 필드를 채워주세요.');
         return; // 조건이 만족되지 않으면 진행하지 않음
     }
@@ -234,12 +261,12 @@ $(document).ready(function() {
     }
 });
 
-function checkPasswordMatch() { //비밀번호가 비밀번호 확인과 맞는지 실시간 체크 함수
+function checkPasswordMatch() {
     const pw1 = $('#cust_pw1').val();
     const pw2 = $('#cust_pw2').val();
-    
-    // 비밀번호 형식이 올바르지 않으면 경고 메시지를 출력
-    if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+\|]).{8,}/.test(pw1)) {
+
+    // 비밀번호 형식 체크
+    if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\+\|]).{8,}/.test(pw1)) {
         $('#pwchk1').text("비밀번호 형식이 올바르지 않습니다. (대문자, 소문자, 숫자, 특수문자 포함 8자 이상)").css('color', 'red');
     } else {
         $('#pwchk1').text(""); // 형식이 올바르면 메시지 삭제
@@ -282,8 +309,8 @@ function addr() {
 //id중복검사
 $('#idChk').on('click',function(){
     if( $('#cust_id').val() == ''){
-    	 $('#disp').text("사용 불가").css('color', 'red');
-    	alert('ID는 필수 입력 요소입니다');
+        $('#disp').text("사용 불가").css('color', 'red');
+       alert('ID는 필수 입력 요소입니다');
     }else{
     //id영역의 입력 값 얻기
     const idVal = $('#cust_id').val();
@@ -324,39 +351,39 @@ $('#sucbutton').on('click', function() {
 });
 
 async function requestIdentityVerification() {
-   //개발자센터-원페이먼트인프라-부가기능-본인인증 연동하기-통합인증 연동하기 코드 활용		
-		IMP.init("imp53145045");
-		IMP.certification(
-			  {
-			    // param
-			    channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
-			  },
-			  function (rsp) {
-			    // callback
-			    if (rsp.success) {
-			    	//인증 성공 시 로직
-			    	$.ajax({
-			            url: "<%=request.getContextPath() %>/Cuscheck.do",
-			            method: "POST",
-// 			            headers: { "Content-Type": "application/json" },
-			            data: JSON.stringify({ imp_uid: rsp.imp_uid }),
-			            success:function(data){
- 			            	$('#bir').val(data.birth);
-							$('#cust_tel').val(data.phone);
-			            	if(data.name == $('#cust_name').val()) alert("본인 인증 완료");
-			            	else alert("미인증");
-			            },
-			            error:function(xhr){
-			            	alert(xhr.status);
-			            }
-			            ,dataType: 'json'
-			          });
-			    } else {
-			    	// 인증 실패 시 로직
-		    		alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
-			    }
-			  },
-			);
+   //개발자센터-원페이먼트인프라-부가기능-본인인증 연동하기-통합인증 연동하기 코드 활용      
+      IMP.init("imp53145045");
+      IMP.certification(
+           {
+             // param
+             channelKey: "channel-key-a66412a6-d0c1-436b-a5f0-0dfa0cedf2cd",
+           },
+           function (rsp) {
+             // callback
+             if (rsp.success) {
+                //인증 성공 시 로직
+                $.ajax({
+                     url: "<%=request.getContextPath() %>/Cuscheck.do",
+                     method: "POST",
+//                      headers: { "Content-Type": "application/json" },
+                     data: JSON.stringify({ imp_uid: rsp.imp_uid }),
+                     success:function(data){
+                         $('#bir').val(data.birth);
+                     $('#cust_tel').val(data.phone);
+                        if(data.name == $('#cust_name').val()) alert("본인 인증 완료");
+                        else alert("미인증");
+                     },
+                     error:function(xhr){
+                        alert(xhr.status);
+                     }
+                     ,dataType: 'json'
+                   });
+             } else {
+                // 인증 실패 시 로직
+                alert("인증에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+             }
+           },
+         );
 };
 </script>
 </html>

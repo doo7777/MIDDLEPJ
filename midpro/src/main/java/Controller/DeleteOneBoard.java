@@ -25,7 +25,7 @@ public class DeleteOneBoard extends HttpServlet {
 		String oneonone_id = request.getParameter("oneonone_id");
 		
 		//여러 문의 삭제
-		String[] oneonone_ids = request.getParameterValues("oneonone_id");
+		String[] oneonone_ids = request.getParameterValues("oneonone_ids");
 		
 		int result =0;
 		
@@ -42,7 +42,7 @@ public class DeleteOneBoard extends HttpServlet {
 		}
 		
 		if(result >0) {
-			response.sendRedirect(request.getContextPath() + "/oneBoard/OneBoardMain.jsp");
+			response.sendRedirect(request.getContextPath() + "/oneBoardList.do");
 		}
 		
 		

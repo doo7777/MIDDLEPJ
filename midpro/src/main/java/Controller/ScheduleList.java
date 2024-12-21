@@ -42,6 +42,7 @@ public class ScheduleList extends HttpServlet {
         scheduleVO.setScreen_name(selectedScreenName); 								// 추가한 부분
         scheduleVO.setScreen_type(selectedScreenType); 								// 추가한 부분
         
+
         
         // 모든 상세 일정 가져오기
         List<ScheduleVO> scdList = service.getAllDetail();
@@ -61,6 +62,7 @@ public class ScheduleList extends HttpServlet {
         
         request.setAttribute("scd", scdList);
         // request.setAttribute("scdList2", scdList2); // 선택된 영화의 일정도 JSP에 전달합니다.
+
         request.getRequestDispatcher("/schedule/ScheduleList.jsp").forward(request, response);
     }
 
@@ -76,6 +78,7 @@ public class ScheduleList extends HttpServlet {
         
         String selectedScreenName = request.getParameter("selectedScrName");		// 추가한 부분
         String selectedScreenType = request.getParameter("selectedScrType");		// 추가한 부분
+
         
         selectedDate = selectedDate.replaceAll("-", ".");
 
@@ -97,6 +100,7 @@ public class ScheduleList extends HttpServlet {
         
 
         // 리스트 정보 json으로 변환해서 보내기
+
         Gson gson = new Gson();
         String json = gson.toJson(scdList2);
         response.getWriter().print(json);

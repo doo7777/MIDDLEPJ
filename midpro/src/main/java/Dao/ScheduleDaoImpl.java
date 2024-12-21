@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import DaoInterface.IScheduleDao;
 import Util.MybatisUtil;
+import Vo.NoticeVO;
 import Vo.ScheduleVO;
 
 public class ScheduleDaoImpl implements IScheduleDao{
@@ -91,6 +92,31 @@ public class ScheduleDaoImpl implements IScheduleDao{
         return scdListByMovie;
     }
    
+	
+
+	
+	
+	
+	@Override
+	public List<ScheduleVO> getAllSchedule() {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		List<ScheduleVO>scheduleList =null;
+		
+		try {
+			scheduleList = session.selectList("Schedule.getAllSchedule");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session!=null) session.close();
+		}
+		
+		return scheduleList;
+	}
+	
+	
+
+	
 
 
 }

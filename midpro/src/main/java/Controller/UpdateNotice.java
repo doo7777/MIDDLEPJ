@@ -38,7 +38,7 @@ public class UpdateNotice extends HttpServlet {
 		
 		if(success) {
 			// 성공 시 목록 페이지로 
-			 response.sendRedirect(request.getContextPath() + "/notice/NoticeList.jsp"); 
+			 response.sendRedirect(request.getContextPath() + "/noticeList.do"); 
 		} else {
 			request.setAttribute("error", "수정실패");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);

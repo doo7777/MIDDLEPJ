@@ -24,8 +24,8 @@
     
     
     <update id="updateReserve" parameterType="reservationVO">
-   UPDATE RESERVATION
-      SET seat_id = #{seat_id},
+	UPDATE RESERVATION
+		SET seat_id = #{seat_id},
     reservation_price = (
         SELECT seat_price
         FROM SEAT
@@ -33,6 +33,3 @@
     ) 
     </update>
     </mapper>
-    
-
-

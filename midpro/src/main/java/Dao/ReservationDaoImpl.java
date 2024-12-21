@@ -45,7 +45,7 @@ public class ReservationDaoImpl implements IReservationDao{
 		return cnt;
 	}
 	
-	
+	//무비 정보 조회
 	public List<MovieVO> getAllMovie(){
 	   SqlSession session = MybatisUtil.getSqlSession();
 	   List<MovieVO> movieList = null;
@@ -112,10 +112,28 @@ public class ReservationDaoImpl implements IReservationDao{
 	   
 	   return screenList;
    }
-	
-	
-	
 
+@Override
+public int updateReserve(ReservationVO reservationVO) {
+	
+	SqlSession session = MybatisUtil.getSqlSession();
+	
+	int cnt =0;
+	
+	try {
+		cnt = session.update("Reservation.updateReserve",reservationVO);
+		if(cnt>0) session.commit();
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		if(session != null) session.close();
+	}
+	return cnt;
+}
+	
 
 
 }
+
+
+

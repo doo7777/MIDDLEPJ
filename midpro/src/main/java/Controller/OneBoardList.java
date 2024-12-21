@@ -27,7 +27,7 @@ public class OneBoardList extends HttpServlet {
 	      
 	      
 	      request.setAttribute("OneBoardList", OneBoardList);
-	      request.getRequestDispatcher("/oneBoard/OneBoardMain.jsp").forward(request, response);
+	      request.getRequestDispatcher("/notice/oneBoard/OneBoardMain.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

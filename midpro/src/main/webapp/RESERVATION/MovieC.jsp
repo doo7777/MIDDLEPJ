@@ -21,9 +21,9 @@
     <title>영화 예약 시스템</title>
 </head>
 <body>
-   <%@ include file="/main/Top.jsp" %>
+	<%@ include file="/main/Top.jsp" %>
     <h1>영화 예약 시스템</h1>
-   
+	
    <form action="<%= request.getContextPath() %>/reservation.do" method="post">
    
         <!-- 고객 ID -->
