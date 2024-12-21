@@ -29,7 +29,7 @@
             margin: 0;
             width: 100%;
             overflow-x: hidden;
-            background: gold;
+            background: black;
         }
 
         div {
@@ -129,6 +129,15 @@
 		}
 		#price{
 			margin-left: 260px;
+		}
+		table {
+			margin-left: 20px;
+			color: white;
+			font-size: 20px;
+		}
+		td {
+			padding: 15px 50px;
+			font-size: 25px;
 		}
     </style>
 </head>
@@ -235,13 +244,12 @@
 
             if (!filteredScd.isEmpty()) {
     %>
-    <table>
+    <table table style="border-collapse: separate; border-spacing: 20px;">
         <thead>
             <tr>
-                <th>영화 제목</th>
-                <th>상영 시간</th>
-                <th>상영관 이름</th>
-                <th>상영 타입</th>
+                <th>영화</th>
+                <th>상영시간</th>
+                <th>상영관</th>
             </tr>
         </thead>
         <tbody>
@@ -251,8 +259,7 @@
                 <tr>
                     <td><%= schedule.getMovie_name() %></td>
                     <td><%= schedule.getStart_time() %></td>
-                    <td><%= schedule.getScreen_name() %></td>
-                    <td><%= schedule.getScreen_type() %></td>
+                    <td><%= schedule.getScreen_name() %> <%= schedule.getScreen_type() %></td>
                 </tr>
             <%
                 }
