@@ -6,15 +6,16 @@
 <%@page import="java.util.LinkedHashMap"%>
 <%@page import="java.util.Comparator"%>
 <%@page import="Vo.CustomerVO"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- 문자 인코딩을 UTF-8로 설정  -->
+    <meta charset="UTF-8"> <!-- ë¬¸ì ì¸ì½ë©ì UTF-8ë¡ ì¤ì   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>DGV</title> <!-- 문서 제목 -->
+    <title>DGV</title> <!-- ë¬¸ì ì ëª© -->
     <style>
-        /* 전체 화면 사이즈 */
+        /* ì ì²´ íë©´ ì¬ì´ì¦ */
         #main {
             position: relative;
             left: 2px;
@@ -29,7 +30,7 @@
         }
 
         div {
-            border: 2px solid black; /* 모든 div 요소에 검은색 테두리 추가 */
+            border: 2px solid black; /* ëª¨ë  div ììì ê²ìì íëë¦¬ ì¶ê° */
         }
 
         #TheaterMain {
@@ -38,14 +39,14 @@
             width: 1360px;
             height: 400px;
             background-color: rgb(52, 52, 52);
-            display: flex; /* Flexbox 사용 */
-            justify-content: center; /* 가로 방향 가운데 정렬 */
-            align-items: center; /* 세로 방향 가운데 정렬 */
+            display: flex; /* Flexbox ì¬ì© */
+            justify-content: center; /* ê°ë¡ ë°©í¥ ê°ì´ë° ì ë ¬ */
+            align-items: center; /* ì¸ë¡ ë°©í¥ ê°ì´ë° ì ë ¬ */
         }
 
         .spot {
-            display: flex; /* Flexbox 사용 */
-            align-items: center; /* 가로 방향 가운데 정렬 */
+            display: flex; /* Flexbox ì¬ì© */
+            align-items: center; /* ê°ë¡ ë°©í¥ ê°ì´ë° ì ë ¬ */
             width: 1280px;
             height: 330px;
             border-radius: 20px;
@@ -56,19 +57,19 @@
         .region {
             margin: 20px;
             border: none;
-            display: flex; /* Flexbox 사용 */
-            flex-direction: column; /* 세로 방향으로 정렬 */
-            align-items: center; /* 가로 방향 가운데 정렬 */
+            display: flex; /* Flexbox ì¬ì© */
+            flex-direction: column; /* ì¸ë¡ ë°©í¥ì¼ë¡ ì ë ¬ */
+            align-items: center; /* ê°ë¡ ë°©í¥ ê°ì´ë° ì ë ¬ */
         }
 
         button {
-            background: none; /* 배경 제거 */
-            border: none; /* 테두리 제거 */
-            color: inherit; /* 부모 요소의 글꼴 색상 상속 */
-            padding: 0; /* 패딩 제거 */
-            font: inherit; /* 부모 요소의 글꼴 스타일 상속 */
-            cursor: pointer; /* 커서 모양 변경 */
-            margin: 5px 0; /* 버튼 간의 간격 */
+            background: none; /* ë°°ê²½ ì ê±° */
+            border: none; /* íëë¦¬ ì ê±° */
+            color: inherit; /* ë¶ëª¨ ììì ê¸ê¼´ ìì ìì */
+            padding: 0; /* í¨ë© ì ê±° */
+            font: inherit; /* ë¶ëª¨ ììì ê¸ê¼´ ì¤íì¼ ìì */
+            cursor: pointer; /* ì»¤ì ëª¨ì ë³ê²½ */
+            margin: 5px 0; /* ë²í¼ ê°ì ê°ê²© */
         }
     </style>
 </head>
@@ -77,31 +78,31 @@
     <div>
         <%@ include file="/main/Top.jsp" %>
     </div>
-    <h2 class="movie">영화관 정보</h2>
+    <h2 class="movie">ìíê´ ì ë³´</h2>
     <br><br>
     <div id="TheaterMain">
         <div class="spot">
             <% 
                 List<TheaterVO> thea = (List<TheaterVO>) request.getAttribute("thea");
                 if (thea != null) {
-                    // theater_id 기준으로 정렬
+                    // theater_id ê¸°ì¤ì¼ë¡ ì ë ¬
                     thea.sort(Comparator.comparing(TheaterVO::getTheater_id));
 
-                    // 지역별 영화관을 저장할 맵 생성
+                    // ì§ì­ë³ ìíê´ì ì ì¥í  ë§µ ìì±
                     Map<String, List<TheaterVO>> regionMap = new LinkedHashMap<>();
                     for (TheaterVO tList : thea) {
-                        String region = tList.getTheater_do(); // 지역 정보
+                        String region = tList.getTheater_do(); // ì§ì­ ì ë³´
                         if (!regionMap.containsKey(region)) {
-                            regionMap.put(region, new ArrayList<>()); // 지역이 없으면 새 리스트 생성
+                            regionMap.put(region, new ArrayList<>()); // ì§ì­ì´ ìì¼ë©´ ì ë¦¬ì¤í¸ ìì±
                         }
-                        regionMap.get(region).add(tList); // 해당 지역 리스트에 추가
+                        regionMap.get(region).add(tList); // í´ë¹ ì§ì­ ë¦¬ì¤í¸ì ì¶ê°
                     }
 
-                    // 지역별로 버튼 생성
+                    // ì§ì­ë³ë¡ ë²í¼ ìì±
                     for (String region : regionMap.keySet()) {
             %>
             <div class="region">
-                <h3><%= region %></h3> <!-- 지역 이름 표시 -->
+                <h3><%= region %></h3> <!-- ì§ì­ ì´ë¦ íì -->
                 <% 
                     for (TheaterVO tList : regionMap.get(region)) {
                 %>
@@ -116,7 +117,7 @@
                     }
                 } else {
             %>
-            <div>등록된 영화관 정보가 없습니다.</div>
+            <div>ë±ë¡ë ìíê´ ì ë³´ê° ììµëë¤.</div>
             <% 
                 }
             %>  
@@ -126,15 +127,15 @@
 </body>
 
 <script>
-    // 무비차트, 상영예정작, 무비추천 클릭 시 애니메이션 적용
+    // ë¬´ë¹ì°¨í¸, ìììì ì, ë¬´ë¹ì¶ì² í´ë¦­ ì ì ëë©ì´ì ì ì©
     document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('.header');
         const charts = document.querySelectorAll('.chart');
-        const movieListButton = document.getElementById('movie-list'); // ID로 버튼 선택
+        const movieListButton = document.getElementById('movie-list'); // IDë¡ ë²í¼ ì í
 
         if (header) {
             header.addEventListener('click', function(event) {
-                // 클릭된 요소가 '더 많은 영화보기' 버튼이 아닐 때만 애니메이션 적용
+                // í´ë¦­ë ììê° 'ë ë§ì ìíë³´ê¸°' ë²í¼ì´ ìë ëë§ ì ëë©ì´ì ì ì©
                 if (event.target.closest('.menu-button')) {
                     charts.forEach((chart) => {
                         chart.classList.remove('show');
@@ -169,35 +170,35 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> 요소 선택
-        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source 요소를 가져옴
+        const videoPlayerElement = document.querySelector('#movie_play video'); // <video> ìì ì í
+        const sourcesElement = videoPlayerElement.getElementsByTagName('source'); // source ììë¥¼ ê°ì ¸ì´
 
         function movie_play() {
-            const randomNum = Math.floor(Math.random() * sourcesElement.length); // 소스의 개수에 따라 난수 생성
-            return randomNum; // 난수를 반환
+            const randomNum = Math.floor(Math.random() * sourcesElement.length); // ìì¤ì ê°ìì ë°ë¼ ëì ìì±
+            return randomNum; // ëìë¥¼ ë°í
         }
 
         function loadRandomVideo() {
-            const randomNum = movie_play(); // 난수 생성
+            const randomNum = movie_play(); // ëì ìì±
 
-            // 모든 소스의 src를 초기화
+            // ëª¨ë  ìì¤ì srcë¥¼ ì´ê¸°í
             for (let i = 0; i < sourcesElement.length; i++) {
-                sourcesElement[i].src = `sorce/영상 소스파일${i + 1}.mp4`; // 파일 경로 수정
+                sourcesElement[i].src = `sorce/ìì ìì¤íì¼${i + 1}.mp4`; // íì¼ ê²½ë¡ ìì 
             }
 
-            // 선택된 소스의 src를 설정
+            // ì íë ìì¤ì srcë¥¼ ì¤ì 
             videoPlayerElement.src = sourcesElement[randomNum].src;
 
-            // videoPlayer가 비디오 요소인지 확인
+            // videoPlayerê° ë¹ëì¤ ììì¸ì§ íì¸
             if (videoPlayerElement instanceof HTMLVideoElement) {
-                videoPlayerElement.load(); // 비디오 소스 변경 후 비디오 로드
-                videoPlayerElement.play(); // 비디오 자동 재생
+                videoPlayerElement.load(); // ë¹ëì¤ ìì¤ ë³ê²½ í ë¹ëì¤ ë¡ë
+                videoPlayerElement.play(); // ë¹ëì¤ ìë ì¬ì
             } else {
                 console.error('videoPlayer is not a valid video element');
             }
         }
 
-        loadRandomVideo(); // 랜덤 비디오 로드 함수 호출
+        loadRandomVideo(); // ëë¤ ë¹ëì¤ ë¡ë í¨ì í¸ì¶
     });
 </script>
 </html>

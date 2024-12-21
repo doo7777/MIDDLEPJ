@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="RPayment">
 
@@ -15,5 +15,5 @@ RPAYMENT_SEQ.NEXTVAL, #{payment_id},#{reservation_id},SYSDATE,#{payment_method},
 <select id ="getAllRPayment" resultType="rpaymentVO">
 select * from RPAYMENT
 </select>
-	
+   
 </mapper>

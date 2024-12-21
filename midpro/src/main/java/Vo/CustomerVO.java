@@ -12,6 +12,8 @@ public class CustomerVO {
 	private String cust_detailadd;
 	private String cust_grade;
 	private String cust_delete;
+	private String cust_bir;
+	private int cust_point;
 	private int adminrole;
 	
 	public String getCustomer_id() {
@@ -80,12 +82,26 @@ public class CustomerVO {
 	public void setRole(int role) {
 		this.adminrole = role;
 	}
+	
+	public String getCust_bir() {
+		return cust_bir;
+	}
+	public void setCust_bir(String cust_bir) {
+		this.cust_bir = cust_bir;
+	}
+	public int getCust_point() {
+		return cust_point;
+	}
+	public void setCust_point(int cust_point) {
+		this.cust_point = cust_point;
+	}
 	@Override
 	public String toString() {
 		return "CustomerVO [customer_id=" + customer_id + ", cust_pw=" + cust_pw + ", cust_name=" + cust_name
 				+ ", cust_email=" + cust_email + ", cust_tel=" + cust_tel + ", cust_postcode=" + cust_postcode
 				+ ", cust_add=" + cust_add + ", cust_detailadd=" + cust_detailadd + ", cust_grade=" + cust_grade
-				+ ", cust_delete=" + cust_delete + ", adminrole=" + adminrole + "]";
+				+ ", cust_delete=" + cust_delete + ", cust_bir=" + cust_bir + ", cust_point=" + cust_point
+				+ ", adminrole=" + adminrole + "]";
 	}
 	
 	

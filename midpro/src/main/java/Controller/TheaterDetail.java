@@ -6,9 +6,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
+import Service.ScheduleServiceImpl;
 import Service.TheaterServiceImpl;
+import ServiceInterface.IScheduleService;
 import ServiceInterface.ITheaterService;
+import Vo.ScheduleVO;
 import Vo.TheaterVO;
 
 
@@ -25,7 +29,14 @@ public class TheaterDetail extends HttpServlet {
 		ITheaterService service = TheaterServiceImpl.getInstance();
 		TheaterVO thVo = service.getTheater(thName);
 		
+		
+		IScheduleService scheduleService = ScheduleServiceImpl.getInstance(); // 추가		
+		List<ScheduleVO> scheduleList = scheduleService.getScheduleThName(thVo.getTheater_name()); // 추가
+		
+		
+		
 		request.setAttribute("theaterVo", thVo);
+		request.setAttribute("scd", scheduleList);  // 추가
 		
 		request.getRequestDispatcher("/theater/TheaterDetail.jsp").forward(request, response);
 		

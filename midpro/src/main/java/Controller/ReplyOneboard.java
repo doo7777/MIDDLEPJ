@@ -9,40 +9,33 @@ import java.io.IOException;
 
 import Service.OneBoardServiceImpl;
 import ServiceInterface.IOneBoardService;
+import Vo.OneBoardVO;
 
-@WebServlet("/deleteOneBoard.do")
-public class DeleteOneBoard extends HttpServlet {
+@WebServlet("/replyOneboard.do")
+public class ReplyOneboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		IOneBoardService service = OneBoardServiceImpl.getInstance();
 		
-		//단일 문의 삭제
 		String oneonone_id = request.getParameter("oneonone_id");
+		String res_board = request.getParameter("res_board");
+		String response_board_content = request.getParameter("response_board_content");
 		
-		//여러 문의 삭제
-		String[] oneonone_ids = request.getParameterValues("oneonone_ids");
+		OneBoardVO boardVO = new OneBoardVO();
+		boardVO.setOneonone_id(oneonone_id);
+		boardVO.setRes_board(res_board);
+		boardVO.setResponse_board_content(response_board_content);
 		
-		int result =0;
+		int result = service.rlplyOneboard(boardVO);
 		
-		//여러삭제 처리
-		if(oneonone_ids !=null && oneonone_ids.length >0) {
-			for(String oneboard : oneonone_ids) {
-				result += service.deleteBoard(oneboard);
-			}
-		}
-		
-		//단일삭제 처리
-		if(oneonone_id != null) {
-			result += service.deleteBoard(oneonone_id);
-		}
-		
-		if(result >0) {
+		if(result>0) {
 			response.sendRedirect(request.getContextPath() + "/oneBoardList.do");
+		} else {
+			
 		}
 		
 		

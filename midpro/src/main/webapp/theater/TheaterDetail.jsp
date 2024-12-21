@@ -1,8 +1,15 @@
+<%@page import="java.util.Collections"%>
 <%@page import="Vo.ScheduleVO"%>
 <%@page import="java.util.List"%>
 <%@page import="Vo.TheaterVO"%>
 <%@page import="Vo.CustomerVO"%>
-
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,7 +29,7 @@
             margin: 0;
             width: 100%;
             overflow-x: hidden;
-            background: black;
+            background: gold;
         }
 
         div {
@@ -80,12 +87,27 @@
             border: 2px solid gray;
             flex-direction: column; /* 세로 방향으로 정렬 */
         }
+        
+        #schedule {
+            margin-left: 260px;
+            width: 1360px;
+/*             height: 250px; */
+            background-color: transparent; /* 'non'은 유효한 색상이 아닙니다. 'transparent'로 수정 */
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 세로 방향 가운데 정렬 */
+            align-items: flex-start; /* 가로 방향 왼쪽 정렬 */
+            position: relative;
+            border-radius: 20px;
+            border: 2px solid gray;
+            flex-direction: column; /* 세로 방향으로 정렬 */
+            padding: 20px;
+        }
 
 		.transport-item {
 		    display: flex; /* Flexbox 사용 */
 		    align-items: center; /* 세로 방향 가운데 정렬 */
-		    margin-top: 10px;
-		    margin-bottom: 10px;
+		    margin-top: 20px;
+		    margin-bottom: 20px;
 		}
 		
 		.bus, .subway {
@@ -99,7 +121,7 @@
 		
 		.transport-text {
 		    color: white; /* 텍스트 색상 */
-		    font-size: 18px; /* 텍스트 크기 조정 */
+		    font-size: 23px; /* 텍스트 크기 조정 */
 		}
 		#map{
 		    margin-left: 260px;
@@ -127,6 +149,7 @@
         String tsub = vo.getTheater_sub();
         String tspot1 = vo.getTheater_spot1();
         String tspot2 = vo.getTheater_spot2();
+          
     %>
 
     
@@ -150,37 +173,118 @@
     <br>
     <br>
 
-	<h3 class="name">대중교통</h3>
-	<div id="transportation">
-	    <div class="transport-item">
+	<h3 class="name">DGV <%=tnm %> 오시는 길</h3>
+	<div id="transportation" style="display: flex; align-items: flex-start; flex-wrap: wrap;
+	 padding: 0 10px; height: 500px;">
+	    <div class="transport-item" style="margin-right: 20px;">
 	        <div class="bus" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/bus.png');"></div>
 	        <span class="transport-text">버스<br>
 	        <ul>
-			  <li> <%=tbus %> </li>
-			</ul>
+	            <li> <%= tbus %> </li>
+	        </ul>
 	        </span>
 	    </div>
-	    <div class="transport-item">
+	    <div class="transport-item" style="margin-right: 20px;">
 	        <div class="subway" style="background-image: url('${pageContext.request.contextPath}/theater/아이콘 이미지/subway.png');"></div>
 	        <span class="transport-text">지하철<br>
 	        <ul>
-			  <li> <%=tsub %> </li>
-			</ul>	        
+	            <li> <%= tsub %> </li>
+	        </ul>
 	        </span>
 	    </div>
+	    <!-- 지도 api 영역 -->
+	    <div id="map" style="width: 500px; height: 400px;"></div>
 	</div>
-	    
-    
-
-    <!-- 지도 api 영역 -->
-    <div id="map" style="width:500px;height:400px;"></div>
-    <!-- 실제 지도를 그리는 Javascript API -->
     <br>
-<!--     <input type="button" id="timeBtn" value="상영시간표"> -->
-    <button id="price" onclick="openRateTable()">요금표 보기</button>
+    
+    
+    
+<!-- 상영시간표영역 --> 
+<h3 class="name">DGV <%=tnm %> 오늘의 영화</h3>
+<div id="schedule">
+    <%
+        List<ScheduleVO> scd = (List<ScheduleVO>)request.getAttribute("scd");
+        if (scd != null && !scd.isEmpty()) {
+            // 오늘 날짜 구하기 (yyyy.mm.dd 형식으로)
+            Calendar today = Calendar.getInstance();
+            String todayDate = String.format("%04d.%02d.%02d", 
+                today.get(Calendar.YEAR), 
+                today.get(Calendar.MONTH) + 1, 
+                today.get(Calendar.DAY_OF_MONTH));
+
+            // 오늘 날짜로 필터링
+            List<ScheduleVO> filteredScd = new ArrayList<>();
+            for (ScheduleVO schedule : scd) {
+                String scheduleDate = schedule.getSchedule_date();
+                
+                // 디버깅: 날짜 출력
+                System.out.println("오늘 날짜: " + todayDate + ", 스케줄 날짜: " + scheduleDate);
+                
+                if (scheduleDate.equals(todayDate)) {
+                    filteredScd.add(schedule);
+                }
+            }
+
+            // 상영 시간으로 정렬
+            Collections.sort(filteredScd, new Comparator<ScheduleVO>() {
+                @Override
+                public int compare(ScheduleVO s1, ScheduleVO s2) {
+                    return s1.getStart_time().compareTo(s2.getStart_time());
+                }
+            });
+
+            if (!filteredScd.isEmpty()) {
+    %>
+    <table>
+        <thead>
+            <tr>
+                <th>영화 제목</th>
+                <th>상영 시간</th>
+                <th>상영관 이름</th>
+                <th>상영 타입</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                for (ScheduleVO schedule : filteredScd) {
+            %>
+                <tr>
+                    <td><%= schedule.getMovie_name() %></td>
+                    <td><%= schedule.getStart_time() %></td>
+                    <td><%= schedule.getScreen_name() %></td>
+                    <td><%= schedule.getScreen_type() %></td>
+                </tr>
+            <%
+                }
+            %>
+        </tbody>
+    </table>
+    <%
+            } else {
+    %>
+        <p>오늘 상영 시간이 없습니다.</p>
+    <%
+            }
+        } else {
+    %>
+        <p>상영 시간이 없습니다.</p>
+    <%
+        }
+    %>
+</div>
+    <br>
+    
+        
+    <!-- 요금표 버튼 -->
+    <button id="price" onclick="openRateTable()">요금표 보기</button>    
+    <br>
     
 	<%@ include file="/main/Bottom.jsp" %>
 	
+	
+	
+	
+    <!-- 실제 지도를 그리는 Javascript API -->
     <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=b988732ec0d52355546afa135081f218"></script>
     <script>
         var container = document.getElementById('map'); // 지도를 표시할 영역(div)
@@ -205,6 +309,9 @@
         var zoomControl = new kakao.maps.ZoomControl(); // 확대축소 제어할 줌 컨트롤 생성
         map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT); // 지도에 줌컨트롤 추가, 표시 위치 설정
 
+        
+        
+        
         function openRateTable() {
             // 새 창을 열고 요금표 HTML을 작성
             var newWindow = window.open("", "요금표", "width=400,height=300");

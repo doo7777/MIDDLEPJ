@@ -165,13 +165,13 @@ String birthday = request.getParameter("birthday");
             <input type="email" id="cust_email" name="cust_email" required placeholder="이메일을 입력하세요." pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}" value="<%= email != null ? email : "" %>">
 
            
-            <label for="cust_post">주소<span class="rq"> *</span></label>
+            <label for="cust_post">주소</label>
                 <div class="tel-container">
                 <input type="text" id="cust_post" name="cust_post" required placeholder="우편번호" readonly>
                 <input type="text" id="cust_add" name="cust_add" required placeholder="주소를 입력하세요." readonly>
                 <button type="button" id="addrBtn" class="btn btn-info btn-sm">주소검색</button>
                 </div>
-                <label for="cust_detailAdd">상세주소<span class="rq"> *</span></label>
+                <label for="cust_detailAdd">상세주소</label>
                 <input type="text" id="cust_detailAdd" name="cust_detailAdd" required placeholder="상세주소를 입력하세요.">
 
             <br>

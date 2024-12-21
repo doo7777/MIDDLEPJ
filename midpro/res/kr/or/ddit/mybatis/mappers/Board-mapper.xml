@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Board">
     <!-- 공지사항 추가 -->
@@ -67,4 +67,12 @@
         SELECT * FROM oneboard
     </select>
 
+    <!-- 공지사항 수정 -->
+    <update id="rlplyOneboard" parameterType="OneBoardVO">
+    
+       update oneboard set res_board = #{res_board},
+                    response_board_content ='답변완료'
+    where oneonone_id= #{oneonone_id}
+    
+    </update>
 </mapper>

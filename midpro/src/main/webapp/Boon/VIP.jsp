@@ -184,12 +184,16 @@
                     <em><%=result.getCust_grade() %></em>
                 </div>
                 <div class="vip-progress">
-                    <p><span><%=result.getCust_name() %></span> 님은 <em><%=result.getCust_grade() %></em>입니다.</p>
+                 <% if(result==null){ %>
+			       <h3>로그인 후 이용해주세요</h3>
+				        <% } else { %>
+                   <p><span><%=result.getCust_name() %></span> 님은 <em><%=result.getCust_grade() %></em>입니다.</p>
                     <div class="progress-container">
                         <div class="progress-bar"></div>
                     </div>
                     <p class="progress-text">
                         <span>0점</span> / <span>1,000점</span>
+			        	 <% } %>
                     </p>
                 </div>
             </div>

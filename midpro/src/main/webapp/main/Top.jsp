@@ -301,7 +301,8 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
 <body>
     <div id="main"> <!-- 메인 컨테이너 -->
         <div id="top"> <!-- 상단 영역 -->
-           <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="moviec">
+        
+        	<img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고.png" alt="로고" id="moviec">
             <img src="<%= request.getContextPath() %>/main/sorce/img/DGV-로고(최종).png" alt="로고" class="logo">
             <span class="DGV">D a e d u c k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G r a n d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V i s i o n</span>
 
@@ -394,10 +395,12 @@ List<ScreenVO> screenList = screenDao.getAllScreen(); //상영관 전체 조회
             </ul>
         </div>
         <div class="search-container">
-            <input type="text" id="search" placeholder="검색어 입력">
-            <button type="button" id="searchButton">
+        <form action="<%=request.getContextPath()%>/searchMovie.do" method="get">
+            <input type="text" id="search" name="query" placeholder="검색어 입력">
+            <button type="submit" id="searchButton">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            </form>
         </div>
         <hr>
     </div>

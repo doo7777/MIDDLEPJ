@@ -26,6 +26,13 @@
         a:hover {
             text-decoration: underline;
         }
+        .detail-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
     </style>
     <script>
         function confirmDelete() {
@@ -34,7 +41,7 @@
     </script>
 </head>
 <body>
-    <h1>1:1 문의 게시판</h1>
+    <h1 style="text-align: center;">1:1 문의 게시판</h1>
 
     <!-- 여러 게시물 삭제 폼 -->
     <form action="<%= request.getContextPath() %>/deleteOneBoard.do" method="post" onsubmit="return confirmDelete();">
@@ -48,21 +55,32 @@
                     <th>문의 유형</th>
                     <th>제목</th>
                     <th>작성 날짜</th>
+                    <th>상태</th>
                     <th>삭제</th>
                 </tr>
             </thead>
             <tbody>
                 <%
                     List<OneBoardVO> boardList = (List<OneBoardVO>) request.getAttribute("OneBoardList");
+                    String selectedBoardId = request.getParameter("oneonone_id");
+                    OneBoardVO selectedBoard = null;
+
+                    if (selectedBoardId != null && boardList != null) {
+                        for (OneBoardVO board : boardList) {
+                            if (selectedBoardId.equals(String.valueOf(board.getOneonone_id()))) {
+                                selectedBoard = board;
+                                break;
+                            }
+                        }
+                    }
+
                     if (boardList != null && !boardList.isEmpty()) {
                         for (OneBoardVO board : boardList) {
                 %>
                 <tr>
+                    <td><input type="checkbox" name="oneonone_ids" value="<%= board.getOneonone_id() %>"></td>
                     <td>
-                        <input type="checkbox" name="oneonone_ids" value="<%= board.getOneonone_id() %>">
-                    </td>
-                    <td>
-                        <a href="<%= request.getContextPath() %>/oneBoardDetail.do?oneonone_id=<%= board.getOneonone_id() %>">
+                        <a href="?oneonone_id=<%= board.getOneonone_id() %>">
                             <%= board.getOneonone_id() %>
                         </a>
                     </td>
@@ -71,11 +89,11 @@
                     <td><%= board.getQuestion_type() %></td>
                     <td><%= board.getSubject() %></td>
                     <td><%= board.getWritedate() %></td>
+                    <td><%= board.getResponse_board_content() %></td>
                     <td>
-                        <!-- 단일 삭제 버튼 -->
                         <form action="<%= request.getContextPath() %>/deleteOneBoard.do" method="post" style="display: inline;">
                             <input type="hidden" name="oneonone_id" value="<%= board.getOneonone_id() %>">
-                            <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+                            <button type="submit">삭제</button>
                         </form>
                     </td>
                 </tr>
@@ -84,25 +102,37 @@
                     } else {
                 %>
                 <tr>
-                    <td colspan="8">등록된 문의가 없습니다.</td>
+                    <td colspan="9">등록된 문의가 없습니다.</td>
                 </tr>
                 <% } %>
             </tbody>
         </table>
-        <!-- 여러 게시물 삭제 버튼 -->
-        <div style="text-align: right; margin-top: 10px;">
-            <button type="submit">선택 삭제</button>
-        </div>
     </form>
 
-    <!-- 체크박스 전체 선택 스크립트 -->
-    <script>
-        function toggleAll(source) {
-            const checkboxes = document.querySelectorAll('input[name="oneonone_ids"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = source.checked;
-            });
-        }
-    </script>
+    <% if (selectedBoard != null) { %>
+    <!-- 상세보기 영역 -->
+    <div class="detail-section">
+        <h2>게시글 상세보기</h2>
+        <p><strong>게시글 번호:</strong> <%= selectedBoard.getOneonone_id() %></p>
+        <p><strong>회원 ID:</strong> <%= selectedBoard.getCustomer_id() %></p>
+        <p><strong>이름:</strong> <%= selectedBoard.getPerson_name() %></p>
+        <p><strong>문의 유형:</strong> <%= selectedBoard.getQuestion_type() %></p>
+        <p><strong>제목:</strong> <%= selectedBoard.getSubject() %></p>
+        <p><strong>작성 날짜:</strong> <%= selectedBoard.getWritedate() %></p>
+        <p><strong>상태:</strong> <%= selectedBoard.getResponse_board_content() %></p>
+        <p><strong>답변내용:</strong> <%= selectedBoard.getRes_board() %></p>
+
+        <!-- 답글 작성 폼 -->
+        <form action="<%= request.getContextPath() %>/replyOneboard.do" method="post">
+            <input type="hidden" name="oneonone_id" value="<%= selectedBoard.getOneonone_id() %>">
+            <label>답글 내용:</label><br>
+            <textarea name="res_board" rows="5" style="width: 100%;" required></textarea><br><br>
+            <button type="submit">답글 달기</button>
+        </form>
+
+        <a href="<%= request.getContextPath() %>/oneBoardList.do">목록으로 돌아가기</a>
+    </div>
+    <% } %>
+
 </body>
 </html>

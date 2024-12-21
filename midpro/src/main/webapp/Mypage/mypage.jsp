@@ -1,3 +1,4 @@
+<%@page import="Service.TheaterServiceImpl"%>
 <%@page import="Vo.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -34,7 +35,7 @@
             overflow: hidden; /* 내용이 잘리도록 설정 */
             position: absolute; /* 절대 위치 설정 */
             transform: translateX(100%);
-		}
+      }
 
         /* MYDGV */
         .main-container {
@@ -90,7 +91,7 @@
 
         /* 포인트 박스 */
         .point-box {
-        	border: 1px dashed white;
+           border: 1px dashed white;
             background: black;
             width: 450px;
             text-align: center;
@@ -238,6 +239,16 @@
             color: white;
         }
 
+		#resultname{
+        display:inline;
+        color:white;
+        }
+		#resultid{
+		display: inline;
+    	margin-left: 6px;
+		color:white;
+		}
+
         .info-box p {
             margin: 0;
             font-size: 14px;
@@ -253,33 +264,24 @@
     <div class="main-container">
         <!-- 프로필 섹션 -->
         <div class="profile-section">
-		    <!-- 왼쪽: 프로필 아이콘과 정보 -->
-		    <div class="profile-info-container">
-		        <div class="profile-icon">
-		            <em><%=result.getCust_grade() %></em>
-		        </div>
-		        <div class="profile-info">
-		            <h1><%=result.getCust_name() %></h1>
-		            <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
-		        </div>
-		    </div>
-		    <!-- 오른쪽: 포인트 박스 -->
-		    <div class="point-box">
-		        <h2>DD POINT</h2>
-		        <p>사용가능 포인트 <span class="highlight">347점</span></p>
-		        <p class="vip-score">VIP 누적 점수 <span>0/1,000점</span></p>
-		    </div>
-		</div>
+          <!-- 왼쪽: 프로필 아이콘과 정보 -->
+          <div class="profile-info-container">
+              <div class="profile-icon">
+                  <em><%=result.getCust_grade() %></em>
+              </div>
+              <div class="profile-info">
+                          <h1 id="resultname"><%=result.getCust_name() %></h1><h4 id="resultid"><%=result.getCustomer_id() %></h4>
+                  <p>고객님은 <span class="highlight"><%=result.getCust_grade()%></span> 입니다.</p>
+              </div>
+          </div>
+          <!-- 오른쪽: 포인트 박스 -->
+          <div class="point-box">
+              <h2>DD POINT</h2>
+              <p> 적립된 포인트 <span class="highlight"><%=result.getCust_point()%></span></p>
+              <p class="vip-score">VIP 누적 점수 <span><%=result.getCust_point()%>/1,000점</span></p>
+          </div>
+      </div>
 
-
-        <!-- 빠른 설정 섹션 -->	<!-- 삭제? -->
-        <!-- <div class="quick-settings">
-            <div class="setting-box">DGV대전 <span>1</span></div>
-            <div class="setting-box"><span>2</span></div>
-            <div class="setting-box"><span>3</span></div>
-            <div class="setting-box"><span>4</span></div>
-            <div class="setting-box active">자주가는 DGV 설정하기</div>
-        </div> -->
 
 
         <!-- 같은 테두리 안에 사이드바와 콘텐츠 영역 -->
@@ -289,10 +291,10 @@
                 <div class="leftbar-header">MY DGV HOME</div>
                 <ul class="leftbar-menu">
                     <li>나의 예매내역</li>
-                    <li>DGV기프트카드</li>
+                    <li id="gift">DGV기프트카드</li>
                     <li>DD 포인트</li>
                     <li>회원정보</li>
-                    <li>개인정보 설정</li>
+                    <li id="updateid">개인정보 설정</li>
                     <li>나의 문의내역</li>
                 </ul>
             </div>
@@ -325,5 +327,15 @@
     
     <%@ include file="/main/Bottom.jsp" %>
 </body>
+<script>
+$('#updateid').on('click',function(){
+	window.location.href = '<%=request.getContextPath()%>/customer/CusUpdate.jsp';
+});
+
+$('#gift').on('click',function(){
+	window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
+});	
+	
+</script>
 </html>
 

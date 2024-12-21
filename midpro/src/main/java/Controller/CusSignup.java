@@ -39,7 +39,8 @@ public class CusSignup extends HttpServlet {
         String cust_post = request.getParameter("cust_post");
         String cust_add = request.getParameter("cust_add");
         String cust_detailAdd = request.getParameter("cust_detailAdd");
-
+        String cust_bir = request.getParameter("cust_bir");
+        
         // VO 객체에 데이터 설정
         CustomerVO custVo = new CustomerVO();
         custVo.setCustomer_id(cust_id);
@@ -50,7 +51,8 @@ public class CusSignup extends HttpServlet {
         custVo.setCust_postcode(cust_post);
         custVo.setCust_add(cust_add);
         custVo.setCust_detailadd(cust_detailAdd);
-
+        custVo.setCust_bir(cust_bir);
+        
         // 서비스 호출
         ICustomerService service = CustomerServiceImpl.getInstance();
         int result = service.insertCustomer(custVo);
