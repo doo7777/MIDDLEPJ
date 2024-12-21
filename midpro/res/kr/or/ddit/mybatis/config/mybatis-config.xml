@@ -28,12 +28,19 @@
    -->
 <!--       <typeAlias type="kr.or.ddit.vo.MemberVO" alias="memVo"/> -->
    <typeAliases>
-      <typeAlias type="Vo.CustomerVO" alias="cusVO"/>
+           <typeAlias type="Vo.CustomerVO" alias="cusVO"/>
       <typeAlias type="Vo.NoticeVO" alias="noticeVO"/>
       <typeAlias type="Vo.MovieVO" alias="movieVO"/>
       <typeAlias type="Vo.TheaterVO" alias="theaVO"/>
       <typeAlias type="Vo.ScheduleVO" alias="scheduleVO"/>
       <typeAlias type="Vo.ReviewVO" alias="reviewVO"/>
+      <typeAlias type="Vo.OneBoardVO" alias="OneBoardVO"/>
+      <typeAlias type="Vo.ReservationVO" alias ="reservationVO"/>
+      <typeAlias type="Vo.ScreenVO" alias ="screenVO"/>
+      <typeAlias type="Vo.SeatVO" alias ="SeatVO"/>
+      <typeAlias type="Vo.RPaymentVO" alias ="rpaymentVO"/>
+   
+
       
       
    </typeAliases>
@@ -63,13 +70,29 @@
    
    -->
    <mappers>
-<!--       <mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/> -->
       <mapper resource="kr/or/ddit/mybatis/mappers/Customer-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Board-mapper.xml"/>
-<!--       <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/> -->
+      <mapper resource="kr/or/ddit/mybatis/mappers/Movie-mapper.xml"/>
       <mapper resource="kr/or/ddit/mybatis/mappers/Theater-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/MovieReview-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/Schedule-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/Reservation-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/Screen-mapper.xml"/>
+      <mapper resource="kr/or/ddit/mybatis/mappers/RPayment-mapper.xml"/>
+
+      
+      
    </mappers>
    
 
 </configuration>
 
+
+
+
+
+
+
+
+         
+         

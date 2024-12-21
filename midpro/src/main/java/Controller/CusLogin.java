@@ -6,12 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jakarta.websocket.Session;
 
 import java.io.IOException;
 
 import Service.CustomerServiceImpl;
 import ServiceInterface.ICustomerService;
+import Util.PasswordUtil;
 import Vo.CustomerVO;
 
 @WebServlet("/cusLogin.do")
@@ -29,20 +29,19 @@ public class CusLogin extends HttpServlet {
     	
     	String cust_id = request.getParameter("cust_id");
         String cust_pw = request.getParameter("cust_pw");
-    	
+     // 비밀번호 해싱
+        String hashedPassword = PasswordUtil.hashPassword(cust_pw);
+        
         ICustomerService service = CustomerServiceImpl.getInstance();
         
-        CustomerVO result = service.getCustomer(cust_id, cust_pw);
+        CustomerVO result = service.getCustomer(cust_id,hashedPassword);
         
         HttpSession session = request.getSession();
-        String jsonData = "{\"success\" : \"fail\" }";
         
         if(result!=null) {
         	session.setAttribute("ok", result);
-        	jsonData = "{\"success\" : \"ok\" }";
         }
         response.sendRedirect(request.getContextPath()+"/main/main.jsp");
-        //response.getWriter().print(jsonData);
     	
     	
 	}

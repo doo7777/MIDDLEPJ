@@ -2,9 +2,11 @@ package DaoInterface;
 
 import java.util.List;
 
+import Vo.ReservationVO;
 import Vo.SeatVO;
 
 public interface ISeatDao {
+	
 	/**
 	 * 시트정보를 업데이트
 	 * @param seatVO
@@ -24,6 +26,13 @@ public interface ISeatDao {
 	 * @return
 	 */
 	public int getSeatCount(int Seat_ID);
+	
+	/**
+	 * 선택된 상영관에 대한 좌석 조회
+	 * @param reservationVO
+	 * @return
+	 */
+	public List<SeatVO>getReservSeat(ReservationVO reservationVO);
 	
 	
 	

@@ -14,18 +14,25 @@ import Vo.NoticeVO;
 
 @WebServlet("/noticeList.do")
 public class NoticeList extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		INoticeService service = NoticeServiceImpl.getInstance();
-		List<NoticeVO>noticeList = service.getAllNotice();
-		
-		request.setAttribute("noticeList", noticeList);
-		
-		request.getRequestDispatcher("/notice/NoticeList.jsp").forward(request, response);
-	}
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      INoticeService service = NoticeServiceImpl.getInstance();
+      
+      String notice_id = request.getParameter("notice_id");
+      
+      if(notice_id != null) {
+    	  service.CountNoticeView(notice_id);
+      }
+      
+      List<NoticeVO>noticeList = service.getAllNotice();
+      
+      
+      request.setAttribute("noticeList", noticeList);
+      request.getRequestDispatcher("/notice/NoticeList.jsp").forward(request, response);
+   }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   }
 
 }
