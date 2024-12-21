@@ -35,8 +35,21 @@
         }
     </style>
     <script>
+        // 전체 선택 체크박스
+        function toggleAll(source) {
+            const checkboxes = document.querySelectorAll('input[name="oneonone_ids"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = source.checked;
+            });
+        }
+        // 삭제 확인
         function confirmDelete() {
             return confirm("선택한 게시물을 삭제하시겠습니까?");
+        }
+
+        // 상세보기 클릭 시 AJAX로 새로고침 없이 해당 문의글 가져오기
+        function showDetail(oneonone_id) {
+            location.href = "<%= request.getContextPath() %>/oneBoardList.do?oneonone_id=" + oneonone_id;
         }
     </script>
 </head>
@@ -80,7 +93,8 @@
                 <tr>
                     <td><input type="checkbox" name="oneonone_ids" value="<%= board.getOneonone_id() %>"></td>
                     <td>
-                        <a href="?oneonone_id=<%= board.getOneonone_id() %>">
+                        <!-- 상세보기 링크 -->
+                        <a href="javascript:void(0)" onclick="showDetail('<%= board.getOneonone_id() %>')">
                             <%= board.getOneonone_id() %>
                         </a>
                     </td>
@@ -111,7 +125,7 @@
 
     <% if (selectedBoard != null) { %>
     <!-- 상세보기 영역 -->
-    <div class="detail-section">
+    <div class="detail-section" id="detailSection">
         <h2>게시글 상세보기</h2>
         <p><strong>게시글 번호:</strong> <%= selectedBoard.getOneonone_id() %></p>
         <p><strong>회원 ID:</strong> <%= selectedBoard.getCustomer_id() %></p>
@@ -133,6 +147,5 @@
         <a href="<%= request.getContextPath() %>/oneBoardList.do">목록으로 돌아가기</a>
     </div>
     <% } %>
-
 </body>
 </html>

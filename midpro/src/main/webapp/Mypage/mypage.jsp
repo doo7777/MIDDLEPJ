@@ -338,10 +338,10 @@ $('#gift').on('click',function(){
 
 $('#oneboard').on('click', function() {
     $.ajax({
-        url: '<%=request.getContextPath()%>/oneBoardList.do',  // 서블릿 경로 호출
+        url: '<%=request.getContextPath()%>/oneBoardList.do',
         type: 'GET',
         success: function(data) {
-            $('.content-area').html(data);  // 전체 문의 내역을 중앙에 출력
+            $('.content-area').html(data);
         },
         error: function() {
             alert('문의 내역을 불러오는 데 실패했습니다.');
