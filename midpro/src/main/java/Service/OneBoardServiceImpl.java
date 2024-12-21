@@ -36,6 +36,12 @@ public class OneBoardServiceImpl implements IOneBoardService{
 		return dao.getAllBoard();
 	}
 
+	@Override
+	public int rlplyOneboard(OneBoardVO boardVO) {
+		// TODO Auto-generated method stub
+		return dao.rlplyOneboard(boardVO);
+	}
+
 
 
 }

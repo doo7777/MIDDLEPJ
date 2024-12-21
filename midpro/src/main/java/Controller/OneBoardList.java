@@ -20,7 +20,7 @@ public class OneBoardList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 IOneBoardService service = OneBoardServiceImpl.getInstance();
 	      
-	      String OneBoard_id = request.getParameter("OneBoard_id");
+	      String oneonone_id = request.getParameter("oneonone_id");
 	      
 	      
 	      List<OneBoardVO>OneBoardList = service.getAllBoard();
