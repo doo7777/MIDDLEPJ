@@ -19,6 +19,17 @@ public interface IOneBoardDao {
 	public int deleteBoard(String oneonone_id);
 	
 	
+	/**
+	 * 1:1문의 리스트 조회
+	 * @return
+	 */
 	public List<OneBoardVO> getAllBoard();
+	
+	/**
+	 * 1:1문의 답글달기 (수정내용:답변대기->답변완료)
+	 * @param boardVO
+	 * @return
+	 */
+	public int rlplyOneboard(OneBoardVO boardVO);
 	
 }

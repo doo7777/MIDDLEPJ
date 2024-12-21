@@ -72,5 +72,22 @@ public class OneBoardDaoImpl implements IOneBoardDao{
 		
 		return onboardList;
 	}
+	@Override
+	public int rlplyOneboard(OneBoardVO boardVO) {
+		SqlSession session = MybatisUtil.getSqlSession();
+		
+		int cnt= 0;
+		
+		try {
+			cnt = session.update("Board.rlplyOneboard",boardVO);
+			if(cnt>0) session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
+			if(session !=null) session.close();
+		}
+		
+		return cnt;
+	}
 
 }

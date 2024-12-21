@@ -120,12 +120,13 @@
         <p><strong>제목:</strong> <%= selectedBoard.getSubject() %></p>
         <p><strong>작성 날짜:</strong> <%= selectedBoard.getWritedate() %></p>
         <p><strong>상태:</strong> <%= selectedBoard.getResponse_board_content() %></p>
+        <p><strong>답변내용:</strong> <%= selectedBoard.getRes_board() %></p>
 
         <!-- 답글 작성 폼 -->
-        <form action="<%= request.getContextPath() %>/replyOneBoard.do" method="post">
+        <form action="<%= request.getContextPath() %>/replyOneboard.do" method="post">
             <input type="hidden" name="oneonone_id" value="<%= selectedBoard.getOneonone_id() %>">
             <label>답글 내용:</label><br>
-            <textarea name="reply_content" rows="5" style="width: 100%;" required></textarea><br><br>
+            <textarea name="res_board" rows="5" style="width: 100%;" required></textarea><br><br>
             <button type="submit">답글 달기</button>
         </form>
 

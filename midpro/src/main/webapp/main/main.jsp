@@ -97,7 +97,7 @@
             width: 200px;
             height: 300px;
             margin: 0 10px;
-            background-color: white;
+            background-color: black;
             border-radius: 25px;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -120,12 +120,12 @@
             transform: translateY(20px);
         }
 
-        /* 패키지, 영화관람권, 기프트카드 *//* top의 store과 이름이 겹쳐 stores로 변경 */
-         #stores {  
-             height: 320px;
-             display: flex;  
-             gap: 20px;  
-         }  
+        /* 패키지, 영화관람권, 기프트카드 */
+/*         #store {  */
+/*             height: 320px;  */
+/*             display: flex;  */
+/*              gap: 20px;  */
+/*          }  */
 
         .package,
         .ticket,
@@ -153,6 +153,17 @@
             height: 32px;
             background-repeat: repeat-x;
         }
+
+
+
+
+
+
+
+
+
+
+
 
         .package::after,
         .ticket::after,
@@ -267,11 +278,11 @@
     </div>
 
     <div class="header">
-        <button type="button" class="menu-button"><h2>무비차트</h2></button>
+        <button type="button" class="menu-button" id="movie-chart-btn"><h2>무비차트</h2></button>
         <h4>|</h4>
-        <button type="button" class="menu-button"><h2>상영예정작</h2></button>
+        <button type="button" class="menu-button" id="coming-out-btn"><h2>상영예정작</h2></button>
         <h4>|</h4>
-        <button type="button" class="menu-button"><h2>무비추천</h2></button>
+        <button type="button" class="menu-button" id="recommendations-btn"><h2>무비추천</h2></button>
         <button type="button" class="movie-list"><h3>더 많은 영화보기 +</h3></button>
     </div>
 
@@ -297,7 +308,7 @@
         </div>
     </div>
 
-    <div class="header" id="stores"> <!-- 스토어 영역 -->
+    <div class="header" id="store"> <!-- 스토어 영역 -->
         <div class="package">
             <i class="fa-solid fa-plus"></i>
             <h3>패키지</h3>
@@ -437,6 +448,72 @@
         
         
     });
+    
+    const movieChartMovies = [
+        { title: "소방관", image: "sorce/img/영화포스터/대가족.jpg" },
+        { title: "대가족", image: "sorce/img/영화포스터/모아나2.jpg" },
+        { title: "하얼빈", image: "sorce/img/영화포스터/여름날의레몬그라스.jpg" },
+        { title: "모아나2", image: "sorce/img/영화포스터/이처럼사소한것들.jpg" },
+        { title: "위키드", image: "sorce/img/영화포스터/아키라.jpg" },
+        { title: "이처럼 사소한 것들", image: "sorce/img/영화포스터/소방관.jpg" }
+    ];
+    
+    const comingOutMovies = [
+       { title: "밀레니엄 맘보", image: "sorce/img/상영예정작/movie1.jpg" },
+       { title: "뽀로로 극장판 바닷속 대모험", image: "sorce/img/상영예정작/movie2.jpg" },
+       { title: "수퍼 소닉3", image: "sorce/img/상영예정작/movie3.jpg" },
+       { title: "총을 든 스님", image: "sorce/img/상영예정작/movie4.jpg" },
+       { title: "피스 바이 피스", image: "sorce/img/상영예정작/movie5.jpg" },
+       { title: "데드데드 데몬즈 디디디디 디스트럭션: 파트1", image: "sorce/img/상영예정작/movie6.jpg" }
+    ];
+
+    
+    // #movie_chart 하위의 최상위 .chart만 선택
+    const chartElements = document.querySelectorAll("#movie_chart > .chart");
+
+    // 영화 포스터 업데이트
+    function updateMovie(movies){
+       chartElements.forEach((chart, index) => {
+           if (index < movies.length) { // 영화 데이터가 존재할 경우에만
+               // 이미지 요소 생성
+               const img = document.createElement("img");
+               img.src = movies[index].image;
+               img.alt = movies[index].title;
+               img.style.width = "100%";
+               img.style.height = "100%";
+               img.style.objectFit = "cover";
+               img.style.borderRadius = "25px";
+   
+               // .chart 내부에 이미지 추가
+               chart.innerHTML = ''; // chart 내부의 기존 콘텐츠를 초기화
+               chart.appendChild(img);
+           }
+       });
+    }
+    
+     // 랜덤 영화 추천 함수
+    function getRandomMovies(movies, count) {
+        const shuffled = movies.sort(() => 0.5 - Math.random()); // 영화 배열을 랜덤으로 섞기
+        return shuffled.slice(0, count); // 지정된 개수만큼 반환
+    }
+    
+    // 버튼 클릭 이벤트 핸들러
+    document.getElementById("movie-chart-btn").addEventListener("click", () => {
+        updateMovie(movieChartMovies); // 무비차트 영화들로 업데이트
+    });
+
+    document.getElementById("coming-out-btn").addEventListener("click", () => {
+        updateMovie(comingOutMovies); // 상영 예정작 영화들로 업데이트
+    });
+    
+    document.getElementById("recommendations-btn").addEventListener("click", () => {
+        const allMovies = [...movieChartMovies, ...comingOutMovies]; // 두 배열을 합침
+        const randomMovies = getRandomMovies(allMovies, 6); // 랜덤으로 6개 선택
+        updateMovie(randomMovies); // 무비추천 업데이트
+    });
+    
+    // 페이지 로드 시 기본적으로 '무비차트'로 설정
+    updateMovie(movieChartMovies);
 
 </script>
 </html>
