@@ -86,17 +86,22 @@
         }
         /* 클릭 시 검정색으로 칠해지는 스타일 */
         .highlight2 {
-            background-color: black; /* 배경색을 검정색으로 변경 */
+            background-color: #f2b76e; /* 배경색을 검정색으로 변경 */
             color: white; /* 글자색을 흰색으로 변경 */
             width: 100%; 
             height: 50px; 
             text-align: center; /* 가운데 정렬 */
             display: flex; /* 플렉스 박스 사용 */
             justify-content: center; /* 수평 중앙 정렬 */
+            border-radius: 10px;
         }
         .highlight2-theater-do {
-            background-color: black; /* 선택된 극장 구역 강조 색상 */
+            background-color: #f2b76e; /* 선택된 극장 구역 강조 색상 */
             color: white; /* 텍스트 색상 */
+            border-radius: 10px;
+            text-align: center;
+            display: flex; /* 플렉스 박스 사용 */
+            justify-content: center; /* 수평 중앙 정렬 */
         }
         .item2 {
             display: flex; /* Flexbox 사용 */
@@ -154,15 +159,23 @@
             outline: none; /* 포커스 시 테두리 제거 */
         }
         .highlight-date {
-          background-color: black; /* 배경색을 검정색으로 변경 */
+          background-color: #f2b76e; /* 배경색을 검정색으로 변경 */
           color: white; /* 글자색을 흰색으로 변경 */
+          border-radius: 10px;
       }
       #timeinfo, #screeninfo {
           border: none;
           outline: none; /* outline 제거 */
           box-shadow: none; /* box-shadow 제거 */
-          background: transparent; /* 배경색 제거 */
-          
+          background: transparent; /* 배경색 제거 */          
+      }
+      #lastBtn {
+      	margin: 10px 15px;
+      	font-size: 20px;
+      	border: 0;
+      	color: white;
+      	background-color: #f2b76e;
+      	border-radius: 10px;
       }
 
 
@@ -314,7 +327,23 @@
         </div>
     </div>
 </div>
+
 </div>
+<br>
+
+<!-- 예약하기 폼 추가 ================================================================== -->
+<form id="reservationForm" action="<%=request.getContextPath()%>/reservation.do" method="post">
+    <input type="hidden" name="reservation_id" id="hiddenReservationId">
+    <input type="hidden" name="customer_id" id="hiddenCustomerId">
+    <input type="hidden" name="seat_id" id="hiddenSeatId">
+    <input type="hidden" name="schedule_id" id="hiddenScheduleId">
+    <input type="hidden" name="movie_name" id="hiddenMovieName">
+    <input type="hidden" name="screen_id" id="hiddenScreenId">
+    <input type="hidden" name="theater_id" id="hiddenTheaterId">
+    <input type="hidden" name="reservation_num" id="hiddenReservationNum">
+    <input type="hidden" name="reservation_price" id="hiddenReservationPrice">
+    <button type="submit">예약하기</button>
+</form>
 
     <br>
     <br>
@@ -359,10 +388,26 @@ function filterTheaterNames(selectedTheaterDo) {
     
     theaterNames.forEach(theater => {
         if (theater.getAttribute('data-theater-do') === selectedTheaterDo) {
-            theater.style.opacity = '1'; // 일치하는 극장 이름은 보이게
+            theater.style.opacity = '1'; 		  // 일치하는 극장 이름은 보이게
+            theater.style.color = '#ef8400';	  // 일치하는 극장 글자 색
             theater.style.pointerEvents = 'auto'; // 클릭 가능
+            
+         // 클릭 이벤트 추가
+            theater.onclick = function() {
+                // 이전에 선택된 극장이 있다면 원래 색으로 되돌리기
+                if (selectedTheater && selectedTheater !== theater) {
+                    selectedTheater.style.color = '#ef8400'; // 원래 색으로 되돌리기
+                }
+                
+                // 클릭한 극장 이름의 색상을 하얀색으로 변경
+                theater.style.color = 'white';
+                selectTheater(theater); // 극장 선택
+            };
+            
+            
         } else {
             theater.style.opacity = '0.5'; // 일치하지 않는 극장 이름은 흐리게
+            theater.style.color = 'black';	  // 일치하지 않는 극장 글자 색
             theater.style.pointerEvents = 'none'; // 클릭 불가능
         }
     });
@@ -477,7 +522,8 @@ function fetchSchedule(movie, theater, theaterDo, date) {
 
                  // 버튼 생성
                     const button = document.createElement('button');
-                    button.title = "종료 " + schedule.end_time;
+                    button.id = 'lastBtn';		// ID 설정
+                 	button.title = "종료 " + schedule.end_time;
                     button.innerHTML = schedule.start_time + "분&nbsp;&nbsp;&nbsp;&nbsp;" + schedule.screen_name + "&nbsp;&nbsp;" + schedule.screen_type;
                     
                     // 버튼 클릭 시 alert 표시
@@ -487,6 +533,19 @@ function fetchSchedule(movie, theater, theaterDo, date) {
                               "선택한 극장: " + theater + "\n" +
                               "선택한 날짜: " + date + "\n" +
                               "선택한 시간: " + schedule.start_time);
+                        
+// ===================== 선택한 정보를 숨겨진 입력 필드에 저장
+                        document.getElementById('hiddenReservationId').value = reservationId;
+					    document.getElementById('hiddenCustomerId').value = customerId;
+					    document.getElementById('hiddenSeatId').value = seatId;
+					    document.getElementById('hiddenScheduleId').value = scheduleId;
+					    document.getElementById('hiddenMovieName').value = movieName;
+					    document.getElementById('hiddenScreenId').value = screenId;
+					    document.getElementById('hiddenTheaterId').value = theaterId;
+					    document.getElementById('hiddenReservationNum').value = reservationNum;
+					    document.getElementById('hiddenReservationPrice').value = reservationPrice;
+                        // 폼 전송 ==============================================================================
+                        document.getElementById('reservationForm').submit();
                     };
 
                     // 스타일 설정
