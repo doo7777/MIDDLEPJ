@@ -132,9 +132,9 @@
         <button type="submit" class="update-btn">검색</button>
     </form>
 	
-	<%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
+	<% if (result != null && "관리자".equals(result.getCust_grade())) { %>
     <button type="submit" class="bulk-delete-btn">일괄 삭제</button>
-    <%-- <% } %> --%>
+    <% } %>
     <!-- 공지사항 테이블 -->
     <div class="table-container">
 	    <form action="deleteNotice.do" method="post" class="">
@@ -147,9 +147,9 @@
 	                <th>제목 ID</th>
 	                <th>등록일</th>
 	                <th>조회수</th>
-	                <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
+	              	<% if (result != null && "관리자".equals(result.getCust_grade())) { %>
 	                <th>삭제</th>
-	                <%-- <% } %> --%>
+	                <% } %>
 	            </tr>
 	            </thead>
 	            <tbody>
@@ -187,7 +187,7 @@
 	                <td><a href=""><%=notice.getTitle() %></td>
 	                <td><%=notice.getPost_date() %></td>
 	                <td><%=notice.getNotice_view() %></td>
-	                    <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
+	                    <% if (result != null && "관리자".equals(result.getCust_grade())) { %> 
 	                <td>
 	                    <!-- 게시글 삭제 버튼 -->
 	                    <form action="deleteNotice.do" method="post" style="margin: 0;">
@@ -196,7 +196,7 @@
 	                        <button type="submit" class="delete-btn">삭제</button>
 	                    </form>
 	                </td>
-	                    <%-- <% } %> --%>
+	                    <% } %>
 	            </tr>
 	            <% 
 	                    }
@@ -218,13 +218,13 @@
         <p><strong>등록일:</strong> <%= selectedNotice.getPost_date() %></p>
         <p><strong>조회수:</strong> <%= selectedNotice.getNotice_view() %></p>
 
-        <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
+        <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
         <form action="deleteNotice.do" method="post" style="display: inline-block;">
             <input type="hidden" name="notice_id" value="<%= selectedNotice.getNotice_id() %>">
             <button type="submit" class="delete-btn">삭제</button>
         </form>
         <button type="button" onclick="showUpdateForm()" class="update-btn">수정</button>
-        <%-- <% } %> --%>
+        <% } %>
         <a href="<%=request.getContextPath() %>/noticeList.do">게시글 목록으로 돌아가기</a>
     </div>
 
@@ -251,11 +251,11 @@
     <% } %>
 
     <!-- 공지사항 등록 버튼 (아래 배치) -->
-    <%-- <% if (result != null && "관리자".equals(result.getCust_grade())) { %> --%>
+    <% if (result != null && "관리자".equals(result.getCust_grade())) { %>
         <div style="text-align: center; margin-top: 20px;">
             <a href="<%= request.getContextPath() %>/noticeInsert.do" class="update-btn">공지사항 등록</a>
         </div>
-    <%-- <% } %> --%>
+    <% } %>
 	
 	<!-- 페이지네이션 -->
     <div class="pagination">

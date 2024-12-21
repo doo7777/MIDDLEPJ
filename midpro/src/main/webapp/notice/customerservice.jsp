@@ -229,8 +229,7 @@
                 <ul>
                     <li id="noticebutton">공지사항</li>
                     <li>자주찾는 질문</li>
-                    <li>대관신청</li>
-                    <li>1:1 문의</li>
+                    <li id="oneonebutton">1:1 문의</li>
                 </ul>
             </div>
         
@@ -297,6 +296,9 @@
     <%@ include file="/main/Bottom.jsp" %>
 </body>
 <script>
+    $('#oneonebutton').on('click',function(){
+        window.location.href = '<%=request.getContextPath()%>/notice/oneoneboard.jsp';
+    });
     $('#noticebutton').on('click',function(){
         window.location.href = '<%=request.getContextPath()%>/notice/noticenews.jsp';
     });

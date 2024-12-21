@@ -187,9 +187,9 @@
         
             <!-- 메인 컨텐츠 -->
             <div class="container">
-                <!-- 공지 테이블 -->
+                <!-- 1대1 테이블 -->
                 <div class="table-container">
-				    <iframe src="<%=request.getContextPath() %>/noticeList.do" 
+				    <iframe src="<%=request.getContextPath() %>/oneBoardList.do" 
 				        width="100%" 
 				        height="1000px" 
 				        >
