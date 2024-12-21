@@ -110,16 +110,16 @@
         }
         
         /* 링크 기본 스타일 */
-		a {
-		    text-decoration: none; /* 밑줄 제거 */
-		    color: white; /* 글자색 흰색 */
-		}
-		
-		/* 링크 호버 시 스타일 */
-		a:hover {
-		    text-decoration: none; /* 호버 시에도 밑줄 제거 */
-		    color: #d32f2f; /* 호버 시 색상 변경 (선택 사항) */
-		}
+	a {
+	    text-decoration: none; /* 밑줄 제거 */
+	    color: white; /* 글자색 흰색 */
+	}
+	
+	/* 링크 호버 시 스타일 */
+	a:hover {
+	    text-decoration: none; /* 호버 시에도 밑줄 제거 */
+	    color: #d32f2f; /* 호버 시 색상 변경 (선택 사항) */
+	}
     </style>
 </head>
 <body>
