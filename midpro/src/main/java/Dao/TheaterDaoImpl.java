@@ -37,7 +37,7 @@ public class TheaterDaoImpl implements ITheaterDao{
 
 
 	
-// 이름으로 검색된 영화관 정보 조회 ------------------------------------------------	
+// 이름으로 검색된 영화관 정보 조회 ------------------------------------------------
 	@Override
 	public TheaterVO getTheater(String Theater_name) {
 		TheaterVO theaterVo = null;

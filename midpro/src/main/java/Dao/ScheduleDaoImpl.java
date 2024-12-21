@@ -56,6 +56,7 @@ public class ScheduleDaoImpl implements IScheduleDao{
       return scdListNm;
    }
 // screen_id ==> theater_name 수정한 부분 ===================================   
+   
    @Override
    public List<ScheduleVO> getScheduleThName(String Theater_name) {
       SqlSession session = MybatisUtil.getSqlSession();

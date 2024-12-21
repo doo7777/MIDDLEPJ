@@ -502,4 +502,5 @@ function fetchSchedule(movie, theater, theaterDo, date) {
     req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;char-set=utf-8;');
     req.send(params);
 }
+
 </script>

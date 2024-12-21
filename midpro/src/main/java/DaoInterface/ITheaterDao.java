@@ -11,6 +11,7 @@ public interface ITheaterDao {
 	 */
 	public List<TheaterVO> getAllTheater();
 	
+	
 	/**
 	 * 영화관명을 받아서 그 영화관에 대한 정보를 보여줌
 	 * @param Theater_name

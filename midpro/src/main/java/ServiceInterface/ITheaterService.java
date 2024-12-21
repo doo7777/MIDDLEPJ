@@ -5,6 +5,7 @@ import java.util.List;
 import Vo.TheaterVO;
 
 public interface ITheaterService {
+	
 	/**
 	 *	전체 영화관을 보여줌 
 	 * @return

@@ -57,10 +57,10 @@ public class ScheduleList extends HttpServlet {
         }
         
         // 선택된 영화의 일정 가져오기
-//        List<ScheduleVO> scdList2 = service.getScheduleByMovie(scheduleVO);
+        // List<ScheduleVO> scdList2 = service.getScheduleByMovie(scheduleVO);
         
         request.setAttribute("scd", scdList);
-//        request.setAttribute("scdList2", scdList2); // 선택된 영화의 일정도 JSP에 전달합니다.
+        // request.setAttribute("scdList2", scdList2); // 선택된 영화의 일정도 JSP에 전달합니다.
         request.getRequestDispatcher("/schedule/ScheduleList.jsp").forward(request, response);
     }
 

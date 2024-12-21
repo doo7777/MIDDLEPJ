@@ -14,7 +14,7 @@ public interface IScheduleDao {
    
     
    
-   /** screen_id ==> theater_name으로 수정한 부분
+   /** screen_id  ==> theater_name으로 수정한 부분
     * 영화관명을 받아서 영화의 상영시간표를 알려줌
     * @param Theater_name
     * @return

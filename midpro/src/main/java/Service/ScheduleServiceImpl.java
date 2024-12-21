@@ -25,7 +25,10 @@ public class ScheduleServiceImpl implements IScheduleService{
    public List<ScheduleVO> getScheduleName(String Movie_name) {
       return dao.getScheduleName(Movie_name);
    }
+   
+   
 // screen_id ==> theater_name 수정한 부분-------------------------------
+   
    @Override
    public List<ScheduleVO> getScheduleThName(String Theater_name) {
       return dao.getScheduleThName(Theater_name);

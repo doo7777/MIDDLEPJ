@@ -36,7 +36,7 @@ public class TheaterDetail extends HttpServlet {
 		
 		
 		request.setAttribute("theaterVo", thVo);
-		request.setAttribute("scd", scheduleList); // 추가
+		request.setAttribute("scd", scheduleList);  // 추가
 		
 		request.getRequestDispatcher("/theater/TheaterDetail.jsp").forward(request, response);
 		

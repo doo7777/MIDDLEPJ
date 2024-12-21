@@ -32,4 +32,5 @@ public class TheaterServiceImpl implements ITheaterService{
 		return dao.getTheater(Theater_name);
 	}
 
+	
 }
