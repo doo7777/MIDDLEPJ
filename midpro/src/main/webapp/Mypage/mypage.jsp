@@ -295,7 +295,7 @@
                     <li>DD 포인트</li>
                     <li>회원정보</li>
                     <li id="updateid">개인정보 설정</li>
-                    <li>나의 문의내역</li>
+                    <li id="oneboard">나의 문의내역</li>
                 </ul>
             </div>
 
@@ -335,6 +335,19 @@ $('#updateid').on('click',function(){
 $('#gift').on('click',function(){
 	window.location.href = '<%=request.getContextPath()%>/Store/giftcard.jsp';
 });	
+
+$('#oneboard').on('click', function() {
+    $.ajax({
+        url: '<%=request.getContextPath()%>/oneBoardList.do',  // 서블릿 경로 호출
+        type: 'GET',
+        success: function(data) {
+            $('.content-area').html(data);  // 전체 문의 내역을 중앙에 출력
+        },
+        error: function() {
+            alert('문의 내역을 불러오는 데 실패했습니다.');
+        }
+    });
+});
 	
 </script>
 </html>
