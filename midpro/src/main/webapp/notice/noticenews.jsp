@@ -87,8 +87,10 @@
 
         /* 메인 컨텐츠 */
         .container {
+        	margin-top: -40px;
             flex: 3;
-            background: black;
+            background: transparent;
+            border-color: transparent;
             padding: 20px;
             border-radius: 5px;
             color: black;
@@ -97,7 +99,6 @@
         h1 {
             font-size: 1.8rem;
             font-weight: bold;
-            margin-top: -24px;
             margin-bottom: 10px;
             color: white;
         }
@@ -150,33 +151,21 @@
             color: #fff;
         }
 
-        .result-summary {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .notice-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-        }
-
-        .notice-table th,
-        .notice-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .notice-table th {
-            background-color: #d6d4d4;
-            font-weight: bold;
-        }
-
-        .notice-table tbody tr:hover {
-            background-color: #f9f9f9;
-        }
+		.table-container {
+		    width: 100%; /* 부모 컨테이너 가로 크기 */
+		    height: 1000px; /* 부모 컨테이너 높이 */
+		    margin: 0 auto; /* 중앙 정렬 */
+		    padding: 0; /* 내부 패딩 제거 */
+		    overflow: hidden; /* 스크롤 제거 */
+		    background: black; /* 배경 검정색 */
+		}
+		
+		iframe {
+		    width: 100%; /* iframe 가로 크기 */
+		    height: 100%; /* iframe 높이 */
+		    border: none; /* 테두리 제거 */
+		    overflow: hidden; /* 내부 스크롤 제거 */
+		}
     </style>
 </head>
 
@@ -199,17 +188,17 @@
         
             <!-- 메인 컨텐츠 -->
             <div class="container">
-                <h1>공지/뉴스</h1>
+<!--                 <h1>공지/뉴스</h1>
                 <p class="description">DGV의 주요한 이슈 및 여러가지 소식을 확인하실 수 있습니다.</p>
                 
-                <!-- 검색 바 -->
+                검색 바
                 <div class="search-bar">
                     <label for="search" style="color: white;">제목</label>
                     <input type="text" id="search" placeholder="검색어를 입력해 주세요">
                     <button class="search-button">검색하기</button>
                 </div>
                 
-                <!-- 카테고리 탭 -->
+                카테고리 탭
                 <div class="category-tabs">
                     <button class="tab active">전체</button>
                     <button class="tab">시스템점검</button>
@@ -218,14 +207,18 @@
                     <button class="tab">제휴/이벤트</button>
                     <button class="tab">기타</button>
                 </div>
-                
+ -->                
                 <!-- 검색 결과 -->
-                <p class="result-summary">총 120건이 검색되었습니다.</p>
+                <!-- <p class="result-summary">총 120건이 검색되었습니다.</p> -->
                 
                 <!-- 공지 테이블 -->
-                <table class="notice-table">
-    				<%-- <%@ include file="/notice/NoticeList.jsp" %> --%>
-                </table>
+                <div class="table-container">
+				    <iframe src="<%=request.getContextPath() %>/noticeList.do" 
+				        width="100%" 
+				        height="1000px" 
+				        >
+					</iframe>
+				</div>
             </div>
         </div>
     </div>
