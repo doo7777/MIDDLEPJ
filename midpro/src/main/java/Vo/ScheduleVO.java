@@ -16,6 +16,8 @@ public class ScheduleVO {
 	
 	private String start_date;
 	
+	private String screen_type;
+	
 
 	
 	
@@ -87,17 +89,23 @@ public class ScheduleVO {
 	public void setTheater_do(String theater_do) {
 		this.theater_do = theater_do;
 	}
+	public String getScreen_type() {
+		return screen_type;
+	}
+	public void setScreen_type(String screen_type) {
+		this.screen_type = screen_type;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "ScheduleVO [schedule_id=" + schedule_id + ", screen_id=" + screen_id + ", theater_id=" + theater_id
 				+ ", movie_name=" + movie_name + ", start_time=" + start_time + ", end_time=" + end_time
 				+ ", schedule_date=" + schedule_date + ", theater_name=" + theater_name + ", screen_name=" + screen_name
-				+ ", theater_do=" + theater_do + ", start_date=" + start_date + "]";
+				+ ", theater_do=" + theater_do + ", start_date=" + start_date + ", screen_type=" + screen_type + "]";
 	}
 	
 	
-
-   
    
 }
 
