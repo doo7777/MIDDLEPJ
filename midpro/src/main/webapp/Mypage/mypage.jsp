@@ -122,8 +122,8 @@
             font-size: 16px;
         }
 
-        /* 빠른 설정 섹션 */
-        .quick-settings {
+        /* 빠른 설정 섹션 */	/* 삭제? */
+        /* .quick-settings {
             display: flex;
             justify-content: space-between;
         }
@@ -147,7 +147,7 @@
             background-color: #444;
             font-weight: bold;
             color: #fff;
-        }
+        } */
 
         .border-container {
             display: flex;
@@ -159,6 +159,7 @@
             color: white;
             height: 300px;
         }
+        
         /* 사이드바 스타일 */
         .leftbar {
             width: 250px; /* 고정 너비 */

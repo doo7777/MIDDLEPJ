@@ -25,6 +25,7 @@
     <h1>영화 예약 시스템</h1>
 	
    <form action="<%= request.getContextPath() %>/reservation.do" method="post">
+   
         <!-- 고객 ID -->
         <label for="customer_id">고객 ID:</label>
         <input type="text" id="customer_id" name="customer_id" 
