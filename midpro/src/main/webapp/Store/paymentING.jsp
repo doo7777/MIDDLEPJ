@@ -310,9 +310,9 @@
             <h3>주문자 정보 확인</h3>
             <div class="form-row">
                 <label for="name" class="name-input">이름</label>
-                <input type="text" id="name" value="성*현" readonly>
+           		<input type="text" id="name" value="${result.cust_name}" readonly>
                 <label for="phone" class="phone-input">휴대전화번호</label>
-                <input type="text" id="phone" value="010-6225-*****" readonly>
+                <input type="text" id="phone" value="${result.getCust_tel}" readonly>
             </div>
             <p class="notice-text">
                 * 구매하신 DGV 기프트콘은 주문자 정보에 입력된 휴대전화 번호로 MMS로 발송됩니다.<br>

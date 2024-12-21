@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="Theater">
 
-	<!-- 전체 영화관을 보여줌 -->
-	<select id="getAllTheater" resultType="theaVO">
-		select * from theater
-		order by theater_id, theater_name
-	</select>
-	
-	
-	<!-- 영화관명을 받아서 그 영화관의 정보를 보여줌 -->
-	<select id="getTheater" parameterType="string" resultType="theaVO">
-		select * from theater
-		where theater_name like '%'||#{theater_name} ||'%'			
-	</select>
+   <!-- 전체 영화관을 보여줌 -->
+   <select id="getAllTheater" resultType="theaVO">
+      select * from theater
+      order by theater_id, theater_name
+   </select>
+   
+   
+   <!-- 영화관명을 받아서 그 영화관의 정보를 보여줌 -->
+   <select id="getTheater" parameterType="string" resultType="theaVO">
+      select * from theater
+      where theater_name like '%'||#{theater_name} ||'%'         
+   </select>
 
 </mapper>
